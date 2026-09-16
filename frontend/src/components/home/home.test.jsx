@@ -25,9 +25,7 @@ test('homepage labels example figures and routes its primary calls to action', (
   expect(
     screen.getByRole('link', { name: 'Explore charities' }),
   ).toHaveAttribute('href', '/charities');
-  expect(
-    screen.getByText(/Illustrative causes, not registered partners/),
-  ).toBeInTheDocument();
+  expect(screen.getByText(/Loading featured charities/)).toBeInTheDocument();
   expect(
     screen.getByText(/Not a live pool, guaranteed prize/),
   ).toBeInTheDocument();

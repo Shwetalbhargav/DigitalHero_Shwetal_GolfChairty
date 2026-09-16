@@ -4,16 +4,23 @@ import HowItWorks from '../../components/home/HowItWorks.jsx';
 import ScoreDemo from '../../components/home/ScoreDemo.jsx';
 import FeaturedCharities from '../../components/home/FeaturedCharities.jsx';
 import PrizePoolPreview from '../../components/home/PrizePoolPreview.jsx';
-import { EXAMPLE_CHARITIES } from '../../components/home/homeData.js';
+import useFetch from '../../hooks/useFetch.js';
+import { getFeaturedCharities } from '../../modules/charities/charity.api.js';
 import { ROUTES } from '../../constants/routes.js';
 export default function HomePage() {
+  const featured = useFetch(getFeaturedCharities);
   return (
     <div className="home-page">
       <HeroSection />
       <HowItWorks />
       <ScoreDemo />
       <PrizePoolPreview />
-      <FeaturedCharities charities={EXAMPLE_CHARITIES} />
+      <FeaturedCharities
+        charities={featured.data || []}
+        status={featured.status}
+        error={featured.error?.message}
+        onRetry={featured.retry}
+      />
       <section className="home-invitation" aria-labelledby="invitation-title">
         <p className="eyebrow">PLAY WITH PURPOSE</p>
         <h2 id="invitation-title">
