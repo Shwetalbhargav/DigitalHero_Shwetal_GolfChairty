@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background text-on-background" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Heroes — Choose Subscription Plan (Step 2)</title>
+<!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "surface-bright": "#f3fcf5",
+            "surface-container-highest": "#dce5de",
+            "primary": "#003629",
+            "primary-container": "#1b4d3e",
+            "background": "#f3fcf5",
+            "primary-fixed-dim": "#9ed1bd",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#002117",
+            "secondary-container": "#c4e8d8",
+            "error": "#ba1a1a",
+            "tertiary": "#3f2a00",
+            "surface-tint": "#376757",
+            "on-tertiary-container": "#dbaa53",
+            "surface-variant": "#dce5de",
+            "secondary-fixed-dim": "#abcebf",
+            "on-error": "#ffffff",
+            "surface": "#f3fcf5",
+            "secondary-fixed": "#c7eadb",
+            "on-secondary-container": "#49695d",
+            "outline": "#707974",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#eaf3ec",
+            "on-surface": "#151d19",
+            "tertiary-container": "#5c3f00",
+            "surface-container-high": "#e2eae4",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffdeaa",
+            "on-primary-fixed-variant": "#1d4f40",
+            "surface-container-low": "#edf6ef",
+            "outline-variant": "#c0c9c3",
+            "on-background": "#151d19",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#9ed1bd",
+            "tertiary-fixed-dim": "#f1be65",
+            "on-secondary-fixed": "#002117",
+            "surface-dim": "#d3dcd6",
+            "on-surface-variant": "#404945",
+            "secondary": "#456559",
+            "surface-container": "#e7f0e9",
+            "inverse-surface": "#2a322e",
+            "primary-fixed": "#baeed9",
+            "on-primary-container": "#8abda9",
+            "on-tertiary-fixed": "#271900"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem",
+            "margin": "3rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"],
+            "title-md": ["Outfit"],
+            "headline-md": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "display-lg": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"],
+            "label-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="min-h-full bg-background font-body-md text-on-surface antialiased flex flex-col selection:bg-secondary-container selection:text-on-secondary-fixed-variant">
+<!-- Minimal Onboarding Top Bar (Global Shell Suppressed for Linear Flow) -->
+<header class="w-full sticky top-0 z-30 bg-surface/85 backdrop-blur-md border-b border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+<span class="hidden sm:inline-block text-label-sm font-label-sm text-secondary px-2.5 py-0.5 rounded-full bg-surface-container border border-outline-variant/40">Onboarding</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-label-md font-label-md text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" data-icon="lock">lock</span>
+          Encrypted Enrollment
+        </span>
+<a class="text-label-sm font-label-sm text-secondary hover:text-primary transition-colors flex items-center gap-1" href="#help">
+<span class="material-symbols-outlined text-[16px]" data-icon="help_outline">help_outline</span>
+          Assistance
+        </a>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="flex-1 max-w-5xl w-full mx-auto px-space-md md:px-space-lg lg:px-space-xl py-space-md md:py-space-xl flex flex-col">
+<!-- STEPPER NAVIGATION -->
+<nav aria-label="Onboarding Progress" class="w-full mb-space-lg md:mb-space-xl">
+<div class="grid grid-cols-4 gap-2 md:gap-4 relative">
+<!-- Step 1: Completed -->
+<div class="flex flex-col items-center sm:items-start group">
+<div class="flex items-center w-full gap-2 mb-2">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-md text-label-md shrink-0 shadow-sm transition-transform group-hover:scale-105">
+<span class="material-symbols-outlined text-[18px]" data-icon="check">check</span>
+</div>
+<div class="h-1 w-full bg-primary-container rounded-full hidden sm:block"></div>
+</div>
+<span class="text-label-sm font-label-sm text-secondary hidden sm:inline">Step 1</span>
+<span class="text-body-sm font-body-sm font-semibold text-primary text-center sm:text-left truncate max-w-full">Personal Details</span>
+</div>
+<!-- Step 2: Active -->
+<div class="flex flex-col items-center sm:items-start">
+<div class="flex items-center w-full gap-2 mb-2">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary ring-4 ring-secondary-container/60 flex items-center justify-center font-label-md text-label-md shrink-0 shadow-sm font-bold">
+              2
+            </div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full hidden sm:block"></div>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold hidden sm:inline">Step 2</span>
+<span class="text-body-sm font-body-sm font-semibold text-on-surface text-center sm:text-left truncate max-w-full">Membership Plan</span>
+</div>
+<!-- Step 3: Upcoming -->
+<div class="flex flex-col items-center sm:items-start opacity-70">
+<div class="flex items-center w-full gap-2 mb-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant text-on-surface-variant flex items-center justify-center font-label-md text-label-md shrink-0">
+              3
+            </div>
+<div class="h-1 w-full bg-surface-container-highest rounded-full hidden sm:block"></div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline">Step 3</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-center sm:text-left truncate max-w-full">Choose Charity</span>
+</div>
+<!-- Step 4: Upcoming -->
+<div class="flex flex-col items-center sm:items-start opacity-70">
+<div class="flex items-center w-full gap-2 mb-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-high border border-outline-variant text-on-surface-variant flex items-center justify-center font-label-md text-label-md shrink-0">
+              4
+            </div>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant hidden sm:inline">Step 4</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant text-center sm:text-left truncate max-w-full">Confirmation</span>
+</div>
+</div>
+</nav>
+<!-- HEADER & EDITORIAL INTRO -->
+<section class="text-center max-w-2xl mx-auto mb-space-lg md:mb-space-xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/60 border border-outline-variant/40 mb-3 text-secondary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px]" data-icon="sports_golf">sports_golf</span>
+        Feel, not fairway — Athletic growth meets collective giving
+      </div>
+<h1 class="text-headline-lg-mobile md:text-headline-lg font-headline-lg text-primary tracking-tight mb-2">
+        Select your membership plan
+      </h1>
+<p class="text-body-md font-body-md text-on-surface-variant">
+        Both plans include full monthly prize draw eligibility, verified score ledger, and a minimum 10% pledge to verified causes.
+      </p>
+</section>
+<!-- PLANS COMPARISON GRID (INTERACTIVE SELECTION) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch mb-space-xl" id="plan-selection-container">
+<!-- CARD 1: Monthly Member -->
+<article class="group cursor-pointer relative flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-surface/90 border-2 border-outline-variant/50 hover:border-secondary hover:shadow-[0_12px_32px_-8px_rgba(13,46,36,0.08)] transition-all duration-200" id="card-monthly" onclick="selectPlan('monthly')">
+<div>
+<!-- Plan Header -->
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block text-label-sm font-label-sm uppercase tracking-wider text-secondary font-bold">Standard Enrollment</span>
+<h2 class="text-headline-md font-headline-md text-primary mt-1">Monthly Member</h2>
+</div>
+<!-- Selection indicator radio -->
+<div class="w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center transition-colors" id="radio-monthly">
+<div class="w-3 h-3 rounded-full bg-transparent"></div>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-6">
+            Billed monthly, pause or cancel anytime
+          </p>
+<!-- Pricing Section -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 mb-6">
+<div class="flex items-baseline gap-1.5">
+<span class="text-headline-xl font-headline-xl text-primary leading-none">₹999</span>
+<span class="text-body-md font-body-md text-on-surface-variant">/ month</span>
+</div>
+<p class="text-label-sm font-label-sm text-secondary mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="swap_horiz">swap_horiz</span>
+              Equivalent to $19 USD / month international
+            </p>
+</div>
+<!-- Divider -->
+<hr class="border-outline-variant/30 mb-6"/>
+<!-- Features List -->
+<div class="space-y-3 mb-8">
+<span class="text-label-sm font-label-sm font-bold text-on-surface uppercase tracking-wider block mb-2">Included Privileges</span>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span class="text-body-sm font-body-sm text-on-surface leading-snug">
+<strong>5 score entries</strong> per monthly draw
+              </span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="text-body-sm font-body-sm text-on-surface leading-snug">
+                Guaranteed <strong>10% direct charity tithe</strong> included
+              </span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" data-icon="casino">casino</span>
+<span class="text-body-sm font-body-sm text-on-surface leading-snug">
+                Access to monthly community prize pool ($250,000)
+              </span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" data-icon="sports_score">sports_score</span>
+<span class="text-body-sm font-body-sm text-on-surface leading-snug">
+                WHS Handicap Index synchronization &amp; digital scorecard
+              </span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5" data-icon="pie_chart">pie_chart</span>
+<span class="text-body-sm font-body-sm text-on-surface leading-snug">
+                Basic charity impact reporting
+              </span>
+</div>
+</div>
+</div>
+<!-- CTA Button -->
+<button class="w-full py-3 px-6 rounded-full border-2 border-primary-container text-primary font-label-lg text-label-lg hover:bg-surface-container-high transition-all active:scale-[0.98]" type="button">
+          Select Monthly
+        </button>
+</article>
+<!-- CARD 2: Annual Patron (Highlighted / Best Value) -->
+<article class="group cursor-pointer relative flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-[#0D2E24] text-on-primary border-2 border-[#C99A45] shadow-[0_16px_40px_-10px_rgba(13,46,36,0.25)] transition-all duration-200" id="card-annual" onclick="selectPlan('annual')">
+<!-- Champagne Gold Ribbon Badge -->
+<div class="absolute -top-3.5 right-6 px-4 py-1 rounded-full bg-[#C99A45] text-[#0D2E24] font-label-sm text-label-sm tracking-wide shadow-md flex items-center gap-1.5 font-bold">
+<span class="material-symbols-outlined text-[14px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+          BEST VALUE &amp; HIGHEST IMPACT
+        </div>
+<div>
+<!-- Plan Header -->
+<div class="flex items-start justify-between mb-4">
+<div>
+<span class="inline-block text-label-sm font-label-sm uppercase tracking-wider text-primary-fixed font-bold">Recommended Commitment</span>
+<h2 class="text-headline-md font-headline-md text-on-primary mt-1">Annual Patron</h2>
+</div>
+<!-- Selection indicator radio -->
+<div class="w-6 h-6 rounded-full border-2 border-[#C99A45] bg-[#C99A45] flex items-center justify-center transition-colors" id="radio-annual">
+<div class="w-2.5 h-2.5 rounded-full bg-[#0D2E24]"></div>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-surface-variant/90 mb-6">
+            Billed annually at ₹9,588/yr — <span class="text-[#C99A45] font-semibold">Save 20%</span>
+</p>
+<!-- Pricing Section -->
+<div class="p-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/15 mb-6">
+<div class="flex items-baseline gap-1.5">
+<span class="text-headline-xl font-headline-xl text-on-primary leading-none">₹799</span>
+<span class="text-body-md font-body-md text-surface-variant">/ month</span>
+</div>
+<p class="text-label-sm font-label-sm text-primary-fixed mt-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="savings">savings</span>
+              Includes 2 months free equivalent + tax exemption receipt
+            </p>
+</div>
+<!-- Divider -->
+<hr class="border-white/20 mb-6"/>
+<!-- Features List -->
+<div class="space-y-3 mb-8">
+<span class="text-label-sm font-label-sm font-bold text-surface-variant uppercase tracking-wider block mb-2">Patron Privileges</span>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#C99A45] text-[20px] shrink-0 mt-0.5" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-body-sm font-body-sm text-on-primary leading-snug">
+<strong>Everything in Monthly Member</strong>
+</span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#C99A45] text-[20px] shrink-0 mt-0.5" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="text-body-sm font-body-sm text-on-primary leading-snug">
+                Boosted <strong>15% charity contribution</strong> automatically matched
+              </span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#C99A45] text-[20px] shrink-0 mt-0.5" data-icon="speed">speed</span>
+<span class="text-body-sm font-body-sm text-on-primary leading-snug">
+                Priority winner escrow verification &amp; instant disbursement
+              </span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#C99A45] text-[20px] shrink-0 mt-0.5" data-icon="local_mall">local_mall</span>
+<span class="text-body-sm font-body-sm text-on-primary leading-snug">
+                Exclusive partner perks: green fee vouchers &amp; equipment discounts
+              </span>
+</div>
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-[#C99A45] text-[20px] shrink-0 mt-0.5" data-icon="military_tech">military_tech</span>
+<span class="text-body-sm font-body-sm text-on-primary leading-snug">
+                Verified Member metal bag tag and annual impact book
+              </span>
+</div>
+</div>
+</div>
+<!-- CTA Button -->
+<button class="w-full py-3.5 px-6 rounded-full bg-[#C99A45] text-[#0D2E24] font-label-lg text-label-lg font-bold hover:brightness-105 active:scale-[0.98] transition-all shadow-md flex items-center justify-center gap-2" type="button">
+<span>Select Annual Patron</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</article>
+</section>
+<!-- TRANSPARENCY SECTION: WHAT YOUR MEMBERSHIP FUNDS -->
+<section class="mb-space-xl p-6 rounded-2xl bg-surface-container-low border border-outline-variant/40">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
+<div>
+<h3 class="text-title-md font-title-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="account_balance">account_balance</span>
+            What your membership funds
+          </h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            Strict fiduciary escrow segregation ensures your contributions directly advance athletes and verifiable causes.
+          </p>
+</div>
+<span class="self-start md:self-auto text-label-sm font-label-sm text-primary font-bold px-3 py-1 rounded-full bg-secondary-container">
+          Audited Quarterly
+        </span>
+</div>
+<!-- Segmented Bar Visualization -->
+<div class="w-full h-4 rounded-full bg-surface-container-highest flex overflow-hidden p-0.5 gap-1 mb-4">
+<div class="h-full rounded-l-full bg-primary" style="width: 60%;" title="60% Prize Pool Escrow"></div>
+<div class="h-full bg-secondary" style="width: 25%;" title="25% Platform &amp; WHS Verification"></div>
+<div class="h-full rounded-r-full bg-[#C99A45]" style="width: 15%;" title="15% Direct Verified Charity"></div>
+</div>
+<!-- Metric Pills / Legend -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+<div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-surface/80 border border-outline-variant/30">
+<div class="w-3.5 h-3.5 rounded-sm bg-primary shrink-0"></div>
+<div>
+<div class="text-label-md font-label-md font-bold text-on-surface">60% Prize Pool Escrow</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Insured draw fund</div>
+</div>
+</div>
+<div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-surface/80 border border-outline-variant/30">
+<div class="w-3.5 h-3.5 rounded-sm bg-secondary shrink-0"></div>
+<div>
+<div class="text-label-md font-label-md font-bold text-on-surface">25% Platform &amp; WHS</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">Handicap sync &amp; ledger</div>
+</div>
+</div>
+<div class="flex items-center gap-2.5 p-2.5 rounded-xl bg-surface/80 border border-outline-variant/30">
+<div class="w-3.5 h-3.5 rounded-sm bg-[#C99A45] shrink-0"></div>
+<div>
+<div class="text-label-md font-label-md font-bold text-on-surface">15% Direct Charity</div>
+<div class="text-label-sm font-label-sm text-on-surface-variant">100% pass-through tithe</div>
+</div>
+</div>
+</div>
+</section>
+<!-- BOTTOM ACTION DOCK -->
+<footer class="mt-auto pt-space-md border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4 pb-8">
+<!-- Back Link -->
+<a class="text-label-lg font-label-lg text-secondary hover:text-primary transition-colors flex items-center gap-2 order-2 sm:order-1 py-2" href="#step-1">
+<span class="material-symbols-outlined text-[18px]" data-icon="arrow_back">arrow_back</span>
+        Back to personal details
+      </a>
+<!-- Primary Action -->
+<div class="flex items-center gap-4 w-full sm:w-auto order-1 sm:order-2">
+<button class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-primary text-on-primary font-label-lg text-label-lg font-bold shadow-md hover:translate-y-[-1px] hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2" id="submit-step-btn" onclick="handleContinue()" type="button">
+<span>Continue to Choose Charity</span>
+<span class="material-symbols-outlined text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</footer>
+</main>
+<!-- Interactive State Script for Plan Toggle -->
+<script>
+    let currentSelectedPlan = 'annual';
+
+    function selectPlan(plan) {
+      currentSelectedPlan = plan;
+      const cardMonthly = document.getElementById('card-monthly');
+      const cardAnnual = document.getElementById('card-annual');
+      const radioMonthly = document.getElementById('radio-monthly');
+      const radioAnnual = document.getElementById('radio-annual');
+
+      if (plan === 'annual') {
+        // Annual state active
+        cardAnnual.className = "group cursor-pointer relative flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-[#0D2E24] text-on-primary border-2 border-[#C99A45] shadow-[0_16px_40px_-10px_rgba(13,46,36,0.25)] transition-all duration-200 ring-2 ring-[#C99A45]/30";
+        radioAnnual.className = "w-6 h-6 rounded-full border-2 border-[#C99A45] bg-[#C99A45] flex items-center justify-center transition-colors";
+        radioAnnual.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-[#0D2E24]"></div>';
+
+        cardMonthly.className = "group cursor-pointer relative flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-surface/90 border-2 border-outline-variant/40 hover:border-secondary hover:shadow-[0_12px_32px_-8px_rgba(13,46,36,0.08)] transition-all duration-200 opacity-90";
+        radioMonthly.className = "w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center transition-colors";
+        radioMonthly.innerHTML = '<div class="w-3 h-3 rounded-full bg-transparent"></div>';
+      } else {
+        // Monthly state active
+        cardMonthly.className = "group cursor-pointer relative flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-surface border-2 border-primary ring-2 ring-primary/20 shadow-[0_16px_40px_-10px_rgba(13,46,36,0.15)] transition-all duration-200";
+        radioMonthly.className = "w-6 h-6 rounded-full border-2 border-primary bg-primary flex items-center justify-center transition-colors";
+        radioMonthly.innerHTML = '<div class="w-2.5 h-2.5 rounded-full bg-surface"></div>';
+
+        cardAnnual.className = "group cursor-pointer relative flex flex-col justify-between p-6 md:p-8 rounded-2xl bg-[#0D2E24] text-on-primary border-2 border-outline-variant/30 hover:border-[#C99A45] transition-all duration-200 opacity-90";
+        radioAnnual.className = "w-6 h-6 rounded-full border-2 border-outline-variant flex items-center justify-center transition-colors";
+        radioAnnual.innerHTML = '<div class="w-3 h-3 rounded-full bg-transparent"></div>';
+      }
+    }
+
+    function handleContinue() {
+      const planName = currentSelectedPlan === 'annual' ? 'Annual Patron (₹799/mo)' : 'Monthly Member (₹999/mo)';
+      const btn = document.getElementById('submit-step-btn');
+      btn.innerHTML = `
+        <span class="material-symbols-outlined text-[20px] animate-spin" data-icon="progress_activity">progress_activity</span>
+        Saving ${currentSelectedPlan === 'annual' ? 'Patron' : 'Monthly'} Selection...
+      `;
+      btn.disabled = true;
+      
+      setTimeout(() => {
+        btn.innerHTML = `
+          <span>Proceeding to Charity Selection...</span>
+          <span class="material-symbols-outlined text-[20px]" data-icon="check">check</span>
+        `;
+      }, 750);
+    }
+  </script>
+</body></html>

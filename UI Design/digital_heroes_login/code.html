@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Sign In — Digital Heroes | Feel, not fairway</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "surface-bright": "#f3fcf5",
+            "surface-container-highest": "#dce5de",
+            "primary": "#003629",
+            "primary-container": "#1b4d3e",
+            "background": "#f3fcf5",
+            "primary-fixed-dim": "#9ed1bd",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#002117",
+            "secondary-container": "#c4e8d8",
+            "error": "#ba1a1a",
+            "tertiary": "#3f2a00",
+            "surface-tint": "#376757",
+            "on-tertiary-container": "#dbaa53",
+            "surface-variant": "#dce5de",
+            "secondary-fixed-dim": "#abcebf",
+            "on-error": "#ffffff",
+            "surface": "#f3fcf5",
+            "secondary-fixed": "#c7eadb",
+            "on-secondary-container": "#49695d",
+            "outline": "#707974",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#eaf3ec",
+            "on-surface": "#151d19",
+            "tertiary-container": "#5c3f00",
+            "surface-container-high": "#e2eae4",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffdeaa",
+            "on-primary-fixed-variant": "#1d4f40",
+            "surface-container-low": "#edf6ef",
+            "outline-variant": "#c0c9c3",
+            "on-background": "#151d19",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#9ed1bd",
+            "tertiary-fixed-dim": "#f1be65",
+            "on-secondary-fixed": "#002117",
+            "surface-dim": "#d3dcd6",
+            "on-surface-variant": "#404945",
+            "secondary": "#456559",
+            "surface-container": "#e7f0e9",
+            "inverse-surface": "#2a322e",
+            "primary-fixed": "#baeed9",
+            "on-primary-container": "#8abda9",
+            "on-tertiary-fixed": "#271900"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem",
+            "margin": "3rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"],
+            "title-md": ["Outfit"],
+            "headline-md": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "display-lg": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"],
+            "label-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+            "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+            "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "display-lg-mobile": ["38px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "headline-xl-mobile": ["30px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md min-h-screen flex flex-col justify-between antialiased selection:bg-secondary-container selection:text-primary">
+<!-- Top Minimal Utility Bar for Context & Support -->
+<header class="w-full px-space-md md:px-space-xl py-space-md flex items-center justify-between z-10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-[18px]">sports_score</span>
+</div>
+<div>
+<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+<span class="hidden sm:inline-block text-outline mx-2 font-light">|</span>
+<span class="hidden sm:inline-block font-label-md text-label-md text-on-surface-variant font-normal">Feel, not fairway</span>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" href="#help">
+<span class="material-symbols-outlined text-[16px]">help_outline</span>
+<span>Support</span>
+</a>
+<div class="w-px h-4 bg-outline-variant"></div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/40">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold tracking-wider">MONTHLY DRAW OPEN</span>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="flex-grow flex items-center justify-center p-space-md md:p-space-lg lg:p-space-xl">
+<div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 rounded-[2rem] overflow-hidden bg-surface-container-lowest border border-outline-variant/50 shadow-[0_24px_64px_-16px_rgba(0,54,41,0.08)]">
+<!-- Left Editorial Image & Narrative Column (5 Cols) -->
+<div class="relative lg:col-span-5 hidden lg:flex flex-col justify-between p-space-xl overflow-hidden bg-primary text-on-primary">
+<!-- Editorial Background Image with Natural Vignette -->
+<div class="absolute inset-0 z-0 opacity-45 mix-blend-luminosity scale-105 transition-transform duration-700 hover:scale-100" data-alt="Serene golf course landscape in the early morning twilight bathed in ethereal soft ground mist over undulating emerald fairways. Subtle dewdrops glisten on natural fescue grass under a calm golden dawn sky with no golfers present, exuding timeless organic minimalism, sustainable green stewardship, and contemplative athletic focus in rich forest greens and warm ivory lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDSn8aoQ8YuicuYt-xLMWw91gFkjeQP-vBvDEfjouktd8Ipmv15NQoxwrF_zJG91uXoWHU5vb8ZXdtxQOsPwbc9XaQTIKq-meeramCdZp1WDX5UrNz_n5-wuQLrHhqj1OEroJrDwd_io30eELN4ubrGhPo3q4PBG6BdIVJw3VqvoCYHGk-KRqKXxMA8mZct1urFiroOogvXMsjNLVxcJOXz4HTjptnwM4uv_i_wAnYZLF79fA4iwdknCw')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/95 z-[1]"></div>
+<!-- Brand Narrative Content -->
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-lowest/10 backdrop-blur-md border border-on-primary/15 text-primary-fixed">
+<span class="material-symbols-outlined text-[16px]">volunteer_activism</span>
+<span class="font-label-md text-label-md uppercase tracking-wider font-semibold">Purpose-Led Golf</span>
+</div>
+</div>
+<div class="relative z-10 space-y-6">
+<div class="space-y-3">
+<blockquote class="font-headline-md text-headline-md text-on-primary font-medium tracking-tight leading-snug">
+              “Every swing gives back.”
+            </blockquote>
+<p class="font-body-sm text-body-sm text-primary-fixed-dim leading-relaxed">
+              Uniting high-performance handicap tracking with community grassroots giving and recurring monthly player prize allocations.
+            </p>
+</div>
+<!-- Impact Milestone Metric Card -->
+<div class="p-space-md rounded-2xl bg-primary-container/60 backdrop-blur-md border border-primary-fixed/20 flex items-center justify-between">
+<div class="space-y-0.5">
+<span class="font-label-sm text-label-sm text-primary-fixed-dim">COMMUNITY FUNDS RAISED</span>
+<div class="font-headline-sm text-headline-sm font-bold text-on-primary tracking-tight">$14,250.00</div>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-[20px]">workspace_premium</span>
+</div>
+</div>
+</div>
+<!-- Footer Note -->
+<div class="relative z-10 pt-4 border-t border-on-primary/10 flex items-center justify-between text-primary-fixed-dim font-label-sm text-label-sm">
+<span>Digital Heroes Foundation</span>
+<span>WHS Sanctioned</span>
+</div>
+</div>
+<!-- Right Form & Interaction Column (7 Cols) -->
+<div class="lg:col-span-7 p-space-lg sm:p-space-xl md:p-12 flex flex-col justify-center bg-surface-container-lowest">
+<div class="w-full max-w-md mx-auto space-y-8">
+<!-- Header Title & Subtitle -->
+<div class="space-y-2 text-left">
+<div class="lg:hidden inline-flex items-center gap-2 mb-2 px-3 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-[14px]">sports_score</span>
+<span>Feel, not fairway</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-bold">
+              Welcome back to your club
+            </h1>
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Enter your credentials to manage your scores, monthly draws, and charitable impact.
+            </p>
+</div>
+<!-- Credentials Form -->
+<form class="space-y-5" id="loginForm" onsubmit="event.preventDefault(); handleLoginSubmit();">
+<!-- Email Address Input -->
+<div class="space-y-1.5 text-left">
+<label class="block font-label-md text-label-md text-on-surface font-semibold" for="email">
+                Email address
+              </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline text-[20px] pointer-events-none">mail</span>
+<input class="w-full pl-11 pr-4 py-3 bg-surface-container-low border border-outline-variant rounded-xl text-on-surface placeholder:text-outline/70 font-body-md text-body-md focus:border-primary-container focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/10 transition-all outline-none" id="email" name="email" placeholder="name@domain.com" required="" type="email"/>
+</div>
+</div>
+<!-- Password Input -->
+<div class="space-y-1.5 text-left">
+<div class="flex items-center justify-between">
+<label class="block font-label-md text-label-md text-on-surface font-semibold" for="password">
+                  Password
+                </label>
+<a class="font-label-md text-label-md text-secondary hover:text-primary transition-colors font-semibold" href="#forgot">
+                  Forgot password?
+                </a>
+</div>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-outline text-[20px] pointer-events-none">lock</span>
+<input class="w-full pl-11 pr-12 py-3 bg-surface-container-low border border-outline-variant rounded-xl text-on-surface placeholder:text-outline/70 font-body-md text-body-md focus:border-primary-container focus:bg-surface-container-lowest focus:ring-2 focus:ring-primary/10 transition-all outline-none" id="password" name="password" placeholder="Enter your password" required="" type="password"/>
+<button aria-label="Toggle password visibility" class="absolute right-3.5 p-1 rounded-lg text-outline hover:text-on-surface transition-colors flex items-center justify-center focus:outline-none" id="togglePassword" onclick="togglePasswordVisibility()" type="button">
+<span class="material-symbols-outlined text-[20px]" id="toggleIcon">visibility</span>
+</button>
+</div>
+</div>
+<!-- Remember Me Row -->
+<div class="flex items-center justify-between pt-0.5">
+<label class="flex items-center gap-2.5 cursor-pointer select-none">
+<input class="w-4 h-4 rounded text-primary-container border-outline-variant focus:ring-primary/20 focus:ring-offset-0 transition-colors cursor-pointer" id="remember" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Remember this device</span>
+</label>
+<span class="font-label-sm text-label-sm text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">shield</span> SSL 256
+              </span>
+</div>
+<!-- Primary Submission CTA Button -->
+<div class="pt-2">
+<button class="w-full py-3.5 px-6 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg font-semibold hover:bg-primary transition-all duration-200 shadow-sm active:scale-[0.98] flex items-center justify-center gap-2 group cursor-pointer" id="submitBtn" type="submit">
+<span>Sign In to Dashboard</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Divider -->
+<div class="relative flex items-center justify-center my-6">
+<div class="w-full border-t border-outline-variant/50"></div>
+<span class="absolute px-4 bg-surface-container-lowest font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-medium">
+              or continue with
+            </span>
+</div>
+<!-- Social / SSO Direct Authentication -->
+<div class="grid grid-cols-2 gap-3">
+<button class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-outline-variant hover:border-outline bg-surface-container-low hover:bg-surface-container transition-all active:scale-[0.98] cursor-pointer" type="button">
+<!-- Google G Icon SVG -->
+<svg class="w-4 h-4 shrink-0" viewbox="0 0 24 24">
+<path d="M12 5c1.6 0 3 .6 4.1 1.6l3.1-3.1C17.3 1.7 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.9C6.2 7.3 8.8 5 12 5z" fill="#EA4335"></path>
+<path d="M23.5 12.3c0-.8-.1-1.7-.2-2.3H12v4.6h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.9z" fill="#4285F4"></path>
+<path d="M5.3 14.7c-.2-.7-.4-1.5-.4-2.7s.1-2 .4-2.7L1.6 6.4C.6 8.3 0 10.1 0 12s.6 3.7 1.6 5.6l3.7-2.9z" fill="#FBBC05"></path>
+<path d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.2 0-5.8-2.3-6.7-5.3L1.6 16c1.9 3.8 5.8 7 10.4 7z" fill="#34A853"></path>
+</svg>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Google</span>
+</button>
+<button class="flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border border-outline-variant hover:border-outline bg-surface-container-low hover:bg-surface-container transition-all active:scale-[0.98] cursor-pointer" type="button">
+<!-- Apple Monochrome Icon SVG -->
+<svg class="w-4 h-4 shrink-0 fill-on-surface" viewbox="0 0 24 24">
+<path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.38c.62-.75 1.04-1.8 0.93-2.85-.9.04-1.99.6-2.63 1.35-.57.66-.99 1.72-.85 2.74 1 .08 1.99-.49 2.55-1.24z"></path>
+</svg>
+<span class="font-label-md text-label-md font-semibold text-on-surface">Apple</span>
+</button>
+</div>
+<!-- Registration Switcher Link -->
+<div class="text-center pt-2">
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Don't have an account? 
+              <a class="font-label-lg text-label-lg font-bold text-primary hover:underline ml-1 inline-flex items-center gap-0.5" href="#register">
+                Join Digital Heroes
+                <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+</a>
+</p>
+</div>
+<!-- Trust Badges System -->
+<div class="pt-6 border-t border-outline-variant/40 flex flex-wrap items-center justify-center gap-y-2 gap-x-4 text-outline font-label-sm text-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">lock</span>
+<span>256-bit Encrypted</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+<span>WHS Verified Scores</span>
+</div>
+<span class="text-outline-variant">•</span>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-secondary">account_balance</span>
+<span>Escrow Protected</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Global Ground Minimal Footer -->
+<footer class="w-full px-space-md md:px-space-xl py-space-md flex flex-col sm:flex-row items-center justify-between text-outline font-label-sm text-label-sm gap-2">
+<div>
+      © 2025 Digital Heroes Golf Club Inc. All rights reserved.
+    </div>
+<div class="flex items-center gap-4">
+<a class="hover:text-primary transition-colors" href="#privacy">Privacy Policy</a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-primary transition-colors" href="#terms">Terms of Membership</a>
+<span class="text-outline-variant">/</span>
+<a class="hover:text-primary transition-colors" href="#draw-rules">Draw Official Rules</a>
+</div>
+</footer>
+<!-- Micro-interactions Script -->
+<script>
+    function togglePasswordVisibility() {
+      const passwordInput = document.getElementById('password');
+      const toggleIcon = document.getElementById('toggleIcon');
+      
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.textContent = 'visibility_off';
+      } else {
+        passwordInput.type = 'password';
+        toggleIcon.textContent = 'visibility';
+      }
+    }
+
+    function handleLoginSubmit() {
+      const btn = document.getElementById('submitBtn');
+      const originalContent = btn.innerHTML;
+      
+      // Loading state demonstration
+      btn.disabled = true;
+      btn.innerHTML = `
+        <span class="material-symbols-outlined animate-spin text-[18px]">progress_activity</span>
+        <span>Authenticating with Club...</span>
+      `;
+      
+      setTimeout(() => {
+        btn.innerHTML = `
+          <span class="material-symbols-outlined text-[18px]">check_circle</span>
+          <span>Verified — Redirecting</span>
+        `;
+        btn.classList.remove('bg-primary-container');
+        btn.classList.add('bg-primary');
+        
+        setTimeout(() => {
+          btn.innerHTML = originalContent;
+          btn.disabled = false;
+          btn.classList.add('bg-primary-container');
+          btn.classList.remove('bg-primary');
+        }, 1500);
+      }, 900);
+    }
+  </script>
+</body></html>

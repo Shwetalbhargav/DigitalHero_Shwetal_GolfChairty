@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+
+<html class="h-full bg-background" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Heroes | Winner Verification &amp; Fiduciary Escrow Settlements</title>
+<!-- Material Symbols Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Brand Typography: Plus Jakarta Sans & Outfit -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#f3fcf5",
+            "primary-fixed": "#baeed9",
+            "secondary-fixed-dim": "#abcebf",
+            "on-primary-fixed": "#002117",
+            "on-surface": "#151d19",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#3f2a00",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#c0c9c3",
+            "tertiary-fixed-dim": "#f1be65",
+            "surface-tint": "#376757",
+            "surface-variant": "#dce5de",
+            "inverse-primary": "#9ed1bd",
+            "outline": "#707974",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "primary": "#003629",
+            "surface-dim": "#d3dcd6",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "tertiary-container": "#5c3f00",
+            "secondary": "#456559",
+            "on-tertiary-container": "#dbaa53",
+            "secondary-fixed": "#c7eadb",
+            "on-primary-fixed-variant": "#1d4f40",
+            "surface-container-low": "#edf6ef",
+            "surface-bright": "#f3fcf5",
+            "secondary-container": "#c4e8d8",
+            "primary-container": "#1b4d3e",
+            "on-surface-variant": "#404945",
+            "inverse-on-surface": "#eaf3ec",
+            "on-tertiary-fixed": "#271900",
+            "error-container": "#ffdad6",
+            "on-primary-container": "#8abda9",
+            "primary-fixed-dim": "#9ed1bd",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface": "#f3fcf5",
+            "surface-container": "#e7f0e9",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#e2eae4",
+            "on-background": "#151d19",
+            "surface-container-highest": "#dce5de",
+            "tertiary-fixed": "#ffdeaa",
+            "on-secondary-fixed": "#002117",
+            "on-secondary-container": "#49695d",
+            "inverse-surface": "#2a322e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem",
+            "margin": "3rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "headline-xl": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "headline-md": ["Outfit"],
+            "title-md": ["Outfit"],
+            "display-lg": ["Outfit"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="h-full font-body-md text-on-surface bg-background flex flex-col antialiased selection:bg-primary-container selection:text-white">
+<!-- Desktop Top Navigation Bar (Shared Component Anchor) -->
+<header class="bg-surface/85 backdrop-blur-md sticky top-0 z-40 shadow-sm border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center font-bold font-title-md text-title-md">
+            DH
+          </div>
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+</div>
+<div class="hidden md:flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/40">
+<span class="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+<span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider">Fiduciary Audited</span>
+<span class="text-outline font-label-sm text-label-sm">• RFC 6962</span>
+</div>
+</div>
+<!-- Navigation links cluster from JSON + Admin Scope -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Draws</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Scorecard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Impact</a>
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 text-label-md font-label-md" href="#">Winnings &amp; Payouts</a>
+</nav>
+<!-- Trailing Actions & User Meta -->
+<div class="flex items-center gap-3">
+<div class="hidden lg:flex items-center px-3 py-1.5 rounded-full bg-surface-container-high text-primary font-label-md font-label-md border border-outline-variant/40">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container mr-1.5" style="font-variation-settings: 'FILL' 1;">assured_workload</span>
+          Escrow Balance: <span class="font-bold ml-1">₹4,85,000</span>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container-high/60 transition-colors duration-150 text-on-surface-variant" title="System Notifications">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant/40">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-on-secondary-container flex items-center justify-center font-label-md font-label-md font-bold">
+            AV
+          </div>
+<div class="hidden xl:block text-left leading-none">
+<p class="font-label-sm text-label-sm font-bold text-primary">Chief Auditor</p>
+<p class="text-[10px] text-outline">Compliance Ops</p>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden max-w-7xl w-full mx-auto">
+<!-- Side Navigation Bar (Shared Component Anchor) -->
+<aside class="hidden lg:flex flex-col justify-between h-[calc(100vh-4rem)] p-space-md w-64 shrink-0 border-r border-outline-variant/30 bg-surface">
+<div class="space-y-6">
+<div>
+<p class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-outline px-3 mb-2">Audit Desk</p>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">casino</span>
+<span>Monthly Draws</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">sports_score</span>
+<span>Scorecard Vault</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">volunteer_activism</span>
+<span>Charity Impact</span>
+</a>
+<!-- Active State Navigation -->
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl bg-primary-container text-white font-semibold shadow-sm font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">trophy</span>
+<span>Winners &amp; Payouts</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">card_membership</span>
+<span>Membership Ledger</span>
+</a>
+</div>
+</div>
+<!-- Fiduciary Context Module -->
+<div class="p-3.5 rounded-2xl bg-surface-container-low border border-outline-variant/30 text-left">
+<div class="flex items-center gap-1.5 mb-1.5">
+<span class="material-symbols-outlined text-primary text-[18px]">verified_user</span>
+<span class="font-label-sm text-label-sm font-bold text-primary">Trust Protocol</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed text-[12px]">
+            Wells Fargo &amp; Barclays automated escrow disbursals comply with Section 117-B sporting patronage rules.
+          </p>
+<div class="mt-2.5 pt-2 border-t border-outline-variant/20 flex items-center justify-between text-[11px] font-label-sm text-outline">
+<span>Audit Key: #DH-WF902</span>
+<span class="text-emerald-700 font-bold">Online</span>
+</div>
+</div>
+</div>
+<!-- Footer SideNav Actions -->
+<div class="pt-4 border-t border-outline-variant/30 space-y-1">
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors duration-150 font-label-md text-label-md" href="#">
+<span class="material-symbols-outlined text-[20px]">help_outline</span>
+<span>Help &amp; Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Workspace -->
+<main class="flex-1 flex flex-col overflow-y-auto bg-surface-container-low/50">
+<!-- Workspace Page Header -->
+<div class="px-space-md lg:px-space-lg pt-6 pb-5 bg-surface-container-lowest border-b border-outline-variant/30">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<h1 class="font-headline-md text-headline-md font-bold text-primary tracking-tight">
+                Winner Verification &amp; Fiduciary Escrow Settlements
+              </h1>
+<span class="px-2 py-0.5 rounded text-[11px] font-label-sm font-bold bg-secondary-container text-on-secondary-container">v2.4 Live</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Attestation queue, scorecard proof verification, match count confirmation, and Wells Fargo / Barclays escrow disbursements.
+            </p>
+</div>
+<!-- Header Actions -->
+<div class="flex flex-wrap items-center gap-2.5">
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-primary font-label-md text-label-md hover:bg-surface-container transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">file_download</span>
+<span>Download Escrow Ledger (RFC 6962)</span>
+</button>
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-primary font-label-md text-label-md hover:bg-surface-container transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">gavel</span>
+<span>Audit Policy</span>
+</button>
+<button class="flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary-container text-white font-label-md text-label-md hover:bg-primary transition-colors shadow-sm active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">done_all</span>
+<span>Batch Attest Selected</span>
+</button>
+</div>
+</div>
+<!-- Institutional Header KPI Bar -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 mt-5">
+<div class="p-3.5 rounded-xl bg-surface-container border border-outline-variant/30 flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Total Claimed (Oct Draw)</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-sm text-headline-sm font-bold text-primary">₹150,000</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">($30,000)</span>
+</div>
+<span class="text-[11px] text-outline mt-1 font-label-sm">Total 37 registered claims</span>
+</div>
+<div class="p-3.5 rounded-xl bg-amber-50/70 border border-amber-200/80 flex flex-col">
+<span class="font-label-sm text-label-sm text-amber-900 uppercase tracking-wider flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+              Pending Attestation
+            </span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-sm text-headline-sm font-bold text-amber-950">4 Claims</span>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-label-sm font-bold bg-amber-200 text-amber-950">Action Required</span>
+</div>
+<span class="text-[11px] text-amber-800/80 mt-1 font-label-sm">Requires marker &amp; WHS validation</span>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container border border-outline-variant/30 flex flex-col">
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-wider">Verified &amp; In Escrow</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">18 Claims</span>
+<span class="text-xs text-outline">₹82,500 locked</span>
+</div>
+<span class="text-[11px] text-outline mt-1 font-label-sm">Bank settlement batch pending</span>
+</div>
+<div class="p-3.5 rounded-xl bg-emerald-50/70 border border-emerald-200/80 flex flex-col">
+<span class="font-label-sm text-label-sm text-emerald-900 uppercase tracking-wider">Settled / Disbursed</span>
+<div class="flex items-baseline gap-2 mt-1">
+<span class="font-headline-sm text-headline-sm font-bold text-emerald-950">9 Claims</span>
+<span class="text-xs text-emerald-800">₹45,000 paid</span>
+</div>
+<span class="text-[11px] text-emerald-800/80 mt-1 font-label-sm">Direct ACH &amp; IMPS clear</span>
+</div>
+</div>
+</div>
+<!-- Main View - Two-Pane Audit Console -->
+<div class="p-space-md lg:p-space-lg grid grid-cols-1 xl:grid-cols-12 gap-5 flex-1 items-start">
+<!-- Left Pane: Claims & Winners Queue (5 cols) -->
+<section class="xl:col-span-5 bg-surface-container-lowest rounded-2xl border border-outline-variant/30 shadow-sm overflow-hidden flex flex-col">
+<!-- Queue Filter Tabs -->
+<div class="p-3 border-b border-outline-variant/20 bg-surface-container/50">
+<div class="flex items-center gap-1 overflow-x-auto pb-1 text-[12px] font-label-md">
+<button class="px-3 py-1.5 rounded-lg bg-primary-container text-white font-semibold whitespace-nowrap shadow-xs">
+                Pending Proof Review (4)
+              </button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors whitespace-nowrap">
+                Awaiting Settlement (6)
+              </button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors whitespace-nowrap">
+                Disbursed (24)
+              </button>
+<button class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors whitespace-nowrap">
+                Flagged (2)
+              </button>
+</div>
+</div>
+<!-- Queue Search & Micro Filter -->
+<div class="p-3 border-b border-outline-variant/20 flex items-center justify-between gap-2 bg-surface-bright">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-[18px] text-outline">search</span>
+<input class="w-full pl-8 pr-3 py-1.5 rounded-lg bg-surface-container-lowest border border-outline-variant/40 text-body-sm font-body-sm focus:outline-none focus:ring-1 focus:ring-primary text-on-surface" placeholder="Search by member, ID or round #..." type="text"/>
+</div>
+<button class="p-1.5 rounded-lg border border-outline-variant/40 hover:bg-surface-container text-outline" title="Filter by Match Count">
+<span class="material-symbols-outlined text-[18px]">filter_list</span>
+</button>
+</div>
+<!-- Claims Queue Table/List -->
+<div class="divide-y divide-outline-variant/20 overflow-y-auto max-h-[720px]">
+<!-- Claim Item 1 (Active / Selected) -->
+<div class="p-3.5 bg-secondary-container/20 border-l-4 border-primary transition-all cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md font-bold text-primary">Julian Vance</span>
+<span class="font-label-sm text-label-sm text-outline">#DH-90412</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-0.5">Draw: Sep 2024 • North Berwick GC</p>
+</div>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-label-sm font-bold bg-amber-100 text-amber-900 border border-amber-300">
+                  Proof Submitted
+                </span>
+</div>
+<div class="mt-2.5 flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-primary">3 Matches</span>
+<div class="flex gap-1">
+<span class="w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-[10px] text-primary">18</span>
+<span class="w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-[10px] text-primary">24</span>
+<span class="w-5 h-5 rounded-full bg-surface-container-highest flex items-center justify-center font-bold text-[10px] text-primary">31</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-bold text-primary font-headline-sm text-headline-sm text-[16px]">₹5,000</span>
+<span class="text-outline text-[11px] block">Net ₹4,500</span>
+</div>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px] text-outline font-label-sm pt-2 border-t border-outline-variant/20">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">history</span> 22m ago
+                </span>
+<span class="text-primary font-semibold">Active Inspector Target →</span>
+</div>
+</div>
+<!-- Claim Item 2 -->
+<div class="p-3.5 hover:bg-surface-container-low/60 transition-all cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md font-bold text-on-surface">Marcus Sterling</span>
+<span class="font-label-sm text-label-sm text-outline">#DH-77182</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-0.5">Draw: Sep 2024 • Carnoustie Links</p>
+</div>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-label-sm font-bold bg-surface-container-highest text-on-surface-variant border border-outline-variant/50">
+                  Pending Proof Upload
+                </span>
+</div>
+<div class="mt-2.5 flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-amber-800">4 Matches (Jackpot Tier)</span>
+<div class="flex gap-1">
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center font-bold text-[10px] text-amber-900">10</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center font-bold text-[10px] text-amber-900">18</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center font-bold text-[10px] text-amber-900">24</span>
+<span class="w-5 h-5 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center font-bold text-[10px] text-amber-900">31</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-bold text-amber-900 font-headline-sm text-headline-sm text-[16px]">₹29,166</span>
+<span class="text-outline text-[11px] block">Net ₹26,249</span>
+</div>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px] text-outline font-label-sm pt-2 border-t border-outline-variant/20">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">warning</span> Grace period: 48h left
+                </span>
+<span>Tier A Fiduciary</span>
+</div>
+</div>
+<!-- Claim Item 3 -->
+<div class="p-3.5 hover:bg-surface-container-low/60 transition-all cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md font-bold text-on-surface">Arthur Pendelton</span>
+<span class="font-label-sm text-label-sm text-outline">#DH-81903</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-0.5">Draw: Sep 2024 • Gleneagles Kings</p>
+</div>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-label-sm font-bold bg-error-container text-error border border-red-200">
+                  Marker Unclear (Flagged)
+                </span>
+</div>
+<div class="mt-2.5 flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-on-surface-variant">3 Matches (18, 24, 44)</span>
+</div>
+<div class="text-right">
+<span class="font-bold text-on-surface font-headline-sm text-headline-sm text-[16px]">₹5,000</span>
+<span class="text-outline text-[11px] block">Dispute Case #49</span>
+</div>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px] text-outline font-label-sm pt-2 border-t border-outline-variant/20">
+<span class="text-error font-medium">Marker signature smudged</span>
+<span>Flagged by Compliance</span>
+</div>
+</div>
+<!-- Claim Item 4 -->
+<div class="p-3.5 hover:bg-surface-container-low/60 transition-all cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md font-bold text-on-surface">Elena Rostova</span>
+<span class="font-label-sm text-label-sm text-outline">#DH-93012</span>
+</div>
+<p class="text-xs text-on-surface-variant mt-0.5">Draw: Sep 2024 • Royal Troon</p>
+</div>
+<span class="px-2.5 py-0.5 rounded-full text-[11px] font-label-sm font-bold bg-emerald-100 text-emerald-900 border border-emerald-300">
+                  Approved (Batch Payout)
+                </span>
+</div>
+<div class="mt-2.5 flex items-center justify-between text-xs">
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-on-surface-variant">3 Matches (10, 31, 44)</span>
+</div>
+<div class="text-right">
+<span class="font-bold text-on-surface font-headline-sm text-headline-sm text-[16px]">₹5,000</span>
+<span class="text-outline text-[11px] block">Escrow Ready</span>
+</div>
+</div>
+<div class="mt-2 flex items-center justify-between text-[11px] text-outline font-label-sm pt-2 border-t border-outline-variant/20">
+<span class="text-emerald-800 font-medium">Verified by Auto-Auditor</span>
+<span>In Next Batch #B-910</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Pane: Granular Verification Review & Payout Inspector (7 cols) -->
+<section class="xl:col-span-7 space-y-4">
+<!-- Inspector Header / Member Profile Summary -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md lg:p-space-lg border border-outline-variant/30 shadow-sm">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-outline-variant/20 gap-3">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-title-md font-bold text-title-md shadow-sm">
+                  JV
+                </div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="font-title-md text-title-md font-bold text-primary">Julian Vance</h2>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-sm font-bold bg-primary-container text-white">#DH-90412</span>
+<span class="px-2 py-0.5 rounded-full text-[11px] font-label-sm font-bold bg-secondary-container text-on-secondary-container">Annual Patron</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                    WHS Handicap: <span class="font-semibold text-primary">8.4</span> • Home Club: North Berwick • 10% Tithe Pledge: Highland Dunes
+                  </p>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block">Claim ID</span>
+<span class="font-title-md font-mono text-primary font-bold">CLM-2024-09-881</span>
+</div>
+</div>
+<!-- Draw Reconciliation Grid -->
+<div class="mt-4 pt-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block mb-2">Draw Reconciliation Grid (Match Count Confirmation)</span>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<!-- Official Drawn Numbers -->
+<div class="p-3 rounded-xl bg-surface-container border border-outline-variant/30">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm font-bold text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">stars</span>
+                      Official Drawn Numbers
+                    </span>
+<span class="text-[11px] text-outline">Proof Hash: 8b02f...</span>
+</div>
+<div class="flex gap-2">
+<span class="w-9 h-9 rounded-xl bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center font-title-md font-bold text-primary">10</span>
+<span class="w-9 h-9 rounded-xl bg-primary-container text-white shadow-sm flex items-center justify-center font-title-md font-bold">18</span>
+<span class="w-9 h-9 rounded-xl bg-primary-container text-white shadow-sm flex items-center justify-center font-title-md font-bold">24</span>
+<span class="w-9 h-9 rounded-xl bg-primary-container text-white shadow-sm flex items-center justify-center font-title-md font-bold">31</span>
+<span class="w-9 h-9 rounded-xl bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center font-title-md font-bold text-primary">44</span>
+</div>
+</div>
+<!-- Member Submitted Numbers -->
+<div class="p-3 rounded-xl bg-surface-container border border-outline-variant/30">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm font-bold text-on-surface flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">pin</span>
+                      Member Submitted Numbers
+                    </span>
+<span class="text-[11px] text-emerald-800 font-bold">3 Matches Verified</span>
+</div>
+<div class="flex gap-2">
+<span class="w-9 h-9 rounded-xl bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center font-title-md font-medium text-outline">12</span>
+<!-- Verified Matches Highlighted with Champagne Gold Accent -->
+<span class="w-9 h-9 rounded-xl bg-amber-400/90 text-on-tertiary-fixed border border-amber-500 shadow-sm flex items-center justify-center font-title-md font-bold ring-2 ring-amber-400/30">18</span>
+<span class="w-9 h-9 rounded-xl bg-amber-400/90 text-on-tertiary-fixed border border-amber-500 shadow-sm flex items-center justify-center font-title-md font-bold ring-2 ring-amber-400/30">24</span>
+<span class="w-9 h-9 rounded-xl bg-amber-400/90 text-on-tertiary-fixed border border-amber-500 shadow-sm flex items-center justify-center font-title-md font-bold ring-2 ring-amber-400/30">31</span>
+<span class="w-9 h-9 rounded-xl bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center font-title-md font-medium text-outline">40</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Scorecard Proof Verification Card (Deep Audit View) -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md lg:p-space-lg border border-outline-variant/30 shadow-sm">
+<div class="flex items-center justify-between mb-3 pb-2 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">assignment_turned_in</span>
+<h3 class="font-title-md text-title-md font-bold text-primary">Scorecard Proof Attestation</h3>
+</div>
+<span class="text-xs font-label-md text-outline">Uploaded via Scottish Golf WHS Sync</span>
+</div>
+<!-- Two-Column Scorecard Preview & Checklist -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+<!-- Scorecard Preview Thumbnail / Document -->
+<div class="md:col-span-6 p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between text-xs mb-2">
+<span class="font-mono font-bold text-primary truncate max-w-[180px]">WHS_Round_NorthBerwick.pdf</span>
+<span class="text-outline text-[11px]">1.8 MB</span>
+</div>
+<!-- Document Simulated Canvas -->
+<div class="h-36 rounded-lg bg-surface-container-lowest border border-outline-variant/40 p-2.5 flex flex-col justify-between relative overflow-hidden shadow-inner">
+<div class="flex justify-between items-start border-b border-outline-variant/30 pb-1">
+<div>
+<p class="text-[10px] font-bold text-primary uppercase">North Berwick Golf Club</p>
+<p class="text-[9px] text-outline">West Links • Course Rating: 71.4 / Slope: 132</p>
+</div>
+<span class="text-[9px] font-mono text-outline">18-Oct-2024</span>
+</div>
+<div class="grid grid-cols-6 gap-1 text-center py-1 text-[9px] text-on-surface-variant font-mono">
+<div class="bg-surface-container p-0.5 rounded">H1: 4</div>
+<div class="bg-surface-container p-0.5 rounded">H2: 3</div>
+<div class="bg-secondary-container/40 p-0.5 rounded font-bold text-primary">H3: 4</div>
+<div class="bg-surface-container p-0.5 rounded">H4: 5</div>
+<div class="bg-surface-container p-0.5 rounded">H5: 4</div>
+<div class="bg-secondary-container/40 p-0.5 rounded font-bold text-primary">H6: 3</div>
+</div>
+<div class="pt-1 border-t border-outline-variant/30 flex justify-between items-end text-[10px]">
+<div>
+<span class="text-outline text-[9px] block">Marker Signature Verified</span>
+<span class="font-serif italic text-primary font-bold">L. Henderson (#8839)</span>
+</div>
+<div class="text-right">
+<span class="text-outline text-[9px] block">Stableford Points</span>
+<span class="font-bold text-primary font-title-md text-[13px]">38 Pts</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-3 flex items-center gap-2">
+<button class="flex-1 py-1.5 rounded-lg border border-outline-variant text-[12px] font-label-md text-primary hover:bg-surface-container transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[15px]">zoom_in</span> Open Full Scan
+                  </button>
+<button class="flex-1 py-1.5 rounded-lg border border-outline-variant text-[12px] font-label-md text-primary hover:bg-surface-container transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[15px]">open_in_new</span> WHS API Direct
+                  </button>
+</div>
+</div>
+<!-- Automated Fiduciary Validation Checklist -->
+<div class="md:col-span-6 flex flex-col justify-between space-y-2">
+<div class="space-y-2">
+<div class="p-2 rounded-lg bg-emerald-50 border border-emerald-200/80 flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-700 text-[18px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-label-sm text-label-sm font-bold text-emerald-900">WHS Differential Confirmed</p>
+<p class="text-[11px] text-emerald-800/90">Exact differential 6.8 matches national portal handicap record.</p>
+</div>
+</div>
+<div class="p-2 rounded-lg bg-emerald-50 border border-emerald-200/80 flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-700 text-[18px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-label-sm text-label-sm font-bold text-emerald-900">Marker Signature &amp; Member #8839</p>
+<p class="text-[11px] text-emerald-800/90">Lewis Henderson actively registered in North Berwick database.</p>
+</div>
+</div>
+<div class="p-2 rounded-lg bg-emerald-50 border border-emerald-200/80 flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-700 text-[18px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-label-sm text-label-sm font-bold text-emerald-900">Course Rating 71.4 Valid</p>
+<p class="text-[11px] text-emerald-800/90">Tee selection &amp; date timestamp Oct 18, 2024 conform to draw window.</p>
+</div>
+</div>
+<div class="p-2 rounded-lg bg-emerald-50 border border-emerald-200/80 flex items-start gap-2">
+<span class="material-symbols-outlined text-emerald-700 text-[18px] shrink-0 mt-0.5" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<div>
+<p class="font-label-sm text-label-sm font-bold text-emerald-900">Zero Duplicate Entries</p>
+<p class="text-[11px] text-emerald-800/90">Scorecard hash #SC-0921-99 is unique across Digital Heroes network.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Fiduciary Disbursement Breakdown & Banking Module -->
+<div class="bg-surface-container-lowest rounded-2xl p-space-md lg:p-space-lg border border-outline-variant/30 shadow-sm">
+<div class="flex items-center justify-between mb-3 pb-2 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">account_balance</span>
+<h3 class="font-title-md text-title-md font-bold text-primary">Fiduciary Disbursement Breakdown</h3>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-mono text-[11px] font-bold">
+                Escrow Settlement Account: Wells Fargo #WF-9004
+              </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Accounting Ledger Breakdown -->
+<div class="space-y-2 p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 text-xs">
+<div class="flex justify-between items-center text-on-surface">
+<span>Gross Prize Pool (3 Match Share):</span>
+<span class="font-bold text-primary">₹5,000.00</span>
+</div>
+<div class="flex justify-between items-center text-on-surface-variant">
+<span class="flex items-center gap-1">
+                    Mandatory 10% Tithe (Highland Dunes):
+                    <span class="material-symbols-outlined text-[14px] text-secondary">volunteer_activism</span>
+</span>
+<span class="font-mono text-error font-medium">-₹500.00</span>
+</div>
+<p class="text-[10px] text-outline pl-1">
+                  → Routed to Highland Dunes Youth Endowment Escrow #HD-4482
+                </p>
+<div class="pt-2 border-t border-outline-variant/40 flex justify-between items-center font-bold text-primary text-sm">
+<span>Net Member Disbursement:</span>
+<span class="font-headline-sm text-headline-sm text-[17px] text-primary">₹4,500.00</span>
+</div>
+</div>
+<!-- Beneficiary Settlement Route -->
+<div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-outline block mb-1">Destination Route &amp; Verification</span>
+<div class="flex items-center gap-2.5 mt-1">
+<div class="w-8 h-8 rounded-lg bg-surface-container-lowest border border-outline-variant/40 flex items-center justify-center font-bold text-primary text-xs">
+                      HDFC
+                    </div>
+<div>
+<p class="font-label-md text-label-md font-bold text-primary">HDFC Bank Limited</p>
+<p class="font-mono text-[12px] text-outline">A/C •••• 4491 (IFSC: HDFC0001094)</p>
+</div>
+</div>
+</div>
+<div class="mt-2.5 flex items-center gap-1.5 text-xs text-emerald-800 bg-emerald-100/60 p-1.5 rounded-lg border border-emerald-300">
+<span class="material-symbols-outlined text-[16px] text-emerald-700" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Penny Drop Confirmed (Julian R. Vance Match 100%)</span>
+</div>
+</div>
+</div>
+<!-- Admin Compliance Audit Note Input -->
+<div class="mt-4 pt-3 border-t border-outline-variant/20">
+<label class="block font-label-sm text-label-sm font-bold uppercase tracking-wider text-outline mb-1.5" for="audit-notes">
+                Auditor Ledger Attestation Notes
+              </label>
+<div class="relative">
+<input class="w-full px-3.5 py-2 rounded-xl bg-surface-container-lowest border border-outline-variant text-body-sm font-body-sm text-on-surface focus:ring-1 focus:ring-primary focus:border-primary" id="audit-notes" type="text" value="WHS Scottish Golf API validated round ID #SG-99124. Marker identity confirmed with club secretary."/>
+<span class="absolute right-3 top-2 text-[11px] font-mono text-outline">Signed: AV-6821</span>
+</div>
+</div>
+<!-- Decision & Settlement Action Bar -->
+<div class="mt-5 pt-4 border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<!-- Dropdown Trigger for Rejection -->
+<div class="relative inline-block text-left">
+<button class="px-3.5 py-2 rounded-full border border-error/40 text-error hover:bg-error-container/30 transition-colors font-label-md text-label-md flex items-center gap-1 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">cancel</span>
+<span>Reject Claim</span>
+<span class="material-symbols-outlined text-[14px]">expand_more</span>
+</button>
+</div>
+<button class="px-3.5 py-2 rounded-full border border-outline-variant hover:bg-surface-container text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">flag</span>
+<span>Flag for Review</span>
+</button>
+</div>
+<div class="flex items-center gap-2.5">
+<button class="px-4 py-2 rounded-full border border-primary text-primary hover:bg-primary/5 transition-colors font-label-md text-label-md flex items-center gap-1 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]">check</span>
+<span>Approve Attestation</span>
+</button>
+<button class="px-5 py-2 rounded-full bg-primary-container text-white hover:bg-primary font-label-md text-label-md shadow-sm transition-all flex items-center gap-1.5 active:scale-[0.98]">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">lock_open</span>
+<span>Disburse Net ₹4,500 via Escrow</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Bottom Navigation Bar (Shared Component Anchor for Tablet/Mobile Viewport) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-space-margin-mobile py-space-xs pb-safe lg:hidden bg-surface/90 backdrop-blur-md border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(13,46,36,0.06)]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 font-label-sm text-label-sm hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">casino</span>
+<span>Draws</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 font-label-sm text-label-sm hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">sports_score</span>
+<span>Scores</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 font-label-sm text-label-sm hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">volunteer_activism</span>
+<span>Impact</span>
+</a>
+<!-- Active Mobile Item -->
+<a class="flex flex-col items-center justify-center text-primary bg-secondary-container/50 rounded-xl px-3 py-1 font-semibold font-label-sm text-label-sm" href="#">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">trophy</span>
+<span>Winnings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 font-label-sm text-label-sm hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span>Profile</span>
+</a>
+</nav>
+</body></html>

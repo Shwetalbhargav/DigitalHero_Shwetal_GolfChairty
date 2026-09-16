@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Review &amp; Checkout | Digital Heroes</title>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#707974",
+            "on-primary-container": "#8abda9",
+            "on-surface": "#151d19",
+            "surface-bright": "#f3fcf5",
+            "surface": "#f3fcf5",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#dbaa53",
+            "secondary-container": "#c4e8d8",
+            "inverse-on-surface": "#eaf3ec",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "primary-fixed-dim": "#9ed1bd",
+            "surface-container-highest": "#dce5de",
+            "outline-variant": "#c0c9c3",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "error": "#ba1a1a",
+            "surface-tint": "#376757",
+            "inverse-primary": "#9ed1bd",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#abcebf",
+            "tertiary": "#3f2a00",
+            "surface-variant": "#dce5de",
+            "on-primary-fixed": "#002117",
+            "background": "#f3fcf5",
+            "secondary": "#456559",
+            "surface-container": "#e7f0e9",
+            "primary": "#003629",
+            "surface-container-low": "#edf6ef",
+            "inverse-surface": "#2a322e",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#c7eadb",
+            "on-primary-fixed-variant": "#1d4f40",
+            "primary-container": "#1b4d3e",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed": "#002117",
+            "primary-fixed": "#baeed9",
+            "on-surface-variant": "#404945",
+            "on-background": "#151d19",
+            "on-error": "#ffffff",
+            "on-secondary-container": "#49695d",
+            "tertiary-fixed": "#ffdeaa",
+            "tertiary-container": "#5c3f00",
+            "surface-dim": "#d3dcd6",
+            "tertiary-fixed-dim": "#f1be65",
+            "surface-container-high": "#e2eae4",
+            "on-tertiary-fixed": "#271900"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "margin": "3rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "body-md": ["Plus Jakarta Sans", "sans-serif"],
+            "title-md": ["Outfit", "sans-serif"],
+            "label-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "body-sm": ["Plus Jakarta Sans", "sans-serif"],
+            "label-md": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-lg": ["Outfit", "sans-serif"],
+            "headline-sm": ["Outfit", "sans-serif"],
+            "body-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "headline-xl-mobile": ["Outfit", "sans-serif"],
+            "headline-md": ["Outfit", "sans-serif"],
+            "headline-xl": ["Outfit", "sans-serif"],
+            "label-lg": ["Plus Jakarta Sans", "sans-serif"],
+            "display-lg-mobile": ["Outfit", "sans-serif"],
+            "display-lg": ["Outfit", "sans-serif"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-glass {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-full flex flex-col antialiased selection:bg-secondary-container selection:text-primary">
+<!-- Top Persistent Simulated Banner -->
+<aside aria-label="Simulation Notice" class="w-full bg-primary text-surface-container-low px-space-md py-space-xs text-center border-b border-primary-container z-50">
+<div class="max-w-7xl mx-auto flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed text-[18px]" style="font-variation-settings: 'FILL' 1;">science</span>
+<span class="font-label-md text-label-md tracking-wide">
+        Simulated Sandbox Environment • UI-Only Demo • Zero Real Financial Charges
+      </span>
+<span class="hidden md:inline-flex items-center px-2 py-0.5 rounded-full bg-primary-container text-[10px] font-semibold text-primary-fixed border border-primary-fixed-dim/20 ml-2">
+        TEST MODE
+      </span>
+</div>
+</aside>
+<!-- Top Navigation Bar (Shared Component JSON faithfully mapped) -->
+<header class="bg-surface/85 dark:bg-primary/85 backdrop-blur-md text-primary dark:text-primary-fixed docked full-width top sticky z-40 border-b border-outline-variant/30 dark:border-outline/20 shadow-sm">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<!-- Brand Logo & Slogan Anchor -->
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2 group focus:outline-none" href="#">
+<div class="w-9 h-9 rounded-xl bg-primary-container flex items-center justify-center text-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-[22px]">golf_course</span>
+</div>
+<div>
+<span class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed tracking-tight block">Digital Heroes</span>
+</div>
+</a>
+<span class="hidden sm:inline-block text-outline-variant/70 text-sm">|</span>
+<span class="hidden sm:inline-block font-label-md text-label-md text-on-surface-variant font-medium tracking-normal">Feel, not fairway</span>
+</div>
+<!-- Navigation Links (Web Desktop) -->
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-lg text-label-lg" href="#">Draws</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-lg text-label-lg" href="#">Scorecard</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-lg text-label-lg" href="#">Impact</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors font-label-lg text-label-lg" href="#">Winnings</a>
+</nav>
+<!-- Trailing Action Pill & Icons -->
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container/70 border border-secondary-fixed text-primary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span>Impact: $14,250</span>
+</div>
+<button aria-label="Notifications" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high/60 transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<div class="flex items-center gap-2 pl-1 border-l border-outline-variant/40">
+<button aria-label="Account" class="flex items-center gap-2 rounded-full p-1 hover:bg-surface-container-high/60 transition-colors" type="button">
+<span class="material-symbols-outlined text-[26px] text-primary">account_circle</span>
+<span class="hidden lg:inline text-label-md font-label-md text-on-surface font-medium pr-1">Julian V.</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas: Centered 12-column Desktop Checkout Container -->
+<main class="flex-grow max-w-7xl w-full mx-auto px-space-md md:px-space-lg lg:px-space-xl py-8 md:py-12">
+<!-- Progress Indicator / Step Breadcrumbs -->
+<section aria-label="Checkout Progress" class="mb-8">
+<div class="flex items-center justify-between max-w-3xl">
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary-container text-surface-container-lowest text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant hidden sm:inline">Handicap Sync</span>
+</div>
+<span class="w-8 h-px bg-outline-variant"></span>
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary-container text-surface-container-lowest text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="text-body-sm font-body-sm text-on-surface-variant hidden sm:inline">Cause Allocation</span>
+</div>
+<span class="w-8 h-px bg-primary-container"></span>
+<div class="flex items-center gap-2">
+<span class="flex items-center justify-center w-6 h-6 rounded-full bg-primary text-primary-fixed text-label-sm font-label-sm ring-4 ring-secondary-container">
+              3
+            </span>
+<span class="font-label-md text-label-md font-semibold text-primary">Step 3 of 3: Payment &amp; Ballot Verification</span>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-1.5 text-secondary text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+<span>256-Bit SSL Escrow Protocol</span>
+</div>
+</div>
+</section>
+<!-- Page Header -->
+<header class="mb-8">
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight">Complete Your Membership.</h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant mt-1 max-w-3xl">
+        Activate monthly handicap tracking, prize ballot entries, and philanthropic links restoration.
+      </p>
+</header>
+<!-- Asymmetric 2-Column Checkout Layout (7 cols / 5 cols) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: Main Form & Card Simulation (Col span 7) -->
+<section class="lg:col-span-7 space-y-6">
+<!-- Interactive Simulated Payment Card Form -->
+<div class="custom-glass rounded-2xl border border-outline-variant/50 p-6 md:p-8 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="flex items-center justify-between pb-5 border-b border-outline-variant/30 mb-6">
+<div class="flex items-center gap-2.5">
+<span class="material-symbols-outlined text-primary text-[24px]">credit_card</span>
+<h2 class="text-title-md font-title-md text-primary">Simulated Payment Method</h2>
+</div>
+<!-- Card Brand Logos -->
+<div class="flex items-center gap-1.5">
+<span class="px-2 py-1 rounded bg-surface-container-high text-[11px] font-bold text-on-surface border border-outline-variant/40">VISA</span>
+<span class="px-2 py-1 rounded bg-surface-container-high text-[11px] font-bold text-on-surface border border-outline-variant/40">MC</span>
+<span class="px-2 py-1 rounded bg-surface-container-high text-[11px] font-bold text-on-surface border border-outline-variant/40">AMEX</span>
+</div>
+</div>
+<!-- Pre-loaded Demo Notice Box -->
+<div class="mb-6 bg-surface-container-low rounded-xl p-3.5 border border-secondary-container flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">info</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+<strong class="font-semibold text-primary">Demo Card pre-loaded.</strong> Click Authorize to test transaction lifecycle. No actual charge will be executed against your financial institution.
+            </p>
+</div>
+<form class="space-y-5" id="checkout-form" onsubmit="event.preventDefault(); handleAuthorize();">
+<!-- Cardholder Name -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface-variant mb-1.5" for="cardholder-name">
+                Cardholder Name
+              </label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-3 text-body-md font-body-md text-on-surface focus:border-primary-container focus:ring-4 focus:ring-primary-container/10 transition-all outline-none" id="cardholder-name" name="cardholderName" required="" type="text" value="Julian Vance"/>
+<span class="absolute right-3.5 top-3.5 text-secondary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</span>
+</div>
+</div>
+<!-- Card Number (Simulated) -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface-variant mb-1.5 flex items-center justify-between" for="card-number">
+<span>Simulated Card Number</span>
+<span class="text-label-sm font-label-sm text-secondary font-medium">Sandbox Verified</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-3 pl-11 text-body-md font-body-md tracking-wider text-on-surface focus:border-primary-container focus:ring-4 focus:ring-primary-container/10 transition-all outline-none font-mono" id="card-number" name="cardNumber" readonly="" type="text" value="•••• •••• •••• 4491"/>
+<span class="absolute left-3.5 top-3.5 text-primary">
+<span class="material-symbols-outlined text-[20px]">credit_card</span>
+</span>
+<span class="absolute right-3.5 top-3.5 flex items-center gap-1 text-primary-container font-label-sm text-[11px] font-semibold bg-secondary-container px-2 py-0.5 rounded">
+                  SANDBOX
+                </span>
+</div>
+</div>
+<!-- Expiry & CVV Grid -->
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-label-md font-label-md text-on-surface-variant mb-1.5" for="card-expiry">
+                  Expiration Date
+                </label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-3 text-body-md font-body-md text-on-surface focus:border-primary-container focus:ring-4 focus:ring-primary-container/10 transition-all outline-none" id="card-expiry" name="cardExpiry" required="" type="text" value="09/27"/>
+<span class="absolute right-3.5 top-3.5 text-outline">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+</span>
+</div>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface-variant mb-1.5 flex items-center justify-between" for="card-cvv">
+<span>Security Code (CVV)</span>
+<span class="material-symbols-outlined text-[15px] text-outline" title="3-digit card verification value">help_outline</span>
+</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-3 pl-10 text-body-md font-body-md text-on-surface tracking-widest focus:border-primary-container focus:ring-4 focus:ring-primary-container/10 transition-all outline-none font-mono" id="card-cvv" maxlength="4" name="cardCvv" required="" type="password" value="•••"/>
+<span class="absolute left-3.5 top-3.5 text-outline">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+</span>
+</div>
+</div>
+</div>
+<!-- Jurisdiction & Postal / ZIP -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+<div>
+<label class="block text-label-md font-label-md text-on-surface-variant mb-1.5" for="billing-jurisdiction">
+                  Billing Jurisdiction
+                </label>
+<div class="relative">
+<select class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-3 text-body-md font-body-md text-on-surface focus:border-primary-container focus:ring-4 focus:ring-primary-container/10 transition-all outline-none appearance-none cursor-pointer pr-10" id="billing-jurisdiction" name="billingJurisdiction">
+<option selected="" value="scotland">United Kingdom (Scotland)</option>
+<option value="england">United Kingdom (England &amp; Wales)</option>
+<option value="usa">United States (Domestic)</option>
+<option value="ireland">Ireland (All-Island)</option>
+<option value="other">Other International Links Hub</option>
+</select>
+<span class="absolute right-3.5 top-3.5 text-outline pointer-events-none">
+<span class="material-symbols-outlined text-[20px]">expand_more</span>
+</span>
+</div>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface-variant mb-1.5" for="postal-code">
+                  Postal / ZIP Code
+                </label>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-3 text-body-md font-body-md text-on-surface focus:border-primary-container focus:ring-4 focus:ring-primary-container/10 transition-all outline-none uppercase font-mono" id="postal-code" name="postalCode" required="" type="text" value="EH39 5HT"/>
+</div>
+</div>
+<!-- Reassurance Notes -->
+<div class="pt-4 border-t border-outline-variant/30 space-y-2.5">
+<div class="flex items-start gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">verified_user</span>
+<span>100% Non-Custodial Charity Tithe Escrow verified via <strong>Scottish Land Trust</strong>.</span>
+</div>
+<div class="flex items-start gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">autorenew</span>
+<span>Monthly recurrence at <strong>$19.00 USD</strong>. Cancel or pause anytime with 1-click in member settings.</span>
+</div>
+<div class="flex items-start gap-2 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">lock_clock</span>
+<span>Ballot numbers allocated instantly upon successful authorization signature.</span>
+</div>
+</div>
+<!-- Primary CTA Action Button -->
+<div class="pt-4">
+<button class="w-full py-4 px-6 rounded-full bg-primary-container text-surface-container-lowest font-title-md text-title-md font-semibold tracking-wide hover:bg-primary transition-all duration-150 transform active:scale-[0.99] shadow-md hover:shadow-lg flex items-center justify-center gap-3 group" id="submit-btn" type="submit">
+<span>Authorize &amp; Continue to Payment ($19.00/mo)</span>
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+<div class="hidden mt-3 p-3 bg-secondary-container rounded-xl text-center text-primary text-body-sm font-body-sm font-medium" id="simulated-success-msg">
+                ✓ Simulation handshake approved. Forwarding to ballot ledger receipt...
+              </div>
+</div>
+</form>
+</div>
+<!-- Ambient Philanthropy Note under Form -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container/60 border border-outline-variant/30 text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">nature_people</span>
+<span>All contributions audit-tracked via open coastal links ledger.</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">ZERO HIDDEN TRANSACTION FEES</span>
+</div>
+</section>
+<!-- RIGHT COLUMN: Order & Subscription Allocation Summary (Col span 5) -->
+<aside aria-label="Subscription Summary" class="lg:col-span-5 space-y-6">
+<!-- Summary Card Container -->
+<div class="custom-glass rounded-2xl border border-outline-variant/50 p-6 md:p-8 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)] sticky top-24">
+<!-- Plan Header with Restrained Gold Badge -->
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/30">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant block uppercase tracking-wider">Membership Tier</span>
+<h2 class="text-headline-sm font-headline-sm text-primary mt-0.5">Monthly Hero</h2>
+</div>
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-tertiary-fixed text-tertiary font-label-sm text-label-sm font-bold tracking-wider shadow-sm">
+              MONTHLY HERO
+            </span>
+</div>
+<!-- Hero Image & Philanthropy Callout Module -->
+<div class="mt-5 rounded-xl overflow-hidden border border-outline-variant/40 bg-surface-container-low">
+<div class="relative h-28 w-full overflow-hidden">
+<img class="w-full h-full object-cover object-center" data-alt="Sweeping panoramic photograph of Scottish coastal golf links at North Berwick with native marram grass undulating in the soft morning breeze, golden hour sunlight reflecting off the Firth of Forth, captured with architectural stillness in modern organic minimalism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBXECtwv0ocDk3HanldoPdTy9_qcUs1p-ZVg_Ap2owwWjWJag1ezP9TeqWifxjB4-qOZE9H8t2OrJ422Po-AqNt4OWsZFxg-aApcl-OhkVGeDUZKdHmt0TotMhwsZwkhz41DAx__aSZmzYiq2jkljK5nAJoSnOLijh3VfQ429rkHxeJPwCd-iLGE5hgWSq2ZJt99zEr2lQRYO_guOq9g5Y8JMwvmAVUJYEIEqUAOYK2I_DSv4VsRg5dQ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
+<span class="absolute bottom-2.5 left-3 px-2.5 py-0.5 rounded-full bg-surface-container-lowest/90 text-primary text-label-sm font-label-sm font-semibold flex items-center gap-1 backdrop-blur-sm">
+<span class="material-symbols-outlined text-[13px] text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+                Verified Beneficiary
+              </span>
+</div>
+<div class="p-4 space-y-2">
+<div class="flex items-start justify-between">
+<div>
+<h3 class="font-title-md text-title-md text-primary leading-tight">Highland Dunes Native Restoration</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">East Lothian Coastal Links Conservancy</p>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container text-body-sm font-body-sm text-primary flex items-center gap-2 border border-secondary-fixed/50">
+<span class="material-symbols-outlined text-secondary text-[18px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span><strong>15% Pledge ($2.85/mo)</strong> direct marram grass planting &amp; sand dune stabilization.</span>
+</div>
+</div>
+</div>
+<!-- Prize-pool / Ballot Summary Module -->
+<div class="mt-5 p-4 rounded-xl bg-surface-container-high/60 border border-outline-variant/40 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-primary font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]" style="font-variation-settings: 'FILL' 1;">confirmation_number</span>
+                Ballot Allocation
+              </span>
+<span class="text-label-sm font-label-sm font-bold px-2 py-0.5 rounded bg-primary text-surface-container-lowest">
+                5 ENTRIES
+              </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+<strong class="text-primary font-semibold">5 Verified Stableford Ballot Entries</strong> reserved immediately for the upcoming <strong>October 31 Escrow Draw</strong> ($250,000 Verified Prize Pool).
+            </p>
+<!-- Ticket Chips Mockup -->
+<div class="flex items-center gap-1.5 pt-1">
+<span class="w-8 h-8 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center font-label-sm text-label-sm font-bold shadow-sm">#41</span>
+<span class="w-8 h-8 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center font-label-sm text-label-sm font-bold shadow-sm">#42</span>
+<span class="w-8 h-8 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center font-label-sm text-label-sm font-bold shadow-sm">#43</span>
+<span class="w-8 h-8 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center font-label-sm text-label-sm font-bold shadow-sm">#44</span>
+<span class="w-8 h-8 rounded-full bg-secondary-container text-primary flex items-center justify-center font-label-sm text-label-sm font-bold border border-primary-container/20">#45</span>
+<span class="text-body-sm font-body-sm text-outline ml-2">+ locked</span>
+</div>
+</div>
+<!-- Financial Breakdown Table -->
+<div class="mt-6 pt-5 border-t border-outline-variant/40 space-y-3">
+<div class="flex justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span>Core Platform &amp; Handicap Analytics</span>
+<span class="font-medium text-on-surface">$16.15</span>
+</div>
+<div class="flex justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span class="flex items-center gap-1">
+                Direct Highland Dunes Tithe (15%)
+                <span class="material-symbols-outlined text-[14px] text-secondary">help_outline</span>
+</span>
+<span class="font-medium text-primary">$2.85</span>
+</div>
+<div class="flex justify-between text-body-sm font-body-sm text-on-surface-variant">
+<span>Escrow Registration &amp; Ballot Stamping</span>
+<span class="font-semibold text-secondary">Included</span>
+</div>
+<div class="pt-3 border-t border-outline-variant/40 flex justify-between items-baseline">
+<div>
+<span class="text-title-md font-title-md text-primary block">Total Payable Today</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Billed Monthly • Automated Renewal</span>
+</div>
+<div class="text-right">
+<span class="text-headline-md font-headline-md text-primary font-bold tracking-tight">$19.00</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant block">USD</span>
+</div>
+</div>
+</div>
+<!-- Security Badges Footer Cluster -->
+<div class="mt-6 pt-5 border-t border-outline-variant/30 grid grid-cols-3 gap-2 text-center">
+<div class="p-2 rounded-xl bg-surface-container-low flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">encrypted</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-1 leading-tight">Encrypted Sandbox</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">policy</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-1 leading-tight">14-Day Full Refund</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container-low flex flex-col items-center justify-center">
+<span class="material-symbols-outlined text-primary text-[20px]">verified</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-1 leading-tight">OSCR Aligned</span>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Grounded Minimalist Desktop Footer -->
+<footer class="mt-auto border-t border-outline-variant/40 bg-surface-container-low text-on-surface-variant text-body-sm font-body-sm py-8">
+<div class="max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="font-headline-sm font-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+<span class="text-outline-variant">/</span>
+<span>© 2025 Digital Heroes Links Society. Non-custodial escrow compliant under UK &amp; Scottish trust legislation.</span>
+</div>
+<div class="flex items-center space-x-6 text-label-md font-label-md">
+<a class="hover:text-primary transition-colors" href="#">Trust Ledger</a>
+<a class="hover:text-primary transition-colors" href="#">Fair Draw Protocol</a>
+<a class="hover:text-primary transition-colors" href="#">Privacy Governance</a>
+<a class="hover:text-primary transition-colors" href="#">Help &amp; Support</a>
+</div>
+</div>
+</footer>
+<!-- Micro-interaction Script for Interactive Demo Feedback -->
+<script>
+    function handleAuthorize() {
+      const btn = document.getElementById('submit-btn');
+      const msg = document.getElementById('simulated-success-msg');
+      
+      btn.disabled = true;
+      btn.classList.add('opacity-75', 'cursor-not-allowed');
+      btn.innerHTML = `
+        <span class="material-symbols-outlined animate-spin text-[20px]">sync</span>
+        <span>Verifying Ballot Signature...</span>
+      `;
+
+      setTimeout(() => {
+        btn.innerHTML = `
+          <span class="material-symbols-outlined text-[20px]">check_circle</span>
+          <span>Payment Authorized</span>
+        `;
+        btn.classList.remove('bg-primary-container', 'hover:bg-primary');
+        btn.classList.add('bg-secondary');
+        msg.classList.remove('hidden');
+      }, 1200);
+    }
+  </script>
+</body></html>

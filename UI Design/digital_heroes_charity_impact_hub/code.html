@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Heroes - Charity &amp; Impact Hub</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "inverse-surface": "#2a322e",
+            "on-primary-container": "#8abda9",
+            "secondary": "#456559",
+            "primary-container": "#1b4d3e",
+            "secondary-fixed-dim": "#abcebf",
+            "inverse-primary": "#9ed1bd",
+            "on-secondary-container": "#49695d",
+            "tertiary-container": "#5c3f00",
+            "on-tertiary-fixed": "#271900",
+            "outline": "#707974",
+            "primary": "#003629",
+            "background": "#f3fcf5",
+            "surface-bright": "#f3fcf5",
+            "error": "#ba1a1a",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "on-surface": "#151d19",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed": "#c7eadb",
+            "on-primary": "#ffffff",
+            "surface-container": "#e7f0e9",
+            "on-error-container": "#93000a",
+            "primary-fixed-dim": "#9ed1bd",
+            "primary-fixed": "#baeed9",
+            "secondary-container": "#c4e8d8",
+            "surface-variant": "#dce5de",
+            "on-secondary-fixed": "#002117",
+            "surface-container-high": "#e2eae4",
+            "inverse-on-surface": "#eaf3ec",
+            "surface-container-highest": "#dce5de",
+            "on-primary-fixed": "#002117",
+            "error-container": "#ffdad6",
+            "surface": "#f3fcf5",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "tertiary-fixed": "#ffdeaa",
+            "surface-tint": "#376757",
+            "on-secondary": "#ffffff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary-container": "#dbaa53",
+            "on-error": "#ffffff",
+            "surface-dim": "#d3dcd6",
+            "on-surface-variant": "#404945",
+            "on-background": "#151d19",
+            "tertiary": "#3f2a00",
+            "surface-container-low": "#edf6ef",
+            "tertiary-fixed-dim": "#f1be65",
+            "on-primary-fixed-variant": "#1d4f40",
+            "outline-variant": "#c0c9c3"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem",
+            "gutter": "1.5rem",
+            "margin-mobile": "1.25rem",
+            "margin": "3rem"
+          },
+          "fontFamily": {
+            "headline-md": ["Outfit"],
+            "headline-xl-mobile": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Outfit"],
+            "display-lg-mobile": ["Outfit"],
+            "headline-xl": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "title-md": ["Outfit"]
+          },
+          "fontSize": {
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(230, 237, 232, 0.4);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #c0c9c3;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased selection:bg-secondary-container selection:text-primary min-h-screen">
+<!-- Application Shell Wrapper -->
+<div class="flex min-h-screen w-full bg-background overflow-x-hidden">
+<!-- DESKTOP SIDEBAR (SideNavBar Component as Defined in Shared Components JSON) -->
+<aside class="hidden lg:flex flex-col justify-between h-screen p-space-md w-64 shrink-0 bg-surface dark:bg-primary border-r border-outline-variant/30 dark:border-outline/20 docked left top-0 bottom-0 h-screen fixed z-30">
+<div class="flex flex-col gap-6">
+<!-- Logo & Header -->
+<div class="px-space-sm pt-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-primary-fixed shadow-sm">
+<span class="material-symbols-outlined text-2xl" data-icon="sports_golf">sports_golf</span>
+</div>
+<div>
+<h1 class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed tracking-tight">Digital Heroes</h1>
+<p class="text-body-sm font-body-sm text-secondary">Feel, not fairway</p>
+</div>
+</div>
+</div>
+<!-- Primary Action Callout -->
+<button class="w-full py-2.5 px-4 bg-primary text-on-primary rounded-xl font-label-md text-label-md flex items-center justify-center gap-2 hover:bg-primary/90 active:scale-[0.98] transition-all shadow-sm">
+<span class="material-symbols-outlined text-lg" data-icon="edit_note">edit_note</span>
+<span>Log Stableford Round</span>
+</button>
+<!-- Navigation Tabs (Charity Impact Active) -->
+<nav class="flex flex-col gap-1.5">
+<!-- Monthly Draws -->
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-primary-container/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="casino">casino</span>
+<span class="text-label-md font-label-md">Monthly Draws</span>
+</a>
+<!-- Scorecard -->
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-primary-container/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="sports_score">sports_score</span>
+<span class="text-label-md font-label-md">Scorecard</span>
+</a>
+<!-- Charity Impact (ACTIVE) -->
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl bg-primary-container text-on-primary-container dark:bg-secondary-container dark:text-on-secondary-fixed font-semibold" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="volunteer_activism" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span class="text-label-md font-label-md text-white font-semibold">Charity Impact</span>
+</a>
+<!-- Winnings -->
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-primary-container/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="trophy">trophy</span>
+<span class="text-label-md font-label-md">Winnings</span>
+</a>
+<!-- Membership -->
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-primary-container/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="card_membership">card_membership</span>
+<span class="text-label-md font-label-md">Membership</span>
+</a>
+</nav>
+</div>
+<!-- Footer Nav Cluster -->
+<div class="flex flex-col gap-1 pt-4 border-t border-outline-variant/30">
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="settings">settings</span>
+<span class="text-label-md font-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="help_outline">help_outline</span>
+<span class="text-label-md font-label-md">Help &amp; Support</span>
+</a>
+<div class="mt-3 p-3 bg-surface-container-low rounded-xl flex items-center gap-3 border border-outline-variant/40">
+<div class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-primary font-bold text-xs">
+            JV
+          </div>
+<div class="truncate">
+<p class="text-label-sm font-label-sm text-on-surface truncate">Julian Vance</p>
+<p class="text-[10px] text-secondary font-medium">Founding Member #1042</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- MAIN APP CANVAS -->
+<div class="flex-1 lg:ml-64 flex flex-col min-w-0">
+<!-- TOP NAVBAR (TopNavBar Component as Defined in Shared Components JSON) -->
+<header class="bg-surface/85 dark:bg-primary/85 backdrop-blur-md sticky top-0 z-40 border-b border-outline-variant/30 dark:border-outline/20 shadow-sm">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<!-- Mobile Brand & Title (Hidden on desktop) -->
+<div class="flex items-center gap-3 lg:hidden">
+<span class="material-symbols-outlined text-2xl text-primary" data-icon="sports_golf">sports_golf</span>
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+</div>
+<!-- Desktop Navigation Links Cluster -->
+<div class="hidden md:flex items-center space-x-6">
+<span class="text-label-md font-label-md text-secondary font-medium uppercase tracking-wider text-[11px]">Member Portal &amp; Escrow</span>
+<div class="h-4 w-px bg-outline-variant/40"></div>
+<!-- Escrow Trust Indicator Badge -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/50 text-primary">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="verified_user" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-label-sm font-label-sm font-semibold tracking-normal text-on-surface">Audited Fiduciary Escrow Active</span>
+</div>
+</div>
+<!-- Trailing Primary Action & Icons -->
+<div class="flex items-center gap-3 sm:gap-4">
+<!-- Cumulative Community Impact Pill -->
+<div class="flex items-center gap-2 bg-primary text-on-primary px-3.5 py-1.5 rounded-full shadow-sm">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-base" data-icon="eco" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="text-label-sm font-label-sm text-primary-fixed-dim">Community Escrow:</span>
+<span class="text-label-md font-label-md font-bold text-on-primary tracking-tight">$14,250 Pledged</span>
+</div>
+<!-- Notification Action -->
+<button aria-label="Notifications" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high/60 transition-colors relative">
+<span class="material-symbols-outlined text-xl" data-icon="notifications">notifications</span>
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim absolute top-2 right-2 ring-2 ring-surface"></span>
+</button>
+<!-- User Profile Avatar Pill -->
+<div class="flex items-center gap-2 pl-2 sm:border-l sm:border-outline-variant/40">
+<div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center font-title-md text-xs font-semibold shadow-inner">
+                JV
+              </div>
+<div class="hidden sm:block text-left">
+<div class="text-label-md font-label-md text-primary font-semibold leading-tight">Julian Vance</div>
+<div class="text-[10px] text-secondary font-medium">Handicap: 8.4</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- PAGE CONTENT CONTAINER -->
+<main class="flex-1 px-4 sm:px-6 lg:px-10 py-8 max-w-7xl mx-auto w-full space-y-12">
+<!-- HEADER HERO STRIP: Dignified Mission Banner -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2 border-b border-outline-variant/30">
+<div>
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-secondary-container/60 text-primary mb-2.5">
+<span class="material-symbols-outlined text-sm" data-icon="balance">balance</span>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-[10px] font-bold">100% Tax Deductible &amp; Verifiable</span>
+</div>
+<h1 class="text-headline-xl font-headline-xl text-primary tracking-tight">Charity &amp; Impact Hub</h1>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl mt-1">
+              "Feel, not fairway." Direct your automatic subscription allocation and draw winnings toward restorative ecology, youth caddie tuition, and adaptive sports trusts.
+            </p>
+</div>
+<!-- Quick Status Snapshot -->
+<div class="flex items-center gap-3">
+<a class="px-4 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/60 text-primary font-label-md text-label-md transition-all flex items-center gap-2 shadow-sm" href="#directory-section">
+<span class="material-symbols-outlined text-base" data-icon="explore">explore</span>
+<span>Discover All Charities</span>
+</a>
+<button class="px-4 py-2.5 rounded-full bg-primary text-on-primary font-label-md text-label-md hover:bg-primary/95 transition-all shadow-sm flex items-center gap-2" onclick="document.getElementById('change-charity-modal').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-base" data-icon="volunteer_activism">volunteer_activism</span>
+<span>Manage Pledge</span>
+</button>
+</div>
+</section>
+<!-- SECTION 1: "My Active Charity & Impact Stewardship" (Bento Showcase) -->
+<section class="space-y-6">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary font-bold">Designated Beneficiary</span>
+<h2 class="text-headline-md font-headline-md text-primary">My Active Stewardship</h2>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              Active Beneficiary for Oct 2024
+            </span>
+</div>
+<!-- Hero Grid: Card + Controls + Metrics -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Active Hero Card (7 Cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest rounded-3xl border border-outline-variant/50 overflow-hidden shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)] flex flex-col justify-between">
+<div>
+<!-- Cover Photography -->
+<div class="relative h-64 w-full overflow-hidden bg-primary">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 hover:scale-105" data-alt="Breathtaking coastal Scottish links golf dunes at golden hour with wild native Marram grass swaying in the gentle breeze, pristine ocean tide line, soft organic lighting, editorial documentary photography in deep botanical emerald greens and warm earthy ivory hues." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB_oFoQYbGz5tdyllU_c7vf3haPcajCdgKBdH9_Xuo3Iwr6FmcZHvXiQGzyQPFlmqbeUrTfvFdipn-gmTx0HpGl8g0rE-dtsJnwpD-0zMEqscxmJxTq45e0-DKSppG8AdD7HeHSzlG0aubKlkloWdTOyqMl-Z4Z21EnDkS2s8MC45icvEP9LZfPf3bMyS5Ah-L3NLfTizam4cWLgUn1MdwdLsGluy9FGnJLLdNbFjdpvHFzDSfdCkhw7w')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/30 to-transparent"></div>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="px-3 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-label-sm font-bold flex items-center gap-1.5 border border-outline-variant/30 shadow-sm">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+                      Scottish Land Trust No. 4482
+                    </span>
+<span class="px-3 py-1 rounded-full bg-primary-container/80 backdrop-blur-md text-primary-fixed font-label-sm text-label-sm font-semibold">
+                      501(c)(3) Reciprocal
+                    </span>
+</div>
+<div class="absolute bottom-4 left-4 right-4 text-white">
+<span class="text-primary-fixed font-label-sm uppercase tracking-widest text-[11px] font-bold">Ecological &amp; Coastal Preservation</span>
+<h3 class="text-headline-lg font-headline-lg text-white mt-0.5">Highland Dunes Native Restoration</h3>
+</div>
+</div>
+<!-- Card Body -->
+<div class="p-6 md:p-8 space-y-6">
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                    Protecting fragile seaside links ecosystems across the North Sea coastline through replanting indigenous Marram grasses, stabilizing dunes against erosion, and ensuring golf courses thrive in harmonious balance with maritime wildlife.
+                  </p>
+<!-- Stewardship Impact Stats Row -->
+<div class="grid grid-cols-3 gap-4 pt-4 border-t border-outline-variant/30">
+<div class="bg-surface-container-low p-4 rounded-2xl border border-outline-variant/30">
+<span class="text-label-sm font-label-sm text-secondary block mb-1">Lifetime Contributed</span>
+<span class="text-headline-sm font-headline-sm text-primary font-bold tracking-tight">$680.00</span>
+<span class="text-[11px] text-on-surface-variant block mt-0.5">14 consecutive months</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl border border-outline-variant/30">
+<span class="text-label-sm font-label-sm text-secondary block mb-1">Dunes Restored</span>
+<span class="text-headline-sm font-headline-sm text-primary font-bold tracking-tight">1.4 Hectares</span>
+<span class="text-[11px] text-on-surface-variant block mt-0.5">Dornoch coastline</span>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl border border-outline-variant/30">
+<span class="text-label-sm font-label-sm text-secondary block mb-1">Marram Stems</span>
+<span class="text-headline-sm font-headline-sm text-primary font-bold tracking-tight">12,400</span>
+<span class="text-[11px] text-on-surface-variant block mt-0.5">Hand-planted by volunteers</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="px-6 py-4 bg-surface-container-low/60 border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-3">
+<button class="text-label-md font-label-md text-secondary hover:text-primary font-semibold flex items-center gap-1.5 transition-colors" onclick="document.getElementById('change-charity-modal').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-lg" data-icon="swap_horiz">swap_horiz</span>
+<span>Change Charity Partner</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/50 text-primary font-label-md text-label-md transition-colors" onclick="document.getElementById('oneoff-modal').classList.toggle('hidden')">
+                    Make One-Off Tax Donation
+                  </button>
+<a class="px-4 py-2 rounded-full bg-primary-container text-white hover:bg-primary transition-colors font-label-md text-label-md flex items-center gap-1.5" href="#charity-spotlight">
+<span>View Full Audit</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Live Contribution Controls & Computation Engine (5 Cols) -->
+<div class="lg:col-span-5 flex flex-col justify-between bg-surface-container-lowest rounded-3xl border border-outline-variant/50 p-6 md:p-8 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<h3 class="text-title-md font-title-md text-primary">Contribution Allocation</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed/60 text-tertiary-container font-label-sm text-label-sm font-bold">
+                    Escrow Verified
+                  </span>
+</div>
+<div class="p-4 rounded-2xl bg-secondary-container/20 border border-secondary-container/50 flex items-start gap-3">
+<span class="material-symbols-outlined text-primary text-xl mt-0.5" data-icon="info">info</span>
+<div class="text-body-sm font-body-sm text-on-surface-variant">
+                    Your baseline allocation automatically tithes monthly club dues plus a percentage of any member draw jackpots straight to this verified charity.
+                  </div>
+</div>
+<!-- Current Active Selection Visual -->
+<div class="space-y-2">
+<label class="text-label-md font-label-md text-primary font-semibold block">
+                    Subscription Giving Rate
+                  </label>
+<div class="grid grid-cols-4 gap-2">
+<button class="py-2.5 rounded-xl border border-outline-variant/60 font-label-md text-label-md hover:border-primary transition-all text-on-surface-variant">
+                      10% <span class="block text-[10px] text-secondary">Min</span>
+</button>
+<button class="py-2.5 rounded-xl bg-primary-container text-white font-label-md text-label-md font-semibold ring-2 ring-primary-container ring-offset-2 transition-all">
+                      15% <span class="block text-[10px] text-primary-fixed-dim">Active</span>
+</button>
+<button class="py-2.5 rounded-xl border border-outline-variant/60 font-label-md text-label-md hover:border-primary transition-all text-on-surface-variant">
+                      20% <span class="block text-[10px] text-secondary">Booster</span>
+</button>
+<button class="py-2.5 rounded-xl border border-outline-variant/60 font-label-md text-label-md hover:border-primary transition-all text-on-surface-variant">
+                      25% <span class="block text-[10px] text-secondary">Patron</span>
+</button>
+</div>
+</div>
+<!-- Interactive Range Slider Simulation -->
+<div class="space-y-3 pt-2">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-secondary font-medium">Draw Jackpot Tithe</span>
+<span class="font-headline-sm font-headline-sm text-primary font-bold">10% of Winnings</span>
+</div>
+<input class="w-full accent-primary h-2 bg-surface-container-highest rounded-lg cursor-pointer" max="30" min="5" type="range" value="10"/>
+<div class="flex justify-between text-[11px] text-secondary">
+<span>5% (Ethical Standard)</span>
+<span>15% (Guardian)</span>
+<span>30% (Benefactor)</span>
+</div>
+</div>
+<!-- Real-time computation card -->
+<div class="bg-surface-container-low p-4 rounded-2xl border border-outline-variant/40 space-y-2">
+<div class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Calculated Monthly Impact</div>
+<div class="flex items-baseline justify-between">
+<span class="text-display-lg-mobile font-headline-lg text-primary font-bold">$2.85<span class="text-body-sm font-body-sm font-normal text-secondary"> / month</span></span>
+<span class="text-label-sm font-label-sm text-secondary">+ 10% draw match</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-[12px] leading-relaxed">
+                    Based on your $19/mo Digital Heroes Club Membership. At current pace, this directly funds planting 180 new Marram grassroots every 30 days.
+                  </p>
+</div>
+</div>
+<!-- Button CTA -->
+<div class="pt-6">
+<button class="w-full py-3.5 px-6 rounded-full bg-primary hover:bg-primary/95 active:scale-[0.98] text-white font-label-lg text-label-lg transition-all shadow-md flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-xl" data-icon="savings">savings</span>
+<span>Increase Monthly Contribution</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Immutable Contribution Ledger Table -->
+<div class="bg-surface-container-lowest rounded-3xl border border-outline-variant/50 p-6 md:p-8 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)] space-y-5">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<h3 class="text-title-md font-title-md text-primary">Immutable Impact Ledger &amp; Audited Tax Receipts</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Permanent record of non-custodial cryptographic tithes and Gift Aid certifications.</p>
+</div>
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container hover:bg-surface-container-high text-primary font-label-md text-label-md border border-outline-variant/50 transition-colors self-start sm:self-auto">
+<span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+<span>Download Annual Tax Summary (PDF)</span>
+</button>
+</div>
+<div class="overflow-x-auto custom-scrollbar">
+<table class="w-full text-left border-collapse text-body-sm font-body-sm">
+<thead>
+<tr class="border-b border-outline-variant/40 text-secondary text-label-sm font-label-sm uppercase tracking-wider">
+<th class="py-3 px-4">Date</th>
+<th class="py-3 px-4">Ledger Type</th>
+<th class="py-3 px-4">Beneficiary</th>
+<th class="py-3 px-4">Transaction Ref</th>
+<th class="py-3 px-4 text-right">Amount</th>
+<th class="py-3 px-4 text-center">Audited Receipt</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20">
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4 text-on-surface font-medium">Oct 01, 2024</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container/40 text-primary text-[11px] font-semibold">
+                        Subscription 15%
+                      </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface">Highland Dunes Native Restoration</td>
+<td class="py-3.5 px-4 font-mono text-[12px] text-secondary">0x8f2d...c34b</td>
+<td class="py-3.5 px-4 text-right font-headline-sm font-headline-sm text-primary font-bold">$2.85</td>
+<td class="py-3.5 px-4 text-center">
+<a class="inline-flex items-center gap-1 text-primary hover:underline text-label-sm font-label-sm font-semibold" href="#">
+<span class="material-symbols-outlined text-base" data-icon="receipt_long">receipt_long</span>
+<span>Form 501(c)(3)</span>
+</a>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4 text-on-surface font-medium">Sep 15, 2024</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-tertiary-fixed/60 text-tertiary-container text-[11px] font-semibold">
+                        Draw Tithe 10% Match
+                      </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface">Highland Dunes Native Restoration</td>
+<td class="py-3.5 px-4 font-mono text-[12px] text-secondary">0x1a7e...98df</td>
+<td class="py-3.5 px-4 text-right font-headline-sm font-headline-sm text-primary font-bold">$50.00</td>
+<td class="py-3.5 px-4 text-center">
+<a class="inline-flex items-center gap-1 text-primary hover:underline text-label-sm font-label-sm font-semibold" href="#">
+<span class="material-symbols-outlined text-base" data-icon="receipt_long">receipt_long</span>
+<span>Gift Aid / SC4482</span>
+</a>
+</td>
+</tr>
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-3.5 px-4 text-on-surface font-medium">Sep 01, 2024</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container/40 text-primary text-[11px] font-semibold">
+                        Subscription 15%
+                      </span>
+</td>
+<td class="py-3.5 px-4 text-on-surface">Highland Dunes Native Restoration</td>
+<td class="py-3.5 px-4 font-mono text-[12px] text-secondary">0x4c99...e210</td>
+<td class="py-3.5 px-4 text-right font-headline-sm font-headline-sm text-primary font-bold">$2.85</td>
+<td class="py-3.5 px-4 text-center">
+<a class="inline-flex items-center gap-1 text-primary hover:underline text-label-sm font-label-sm font-semibold" href="#">
+<span class="material-symbols-outlined text-base" data-icon="receipt_long">receipt_long</span>
+<span>Form 501(c)(3)</span>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- SECTION 2: "Charity Directory & Cause Discovery" -->
+<section class="space-y-6 pt-6" id="directory-section">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary font-bold">Vetted Grassroots Network</span>
+<h2 class="text-headline-lg font-headline-lg text-primary">Discover Grassroots Golf Causes</h2>
+</div>
+<p class="text-body-sm font-body-sm text-secondary max-w-md">
+              Every charity is strictly audited for fiscal governance, direct field impact, and transparent reporting.
+            </p>
+</div>
+<!-- Search and Filter Cluster -->
+<div class="bg-surface-container-lowest rounded-2xl p-4 border border-outline-variant/40 space-y-4 shadow-sm">
+<div class="flex flex-col md:flex-row gap-3">
+<!-- Search Bar -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-secondary text-xl" data-icon="search">search</span>
+<input class="w-full pl-11 pr-4 py-2.5 bg-surface-container-low border border-outline-variant/50 rounded-xl text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 placeholder:text-secondary/70" placeholder="Search grassroots causes, environmental trusts, or youth academies..." type="text"/>
+</div>
+<!-- Filter Dropdowns -->
+<div class="flex flex-wrap gap-2">
+<select class="px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/50 rounded-xl text-label-md font-label-md text-primary font-medium focus:outline-none focus:border-primary">
+<option>Region: All Regions</option>
+<option>Scotland &amp; Highlands</option>
+<option>Rest of United Kingdom</option>
+<option>Global International</option>
+</select>
+<select class="px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/50 rounded-xl text-label-md font-label-md text-primary font-medium focus:outline-none focus:border-primary">
+<option>Impact Score: Top Tier Audited</option>
+<option>Platinum (98%+)</option>
+<option>Gold Vetted</option>
+</select>
+<select class="px-3.5 py-2.5 bg-surface-container-low border border-outline-variant/50 rounded-xl text-label-md font-label-md text-primary font-medium focus:outline-none focus:border-primary">
+<option>Funding Need: All Levels</option>
+<option>Urgent Winter Need</option>
+<option>Equip Capital Drive</option>
+</select>
+</div>
+</div>
+<!-- Category Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 custom-scrollbar">
+<button class="px-4 py-1.5 rounded-full bg-primary text-white text-label-md font-label-md whitespace-nowrap shadow-sm">
+                All Causes
+              </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface-variant text-label-md font-label-md whitespace-nowrap transition-colors">
+                Environment &amp; Links
+              </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface-variant text-label-md font-label-md whitespace-nowrap transition-colors">
+                Youth &amp; Caddies
+              </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface-variant text-label-md font-label-md whitespace-nowrap transition-colors">
+                Veterans Wellbeing
+              </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface-variant text-label-md font-label-md whitespace-nowrap transition-colors">
+                Accessible Golf
+              </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface-variant text-label-md font-label-md whitespace-nowrap transition-colors">
+                Scottish Grassroots
+              </button>
+</div>
+</div>
+<!-- Cards Grid (4 Authentic Verified Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1: Highland Dunes (Selected/Active) -->
+<div class="bg-surface-container-lowest rounded-3xl border-2 border-primary-container overflow-hidden shadow-md flex flex-col justify-between relative group">
+<div class="absolute top-3 right-3 z-10">
+<span class="px-3 py-1 rounded-full bg-primary-container text-white text-[11px] font-label-sm font-bold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  Current Choice
+                </span>
+</div>
+<div>
+<div class="h-44 w-full overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Highland coastal golf dunes landscape with deep green sea thrift grasses and distant North Sea water under overcast Scottish sky, natural light, tactile realism, peaceful environmental tone." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAFsnH1icbfdx8cTh88bMqKlMtYqLEBxE5b6KSy0Y4MWqdOIR0ykxuVSxLkWoLymwhiFX4kONMorHkyYCDHDQMBtOSNZKxpz89KVRRcV5T9fyEHInx7Wf6S18n8ZiW-i8QL57atm777PJYID5kkJxJjl9A-gxyBFfQfTPwJ8FEv1U3Zp6jVT5qA_HONrzqNc1Q9BRAjJlo9VK7IrMJDixShy0QjhTByj5jeg_7R6_h3xpJXYQ-bB-MTWA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<span class="text-[10px] uppercase tracking-wider font-semibold text-primary-fixed">Environment &amp; Coastal</span>
+</div>
+</div>
+<div class="p-5 space-y-3">
+<h4 class="text-title-md font-title-md text-primary leading-tight">Highland Dunes Native Restoration</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-3 leading-relaxed">
+                    "Restoring ancestral marram grass ecosystems along vulnerable links coastline against severe tidal surge erosion."
+                  </p>
+<!-- Progress Bar -->
+<div class="space-y-1.5 pt-2">
+<div class="flex justify-between text-[11px]">
+<span class="text-secondary font-medium">Community Funded</span>
+<span class="text-primary font-bold">$48,200 of $60,000</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full w-[80%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-5 pt-0">
+<button class="w-full py-2.5 rounded-full bg-surface-container text-primary font-label-md text-label-md font-semibold hover:bg-surface-container-high transition-colors">
+                  Stewardship Active
+                </button>
+</div>
+</div>
+<!-- Card 2: Fairway Youth Caddie Trust -->
+<div class="bg-surface-container-lowest rounded-3xl border border-outline-variant/50 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div>
+<div class="h-44 w-full overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Young teen caddie in a clean green canvas bib carrying a vintage leather golf bag across morning misty fairway, golden sun rim lighting, authentic portrait photography, calm inspirational mood." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAhzNVc2HL9oDNyB5UmIo8i1IY7fCLFvD42vfJnt1vX4PvgfJJTOpTKGS-KY9ZkVUPC8faEYveAGRRLGR7BzGgJ2uVoJojALU6YGnrAfBSV6-oRZHHwYp-_b2lHI6HsBxbrmkd1FaU00ZiSVuXyBnE7CJiFqg3XtlfFDySf7-sxQ_vEWEOi41sWUt9j7kW-rTdFdLRWg9wpvqQ38W52LejhGWf3Ar71o4kZbBEka9Z7iCqGh_awaww5TA')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<span class="text-[10px] uppercase tracking-wider font-semibold text-tertiary-fixed">Youth &amp; Academies</span>
+</div>
+</div>
+<div class="p-5 space-y-3">
+<h4 class="text-title-md font-title-md text-primary leading-tight">Fairway Youth Caddie Trust</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-3 leading-relaxed">
+                    "Breaking systemic barriers through mentorship, caddie academies, and secondary school scholarships."
+                  </p>
+<!-- Progress Bar -->
+<div class="space-y-1.5 pt-2">
+<div class="flex justify-between text-[11px]">
+<span class="text-secondary font-medium">Community Funded</span>
+<span class="text-primary font-bold">$65,000 raised</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-[92%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-5 pt-0 flex gap-2">
+<a class="flex-1 py-2.5 rounded-full bg-primary-container text-white text-center font-label-md text-label-md hover:bg-primary transition-colors" href="#charity-spotlight">
+                  Inspect &amp; Select
+                </a>
+</div>
+</div>
+<!-- Card 3: Veterans Golf & PTSD Recovery -->
+<div class="bg-surface-container-lowest rounded-3xl border border-outline-variant/50 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div>
+<div class="h-44 w-full overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Military veteran practicing swing mechanics beside an empathetic coach on an expansive Scottish links course, early morning mist, dignified and restorative atmosphere, muted sage and green tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBikTzFy1oqhR6auBciSgxojBOuYf-Kge4l6RSkrAVKcipC7ksqXBWBv3-Xe8P1-I8VA3-c_cO5CQLrQAgUyg2fpmWGIrfvfb0u-9bTEqgW_eTZmzGeRVWP4WDFbl5hCk7S02GOm46xeMsZdvJZbbtvu5NPg1oeaSkDIRiBNX7virgfW8BItRaN4WppPZJPe2hKh_CS34cx92AruLJO_6zn09YlzMg00lk5zu5bf_npUmgCSsIisNSKhw')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<span class="text-[10px] uppercase tracking-wider font-semibold text-secondary-fixed">Veterans Wellbeing</span>
+</div>
+</div>
+<div class="p-5 space-y-3">
+<h4 class="text-title-md font-title-md text-primary leading-tight">Veterans Golf &amp; PTSD Recovery</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-3 leading-relaxed">
+                    "Therapeutic trauma-informed links programs providing mindfulness, somatic recovery, and fellowship for combat veterans."
+                  </p>
+<!-- Progress Bar -->
+<div class="space-y-1.5 pt-2">
+<div class="flex justify-between text-[11px]">
+<span class="text-secondary font-medium">Community Funded</span>
+<span class="text-primary font-bold">$32,000 raised</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-[64%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-5 pt-0">
+<button class="w-full py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/50 text-primary font-label-md text-label-md transition-colors" onclick="document.getElementById('change-charity-modal').classList.toggle('hidden')">
+                  Select Cause
+                </button>
+</div>
+</div>
+<!-- Card 4: Adaptive Greens Initiative -->
+<div class="bg-surface-container-lowest rounded-3xl border border-outline-variant/50 overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between group">
+<div>
+<div class="h-44 w-full overflow-hidden relative">
+<div class="w-full h-full bg-cover bg-center group-hover:scale-105 transition-transform duration-500" data-alt="Adaptive golfer using an engineered specialized all-terrain solo rider golf mobility cart on a green fairway, sunlit natural setting, modern engineering meets athletic empowerment, clean documentary aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA1d_w7K8zwbnUaLRUo49ohFuKEOelwoM8MQHi6aqZ4KqzTSyOmh2DebVbJAKk84zKesVj3j59YEEm2SkGd6eGoIc4pGdnPxrzWgkP625wsD5iyuNO_uMY5fVP8nzgRI_ttd7bldZ7cH4b2IyzDIZnmHQkHBR2lDy3DvF-aVMjymLoJQ9lqz_WKzdVlpgCtYCNY7qPUqgIlFaKDeBrT5zh9Q9ptDIw-dkedmFxXadSf8C-Ox-NocxgLsQ')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="absolute bottom-3 left-3 text-white">
+<span class="text-[10px] uppercase tracking-wider font-semibold text-primary-fixed">Accessible Sport</span>
+</div>
+</div>
+<div class="p-5 space-y-3">
+<h4 class="text-title-md font-title-md text-primary leading-tight">Adaptive Greens Initiative</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant line-clamp-3 leading-relaxed">
+                    "Financing specialized all-terrain SoloRider carts and adaptive club technology for disabled golfers across regional courses."
+                  </p>
+<!-- Progress Bar -->
+<div class="space-y-1.5 pt-2">
+<div class="flex justify-between text-[11px]">
+<span class="text-secondary font-medium">Community Funded</span>
+<span class="text-primary font-bold">$28,500 raised</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-[57%]"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="p-5 pt-0">
+<button class="w-full py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high border border-outline-variant/50 text-primary font-label-md text-label-md transition-colors" onclick="document.getElementById('change-charity-modal').classList.toggle('hidden')">
+                  Select Cause
+                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: "Charity Spotlight & Deep-Dive Drawer / Detail View" -->
+<section class="space-y-6 pt-6" id="charity-spotlight">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary font-bold">Featured Investigation</span>
+<h2 class="text-headline-md font-headline-md text-primary">Cause Deep Dive: Fairway Youth Caddie Trust</h2>
+</div>
+<span class="text-label-sm font-label-sm text-secondary">Registered Charity: SC051289</span>
+</div>
+<div class="bg-surface-container-lowest rounded-3xl border border-outline-variant/50 overflow-hidden shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<!-- Hero Header with Rich Cover -->
+<div class="relative h-72 md:h-80 w-full overflow-hidden bg-primary">
+<div class="w-full h-full bg-cover bg-center" data-alt="A panoramic wide angle view of an authentic youth caddie academy session on the St. Andrews links practice grounds, diverse students attentively learning green-reading techniques under the guidance of a veteran mentor, cinematic atmospheric sunlight." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBd0yCkqmYmk9hXmuJaaB2QXtu3UpA1sTn5NFt33CoaXlibydgu54009i78VITd6EzRLhDW14R_WjOeHMLv-EHxqv48W3pWj98jWrTUEGLJ1pdKwtl2tFTM1WIBa58wIJ8ByDf913r-cRaCPcQ9KP6RMh_Avf5qKwpmJyKjCh9FVlLQrcsRKC7w_VLr2mfga71kfSOqEXfJuomjCWVvZXWUeLyxouE3sd_-h3NoYPuu5RQfi9N80fNbAg')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary via-primary/40 to-transparent"></div>
+<div class="absolute bottom-6 left-6 right-6 flex flex-col md:flex-row md:items-end justify-between gap-4 text-white">
+<div class="space-y-2 max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-lowest/80 backdrop-blur-md text-primary text-label-sm font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="school">school</span>
+                    Education &amp; Vocational Pathway
+                  </div>
+<h3 class="text-headline-xl font-headline-xl text-white">Fairway Youth Caddie Trust</h3>
+<p class="text-body-md font-body-md text-surface-container-high text-sm md:text-base">
+                    "Breaking systemic barriers through mentorship, caddie academies, and secondary school scholarships."
+                  </p>
+</div>
+<div class="flex flex-wrap gap-2 shrink-0">
+<button class="px-5 py-3 rounded-full bg-primary-fixed text-on-primary-fixed font-label-md text-label-md font-bold hover:bg-white transition-all shadow-md flex items-center gap-2" onclick="document.getElementById('change-charity-modal').classList.toggle('hidden')">
+<span class="material-symbols-outlined text-lg" data-icon="swap_horiz">swap_horiz</span>
+<span>Switch Active Charity to This Partner</span>
+</button>
+<button class="px-5 py-3 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-md text-label-md hover:bg-white transition-all shadow-sm" onclick="document.getElementById('oneoff-modal').classList.toggle('hidden')">
+                    Donate Independently
+                  </button>
+</div>
+</div>
+</div>
+<!-- Deep Dive Content Grid -->
+<div class="p-6 md:p-10 space-y-8">
+<!-- Visual Impact Metrics Banner -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl bg-secondary-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-3xl" data-icon="groups">groups</span>
+</div>
+<div>
+<span class="text-headline-md font-headline-md text-primary font-bold block">240+</span>
+<span class="text-body-sm font-body-sm text-secondary">Underprivileged Youth Sponsored</span>
+</div>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl bg-primary-container flex items-center justify-center text-primary-fixed shrink-0">
+<span class="material-symbols-outlined text-3xl" data-icon="workspace_premium">workspace_premium</span>
+</div>
+<div>
+<span class="text-headline-md font-headline-md text-primary font-bold block">94%</span>
+<span class="text-body-sm font-body-sm text-secondary">Academy Graduation Rate</span>
+</div>
+</div>
+<div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/30 flex items-center gap-4">
+<div class="w-14 h-14 rounded-2xl bg-tertiary-fixed flex items-center justify-center text-tertiary shrink-0">
+<span class="material-symbols-outlined text-3xl" data-icon="payments">payments</span>
+</div>
+<div>
+<span class="text-headline-md font-headline-md text-primary font-bold block">$1.2M</span>
+<span class="text-body-sm font-body-sm text-secondary">Career Earnings Generated</span>
+</div>
+</div>
+</div>
+<!-- Two Column Narrative & Gallery -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-4">
+<!-- Left: Cause Mission & Methodology -->
+<div class="lg:col-span-7 space-y-5">
+<h4 class="text-headline-sm font-headline-sm text-primary">Theory of Change: The Links as Classroom</h4>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                    Founded in 2018, the Fairway Youth Caddie Trust provides structured 16-week training modules pairing teens from historically under-resourced public housing regions with elite caddie masters across Fife and the Lothians.
+                  </p>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+                    Beyond green reading and bag carrying, students learn interpersonal mediation, personal financial literacy, and corporate networking. Every hour looped directly vests into an escrow higher education scholarship matching fund.
+                  </p>
+<!-- Photo Gallery Preview -->
+<div class="space-y-3 pt-4">
+<span class="text-label-md font-label-md text-primary font-semibold block">Field Operations Gallery</span>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+<div class="h-28 rounded-xl overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close-up detail of a teenage youth caddie carefully tending the flagstick on a links green under early morning sun, soft bokeh in background, warm tones." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBZb6UK2zTJiOIHYnidK5PEdU_DnSFHWBeAoq6HUVTdKdURORlY-clBYvnnAjouGFqSYD1owhvdU_LT0tVbU6n0w3O9P7_iCDv2bewidBvoFbNRx-gabyJ9QvzKwf917XCwqgP36jkboKFZ3rjQKUBypyPssumlEP4dXXROluum0mhgQAFTt5kYI2x500GAMKqiNn1ULEkpc79OqfHB-K5GtIjQjok4lE3YvYGEgGu9o_59aKuxZ-U4rw')"></div>
+</div>
+<div class="h-28 rounded-xl overflow-hidden bg-surface-container">
+<div class="w-full h-full bg-cover bg-center" data-alt="An indoor classroom session with young golf students reviewing course strategy maps with an experienced golf professional mentor, modern bright classroom." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDvotg1gs5hG5LzyYjhi5Uapijq0GIrHbp0H9p5YfNCgcFoht1ToH9HBrg5W3WQd7OpYyADJ6VXMAME6WFOMkgykZfX1OEQaNuqt7HpL6qJodvml_3qHff3q9Jugf09h2UhLLzbkIZ__OlEhjKAnAZBuj_u7johTDoLV1W2TdH6xu7Xan9Yd-SobI4WBECn_HWEQilHaVMCZAe4Y1Ao0E_SwG1gEYVo59ELlh3gO726PyvGLXFO8X-Gkw')"></div>
+</div>
+<div class="h-28 rounded-xl overflow-hidden bg-surface-container col-span-2 sm:col-span-1">
+<div class="w-full h-full bg-cover bg-center" data-alt="Graduation ceremony where smiling young youth caddies in navy blazers receive certified diplomas beside their proud families at a traditional golf clubhouse." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA_FJjBoPfhiLmpvSLEMrusrcOZ9i4bBWiT6NQnh3EKHfhzj2InzWL-rjVdaQ-Md0LWyGb5AQSlhyBpWUosARQnmsf5jWkx5nFkFLPQ6bxFom0sP8dCGHy9KHAGMUsBrVFqns5lLlkdoPYdvGVXeGT7FrCpoWmvqImY3oHeF29URlwBHn9lGfSDUsIZy0-eoByvNYNqpR65_2huUnTTkzpjVV1uizoagNpOrQEdW22u-BbB66yefVjcoQ')"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Upcoming Community Events & Governance -->
+<div class="lg:col-span-5 space-y-6">
+<div class="bg-surface-container-low p-6 rounded-2xl border border-outline-variant/40 space-y-4">
+<h4 class="text-title-md font-title-md text-primary">Upcoming Beneficiary Events</h4>
+<div class="space-y-3">
+<!-- Event 1 -->
+<div class="p-3.5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 flex items-start gap-3">
+<div class="px-2.5 py-1.5 rounded-lg bg-secondary-container text-primary font-bold text-center leading-tight">
+<span class="block text-xs uppercase font-label-sm">Nov</span>
+<span class="text-base">14</span>
+</div>
+<div>
+<h5 class="text-label-md font-label-md text-on-surface font-semibold">Annual Autumn Links Pro-Am Invitational</h5>
+<p class="text-body-sm font-body-sm text-secondary text-xs mt-0.5">St. Andrews Eden Course • 18 Holes with Graduate Caddies</p>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="p-3.5 bg-surface-container-lowest rounded-xl border border-outline-variant/30 flex items-start gap-3">
+<div class="px-2.5 py-1.5 rounded-lg bg-surface-container text-primary font-bold text-center leading-tight">
+<span class="block text-xs uppercase font-label-sm">Dec</span>
+<span class="text-base">02</span>
+</div>
+<div>
+<h5 class="text-label-md font-label-md text-on-surface font-semibold">Youth Caddie Mentorship Clinic</h5>
+<p class="text-body-sm font-body-sm text-secondary text-xs mt-0.5">North Berwick Pavilion • Member Volunteers Welcome</p>
+</div>
+</div>
+</div>
+<!-- Vetting Guarantee -->
+<div class="pt-2 border-t border-outline-variant/30 flex items-center gap-2 text-[12px] text-secondary">
+<span class="material-symbols-outlined text-base text-primary" data-icon="shield">shield</span>
+<span>Audited by KPMG Edinburgh • 91.2% direct field pass-through.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BOTTOM MOBILE NAVIGATION (BottomNavBar as Defined in Shared Components JSON) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-space-margin-mobile py-space-xs pb-safe lg:hidden bg-surface/90 dark:bg-primary/90 backdrop-blur-md border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(13,46,36,0.06)] rounded-t-xl">
+<!-- Draws -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="casino">casino</span>
+<span class="text-[11px] font-label-sm mt-0.5">Draws</span>
+</a>
+<!-- Scores -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="sports_score">sports_score</span>
+<span class="text-[11px] font-label-sm mt-0.5">Scores</span>
+</a>
+<!-- Impact (Active) -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed bg-secondary-container/50 dark:bg-secondary/40 rounded-xl px-3 py-1 font-semibold" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="volunteer_activism" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span class="text-[11px] font-label-sm mt-0.5">Impact</span>
+</a>
+<!-- Winnings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="trophy">trophy</span>
+<span class="text-[11px] font-label-sm mt-0.5">Winnings</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="person">person</span>
+<span class="text-[11px] font-label-sm mt-0.5">Profile</span>
+</a>
+</nav>
+</div>
+</div>
+<!-- SECTION 4: MODALS & OVERLAYS -->
+<!-- Change Charity Confirmation Modal / Drawer -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-sm transition-opacity" id="change-charity-modal">
+<div class="bg-surface-container-lowest max-w-lg w-full rounded-3xl border border-outline-variant/50 p-6 md:p-8 shadow-[0_24px_48px_-12px_rgba(13,46,36,0.18)] space-y-6">
+<div class="flex items-start justify-between">
+<div class="w-12 h-12 rounded-2xl bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="swap_horiz">swap_horiz</span>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container text-secondary" onclick="document.getElementById('change-charity-modal').classList.add('hidden')">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Confirm Beneficiary Transition</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">
+          You are preparing to switch your recurring subscription &amp; draw jackpot tithe to <strong>Fairway Youth Caddie Trust</strong>.
+        </p>
+</div>
+<!-- Fiduciary Notice Card -->
+<div class="p-4 rounded-2xl bg-surface-container-low border border-outline-variant/40 space-y-2">
+<div class="flex items-center gap-2 text-primary font-semibold text-label-md">
+<span class="material-symbols-outlined text-base" data-icon="calendar_month">calendar_month</span>
+<span>Effective Date: November 1, 2024</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-[13px] leading-relaxed">
+          Switching charity takes effect on your next monthly billing cycle (Nov 1, 2024). All prior contributions ($680.00) remain permanently vested in Highland Dunes Native Restoration.
+        </p>
+</div>
+<div class="space-y-2">
+<label class="flex items-center gap-3 p-3 rounded-xl border border-outline-variant/40 cursor-pointer hover:bg-surface-container-low transition-colors">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary border-outline" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface">Maintain current giving booster level (15% dues + 10% draw match)</span>
+</label>
+</div>
+<div class="flex flex-col sm:flex-row gap-3 pt-2">
+<button class="flex-1 py-3 rounded-full bg-surface-container text-primary font-label-md text-label-md hover:bg-surface-container-high transition-colors" onclick="document.getElementById('change-charity-modal').classList.add('hidden')">
+          Keep Highland Dunes
+        </button>
+<button class="flex-1 py-3 rounded-full bg-primary text-white font-label-md text-label-md font-semibold hover:bg-primary/90 transition-colors shadow-sm" onclick="alert('Beneficiary switch scheduled for Nov 1, 2024. Confirmation emailed to Julian Vance.'); document.getElementById('change-charity-modal').classList.add('hidden')">
+          Confirm Transition
+        </button>
+</div>
+</div>
+</div>
+<!-- Direct One-Off Tax Donation Modal -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary/40 backdrop-blur-sm" id="oneoff-modal">
+<div class="bg-surface-container-lowest max-w-md w-full rounded-3xl border border-outline-variant/50 p-6 md:p-8 shadow-[0_24px_48px_-12px_rgba(13,46,36,0.18)] space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2 text-primary font-headline-sm font-headline-sm">
+<span class="material-symbols-outlined text-2xl" data-icon="volunteer_activism">volunteer_activism</span>
+<span>Independent Gift</span>
+</div>
+<button class="w-8 h-8 rounded-full flex items-center justify-center hover:bg-surface-container text-secondary" onclick="document.getElementById('oneoff-modal').classList.add('hidden')">
+<span class="material-symbols-outlined" data-icon="close">close</span>
+</button>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+        Make a direct, zero-fee payment processed straight to the verified non-profit escrow account with immediate tax receipt generation.
+      </p>
+<div class="space-y-3">
+<label class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Select Amount (USD)</label>
+<div class="grid grid-cols-3 gap-2">
+<button class="py-2.5 rounded-xl border border-outline-variant/60 font-semibold text-primary hover:border-primary">$25</button>
+<button class="py-2.5 rounded-xl bg-primary text-white font-semibold shadow-sm">$50</button>
+<button class="py-2.5 rounded-xl border border-outline-variant/60 font-semibold text-primary hover:border-primary">$150</button>
+</div>
+<input class="w-full px-4 py-2.5 bg-surface-container-low border border-outline-variant/50 rounded-xl text-body-md font-body-md focus:border-primary" placeholder="Other custom amount..." type="number"/>
+</div>
+<div class="p-3.5 rounded-xl bg-secondary-container/20 border border-secondary-container/50 text-[12px] text-secondary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="lock">lock</span>
+<span>Eligible for UK Gift Aid (+25%) &amp; US 501(c)(3) tax writeoff.</span>
+</div>
+<button class="w-full py-3.5 rounded-full bg-primary hover:bg-primary/95 text-white font-label-md text-label-md font-bold shadow-md" onclick="alert('Thank you Julian! Your audited gift receipt has been delivered.'); document.getElementById('oneoff-modal').classList.add('hidden')">
+        Authorize Escrow Transfer
+      </button>
+</div>
+</div>
+</body></html>

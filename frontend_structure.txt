@@ -1,0 +1,126 @@
+frontend/
+│
+├── src/
+│   │
+│   ├── assets/
+│   │   ├── images/
+│   │   ├── icons/
+│   │   └── logos/
+│   │
+│   ├── components/
+│   │   ├── common/
+│   │   │   ├── Button.jsx
+│   │   │   ├── Input.jsx
+│   │   │   ├── Card.jsx
+│   │   │   ├── Badge.jsx
+│   │   │   ├── Modal.jsx
+│   │   │   ├── Loader.jsx
+│   │   │   ├── EmptyState.jsx
+│   │   │   ├── ErrorState.jsx
+│   │   │   └── SectionTitle.jsx
+│   │   │
+│   │   ├── layout/
+│   │   │   ├── Header.jsx
+│   │   │   ├── Footer.jsx
+│   │   │   ├── PublicLayout.jsx
+│   │   │   ├── DashboardLayout.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   └── MobileNav.jsx
+│   │   │
+│   │   ├── home/
+│   │   │   ├── HeroSection.jsx
+│   │   │   ├── HowItWorks.jsx
+│   │   │   ├── ScoreDemo.jsx
+│   │   │   ├── FeaturedCharities.jsx
+│   │   │   └── PrizePoolPreview.jsx
+│   │   │
+│   │   ├── auth/
+│   │   │   ├── AuthForm.jsx
+│   │   │   └── AuthCard.jsx
+│   │   │
+│   │   ├── charity/
+│   │   │   ├── CharityCard.jsx
+│   │   │   ├── CharityGrid.jsx
+│   │   │   └── CharityFilter.jsx
+│   │   │
+│   │   ├── scores/
+│   │   │   ├── ScoreCard.jsx
+│   │   │   ├── ScoreForm.jsx
+│   │   │   └── ScoreProgress.jsx
+│   │   │
+│   │   ├── draws/
+│   │   │   ├── NumberChip.jsx
+│   │   │   ├── DrawCard.jsx
+│   │   │   ├── DrawComparison.jsx
+│   │   │   └── PrizeTierCard.jsx
+│   │   │
+│   │   └── winners/
+│   │       ├── WinnerCard.jsx
+│   │       └── VerificationTimeline.jsx
+│   │
+│   ├── modules/
+│   │   ├── auth/
+│   │   │   ├── auth.api.js
+│   │   │   ├── auth.context.jsx
+│   │   │   └── auth.utils.js
+│   │   │
+│   │   ├── charities/
+│   │   │   ├── charity.api.js
+│   │   │   └── charity.utils.js
+│   │   │
+│   │   ├── scores/
+│   │   │   └── score.api.js
+│   │   │
+│   │   ├── draws/
+│   │   │   └── draw.api.js
+│   │   │
+│   │   └── winners/
+│   │       └── winner.api.js
+│   │
+│   ├── pages/
+│   │   ├── public/
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── CharityListPage.jsx
+│   │   │   ├── CharityDetailPage.jsx
+│   │   │   ├── LoginPage.jsx
+│   │   │   └── RegisterPage.jsx
+│   │   │
+│   │   ├── dashboard/
+│   │   │   ├── DashboardPage.jsx
+│   │   │   ├── ScoresPage.jsx
+│   │   │   ├── AddScorePage.jsx
+│   │   │   ├── DrawsPage.jsx
+│   │   │   ├── DrawDetailPage.jsx
+│   │   │   ├── WinningsPage.jsx
+│   │   │   ├── MyCharityPage.jsx
+│   │   │   ├── SubscriptionPage.jsx
+│   │   │   └── ProfilePage.jsx
+│   │   │
+│   │   └── admin/
+│   │       ├── AdminDashboardPage.jsx
+│   │       ├── UsersPage.jsx
+│   │       ├── DrawManagementPage.jsx
+│   │       ├── CharityManagementPage.jsx
+│   │       └── WinnersPage.jsx
+│   │
+│   ├── routes/
+│   │   ├── AppRoutes.jsx
+│   │   ├── ProtectedRoute.jsx
+│   │   └── AdminRoute.jsx
+│   │
+│   ├── services/
+│   │   └── api.js
+│   │
+│   ├── hooks/
+│   │   ├── useAuth.js
+│   │   └── useFetch.js
+│   │
+│   ├── constants/
+│   │   └── routes.js
+│   │
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── .env
+├── package.json
+└── vite.config.js

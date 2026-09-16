@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Heroes - Member &amp; Account Recovery Suite</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "tertiary": "#3f2a00",
+            "on-primary-fixed": "#002117",
+            "on-surface": "#151d19",
+            "tertiary-fixed-dim": "#f1be65",
+            "secondary-fixed-dim": "#abcebf",
+            "background": "#f3fcf5",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#d3dcd6",
+            "on-error": "#ffffff",
+            "on-primary-fixed-variant": "#1d4f40",
+            "on-error-container": "#93000a",
+            "on-primary": "#ffffff",
+            "secondary": "#456559",
+            "surface-container-highest": "#dce5de",
+            "surface-container": "#e7f0e9",
+            "on-tertiary": "#ffffff",
+            "primary-fixed": "#baeed9",
+            "inverse-on-surface": "#eaf3ec",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "on-secondary-fixed": "#002117",
+            "surface-container-lowest": "#ffffff",
+            "surface-variant": "#dce5de",
+            "surface-container-high": "#e2eae4",
+            "primary-container": "#1b4d3e",
+            "surface-bright": "#f3fcf5",
+            "inverse-surface": "#2a322e",
+            "on-surface-variant": "#404945",
+            "surface-container-low": "#edf6ef",
+            "primary": "#003629",
+            "tertiary-fixed": "#ffdeaa",
+            "on-primary-container": "#8abda9",
+            "on-tertiary-fixed": "#271900",
+            "inverse-primary": "#9ed1bd",
+            "outline-variant": "#c0c9c3",
+            "secondary-container": "#c4e8d8",
+            "on-secondary-container": "#49695d",
+            "outline": "#707974",
+            "on-background": "#151d19",
+            "surface": "#f3fcf5",
+            "secondary-fixed": "#c7eadb",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "tertiary-container": "#5c3f00",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#dbaa53",
+            "surface-tint": "#376757",
+            "primary-fixed-dim": "#9ed1bd"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "margin": "3rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Outfit"],
+            "headline-xl-mobile": ["Outfit"],
+            "title-md": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-sm": ["Outfit"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "headline-xl": ["Outfit"],
+            "headline-md": ["Outfit"],
+            "headline-lg": ["Outfit"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #c0c9c3;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col antialiased selection:bg-secondary-container selection:text-on-secondary-fixed">
+<!-- Interactive Test Suite Navigation (State Switcher) -->
+<header class="bg-surface-container-low border-b border-outline-variant/30 sticky top-0 z-50 shadow-sm backdrop-blur-md bg-opacity-95">
+<div class="max-w-7xl mx-auto px-space-md py-space-sm flex flex-col md:flex-row items-center justify-between gap-3">
+<div class="flex items-center gap-2.5">
+<span class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-on-primary font-headline-sm font-bold text-sm">DH</span>
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold tracking-tight block">Digital Heroes</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Recovery &amp; Exception Simulator</span>
+</div>
+</div>
+<!-- Horizontal Scrollable State Buttons -->
+<nav aria-label="Suite States" class="flex items-center gap-1.5 overflow-x-auto w-full md:w-auto pb-1 md:pb-0 custom-scrollbar">
+<button class="state-tab px-3 py-1.5 rounded-full font-label-md text-label-md text-primary bg-secondary-container transition-all whitespace-nowrap active:scale-[0.98]" id="tab-state-1" onclick="switchState('state-1')">1. Bad Password</button>
+<button class="state-tab px-3 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all whitespace-nowrap active:scale-[0.98]" id="tab-state-2" onclick="switchState('state-2')">2. Duplicate Email</button>
+<button class="state-tab px-3 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all whitespace-nowrap active:scale-[0.98]" id="tab-state-3" onclick="switchState('state-3')">3. Session Expired</button>
+<button class="state-tab px-3 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all whitespace-nowrap active:scale-[0.98]" id="tab-state-4" onclick="switchState('state-4')">4. Member Gate</button>
+<button class="state-tab px-3 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all whitespace-nowrap active:scale-[0.98]" id="tab-state-5" onclick="switchState('state-5')">5. Suspended</button>
+<button class="state-tab px-3 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all whitespace-nowrap active:scale-[0.98]" id="tab-state-6" onclick="switchState('state-6')">6. No Subscription</button>
+<button class="state-tab px-3 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all whitespace-nowrap active:scale-[0.98]" id="tab-state-7" onclick="switchState('state-7')">7. Renewal Failed</button>
+<button class="state-tab px-3 py-1.5 rounded-full font-label-md text-label-md text-on-surface-variant hover:bg-surface-container transition-all whitespace-nowrap active:scale-[0.98]" id="tab-state-8" onclick="switchState('state-8')">8. Cancelled Plan</button>
+</nav>
+</div>
+</header>
+<!-- Ambient Botanical Glass Container -->
+<main class="flex-grow flex items-center justify-center p-space-md md:p-space-lg relative overflow-hidden">
+<!-- Atmospheric subtle gradient orbs -->
+<div class="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-secondary-fixed/30 blur-3xl pointer-events-none"></div>
+<div class="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-primary-fixed/20 blur-3xl pointer-events-none"></div>
+<div class="w-full max-w-xl mx-auto relative z-10">
+<!-- ========================================================================= -->
+<!-- STATE 1: Invalid Email or Password -->
+<!-- ========================================================================= -->
+<section class="suite-panel block" id="state-1">
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl border border-outline-variant/30 rounded-xl p-6 md:p-8 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<!-- Calm Header & Breadcrumb -->
+<div class="flex items-center justify-between pb-4 border-b border-outline-variant/20 mb-6">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider">Member Sign-in</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Step 1 of 1</span>
+</div>
+<div class="text-center md:text-left mb-6">
+<h1 class="font-headline-lg text-headline-lg text-primary mb-2">Welcome back to the tee</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Access your monthly balloting, handicap logs, and charity impact balance.</p>
+</div>
+<!-- Gentle Terracotta Field Highlight Alert (No alarming neon red) -->
+<div class="bg-error-container/40 border border-error/20 rounded-xl p-4 mb-6 flex items-start gap-3">
+<span class="material-symbols-outlined text-error text-xl shrink-0 mt-0.5" data-icon="lock_reset">lock_reset</span>
+<div>
+<p class="font-label-lg text-label-lg text-on-surface font-semibold">Credentials not recognized</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Please check your email address and password, or use the password recovery link below.</p>
+</div>
+</div>
+<form class="space-y-4" onsubmit="event.preventDefault()">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-1.5">Registered Email</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-error/40 focus:border-error focus:ring-1 focus:ring-error/30 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface outline-none transition-all" type="email" value="marcus.vance@linksclub.co"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-error text-xl" data-icon="error_outline">error_outline</span>
+</div>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="font-label-md text-label-md text-on-surface">Password</label>
+<a class="font-label-sm text-label-sm text-primary hover:text-primary-container font-semibold transition-colors" href="#reset">Forgot password?</a>
+</div>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border border-error/40 focus:border-error focus:ring-1 focus:ring-error/30 rounded-lg px-4 py-2.5 font-body-md text-body-md text-on-surface outline-none transition-all" type="password" value="••••••••••••"/>
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-error text-xl" data-icon="visibility_off">visibility_off</span>
+</div>
+<p class="font-label-sm text-label-sm text-error mt-1.5">Password does not match our current encrypted records.</p>
+</div>
+<div class="pt-2 flex flex-col gap-3">
+<button class="w-full py-3 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2 shadow-sm" type="submit">
+<span>Try Again</span>
+<span class="material-symbols-outlined text-lg" data-icon="refresh">refresh</span>
+</button>
+<div class="text-center pt-2">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Don't have an account yet? </span>
+<a class="font-label-md text-label-md text-primary font-semibold hover:underline" href="#create">Create New Account</a>
+</div>
+</div>
+</form>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 2: Email Already Exists -->
+<!-- ========================================================================= -->
+<section class="suite-panel hidden" id="state-2">
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl border border-outline-variant/30 rounded-xl p-6 md:p-8 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined text-2xl" data-icon="badge">badge</span>
+</div>
+<span class="inline-block px-3 py-1 rounded-full bg-secondary-container/60 text-on-secondary-container font-label-sm text-label-sm mb-3">Onboarding Conflict</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">An account with this email already exists</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            We discovered an active Digital Heroes profile associated with <strong class="text-on-surface font-semibold">clara.thorn@fairways.org</strong>. You don't need to register again.
+          </p>
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/20 mb-6 flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold shrink-0">CT</div>
+<div class="min-w-0 flex-1">
+<p class="font-label-lg text-label-lg text-on-surface truncate">Clara Thorn</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Founding Ballot Holder · Joined Aug 2023</p>
+</div>
+<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+</div>
+<div class="space-y-3">
+<button class="w-full py-3 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span>Sign In with Existing Account</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full py-3 px-6 rounded-full bg-surface-container text-primary font-label-lg text-label-lg hover:bg-surface-container-high active:scale-[0.98] transition-all flex items-center justify-center gap-2 border border-outline-variant/30">
+<span class="material-symbols-outlined text-lg" data-icon="lock_reset">lock_reset</span>
+<span>Reset Password</span>
+</button>
+<button class="w-full py-2.5 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors text-center">
+              Use a different email address
+            </button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 3: Session Expired -->
+<!-- ========================================================================= -->
+<section class="suite-panel hidden" id="state-3">
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl border border-outline-variant/30 rounded-xl p-6 md:p-8 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)] text-center">
+<div class="w-14 h-14 rounded-full bg-surface-container mx-auto flex items-center justify-center text-primary mb-4 border border-outline-variant/20">
+<span class="material-symbols-outlined text-2xl" data-icon="hourglass_empty">hourglass_empty</span>
+</div>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/50 text-on-secondary-container font-label-sm text-label-sm mb-3">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span>Security Inactivity Pause</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Session Timed Out</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto mb-6">
+            For your account security and balloting integrity, your session has timed out. Your previous drafts and Stableford score progress are completely safe.
+          </p>
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/20 text-left mb-6">
+<div class="flex items-center justify-between text-on-surface">
+<span class="font-label-md text-label-md flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base" data-icon="sports_score">sports_score</span>
+                Pinehurst No. 2 Draft Round
+              </span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">14 Holes Saved</span>
+</div>
+</div>
+<div class="space-y-3">
+<button class="w-full py-3 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="fingerprint">fingerprint</span>
+<span>Re-authenticate</span>
+</button>
+<button class="w-full py-3 px-6 rounded-full bg-surface-container text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-all">
+              Return to Home
+            </button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 4: Unauthorized Access (Member Gate) -->
+<!-- ========================================================================= -->
+<section class="suite-panel hidden" id="state-4">
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl border border-outline-variant/30 rounded-xl p-6 md:p-8 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-2xl" data-icon="lock">lock</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/20">Gate 403 · Verified Only</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Member Sanctuary Gate</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            This area is reserved exclusively for verified Digital Heroes members holding an active monthly draw ballot and registered handicap.
+          </p>
+<div class="space-y-3 mb-6">
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5" data-icon="verified">verified</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Preserve Fairway Ballots</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Guaranteed monthly entry into St Andrews, Augusta, and Bandon Dunes packages.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-low border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-lg mt-0.5" data-icon="volunteer_activism">volunteer_activism</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface">Audited Eco-Impact</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Every subscription plants 10 native trees and funds junior club gear.</p>
+</div>
+</div>
+</div>
+<div class="space-y-3">
+<button class="w-full py-3 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span>Upgrade / Join Membership</span>
+<span class="material-symbols-outlined text-lg" data-icon="star">star</span>
+</button>
+<button class="w-full py-3 px-6 rounded-full bg-surface-container text-primary font-label-lg text-label-lg hover:bg-surface-container-high transition-all">
+              Back to Member Dashboard
+            </button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 5: Suspended Account -->
+<!-- ========================================================================= -->
+<section class="suite-panel hidden" id="state-5">
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl border border-outline-variant/30 rounded-xl p-6 md:p-8 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="w-12 h-12 rounded-full bg-error-container/40 flex items-center justify-center text-error mb-4">
+<span class="material-symbols-outlined text-2xl" data-icon="gavel">gavel</span>
+</div>
+<span class="inline-block px-3 py-1 rounded-full bg-error-container/40 text-on-error-container font-label-sm text-label-sm mb-3">Notice: Account On Hold</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Your account is temporarily paused</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            We are conducting a routine verification review regarding score submission discrepancy #DH-4409. Your existing entries and charity contributions remain frozen and protected during this human audit.
+          </p>
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/20 mb-6 space-y-2">
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Review Reference:</span>
+<span class="font-mono text-xs text-on-surface font-semibold">REV-2024-0988</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Assigned Specialist:</span>
+<span class="text-on-surface font-label-sm text-label-sm">Evelyn K. (Fairway Integrity Team)</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-on-surface-variant font-label-sm text-label-sm">Typical Turnaround:</span>
+<span class="text-on-surface font-label-sm text-label-sm">Within 24 business hours</span>
+</div>
+</div>
+<div class="space-y-3">
+<button class="w-full py-3 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="support_agent">support_agent</span>
+<span>Contact Member Concierge</span>
+</button>
+<button class="w-full py-3 px-6 rounded-full bg-surface-container text-on-surface-variant font-label-lg text-label-lg hover:bg-surface-container-high transition-all">
+              Submit Score Card Appeal
+            </button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 6: No Active Subscription -->
+<!-- ========================================================================= -->
+<section class="suite-panel hidden" id="state-6">
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl border border-outline-variant/30 rounded-xl p-6 md:p-8 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl" data-icon="card_membership">card_membership</span>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-sm text-label-sm font-semibold">Standard Explorer Tier</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">No Active Subscription Found</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            Your free account is ready. Activate your monthly membership to enroll in prize draws, unlock peer handicap matching, and direct charitable dividends.
+          </p>
+<!-- Plan Bento Box -->
+<div class="bg-surface-container-low border border-primary/20 rounded-xl p-5 mb-6">
+<div class="flex items-baseline justify-between mb-3">
+<div>
+<span class="font-headline-sm text-headline-sm text-primary font-bold">All-Access Member</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Cancel or pause anytime with zero penalty.</p>
+</div>
+<div class="text-right">
+<span class="font-headline-md text-headline-md text-primary font-bold">$19</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">/mo</span>
+</div>
+</div>
+<ul class="space-y-2 border-t border-outline-variant/20 pt-3 text-on-surface font-body-sm text-body-sm">
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span>
+<span>5 guaranteed ballots in every monthly luxury golf draw</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span>
+<span>$5 automatically donated to junior golf access &amp; nature reserves</span>
+</li>
+<li class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-base" data-icon="check">check</span>
+<span>Official WHS handicap tracking &amp; verified digital scorecard</span>
+</li>
+</ul>
+</div>
+<div class="space-y-3">
+<button class="w-full py-3 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span>Activate Membership ($19/mo)</span>
+<span class="material-symbols-outlined text-lg" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<button class="w-full py-3 px-6 rounded-full bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-all">
+              Explore Free Features
+            </button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 7: Subscription Expired & Renewal Failed -->
+<!-- ========================================================================= -->
+<section class="suite-panel hidden" id="state-7">
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl border border-outline-variant/30 rounded-xl p-6 md:p-8 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<!-- Dignified Grace Period Badge -->
+<div class="flex items-center justify-between mb-4">
+<div class="w-12 h-12 rounded-full bg-error-container/30 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-2xl" data-icon="credit_card_off">credit_card_off</span>
+</div>
+<span class="px-3.5 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>7-Day Grace Period Active</span>
+</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Renewal Payment Unsuccessful</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            Your issuing bank declined the scheduled renewal of $19.00 on your card ending in <span class="font-mono font-semibold text-on-surface">5421</span>. We are holding your draw eligibility safe for the next 6 days.
+          </p>
+<!-- Current Ticket Protection Notice -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/20 mb-6 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary" data-icon="casino">casino</span>
+<div>
+<p class="font-label-md text-label-md text-on-surface font-semibold">Ballot Allocation Protected</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">5 tickets registered for November Draw</p>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Safeguarded</span>
+</div>
+<div class="space-y-3">
+<button class="w-full py-3 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="payment">payment</span>
+<span>Update Payment Method</span>
+</button>
+<button class="w-full py-3 px-6 rounded-full bg-secondary-container text-on-secondary-fixed font-label-lg text-label-lg hover:bg-secondary-container/80 transition-all">
+              Keep My 5 Draw Entries Active
+            </button>
+<button class="w-full py-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors text-center">
+              Remind me tomorrow
+            </button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 8: Cancelled Subscription -->
+<!-- ========================================================================= -->
+<section class="suite-panel hidden" id="state-8">
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl border border-outline-variant/30 rounded-xl p-6 md:p-8 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center text-primary mb-4">
+<span class="material-symbols-outlined text-2xl" data-icon="pause_circle">pause_circle</span>
+</div>
+<span class="inline-block px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm mb-3">Subscription Status: Paused</span>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">We've paused your membership</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">
+            We've paused your monthly draw entries and charity tithe. Re-activate anytime to restore your ballot streak and retain your verified handicap index records.
+          </p>
+<!-- Historical Impact Summary -->
+<div class="grid grid-cols-2 gap-3 mb-6">
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Your Total Impact</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">$140.00</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Donated to Junior Links</p>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Rounds Logged</span>
+<span class="font-headline-md text-headline-md text-primary font-bold">24 Games</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">11.4 Current Handicap</p>
+</div>
+</div>
+<div class="space-y-3">
+<button class="w-full py-3 px-6 rounded-full bg-primary text-on-primary font-label-lg text-label-lg hover:bg-primary-container active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="play_arrow">play_arrow</span>
+<span>Reactivate Plan</span>
+</button>
+<button class="w-full py-3 px-6 rounded-full bg-surface-container text-on-surface font-label-lg text-label-lg hover:bg-surface-container-high transition-all">
+              Manage Data &amp; Preferences
+            </button>
+<button class="w-full py-2 font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors text-center">
+              Download Personal Scorecard Archive
+            </button>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Minimal Brand Footnote -->
+<footer class="py-space-md text-center border-t border-outline-variant/20 bg-surface-container-low/50">
+<div class="max-w-7xl mx-auto px-space-md flex flex-col sm:flex-row items-center justify-between text-on-surface-variant font-label-sm text-label-sm gap-2">
+<span>Digital Heroes · "Feel, not fairway"</span>
+<div class="flex items-center gap-4">
+<a class="hover:text-primary transition-colors" href="#concierge">Member Concierge</a>
+<a class="hover:text-primary transition-colors" href="#privacy">Privacy &amp; Security</a>
+<a class="hover:text-primary transition-colors" href="#terms">Audited Draw Terms</a>
+</div>
+</div>
+</footer>
+<script>
+    function switchState(targetId) {
+      // Hide all panels
+      document.querySelectorAll('.suite-panel').forEach(panel => {
+        panel.classList.add('hidden');
+        panel.classList.remove('block');
+      });
+
+      // Show target panel
+      const targetPanel = document.getElementById(targetId);
+      if (targetPanel) {
+        targetPanel.classList.remove('hidden');
+        targetPanel.classList.add('block');
+      }
+
+      // Update tab styles
+      document.querySelectorAll('.state-tab').forEach(tab => {
+        tab.classList.remove('text-primary', 'bg-secondary-container');
+        tab.classList.add('text-on-surface-variant');
+      });
+
+      const activeTab = document.getElementById('tab-' + targetId);
+      if (activeTab) {
+        activeTab.classList.remove('text-on-surface-variant');
+        activeTab.classList.add('text-primary', 'bg-secondary-container');
+      }
+    }
+  </script>
+</body></html>

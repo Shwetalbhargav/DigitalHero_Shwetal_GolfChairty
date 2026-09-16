@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Heroes - Retry Payment Authorization</title>
+<!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Plus Jakarta Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#002117",
+            "on-primary-container": "#8abda9",
+            "surface-bright": "#f3fcf5",
+            "on-error-container": "#93000a",
+            "surface-dim": "#d3dcd6",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#e2eae4",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "on-secondary-container": "#49695d",
+            "background": "#f3fcf5",
+            "tertiary-fixed-dim": "#f1be65",
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#9ed1bd",
+            "on-tertiary-container": "#dbaa53",
+            "inverse-on-surface": "#eaf3ec",
+            "on-surface-variant": "#404945",
+            "secondary-fixed": "#c7eadb",
+            "surface-container-low": "#edf6ef",
+            "inverse-primary": "#9ed1bd",
+            "on-secondary-fixed": "#002117",
+            "surface-tint": "#376757",
+            "on-surface": "#151d19",
+            "on-primary-fixed-variant": "#1d4f40",
+            "secondary-container": "#c4e8d8",
+            "secondary": "#456559",
+            "surface": "#f3fcf5",
+            "secondary-fixed-dim": "#abcebf",
+            "primary": "#003629",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#c0c9c3",
+            "tertiary-fixed": "#ffdeaa",
+            "surface-container-highest": "#dce5de",
+            "primary-container": "#1b4d3e",
+            "primary-fixed": "#baeed9",
+            "error": "#ba1a1a",
+            "outline": "#707974",
+            "on-background": "#151d19",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "tertiary-container": "#5c3f00",
+            "surface-container": "#e7f0e9",
+            "on-tertiary-fixed": "#271900",
+            "tertiary": "#3f2a00",
+            "surface-variant": "#dce5de",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#2a322e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1.25rem",
+            "space-sm": "0.5rem",
+            "margin": "3rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Outfit"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "display-lg": ["Outfit"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"],
+            "title-md": ["Outfit"]
+          },
+          "fontSize": {
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-secondary-fixed">
+<!-- Top Simulated Sandbox Environment Warning Banner -->
+<div class="bg-primary text-primary-fixed border-b border-outline-variant/20 px-4 py-2 text-center text-label-md font-label-md flex items-center justify-center gap-2 tracking-wide sticky top-0 z-50">
+<span class="inline-block w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+<span>Simulated Sandbox Environment • UI-Only Demo • Zero Real Financial Charges • Test Mode</span>
+</div>
+<!-- Shared Top Navigation Bar (TopNavBar component mapped verbatim) -->
+<header class="bg-surface/85 backdrop-blur-md sticky top-8 z-40 shadow-sm border-b border-outline-variant/30">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<!-- Brand & Context -->
+<div class="flex items-center gap-4">
+<a class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight flex items-center gap-2" href="#">
+<span>Digital Heroes</span>
+</a>
+<span class="hidden md:inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-secondary-container/60 text-primary border border-outline-variant/40">
+          Feel, not fairway
+        </span>
+</div>
+<!-- Center Navigation Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Draws</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Scorecard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Impact</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Winnings</a>
+</nav>
+<!-- Trailing Primary Action & Icon Actions -->
+<div class="flex items-center gap-3">
+<!-- Impact Badge Ticker -->
+<div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-fixed text-label-md font-label-md border border-outline-variant/30">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span class="font-semibold text-primary">Impact: $14,250</span>
+</div>
+<!-- Notifications -->
+<button aria-label="Notifications" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-high/60 transition-colors duration-150 text-on-surface-variant active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<!-- Account Circle / Profile Avatar -->
+<div class="flex items-center gap-2 pl-1 border-l border-outline-variant/30">
+<button aria-label="Golfer profile avatar" class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary font-bold text-label-sm border border-outline-variant/50 hover:ring-2 hover:ring-primary-container transition-all">
+<span class="material-symbols-outlined text-[22px]">account_circle</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-space-md md:px-space-lg lg:px-space-xl py-8">
+<!-- Header Breadcrumbs & Action Notice -->
+<div class="mb-6">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-on-surface-variant mb-2">
+<span>Subscription Flow</span>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-primary font-semibold">Step 4 of 4: Retry Payment Authorization</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="text-headline-xl font-headline-xl text-primary tracking-tight">Complete Membership Setup</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">
+            Resolve your pending authorization to release held prize entries and commit your recurring conservation tithe.
+          </p>
+</div>
+<!-- Urgent/Notice Badge -->
+<div class="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-error-container text-on-error-container border border-error/20 self-start md:self-auto">
+<span class="material-symbols-outlined text-[18px] text-error" style="font-variation-settings: 'FILL' 1;">error</span>
+<span class="text-label-md font-label-md font-semibold">Action Required: Card Declined by Issuer (Do Not Honor)</span>
+</div>
+</div>
+</div>
+<!-- 48-Hour Priority Hold Alert Banner -->
+<div class="mb-8 rounded-2xl bg-surface-container border border-outline-variant/50 p-5 shadow-sm relative overflow-hidden backdrop-blur-md">
+<div class="absolute -right-6 -bottom-6 w-32 h-32 bg-primary-fixed/20 rounded-full blur-2xl pointer-events-none"></div>
+<div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
+<div class="flex items-start gap-3.5">
+<div class="w-10 h-10 rounded-full bg-primary-container text-surface flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">lock_clock</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-title-md font-title-md text-primary font-semibold">48-Hour Ballot Hold Active (Priority Lock)</h2>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-tertiary-fixed text-on-tertiary-fixed font-bold border border-tertiary-fixed-dim">
+                47h 58m REMAINING
+              </span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+              Your 5 Stableford entries for the Oct 31 Draw ($250,000 Major) &amp; Highland Dunes tithe allocation are currently frozen to prevent forfeiture to the public waitlist.
+            </p>
+</div>
+</div>
+<!-- Ballot Chip Preview within Hold -->
+<div class="flex items-center gap-1.5 self-end lg:self-auto bg-surface-container-lowest px-3 py-2 rounded-xl border border-outline-variant/30">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium mr-1">Held Slots:</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-container/70 text-primary font-semibold text-label-sm font-label-sm">#44,821</span>
+<span class="text-on-surface-variant text-label-sm font-label-sm">–</span>
+<span class="px-2 py-0.5 rounded-md bg-secondary-container/70 text-primary font-semibold text-label-sm font-label-sm">#44,825</span>
+<span class="material-symbols-outlined text-[16px] text-primary ml-1" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+</div>
+<!-- 2-Column Bento / Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Payment Form & Sandbox Presets (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- Main Form Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl p-6 md:p-8 shadow-sm">
+<div class="border-b border-outline-variant/30 pb-5 mb-6">
+<h3 class="text-headline-md font-headline-md text-primary tracking-tight">Update Payment Details &amp; Retry</h3>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">
+              Correct card credentials or select an auto-approved sandbox test card below to bypass issuer block.
+            </p>
+</div>
+<!-- Sandbox Simulation Presets -->
+<div class="mb-6">
+<div class="flex items-center justify-between mb-3">
+<label class="text-label-md font-label-md text-primary font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">credit_card</span>
+<span>Select Sandbox Testing Card</span>
+</label>
+<span class="text-label-sm font-label-sm text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">Mock Gateway v3.1</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="sandbox-card-selector">
+<!-- Preset 1 (Active by default) -->
+<button class="text-left p-3.5 rounded-xl border-2 border-primary-container bg-primary-fixed/20 transition-all flex flex-col justify-between relative group" id="card-btn-visa" type="button">
+<div class="flex items-center justify-between w-full mb-2">
+<div class="flex items-center gap-2">
+<span class="font-bold text-label-md font-label-md text-primary">Test Visa (Auto-Approve)</span>
+</div>
+<span class="w-5 h-5 rounded-full bg-primary-container text-white flex items-center justify-center" id="visa-badge">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<div class="font-mono text-body-sm font-body-sm text-primary tracking-wider font-semibold">
+                  4242 •••• •••• 4242
+                </div>
+<div class="flex items-center justify-between mt-2 text-label-sm font-label-sm text-on-surface-variant">
+<span>EXP 12/28</span>
+<span class="text-primary font-medium">Auto-Success</span>
+</div>
+</button>
+<!-- Preset 2 -->
+<button class="text-left p-3.5 rounded-xl border border-outline-variant/50 bg-surface-container-low hover:border-outline transition-all flex flex-col justify-between relative group" id="card-btn-mc" type="button">
+<div class="flex items-center justify-between w-full mb-2">
+<div class="flex items-center gap-2">
+<span class="font-bold text-label-md font-label-md text-on-surface">Test Mastercard</span>
+</div>
+<span class="w-5 h-5 rounded-full border border-outline-variant hidden items-center justify-center" id="mc-badge">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+</div>
+<div class="font-mono text-body-sm font-body-sm text-on-surface-variant tracking-wider">
+                  5555 •••• •••• 4444
+                </div>
+<div class="flex items-center justify-between mt-2 text-label-sm font-label-sm text-on-surface-variant">
+<span>EXP 10/27</span>
+<span class="text-on-surface-variant">Secondary Token</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Payment Form -->
+<form class="space-y-4" id="payment-form" onsubmit="event.preventDefault(); handlePayment();">
+<!-- Cardholder Name -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface font-semibold mb-1.5" for="cardholder">
+                Cardholder Name
+              </label>
+<div class="relative">
+<input class="w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-3.5 py-2.5 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all pl-10" id="cardholder" required="" type="text" value="Julian Vance"/>
+<span class="material-symbols-outlined absolute left-3 top-3 text-[18px] text-outline">person</span>
+</div>
+</div>
+<!-- Card Number -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block text-label-md font-label-md text-on-surface font-semibold" for="card-number">
+                  Card Number
+                </label>
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm text-primary font-medium bg-secondary-container/50 px-2 py-0.5 rounded">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                  Verified Sandbox Test Number
+                </span>
+</div>
+<div class="relative">
+<input class="w-full font-mono rounded-xl border border-outline-variant bg-surface-container-lowest px-3.5 py-2.5 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all pl-10" id="card-number" required="" type="text" value="4242 4242 4242 4242"/>
+<span class="material-symbols-outlined absolute left-3 top-3 text-[18px] text-outline">credit_card</span>
+<span class="absolute right-3.5 top-2.5 font-bold text-label-sm font-label-sm tracking-wider text-on-surface-variant bg-surface-container-high px-1.5 py-0.5 rounded">VISA</span>
+</div>
+</div>
+<!-- Expiry & CVV Row -->
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-label-md font-label-md text-on-surface font-semibold mb-1.5" for="expiry">
+                  Expiration
+                </label>
+<input class="w-full font-mono rounded-xl border border-outline-variant bg-surface-container-lowest px-3.5 py-2.5 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="expiry" placeholder="MM/YY" required="" type="text" value="12/28"/>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block text-label-md font-label-md text-on-surface font-semibold" for="cvv">
+                    Security Code (CVV)
+                  </label>
+<span class="text-label-sm font-label-sm text-outline cursor-help" title="3 digits on back of card">What's this?</span>
+</div>
+<div class="relative">
+<input class="w-full font-mono rounded-xl border border-outline-variant bg-surface-container-lowest px-3.5 py-2.5 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="cvv" maxlength="4" required="" type="password" value="123"/>
+<span class="material-symbols-outlined absolute right-3 top-3 text-[18px] text-outline">lock</span>
+</div>
+</div>
+</div>
+<!-- Billing Jurisdiction -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface font-semibold mb-1.5" for="jurisdiction">
+                Billing Jurisdiction
+              </label>
+<div class="relative">
+<select class="w-full rounded-xl border border-outline-variant bg-surface-container-lowest px-3.5 py-2.5 text-body-md font-body-md text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all appearance-none pr-10" id="jurisdiction">
+<option selected="">United Kingdom (Scotland) • VAT Included</option>
+<option>United Kingdom (England &amp; Wales) • VAT Included</option>
+<option>Ireland (EU) • VAT Included</option>
+<option>United States (International Member)</option>
+<option>Canada (International Member)</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-3 text-[20px] text-outline pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Sandbox Webhook Explanatory Notice -->
+<div class="rounded-xl bg-surface-container-low border border-outline-variant/50 p-3.5 flex items-start gap-2.5 text-body-sm font-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-primary shrink-0 mt-0.5">terminal</span>
+<p>
+                In this simulation, clicking the button triggers a mocked Stripe Webhook event: <code class="font-mono text-primary font-semibold bg-surface-container-highest px-1 py-0.5 rounded text-label-sm">invoice.payment_succeeded</code>. No live banking networks are contacted.
+              </p>
+</div>
+<!-- CTA Primary Button & Cancel Link -->
+<div class="pt-3 space-y-3">
+<button class="w-full py-3.5 px-6 rounded-full bg-primary-container text-surface hover:bg-primary font-semibold text-label-lg font-label-lg shadow-sm hover:translate-y-[-1px] active:scale-[0.98] transition-all flex items-center justify-center gap-2 group cursor-pointer" id="submit-btn" type="submit">
+<span class="material-symbols-outlined text-[20px] group-hover:rotate-180 transition-transform duration-500" id="btn-icon">sync</span>
+<span id="btn-text">Retry Payment Authorization ($19.00/mo)</span>
+</button>
+<div class="text-center">
+<a class="inline-block text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors py-1" href="#">
+                  Cancel &amp; Return to Membership
+                </a>
+</div>
+</div>
+</form>
+</div>
+<!-- Trust Signals Bar -->
+<div class="flex items-center justify-around py-3 px-4 rounded-xl bg-surface-container-low border border-outline-variant/30 text-on-surface-variant text-label-sm font-label-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">shield</span>
+<span>256-Bit Sandbox Security</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">money_off</span>
+<span>No Live Charges Incurred</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<span>Instant Ballot Re-validation</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Order Summary & Purpose Allocation Sidebar (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- Summary Sticky Container -->
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl p-6 shadow-sm flex flex-col gap-6 sticky top-28">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">shopping_bag</span>
+<h3 class="text-title-md font-title-md text-primary font-bold">Membership Allocation</h3>
+</div>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-primary font-semibold text-label-sm font-label-sm">
+              Recurring
+            </span>
+</div>
+<!-- Tier Breakdown -->
+<div class="flex items-start justify-between">
+<div>
+<div class="text-label-lg font-label-lg font-bold text-primary">Monthly Hero Plan</div>
+<div class="text-body-sm font-body-sm text-on-surface-variant">Full handicap tracking &amp; coach reviews</div>
+</div>
+<div class="text-right">
+<span class="text-title-md font-title-md font-bold text-primary">$19.00</span>
+<span class="block text-label-sm font-label-sm text-on-surface-variant">/ month</span>
+</div>
+</div>
+<!-- Purpose Tithe Highlight Card -->
+<div class="rounded-xl bg-surface-container-low border border-outline-variant/40 p-4 relative overflow-hidden">
+<div class="flex items-start gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-container text-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<div class="flex-1">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-bold text-primary">Highland Dunes Tithe (15%)</span>
+<span class="text-label-sm font-label-sm font-bold text-primary">$2.85/mo</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">
+                  Restoring native heather &amp; peatland corridors along coastal Scottish courses.
+                </p>
+<div class="mt-2.5 flex items-center gap-1.5 text-label-sm font-label-sm text-primary font-semibold">
+<span class="material-symbols-outlined text-[14px]">public</span>
+<span>Verified 1% for the Planet Partner</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Prize Ballot Allocation Section -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5 text-label-md font-label-md font-bold text-primary">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">stars</span>
+<span>Monthly Prize Ballot</span>
+</div>
+<span class="text-label-sm font-label-sm font-semibold text-on-surface-variant">5 Guaranteed Entries</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Locked entry tokens assigned to your golfer registry upon successful retry:
+            </p>
+<!-- 5 Ballot Token Chips -->
+<div class="grid grid-cols-5 gap-1.5">
+<div class="rounded-lg bg-surface-container py-2 text-center border border-outline-variant/50">
+<span class="block text-label-sm font-label-sm font-bold text-primary font-mono">#44821</span>
+<span class="text-[9px] uppercase tracking-wider text-outline">Held</span>
+</div>
+<div class="rounded-lg bg-surface-container py-2 text-center border border-outline-variant/50">
+<span class="block text-label-sm font-label-sm font-bold text-primary font-mono">#44822</span>
+<span class="text-[9px] uppercase tracking-wider text-outline">Held</span>
+</div>
+<div class="rounded-lg bg-surface-container py-2 text-center border border-outline-variant/50">
+<span class="block text-label-sm font-label-sm font-bold text-primary font-mono">#44823</span>
+<span class="text-[9px] uppercase tracking-wider text-outline">Held</span>
+</div>
+<div class="rounded-lg bg-surface-container py-2 text-center border border-outline-variant/50">
+<span class="block text-label-sm font-label-sm font-bold text-primary font-mono">#44824</span>
+<span class="text-[9px] uppercase tracking-wider text-outline">Held</span>
+</div>
+<div class="rounded-lg bg-surface-container py-2 text-center border border-outline-variant/50">
+<span class="block text-label-sm font-label-sm font-bold text-primary font-mono">#44825</span>
+<span class="text-[9px] uppercase tracking-wider text-outline">Held</span>
+</div>
+</div>
+</div>
+<!-- Detailed Line Item Cost Breakdown -->
+<div class="border-t border-outline-variant/30 pt-4 space-y-2 text-body-sm font-body-sm">
+<div class="flex justify-between text-on-surface-variant">
+<span>Subtotal</span>
+<span>$19.00</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span class="flex items-center gap-1">
+<span>Charitable Tithe (included)</span>
+<span class="material-symbols-outlined text-[14px] text-outline cursor-help" title="Already factored into tier price">info</span>
+</span>
+<span class="text-primary font-medium">-$2.85</span>
+</div>
+<div class="flex justify-between text-on-surface-variant">
+<span>Applicable Taxes</span>
+<span>$0.00</span>
+</div>
+<div class="border-t border-outline-variant/30 pt-3 flex justify-between items-baseline">
+<div>
+<span class="text-headline-sm font-headline-sm text-primary font-bold">Total Due Today</span>
+<span class="block text-label-sm font-label-sm text-on-surface-variant">Renews on Nov 30, cancel anytime in 1-click.</span>
+</div>
+<div class="text-right">
+<span class="text-headline-lg font-headline-lg text-primary font-bold">$19.00</span>
+</div>
+</div>
+</div>
+<!-- Card Recovery Helper Note -->
+<div class="rounded-lg bg-surface-container p-3 flex items-start gap-2 text-label-sm font-label-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-primary shrink-0 mt-0.5">verified_user</span>
+<span>If the decline persists with a real card, phone your bank to authorize recurring UK charitable sporting subscriptions.</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Desktop Footer -->
+<footer class="mt-auto border-t border-outline-variant/30 bg-surface-container py-8 text-on-surface-variant">
+<div class="max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl flex flex-col md:flex-row items-center justify-between gap-4 text-label-sm font-label-sm">
+<div class="flex items-center gap-3">
+<span class="font-bold text-primary tracking-tight text-body-md font-body-md">Digital Heroes</span>
+<span class="text-outline">|</span>
+<span>Modern Purpose Golf Subscription Platform</span>
+</div>
+<div class="flex flex-wrap items-center gap-6">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms of Ballot Draw</a>
+<a class="hover:text-primary transition-colors" href="#">Charitable Distribution Report</a>
+<span class="text-outline">© 2025 Digital Heroes Ltd. All rights reserved.</span>
+</div>
+</div>
+</footer>
+<!-- Interactive JavaScript for Sandbox Switcher & Feedback -->
+<script>
+    const visaBtn = document.getElementById('card-btn-visa');
+    const mcBtn = document.getElementById('card-btn-mc');
+    const visaBadge = document.getElementById('visa-badge');
+    const mcBadge = document.getElementById('mc-badge');
+    
+    const cardInput = document.getElementById('card-number');
+    const expiryInput = document.getElementById('expiry');
+    const cvvInput = document.getElementById('cvv');
+    const holderInput = document.getElementById('cardholder');
+    
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnIcon = document.getElementById('btn-icon');
+
+    // Toggle card selection
+    visaBtn.addEventListener('click', () => {
+      // Select Visa
+      visaBtn.classList.remove('border-outline-variant/50', 'bg-surface-container-low');
+      visaBtn.classList.add('border-primary-container', 'bg-primary-fixed/20');
+      visaBadge.classList.remove('hidden');
+      visaBadge.classList.add('flex');
+
+      // Deselect MC
+      mcBtn.classList.remove('border-primary-container', 'bg-primary-fixed/20');
+      mcBtn.classList.add('border-outline-variant/50', 'bg-surface-container-low');
+      mcBadge.classList.remove('flex');
+      mcBadge.classList.add('hidden');
+
+      // Update Form Data
+      cardInput.value = '4242 4242 4242 4242';
+      expiryInput.value = '12/28';
+      cvvInput.value = '123';
+      holderInput.value = 'Julian Vance';
+    });
+
+    mcBtn.addEventListener('click', () => {
+      // Select MC
+      mcBtn.classList.remove('border-outline-variant/50', 'bg-surface-container-low');
+      mcBtn.classList.add('border-primary-container', 'bg-primary-fixed/20');
+      mcBadge.classList.remove('hidden');
+      mcBadge.classList.add('flex');
+
+      // Deselect Visa
+      visaBtn.classList.remove('border-primary-container', 'bg-primary-fixed/20');
+      visaBtn.classList.add('border-outline-variant/50', 'bg-surface-container-low');
+      visaBadge.classList.remove('flex');
+      visaBadge.classList.add('hidden');
+
+      // Update Form Data
+      cardInput.value = '5555 5555 5555 4444';
+      expiryInput.value = '10/27';
+      cvvInput.value = '789';
+      holderInput.value = 'Julian Vance';
+    });
+
+    // Mock Payment Processing
+    function handlePayment() {
+      btnText.textContent = "Processing Authorization...";
+      btnIcon.textContent = "autorenew";
+      btnIcon.classList.add("animate-spin");
+      submitBtn.disabled = true;
+      submitBtn.classList.add("opacity-80");
+
+      setTimeout(() => {
+        btnIcon.classList.remove("animate-spin");
+        btnIcon.textContent = "check_circle";
+        btnText.textContent = "Authorization Succeeded!";
+        submitBtn.classList.remove("bg-primary-container", "opacity-80");
+        submitBtn.classList.add("bg-secondary", "text-surface");
+
+        // Toast feedback
+        const toast = document.createElement("div");
+        toast.className = "fixed bottom-6 right-6 bg-primary text-surface px-5 py-4 rounded-xl shadow-lg border border-primary-fixed/20 flex items-center gap-3 z-50 animate-bounce";
+        toast.innerHTML = `
+          <span class="material-symbols-outlined text-tertiary-fixed-dim" style="font-variation-settings: 'FILL' 1;">verified</span>
+          <div>
+            <div class="font-bold text-label-md font-label-md">Mock Webhook Received</div>
+            <div class="text-body-sm font-body-sm opacity-90">Ballots #44,821–#44,825 confirmed for Oct 31 Draw.</div>
+          </div>
+        `;
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+          btnText.textContent = "Retry Payment Authorization ($19.00/mo)";
+          btnIcon.textContent = "sync";
+          submitBtn.disabled = false;
+          submitBtn.classList.remove("bg-secondary");
+          submitBtn.classList.add("bg-primary-container");
+          toast.remove();
+        }, 4000);
+      }, 1200);
+    }
+  </script>
+</body></html>

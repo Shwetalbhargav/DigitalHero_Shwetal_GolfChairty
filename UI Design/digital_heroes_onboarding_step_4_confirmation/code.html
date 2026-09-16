@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registration Confirmation - Digital Heroes</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "surface-bright": "#f3fcf5",
+            "surface-container-highest": "#dce5de",
+            "primary": "#003629",
+            "primary-container": "#1b4d3e",
+            "background": "#f3fcf5",
+            "primary-fixed-dim": "#9ed1bd",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#002117",
+            "secondary-container": "#c4e8d8",
+            "error": "#ba1a1a",
+            "tertiary": "#3f2a00",
+            "surface-tint": "#376757",
+            "on-tertiary-container": "#dbaa53",
+            "surface-variant": "#dce5de",
+            "secondary-fixed-dim": "#abcebf",
+            "on-error": "#ffffff",
+            "surface": "#f3fcf5",
+            "secondary-fixed": "#c7eadb",
+            "on-secondary-container": "#49695d",
+            "outline": "#707974",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#eaf3ec",
+            "on-surface": "#151d19",
+            "tertiary-container": "#5c3f00",
+            "surface-container-high": "#e2eae4",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffdeaa",
+            "on-primary-fixed-variant": "#1d4f40",
+            "surface-container-low": "#edf6ef",
+            "outline-variant": "#c0c9c3",
+            "on-background": "#151d19",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#9ed1bd",
+            "tertiary-fixed-dim": "#f1be65",
+            "on-secondary-fixed": "#002117",
+            "surface-dim": "#d3dcd6",
+            "on-surface-variant": "#404945",
+            "secondary": "#456559",
+            "surface-container": "#e7f0e9",
+            "inverse-surface": "#2a322e",
+            "primary-fixed": "#baeed9",
+            "on-primary-container": "#8abda9",
+            "on-tertiary-fixed": "#271900"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem",
+            "margin": "3rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"],
+            "title-md": ["Outfit"],
+            "headline-md": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "display-lg": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"],
+            "label-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+            "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}],
+            "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "display-lg-mobile": ["38px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "headline-xl-mobile": ["30px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700"}]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-secondary-container selection:text-on-secondary-fixed-variant">
+<!-- Linear/Transactional Onboarding Navigation Header (Global Shell suppressed per UX mandate) -->
+<header class="w-full bg-surface/85 backdrop-blur-md sticky top-0 z-40">
+<div class="max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-surface-lowest">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/60 text-primary font-label-sm text-label-sm tracking-wide">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+          ONBOARDING COMPLETE
+        </span>
+</div>
+</div>
+</header>
+<!-- Main Canvas Container -->
+<main class="flex-grow max-w-5xl mx-auto w-full px-space-md md:px-space-lg lg:px-space-xl py-8 md:py-12 flex flex-col items-center">
+<!-- Progress Stepper (Step 4 Completed) -->
+<div class="w-full max-w-2xl mb-10">
+<div class="grid grid-cols-4 gap-2 md:gap-4 relative">
+<!-- Step 1 -->
+<div class="flex flex-col items-center text-center group">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm mb-2 transition-transform duration-150">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<span class="hidden sm:block font-label-sm text-label-sm text-primary font-semibold">Personal</span>
+<span class="hidden md:block font-body-sm text-body-sm text-on-surface-variant/80 text-[11px]">Completed</span>
+</div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center text-center group">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm mb-2 transition-transform duration-150">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<span class="hidden sm:block font-label-sm text-label-sm text-primary font-semibold">Plan</span>
+<span class="hidden md:block font-body-sm text-body-sm text-on-surface-variant/80 text-[11px]">Completed</span>
+</div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center text-center group">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm mb-2 transition-transform duration-150">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<span class="hidden sm:block font-label-sm text-label-sm text-primary font-semibold">Charity</span>
+<span class="hidden md:block font-body-sm text-body-sm text-on-surface-variant/80 text-[11px]">Completed</span>
+</div>
+<!-- Step 4 -->
+<div class="flex flex-col items-center text-center group">
+<div class="w-8 h-8 rounded-full bg-primary-container text-surface-lowest flex items-center justify-center ring-4 ring-secondary-container shadow-sm mb-2">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+</div>
+<span class="hidden sm:block font-label-sm text-label-sm text-primary font-semibold">Confirmation</span>
+<span class="hidden md:block font-body-sm text-body-sm text-primary font-semibold text-[11px]">Active</span>
+</div>
+</div>
+<!-- Progress Bar Track -->
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-3 overflow-hidden">
+<div class="bg-primary-container h-full w-full rounded-full"></div>
+</div>
+</div>
+<!-- Header Section -->
+<div class="text-center max-w-2xl mx-auto mb-10 flex flex-col items-center">
+<!-- Header Badge -->
+<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 shadow-sm mb-4">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+<span class="font-label-md text-label-md text-primary tracking-wide">Welcome to the Club • Membership #DH-90412</span>
+</div>
+<!-- Headline -->
+<h1 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl text-primary font-bold tracking-tight mb-3">
+        You are all set, Julian.
+      </h1>
+<!-- Subtitle -->
+<p class="font-body-lg text-body-md md:text-body-lg text-on-surface-variant max-w-xl mx-auto">
+        Your membership is active and your first charitable pledge has been escrowed. Log your 5 latest Stableford scores to enter the upcoming October Draw.
+      </p>
+</div>
+<!-- Central Summary Bento Grid -->
+<div class="w-full grid grid-cols-1 lg:grid-cols-12 gap-6 mb-10">
+<!-- Card 1: Membership Overview (Span 7) -->
+<div class="lg:col-span-7 bg-surface-container-low/70 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-outline-variant/50 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)] flex flex-col justify-between relative overflow-hidden">
+<!-- Subtle botanical watermarked decorative backdrop -->
+<div class="absolute -right-8 -bottom-8 opacity-5 pointer-events-none text-primary">
+<span class="material-symbols-outlined text-[160px]">golf_course</span>
+</div>
+<div>
+<div class="flex items-center justify-between mb-6">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">card_membership</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-primary">Membership Overview</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Validated Member Tier</p>
+</div>
+</div>
+<span class="inline-flex items-center px-2.5 py-1 rounded-full text-label-sm font-label-sm bg-secondary-container/60 text-primary border border-outline-variant/30">
+              Active Tier
+            </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="p-4 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Enrolled Plan</span>
+<p class="font-label-lg text-label-lg text-primary">Annual Patron</p>
+<span class="font-body-sm text-body-sm text-secondary text-[12px]">(Billed Annually)</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-lowest/80 border border-outline-variant/30">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-1">Next Draw Date</span>
+<p class="font-label-lg text-label-lg text-primary">October 31, 2024</p>
+<span class="font-body-sm text-body-sm text-secondary text-[12px]">Automatic Ballot Entry</span>
+</div>
+</div>
+</div>
+<!-- Potential Prize Pool Highlight -->
+<div class="mt-6 pt-5 border-t border-outline-variant/30 flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Upcoming Event Allocation</span>
+<p class="font-headline-sm text-headline-sm font-bold text-primary">Potential Prize Pool</p>
+</div>
+<div class="text-right">
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-tertiary-fixed/40 border border-tertiary-fixed-dim/50">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]">monetization_on</span>
+<span class="font-headline-md text-headline-md font-bold text-tertiary-container">$250,000</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 2: Chosen Charity Commitment (Span 5) -->
+<div class="lg:col-span-5 bg-surface-container-low/70 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-outline-variant/50 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)] flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-5">
+<div class="flex items-center gap-2.5">
+<div class="w-9 h-9 rounded-xl bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+</div>
+<div>
+<h3 class="font-title-md text-title-md text-primary">Charity Commitment</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Audited Stewardship</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+</div>
+<div class="space-y-4">
+<div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Designated Partner</span>
+<div class="mt-1 flex items-start gap-2.5">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">park</span>
+<div>
+<p class="font-label-lg text-label-lg text-primary leading-tight">Highland Dunes Native Restoration</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-[12px] mt-0.5">Coastal Dune Grasslands Preservation</p>
+</div>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container/60 border border-outline-variant/30">
+<span class="font-label-sm text-label-sm text-on-surface-variant block mb-0.5">Direct Impact Pledge</span>
+<p class="font-body-md text-body-md font-semibold text-primary">
+                15% of membership + 10% tithe on any winnings
+              </p>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Certificate ID</span>
+<span class="font-label-md text-label-md font-mono text-primary px-2.5 py-0.5 rounded-md bg-surface-container-highest/60 border border-outline-variant/40">
+            #GR-2024-883
+          </span>
+</div>
+</div>
+<!-- Card 3: Score Readiness Tracker (Span 12 Full Width) -->
+<div class="lg:col-span-12 bg-surface-container-low/70 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-outline-variant/50 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">sports_score</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-md text-title-md text-primary">Score Readiness Tracker</h3>
+<span class="px-2 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-highest text-on-surface-variant">Required</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Qualify for monthly handicapped draw parity</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Status:</span>
+<span class="px-3 py-1 rounded-full bg-surface-container text-primary font-label-md text-label-md font-semibold border border-outline-variant/40">
+              0 / 5 Stableford Scores Logged
+            </span>
+</div>
+</div>
+<!-- 5 Empty Slot Score Entry Pills -->
+<div class="grid grid-cols-5 gap-2 sm:gap-4 my-6">
+<!-- Slot 1 -->
+<div class="flex flex-col items-center justify-center h-20 sm:h-24 rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-lowest/50 hover:bg-surface-container transition-colors group">
+<span class="font-label-sm text-label-sm text-outline group-hover:text-primary mb-1">Round 1</span>
+<span class="font-headline-md text-headline-md text-outline tracking-widest font-mono group-hover:text-primary transition-colors">--</span>
+<span class="material-symbols-outlined text-[14px] text-outline opacity-0 group-hover:opacity-100 transition-opacity">add</span>
+</div>
+<!-- Slot 2 -->
+<div class="flex flex-col items-center justify-center h-20 sm:h-24 rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-lowest/50 hover:bg-surface-container transition-colors group">
+<span class="font-label-sm text-label-sm text-outline group-hover:text-primary mb-1">Round 2</span>
+<span class="font-headline-md text-headline-md text-outline tracking-widest font-mono group-hover:text-primary transition-colors">--</span>
+<span class="material-symbols-outlined text-[14px] text-outline opacity-0 group-hover:opacity-100 transition-opacity">add</span>
+</div>
+<!-- Slot 3 -->
+<div class="flex flex-col items-center justify-center h-20 sm:h-24 rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-lowest/50 hover:bg-surface-container transition-colors group">
+<span class="font-label-sm text-label-sm text-outline group-hover:text-primary mb-1">Round 3</span>
+<span class="font-headline-md text-headline-md text-outline tracking-widest font-mono group-hover:text-primary transition-colors">--</span>
+<span class="material-symbols-outlined text-[14px] text-outline opacity-0 group-hover:opacity-100 transition-opacity">add</span>
+</div>
+<!-- Slot 4 -->
+<div class="flex flex-col items-center justify-center h-20 sm:h-24 rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-lowest/50 hover:bg-surface-container transition-colors group">
+<span class="font-label-sm text-label-sm text-outline group-hover:text-primary mb-1">Round 4</span>
+<span class="font-headline-md text-headline-md text-outline tracking-widest font-mono group-hover:text-primary transition-colors">--</span>
+<span class="material-symbols-outlined text-[14px] text-outline opacity-0 group-hover:opacity-100 transition-opacity">add</span>
+</div>
+<!-- Slot 5 -->
+<div class="flex flex-col items-center justify-center h-20 sm:h-24 rounded-xl border-2 border-dashed border-outline-variant bg-surface-container-lowest/50 hover:bg-surface-container transition-colors group">
+<span class="font-label-sm text-label-sm text-outline group-hover:text-primary mb-1">Round 5</span>
+<span class="font-headline-md text-headline-md text-outline tracking-widest font-mono group-hover:text-primary transition-colors">--</span>
+<span class="material-symbols-outlined text-[14px] text-outline opacity-0 group-hover:opacity-100 transition-opacity">add</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-[18px] text-secondary">info</span>
+<span>Enter your scores before Oct 30 to qualify for the prize draw.</span>
+</div>
+</div>
+</div>
+<!-- Action Buttons Group -->
+<div class="w-full max-w-md flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+<!-- Primary CTA: Deep grass green pill -->
+<button class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-primary-container text-surface-lowest hover:bg-primary font-label-lg text-label-lg shadow-sm hover:shadow active:scale-[0.98] transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]">edit_calendar</span>
+<span>Enter Your First 5 Scores</span>
+</button>
+<!-- Secondary CTA: Soft sage outline -->
+<button class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-surface-container/60 hover:bg-surface-container text-primary border border-outline-variant/60 font-label-lg text-label-lg active:scale-[0.98] transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[20px]">dashboard</span>
+<span>Go to Subscriber Dashboard</span>
+</button>
+</div>
+<!-- Trust Seal Footer Note -->
+<div class="inline-flex items-center gap-2 text-center text-on-surface-variant font-body-sm text-body-sm px-4 py-2 rounded-full bg-surface-container-high/40">
+<span class="material-symbols-outlined text-[16px] text-secondary">mark_email_read</span>
+<span>A confirmation email and audited receipt have been sent to julian.vance@example.com.</span>
+</div>
+</main>
+<!-- Minimal Brand Footnote -->
+<footer class="w-full py-6 mt-12 text-center text-on-surface-variant/70 border-t border-outline-variant/20">
+<div class="max-w-7xl mx-auto px-space-md flex flex-col sm:flex-row items-center justify-between gap-4">
+<p class="font-body-sm text-body-sm">Digital Heroes • Feel, not fairway.</p>
+<div class="flex items-center gap-6 font-label-sm text-label-sm">
+<span class="text-on-surface-variant/80 hover:text-primary transition-colors cursor-pointer">Impact Audits</span>
+<span class="text-on-surface-variant/80 hover:text-primary transition-colors cursor-pointer">Official Draw Rules</span>
+<span class="text-on-surface-variant/80 hover:text-primary transition-colors cursor-pointer">Support</span>
+</div>
+</div>
+</footer>
+</body></html>

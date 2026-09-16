@@ -1,0 +1,6 @@
+node_modules
+frontend/dist
+package-lock.json
+UI Design
+outputs
+tmp

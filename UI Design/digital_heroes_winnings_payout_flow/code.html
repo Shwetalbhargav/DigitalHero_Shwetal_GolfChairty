@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Heroes — Winnings &amp; Escrow Disbursements</title>
+<!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Google Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN with forms and container queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-container": "#e7f0e9",
+            "on-tertiary-container": "#dbaa53",
+            "primary-container": "#1b4d3e",
+            "primary-fixed": "#baeed9",
+            "on-primary-fixed": "#002117",
+            "on-primary-fixed-variant": "#1d4f40",
+            "secondary-fixed-dim": "#abcebf",
+            "primary-fixed-dim": "#9ed1bd",
+            "surface-tint": "#376757",
+            "surface": "#f3fcf5",
+            "tertiary-fixed-dim": "#f1be65",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "primary": "#003629",
+            "on-primary-container": "#8abda9",
+            "surface-container-highest": "#dce5de",
+            "surface-dim": "#d3dcd6",
+            "surface-variant": "#dce5de",
+            "on-primary": "#ffffff",
+            "secondary": "#456559",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#2a322e",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "on-tertiary-fixed": "#271900",
+            "inverse-primary": "#9ed1bd",
+            "error": "#ba1a1a",
+            "on-background": "#151d19",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "surface-container-high": "#e2eae4",
+            "on-secondary": "#ffffff",
+            "surface-container-low": "#edf6ef",
+            "tertiary": "#3f2a00",
+            "secondary-container": "#c4e8d8",
+            "on-secondary-fixed": "#002117",
+            "tertiary-fixed": "#ffdeaa",
+            "tertiary-container": "#5c3f00",
+            "secondary-fixed": "#c7eadb",
+            "surface-bright": "#f3fcf5",
+            "outline": "#707974",
+            "outline-variant": "#c0c9c3",
+            "on-surface-variant": "#404945",
+            "on-secondary-container": "#49695d",
+            "inverse-on-surface": "#eaf3ec",
+            "background": "#f3fcf5",
+            "on-error": "#ffffff",
+            "on-surface": "#151d19"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1.25rem",
+            "space-xs": "0.25rem",
+            "margin": "3rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "display-lg-mobile": ["Outfit"],
+            "headline-xl": ["Outfit"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Outfit"],
+            "headline-lg": ["Outfit"],
+            "headline-xl-mobile": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-sm": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "title-md": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+    }
+    /* Smooth custom scrollbar for dashboard */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #edf6ef;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c0c9c3;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-on-secondary-container">
+<div class="flex min-h-screen w-full relative">
+<!-- SHARED COMPONENT: SideNavBar (Strict implementation from JSON & Style Tokens) -->
+<aside class="hidden lg:flex flex-col justify-between h-screen p-space-md w-64 shrink-0 fixed left-0 top-0 bottom-0 z-30 bg-surface border-r border-outline-variant/30">
+<div class="flex flex-col gap-6">
+<!-- Header / Brand Section -->
+<div class="flex items-center gap-3 px-space-sm pt-2">
+<div class="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-primary-fixed shadow-sm">
+<span class="material-symbols-outlined fill text-xl">golf_course</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight leading-tight">Digital Heroes</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-none">Feel, not fairway</p>
+</div>
+</div>
+<!-- Primary Member Log CTA -->
+<div class="px-space-xs">
+<button class="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-primary text-surface rounded-full font-label-lg text-label-lg shadow-sm hover:bg-primary-container hover:text-on-primary active:scale-[0.98] transition-all duration-150">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Log Stableford Round</span>
+</button>
+</div>
+<!-- Navigation Tab Items (Strictly matching JSON strings & icons) -->
+<nav class="flex flex-col gap-1.5 mt-2">
+<!-- Monthly Draws (Inactive) -->
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">casino</span>
+<span class="font-label-md text-label-md">Monthly Draws</span>
+</a>
+<!-- Scorecard (Inactive) -->
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">sports_score</span>
+<span class="font-label-md text-label-md">Scorecard</span>
+</a>
+<!-- Charity Impact (Inactive) -->
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">volunteer_activism</span>
+<span class="font-label-md text-label-md">Charity Impact</span>
+</a>
+<!-- Winnings (ACTIVE: Mapped strictly from JSON style_active_navigation) -->
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl bg-primary-container text-on-primary font-semibold transition-all duration-150 active:scale-[0.98] shadow-sm" href="#">
+<span class="material-symbols-outlined fill text-[20px] text-on-primary-container">trophy</span>
+<span class="font-label-md text-label-md text-surface-bright">Winnings</span>
+<span class="ml-auto w-2 h-2 rounded-full bg-on-tertiary-container animate-pulse"></span>
+</a>
+<!-- Membership (Inactive) -->
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors duration-150 active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-[20px]">card_membership</span>
+<span class="font-label-md text-label-md">Membership</span>
+</a>
+</nav>
+</div>
+<!-- Footer Section: Secondary Nav & Member Profile Card -->
+<div class="flex flex-col gap-4 pt-4 border-t border-outline-variant/30">
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors duration-150" href="#">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span class="font-label-md text-label-md">Help &amp; Support</span>
+</a>
+</div>
+<!-- Golfer Member Profile Info -->
+<div class="flex items-center gap-3 p-2 bg-surface-container-low rounded-xl border border-outline-variant/20">
+<div class="w-9 h-9 rounded-full bg-secondary-container text-primary flex items-center justify-center font-bold text-xs uppercase">
+            JV
+          </div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-md text-label-md text-on-surface font-semibold truncate">Julian Vance</span>
+<span class="font-label-sm text-label-sm text-secondary truncate">WHS Hcp: 8.4 • Tier 1</span>
+</div>
+<span class="material-symbols-outlined text-outline ml-auto text-sm">verified</span>
+</div>
+</div>
+</aside>
+<!-- MAIN CONTENT CANVAS -->
+<div class="flex-1 lg:pl-64 flex flex-col min-h-screen">
+<!-- TOP UTILITY / ESCROW STATUS BAR -->
+<header class="sticky top-0 z-20 bg-surface/85 backdrop-blur-md border-b border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+<!-- Escrow Fiduciary Badge -->
+<div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface text-xs font-label-md shadow-sm">
+<span class="flex h-2 w-2 rounded-full bg-secondary"></span>
+<span class="material-symbols-outlined text-primary text-[15px]">assured_workload</span>
+<span class="font-semibold text-primary">Verified Escrow Fiduciary</span>
+<span class="text-outline">•</span>
+<span class="text-on-surface-variant">Powered by Wells Fargo &amp; UK Escrow Trust</span>
+</div>
+<!-- Quick Actions & User Context -->
+<div class="flex items-center gap-4">
+<div class="hidden sm:flex items-center gap-2 px-3 py-1 bg-surface-container-low rounded-lg border border-outline-variant/20">
+<span class="material-symbols-outlined text-primary text-sm">format_image_left</span>
+<span class="text-xs text-on-surface-variant font-label-sm">Disbursement SLA: <strong class="text-primary font-semibold">&lt; 48 Hrs</strong></span>
+</div>
+<button aria-label="Notifications" class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant transition-colors relative">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-error"></span>
+</button>
+<div class="h-5 w-[1px] bg-outline-variant/40"></div>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-primary font-bold">Julian Vance</span>
+<span class="material-symbols-outlined text-primary text-[20px]">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<!-- PAGE CONTENT BODY -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-6 py-8 space-y-8">
+<!-- Header Block -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2 border-b border-outline-variant/30">
+<div>
+<div class="flex items-center gap-2 text-secondary mb-1">
+<span class="material-symbols-outlined text-sm">payments</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-semibold">Treasury &amp; Settlements</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl text-primary font-bold tracking-tight">Winnings &amp; Escrow Disbursements</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Track your prize earnings, complete score card attestation, and manage direct bank transfers.</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container border border-outline-variant/40 text-primary font-label-md text-label-md hover:bg-surface-container-high transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm">receipt_long</span>
+<span>Tax &amp; Prize Summary</span>
+</button>
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-surface font-label-lg text-label-lg shadow-sm hover:bg-primary-container transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-sm">help</span>
+<span>Disbursement Policy</span>
+</button>
+</div>
+</div>
+<!-- TOP KPI BENTO GRID -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+<!-- Total Won -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-5 border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)] relative overflow-hidden group hover:border-outline-variant transition-all duration-200">
+<div class="absolute -right-4 -bottom-4 w-20 h-20 bg-secondary-container/30 rounded-full blur-xl pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Total Won</span>
+<div class="w-8 h-8 rounded-full bg-secondary-container/60 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">military_tech</span>
+</div>
+</div>
+<div class="mt-3">
+<span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">₹23,500</span>
+</div>
+<p class="mt-2 font-body-sm text-body-sm text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">auto_graph</span>
+<span>Lifetime earnings across 2 winning draws</span>
+</p>
+</div>
+<!-- Pending Verification (Action Required) -->
+<div class="bg-surface-container-lowest/90 backdrop-blur-md rounded-2xl p-5 border-2 border-on-tertiary-container/40 shadow-[0_12px_32px_-8px_rgba(219,170,83,0.12)] relative overflow-hidden group">
+<div class="absolute top-0 right-0 px-3 py-0.5 bg-on-tertiary-container text-surface-container-lowest font-label-sm text-label-sm font-bold rounded-bl-lg">
+              ACTION REQUIRED
+            </div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Pending Verification</span>
+<div class="w-8 h-8 rounded-full bg-tertiary-fixed/60 text-tertiary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">pending_actions</span>
+</div>
+</div>
+<div class="mt-3">
+<span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">₹5,000</span>
+</div>
+<p class="mt-2 font-body-sm text-body-sm text-tertiary font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">info</span>
+<span>September 2024 Draw — Under Review</span>
+</p>
+</div>
+<!-- Approved & In Escrow -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-5 border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)] hover:border-outline-variant transition-all duration-200">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Approved &amp; In Escrow</span>
+<div class="w-8 h-8 rounded-full bg-surface-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">lock_clock</span>
+</div>
+</div>
+<div class="mt-3">
+<span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">₹0</span>
+</div>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">shield</span>
+<span>Escrow balance awaiting batch release</span>
+</p>
+</div>
+<!-- Paid to Bank -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-5 border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)] hover:border-outline-variant transition-all duration-200">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant font-medium">Paid to Bank</span>
+<div class="w-8 h-8 rounded-full bg-secondary-container/60 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">account_balance</span>
+</div>
+</div>
+<div class="mt-3">
+<span class="font-headline-lg text-headline-lg text-primary font-bold tracking-tight">₹18,500</span>
+</div>
+<p class="mt-2 font-body-sm text-body-sm text-secondary flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+<span>Disbursed to Account ending in ••4491</span>
+</p>
+</div>
+</section>
+<!-- MAIN FEATURE AREA: ACTIVE CLAIM PANEL -->
+<section class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)] overflow-hidden">
+<!-- Card Banner / Claim Title -->
+<div class="bg-surface-container-low px-6 py-4 border-b border-outline-variant/30 flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary text-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined fill text-xl text-tertiary-fixed">celebration</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-md text-title-md font-bold text-primary">Active Claim: September Draw (3 Matches — ₹5,000 Prize)</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-on-tertiary-container/20 text-tertiary text-xs font-label-sm font-semibold">Tier 3 Pool</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Claim ID: <code class="font-mono text-primary font-semibold">CLM-2024-09-SEP34</code> • Registered via Round North Berwick Links</p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md text-secondary">Attestation Target:</span>
+<span class="px-3 py-1 bg-surface-container rounded-full text-primary font-semibold text-xs border border-outline-variant/30">Within 24 Hours</span>
+</div>
+</div>
+<!-- STEPPER: 5-Stage Verification Progress -->
+<div class="p-6 border-b border-outline-variant/30 bg-surface/50">
+<div class="max-w-4xl mx-auto">
+<div class="flex items-center justify-between relative">
+<!-- Background track line -->
+<div class="absolute left-6 right-6 top-1/2 -translate-y-1/2 h-[2px] bg-outline-variant/40 -z-0"></div>
+<!-- Active completed segment -->
+<div class="absolute left-6 top-1/2 -translate-y-1/2 h-[2px] bg-primary transition-all duration-500 -z-0" style="width: 25%;"></div>
+<!-- Stage 1: Winner Declared (DONE) -->
+<div class="flex flex-col items-center relative z-10 text-center">
+<div class="w-10 h-10 rounded-full bg-primary text-surface flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-lg">check</span>
+</div>
+<span class="mt-2 font-label-md text-label-md font-bold text-primary">1. Winner Declared</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Sep 30</span>
+</div>
+<!-- Stage 2: Proof Submitted / In Review (CURRENT) -->
+<div class="flex flex-col items-center relative z-10 text-center">
+<div class="w-10 h-10 rounded-full bg-surface border-2 border-primary text-primary flex items-center justify-center ring-4 ring-secondary-container/40 shadow-sm animate-pulse">
+<span class="material-symbols-outlined text-lg">hourglass_top</span>
+</div>
+<span class="mt-2 font-label-md text-label-md font-bold text-primary">2. Proof Submitted</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold">In Review (Oct 2)</span>
+</div>
+<!-- Stage 3: Admin & WHS Attestation (PENDING) -->
+<div class="flex flex-col items-center relative z-10 text-center">
+<div class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">assignment_turned_in</span>
+</div>
+<span class="mt-2 font-label-md text-label-md font-medium text-on-surface-variant">3. WHS Attestation</span>
+<span class="font-label-sm text-label-sm text-outline">Pending</span>
+</div>
+<!-- Stage 4: Approved (PENDING) -->
+<div class="flex flex-col items-center relative z-10 text-center">
+<div class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">verified_user</span>
+</div>
+<span class="mt-2 font-label-md text-label-md font-medium text-on-surface-variant">4. Approved</span>
+<span class="font-label-sm text-label-sm text-outline">Pending</span>
+</div>
+<!-- Stage 5: Prize Paid via Escrow (PENDING) -->
+<div class="flex flex-col items-center relative z-10 text-center">
+<div class="w-10 h-10 rounded-full bg-surface-container border border-outline-variant text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-lg">payments</span>
+</div>
+<span class="mt-2 font-label-md text-label-md font-medium text-on-surface-variant">5. Prize Paid</span>
+<span class="font-label-sm text-label-sm text-outline">Escrow Direct</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SPLIT DETAIL LAYOUT: Number Matrix + Breakdown + Upload Dropzone -->
+<div class="p-6 grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- LEFT COL: Ticket Numbers & Financial Breakdown (5 Cols) -->
+<div class="lg:col-span-5 space-y-6">
+<!-- Draw Comparison Card -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-4">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+<div>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Draw Event</span>
+<h4 class="font-headline-sm text-headline-sm font-bold text-primary">September 2024 Draw</h4>
+</div>
+<span class="text-right">
+<span class="block font-label-sm text-label-sm text-on-surface-variant">Total Prize Pool</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">₹250,000</span>
+</span>
+</div>
+<!-- Your Scores Chips -->
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant block mb-2 font-medium">Your Submitted Stableford Numbers:</span>
+<div class="flex items-center gap-2">
+<!-- 12 (Miss) -->
+<div class="w-10 h-10 rounded-full bg-surface border border-outline-variant/60 flex items-center justify-center font-bold text-on-surface-variant">
+                      12
+                    </div>
+<!-- 18 (Match) -->
+<div class="w-10 h-10 rounded-full bg-primary text-surface flex items-center justify-center font-bold ring-2 ring-on-tertiary-container shadow-sm">
+                      18
+                    </div>
+<!-- 24 (Match) -->
+<div class="w-10 h-10 rounded-full bg-primary text-surface flex items-center justify-center font-bold ring-2 ring-on-tertiary-container shadow-sm">
+                      24
+                    </div>
+<!-- 31 (Match) -->
+<div class="w-10 h-10 rounded-full bg-primary text-surface flex items-center justify-center font-bold ring-2 ring-on-tertiary-container shadow-sm">
+                      31
+                    </div>
+<!-- 40 (Miss) -->
+<div class="w-10 h-10 rounded-full bg-surface border border-outline-variant/60 flex items-center justify-center font-bold text-on-surface-variant">
+                      40
+                    </div>
+</div>
+</div>
+<!-- Official Draw Results Chips -->
+<div>
+<span class="font-label-md text-label-md text-on-surface-variant block mb-2 font-medium">Official Certified Draw:</span>
+<div class="flex items-center gap-2">
+<!-- 10 -->
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-semibold text-outline">
+                      10
+                    </div>
+<!-- 18 (Match) -->
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold border border-secondary">
+                      18
+                    </div>
+<!-- 24 (Match) -->
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold border border-secondary">
+                      24
+                    </div>
+<!-- 31 (Match) -->
+<div class="w-10 h-10 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-bold border border-secondary">
+                      31
+                    </div>
+<!-- 44 -->
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-semibold text-outline">
+                      44
+                    </div>
+</div>
+</div>
+<!-- Match Legend Badge -->
+<div class="p-3 rounded-lg bg-surface border border-outline-variant/20 flex items-center gap-3">
+<span class="w-2.5 h-2.5 rounded-full bg-on-tertiary-container"></span>
+<p class="font-body-sm text-body-sm text-primary">
+<strong>Matching Numbers: 18, 24, 31</strong>
+<span class="text-on-surface-variant block">(3 Matches • 25% Tier Share Allocation)</span>
+</p>
+</div>
+</div>
+<!-- Financial Breakdown Ledger -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/30 space-y-3">
+<h4 class="font-label-lg text-label-lg font-bold text-primary pb-2 border-b border-outline-variant/20 flex items-center justify-between">
+<span>Disbursement Accounting</span>
+<span class="font-mono text-xs text-secondary font-normal">Escrow ID: ESC-9941</span>
+</h4>
+<div class="space-y-2 font-body-sm text-body-sm">
+<div class="flex justify-between items-center text-on-surface">
+<span>Gross Prize Allocation</span>
+<span class="font-semibold text-primary">₹5,000.00</span>
+</div>
+<div class="flex justify-between items-start text-secondary">
+<div class="flex items-center gap-1">
+<span>10% Mandatory Charity Tithe</span>
+<span class="material-symbols-outlined text-xs text-primary" title="Allocated directly to environmental initiatives">volunteer_activism</span>
+</div>
+<span class="font-medium text-error">- ₹500.00</span>
+</div>
+<div class="pl-3 text-xs text-outline italic">
+                    Allocated to: Highland Dunes Native Restoration
+                  </div>
+<div class="pt-3 border-t border-dashed border-outline-variant/40 flex justify-between items-baseline">
+<div>
+<span class="font-label-lg text-label-lg font-bold text-primary">Net Claimable</span>
+<span class="block text-xs text-secondary">To be credited via RTGS/NEFT</span>
+</div>
+<span class="font-headline-md text-headline-md font-bold text-primary">₹4,500.00</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT COL: Attestation & File Dropzone & Bank Guarantee (7 Cols) -->
+<div class="lg:col-span-7 space-y-6">
+<!-- Scorecard Upload & Attestation Panel -->
+<div class="p-5 rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">document_scanner</span>
+<h4 class="font-label-lg text-label-lg font-bold text-primary">Upload Winner Proof &amp; Scorecard Attestation</h4>
+</div>
+<span class="px-2.5 py-1 rounded-md bg-surface text-primary border border-outline-variant/30 text-xs font-label-sm font-semibold">
+                    Step 2 of 5
+                  </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Upload your official WHS app screenshot or signed marker scorecard for round verification. Our audit team checks handicap differential and player stamps within 24 business hours.
+                </p>
+<!-- Currently Uploaded File Chip -->
+<div class="p-3.5 bg-surface-container-lowest rounded-xl border border-secondary/30 flex items-center justify-between gap-3">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-10 h-10 rounded-lg bg-secondary-container text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined">picture_as_pdf</span>
+</div>
+<div class="min-w-0">
+<span class="font-label-md text-label-md font-semibold text-primary block truncate">WHS_Round_NorthBerwick_Sep28.pdf</span>
+<span class="font-body-sm text-body-sm text-outline text-xs">1.8 MB • Uploaded Oct 2, 2024 at 14:22 IST</span>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-secondary-container text-primary text-xs font-label-md font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                      Verification Under Review
+                    </span>
+<button class="text-on-surface-variant hover:text-error transition-colors p-1" title="Delete file &amp; re-upload">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Secondary Status Tabs / Interactive Audit State Explanations -->
+<div class="mt-4 pt-4 border-t border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold block mb-2">Audit Scenario States</span>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<!-- Approved State Guide -->
+<div class="p-3 bg-surface rounded-lg border border-secondary/20">
+<div class="flex items-center gap-1.5 text-primary mb-1">
+<span class="material-symbols-outlined text-sm text-secondary">verified</span>
+<span class="font-label-md text-label-md font-bold">When Approved</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs leading-relaxed">
+                        Attestation signature is cryptographically locked into the ledger and payment instruction is automatically triggered to Wells Fargo escrow release.
+                      </p>
+</div>
+<!-- Rejected State Guide & Re-upload Link -->
+<div class="p-3 bg-surface rounded-lg border border-error/20">
+<div class="flex items-center gap-1.5 text-error mb-1">
+<span class="material-symbols-outlined text-sm">warning</span>
+<span class="font-label-md text-label-md font-bold">If Flagged / Rejected</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs leading-relaxed">
+                        Reason: e.g. <span class="text-error font-medium">"Marker signature unclear"</span> — click <a class="underline font-semibold text-primary hover:text-primary-container" href="#">here to re-upload high-resolution scorecard</a> within 7 calendar days.
+                      </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Bank Disbursement & Escrow Assurance Panel -->
+<div class="p-5 rounded-xl bg-surface-container-lowest border border-outline-variant/30 space-y-4 shadow-sm">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">account_balance_wallet</span>
+<h4 class="font-label-lg text-label-lg font-bold text-primary">Bank Disbursement &amp; Escrow Details</h4>
+</div>
+<span class="inline-flex items-center gap-1 text-xs text-primary font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                    Direct Bank Transfer
+                  </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Account details -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/20">
+<span class="font-label-sm text-label-sm text-secondary block">Destination Account</span>
+<span class="font-title-md text-title-md font-bold text-primary block mt-0.5">HDFC Bank •••• 4491</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs block">Account Holder: Julian Vance</span>
+<div class="mt-2 flex items-center gap-1.5 text-xs text-primary font-medium">
+<span class="material-symbols-outlined text-xs">check_circle</span>
+<span>Penny Drop Verified</span>
+</div>
+</div>
+<!-- Escrow Guarantee -->
+<div class="p-3 rounded-lg bg-surface-container-low border border-outline-variant/20 flex flex-col justify-between">
+<div>
+<span class="font-label-sm text-label-sm text-secondary block">Escrow Assurance Guarantee</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant text-xs mt-1 leading-relaxed">
+                        Audited independent client account disbursement within 48 business hours of scorecard verification completion.
+                      </p>
+</div>
+<div class="mt-2 text-xs text-outline flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">security</span>
+<span>Trustee Ref: WF-UK-88290-ESC</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- RECENT DISBURSED PAYOUTS TABLE -->
+<section class="space-y-4">
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-title-md text-title-md font-bold text-primary">Recent Disbursed Payouts</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Archived history of completed draw winnings, tax withholdings, and bank settlement certificates.</p>
+</div>
+<button class="inline-flex items-center gap-1.5 text-primary text-sm font-label-md font-semibold hover:underline">
+<span class="material-symbols-outlined text-sm">filter_list</span>
+<span>Filter History</span>
+</button>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 overflow-hidden shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)]">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-b border-outline-variant/30 text-on-surface-variant font-label-md text-label-md uppercase tracking-wider">
+<th class="py-3.5 px-6 font-semibold">Draw Event</th>
+<th class="py-3.5 px-6 font-semibold">Matches</th>
+<th class="py-3.5 px-6 font-semibold">Gross Prize</th>
+<th class="py-3.5 px-6 font-semibold">10% Charity Tithe</th>
+<th class="py-3.5 px-6 font-semibold">Net Paid</th>
+<th class="py-3.5 px-6 font-semibold">Status &amp; Transaction</th>
+<th class="py-3.5 px-6 font-semibold text-right">Receipt</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 font-body-sm text-body-sm">
+<!-- Row 1: July 2024 Draw (As requested) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-6 font-semibold text-primary">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-secondary-container/40 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+</div>
+<div>
+<span class="block">July 2024 Draw</span>
+<span class="text-xs text-outline font-normal">Completed Jul 31, 2024</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-primary font-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs fill text-on-tertiary-container">stars</span>
+                        4 Matches
+                      </span>
+</td>
+<td class="py-4 px-6 font-medium text-on-surface">
+                      ₹20,000
+                    </td>
+<td class="py-4 px-6 text-secondary">
+                      -₹1,500 <span class="text-xs text-outline">(Wetlands Fund)</span>
+</td>
+<td class="py-4 px-6 font-bold text-primary">
+                      ₹18,500
+                    </td>
+<td class="py-4 px-6">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md font-semibold text-primary">Paid</span>
+<span class="text-xs text-outline font-mono">• Trx #DH-88912</span>
+</div>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-primary font-label-sm text-label-sm font-semibold border border-outline-variant/30 transition-all active:scale-[0.96]">
+<span class="material-symbols-outlined text-xs">download</span>
+<span>Download CTA</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Historic Context Row -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-6 font-semibold text-primary">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-surface-container text-on-surface-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">history_edu</span>
+</div>
+<div>
+<span class="block">May 2024 Draw</span>
+<span class="text-xs text-outline font-normal">Completed May 29, 2024</span>
+</div>
+</div>
+</td>
+<td class="py-4 px-6">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-sm font-medium">
+                        2 Matches (Bonus)
+                      </span>
+</td>
+<td class="py-4 px-6 font-medium text-on-surface">
+                      ₹0 (Entry Roll-over)
+                    </td>
+<td class="py-4 px-6 text-outline">
+                      ₹0.00
+                    </td>
+<td class="py-4 px-6 font-medium text-on-surface-variant">
+                      ₹0.00
+                    </td>
+<td class="py-4 px-6">
+<span class="text-xs text-outline">Rolled into July Pool</span>
+</td>
+<td class="py-4 px-6 text-right">
+<button class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full text-outline font-label-sm text-label-sm hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xs">visibility</span>
+<span>View Draw</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination/Audit Stamp -->
+<div class="px-6 py-3 bg-surface-container-low/60 border-t border-outline-variant/20 flex flex-col sm:flex-row items-center justify-between text-xs text-on-surface-variant gap-2">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">policy</span>
+<span>Annual Escrow Financial Audit: PricewaterhouseCoopers (UK) LLP • Certificate Ref #2024-DH-AUD-88</span>
+</span>
+<a class="font-semibold text-primary hover:underline" href="#">Download Complete Tax Schedule (Form 16B &amp; W-8BEN) →</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Minimal Dashboard Footer -->
+<footer class="mt-auto py-6 px-6 border-t border-outline-variant/20 text-center text-xs text-outline">
+<p>© 2024 Digital Heroes Golf Platform. All escrow accounts strictly segregated per UK Trust Law &amp; RBI Master Directions. "Feel, not fairway."</p>
+</footer>
+</div>
+</div>
+</body></html>

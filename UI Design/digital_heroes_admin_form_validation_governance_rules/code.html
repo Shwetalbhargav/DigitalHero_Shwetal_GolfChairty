@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin &amp; Governance Form Validation State System - Digital Heroes</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#f3fcf5",
+            "tertiary-fixed-dim": "#f1be65",
+            "tertiary-fixed": "#ffdeaa",
+            "surface-container-highest": "#dce5de",
+            "on-primary-container": "#8abda9",
+            "surface-container-high": "#e2eae4",
+            "secondary-container": "#c4e8d8",
+            "secondary-fixed-dim": "#abcebf",
+            "on-primary-fixed": "#002117",
+            "primary-container": "#1b4d3e",
+            "on-surface-variant": "#404945",
+            "primary": "#003629",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#271900",
+            "secondary": "#456559",
+            "surface-container": "#e7f0e9",
+            "on-secondary-container": "#49695d",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "primary-fixed-dim": "#9ed1bd",
+            "surface-container-low": "#edf6ef",
+            "outline": "#707974",
+            "surface-variant": "#dce5de",
+            "inverse-surface": "#2a322e",
+            "on-secondary-fixed": "#002117",
+            "error": "#ba1a1a",
+            "on-surface": "#151d19",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#5c3f00",
+            "on-error": "#ffffff",
+            "primary-fixed": "#baeed9",
+            "surface-tint": "#376757",
+            "surface-dim": "#d3dcd6",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#eaf3ec",
+            "error-container": "#ffdad6",
+            "tertiary": "#3f2a00",
+            "on-tertiary-container": "#dbaa53",
+            "inverse-primary": "#9ed1bd",
+            "background": "#f3fcf5",
+            "surface-bright": "#f3fcf5",
+            "on-primary-fixed-variant": "#1d4f40",
+            "on-background": "#151d19",
+            "secondary-fixed": "#c7eadb",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#c0c9c3",
+            "on-tertiary-fixed-variant": "#5f4100"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "3rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1.25rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "headline-xl-mobile": ["Outfit"],
+            "title-md": ["Outfit"],
+            "headline-xl": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "display-lg-mobile": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", {"lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600"}],
+            "label-lg": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}],
+            "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "headline-xl-mobile": ["30px", {"lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+            "title-md": ["18px", {"lineHeight": "24px", "fontWeight": "600"}],
+            "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700"}],
+            "headline-sm": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+            "display-lg-mobile": ["38px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "label-md": ["12px", {"lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600"}],
+            "body-sm": ["13px", {"lineHeight": "18px", "fontWeight": "400"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "display-lg": ["56px", {"lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+            "body-md": ["15px", {"lineHeight": "22px", "fontWeight": "400"}]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .custom-scroll::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    .custom-scroll::-webkit-scrollbar-track {
+      background: #edf6ef;
+    }
+    .custom-scroll::-webkit-scrollbar-thumb {
+      background: #c0c9c3;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface/85 backdrop-blur-md text-primary docked full-width top sticky z-40 border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<div class="flex items-center gap-space-lg">
+<div class="flex items-center gap-2">
+<span class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-surface shadow-sm">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+</span>
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+</div>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-label-sm font-label-sm bg-surface-container-high text-secondary border border-outline-variant/40">
+          Governance Engine v4.2
+        </span>
+</div>
+<!-- Desktop Navigation Links -->
+<nav class="hidden md:flex items-center space-x-6">
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#draws">Draws</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#scorecard">Scorecard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#charity">Impact</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#winnings">Winnings</a>
+</nav>
+<div class="flex items-center gap-space-md">
+<div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-label-md font-label-md">
+<span class="material-symbols-outlined text-[16px] text-primary">volunteer_activism</span>
+<span>Impact: $14,250</span>
+</div>
+<button class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high/60 transition-colors" title="Audit Notifications" type="button">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant/40">
+<span class="material-symbols-outlined text-primary text-[28px]">account_circle</span>
+<div class="hidden lg:block text-left">
+<p class="text-label-sm font-label-sm text-primary leading-none">Trustee Admin</p>
+<p class="text-[10px] text-secondary leading-tight mt-0.5">Dual-Key Certified</p>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Administrative Operations Layout -->
+<div class="flex-1 flex max-w-7xl w-full mx-auto px-space-md md:px-space-lg lg:px-space-xl py-space-lg gap-8">
+<!-- SideNavBar (Shared Component) -->
+<aside class="hidden lg:flex flex-col justify-between h-[calc(100vh-6rem)] p-space-md w-64 shrink-0 bg-surface rounded-2xl border border-outline-variant/30 sticky top-20 shadow-sm">
+<div class="space-y-6">
+<div class="px-2">
+<h2 class="text-title-md font-title-md font-bold text-primary">Digital Heroes</h2>
+<p class="text-body-sm font-body-sm text-secondary">Feel, not fairway</p>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl bg-primary-container text-on-primary-container font-semibold font-label-md text-label-md" href="#draw-management">
+<span class="material-symbols-outlined text-[18px]">casino</span>
+<span>Monthly Draws</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors font-label-md text-label-md" href="#charity-management">
+<span class="material-symbols-outlined text-[18px]">volunteer_activism</span>
+<span>Charity Impact</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors font-label-md text-label-md" href="#scorecard-rules">
+<span class="material-symbols-outlined text-[18px]">sports_score</span>
+<span>Scorecard</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors font-label-md text-label-md" href="#escrow-winnings">
+<span class="material-symbols-outlined text-[18px]">trophy</span>
+<span>Winnings</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors font-label-md text-label-md" href="#membership-tiers">
+<span class="material-symbols-outlined text-[18px]">card_membership</span>
+<span>Membership</span>
+</a>
+</nav>
+<div class="pt-2">
+<button class="w-full py-2.5 px-4 rounded-full bg-primary text-surface font-label-md text-label-md font-semibold hover:bg-primary-container transition-all active:scale-[0.98] shadow-sm flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-[16px]">edit_note</span>
+<span>Log Stableford Round</span>
+</button>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 space-y-1">
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors font-label-md text-label-md" href="#settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors font-label-md text-label-md" href="#support">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span>Help &amp; Support</span>
+</a>
+</div>
+</aside>
+<!-- Content Workspace -->
+<main class="flex-1 min-w-0 space-y-space-xl pb-24 lg:pb-12">
+<!-- Page Header & Governance Context -->
+<section class="space-y-2">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-secondary">
+<span>GOVERNANCE &amp; TRUST PROTOCOL</span>
+<span>•</span>
+<span>ST ANDREWS PARISH COMPLIANCE DESK</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<h1 class="text-headline-xl font-headline-xl text-primary tracking-tight">Form Validation State Matrix</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Operational interfaces for charity vetting, payout routing checksums, and cryptographic draw arming.</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/50 text-label-md font-label-md text-primary">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              Live Escrow Engine Synced
+            </span>
+</div>
+</div>
+</section>
+<!-- SECTION 1: Universal State Showcase Rail -->
+<section class="p-6 rounded-2xl bg-surface-container-low/70 border border-outline-variant/50 backdrop-blur-md space-y-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between border-b border-outline-variant/30 pb-4 gap-2">
+<div>
+<span class="text-label-sm font-label-sm text-secondary">ATOMIC SPECIFICATION</span>
+<h2 class="text-headline-sm font-headline-sm text-primary">Universal 7-State Component Rail</h2>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-md">Non-alarming validation philosophy: quiet neutral lines for defaults, subtle forest greens for valid checks, and dignified warm rust for actionable alerts.</p>
+</div>
+<!-- 7 State Matrix Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-4">
+<!-- State 1: Default -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary">STATE 01</span>
+<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-surface-container text-on-surface-variant">Default</span>
+</div>
+<label class="block text-label-sm font-label-sm text-on-surface">Pillar Allocation</label>
+<input class="w-full text-body-sm font-body-sm bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-2 text-on-surface focus:outline-none placeholder:text-outline" type="text" value="Coastal Ecology Fund"/>
+<p class="text-[11px] text-secondary">Awaiting interaction</p>
+</div>
+<!-- State 2: Focused -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary">STATE 02</span>
+<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-secondary-fixed text-primary">Focused</span>
+</div>
+<label class="block text-label-sm font-label-sm text-primary font-semibold">Tithe Percentage</label>
+<div class="relative">
+<input class="w-full text-body-sm font-body-sm bg-surface-container-lowest border-2 border-primary rounded-lg px-3 py-2 text-primary ring-4 ring-primary/10 focus:outline-none" type="text" value="12.50%"/>
+</div>
+<p class="text-[11px] text-primary font-medium">Soft 3px perimeter ring</p>
+</div>
+<!-- State 3: Valid -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary">STATE 03</span>
+<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-secondary-container text-on-secondary-container">Valid</span>
+</div>
+<label class="block text-label-sm font-label-sm text-on-surface">Scottish Registry No.</label>
+<div class="relative">
+<input class="w-full text-body-sm font-body-sm bg-surface-container-low border border-primary/40 rounded-lg px-3 py-2 pr-8 text-on-surface focus:outline-none" type="text" value="SC048912"/>
+<span class="material-symbols-outlined text-[16px] text-primary absolute right-2.5 top-2.5">check_circle</span>
+</div>
+<p class="text-[11px] text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">verified</span>
+<span>OSCR Verified</span>
+</p>
+</div>
+<!-- State 4: Invalid -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary">STATE 04</span>
+<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-error-container text-on-error-container">Invalid</span>
+</div>
+<label class="block text-label-sm font-label-sm text-error">Sort Code Checksum</label>
+<div class="relative">
+<input class="w-full text-body-sm font-body-sm bg-error-container/20 border border-error rounded-lg px-3 py-2 pr-8 text-error focus:outline-none" type="text" value="80-22"/>
+<span class="material-symbols-outlined text-[16px] text-error absolute right-2.5 top-2.5">error</span>
+</div>
+<p class="text-[11px] text-error font-medium">Must be 6 digits (XX-XX-XX)</p>
+</div>
+<!-- State 5: Loading -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary">STATE 05</span>
+<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-surface-container text-secondary">Loading</span>
+</div>
+<label class="block text-label-sm font-label-sm text-on-surface">Escrow Authorization</label>
+<div class="relative">
+<input class="w-full text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded-lg px-3 py-2 pr-8 text-outline italic" disabled="" type="text" value="Polling BACS Node..."/>
+<span class="material-symbols-outlined text-[16px] text-secondary absolute right-2.5 top-2.5 animate-spin">progress_activity</span>
+</div>
+<p class="text-[11px] text-secondary">Validating registry...</p>
+</div>
+<!-- State 6: Success -->
+<div class="p-3.5 rounded-xl bg-surface-container-lowest border border-outline-variant/40 space-y-2.5">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-secondary">STATE 06</span>
+<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-tertiary-fixed text-on-tertiary-fixed">Success</span>
+</div>
+<label class="block text-label-sm font-label-sm text-primary font-semibold">Dual-Key Arming</label>
+<div class="relative">
+<input class="w-full text-body-sm font-body-sm bg-secondary-fixed/30 border border-primary rounded-lg px-3 py-2 pr-8 text-primary font-medium" type="text" value="Key #1 &amp; #2 Verified"/>
+<span class="material-symbols-outlined text-[16px] text-primary absolute right-2.5 top-2.5">task_alt</span>
+</div>
+<p class="text-[11px] text-primary">Cryptographically sealed</p>
+</div>
+<!-- State 7: Disabled -->
+<div class="p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-2.5 opacity-70">
+<div class="flex items-center justify-between">
+<span class="text-label-sm font-label-sm text-outline">STATE 07</span>
+<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-surface-variant text-outline">Disabled</span>
+</div>
+<label class="block text-label-sm font-label-sm text-outline">Archive Protocol</label>
+<input class="w-full text-body-sm font-body-sm bg-surface-variant/40 border border-outline-variant/60 rounded-lg px-3 py-2 text-outline cursor-not-allowed" disabled="" type="text" value="Restricted: Requires Super"/>
+<p class="text-[11px] text-outline">Tier level insufficient</p>
+</div>
+</div>
+</section>
+<!-- SECTION 2 & 3: Twin Administrative Forms Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+<!-- FORM 1: Admin Charity Partner Creation & Media CMS Form (7 Columns) -->
+<div class="xl:col-span-6 space-y-6">
+<div class="p-6 md:p-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 shadow-sm space-y-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/20 rounded-bl-full pointer-events-none"></div>
+<div class="flex items-start justify-between border-b border-outline-variant/30 pb-4">
+<div>
+<span class="text-label-sm font-label-sm text-secondary">MODULE 01 • CMS &amp; AUDIT</span>
+<h3 class="text-headline-md font-headline-md text-primary mt-1">Charity Partner Enrollment</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Onboard community foundations &amp; allocate monthly purse tithes.</p>
+</div>
+<span class="p-2 rounded-xl bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]">account_balance</span>
+</span>
+</div>
+<form class="space-y-5" onsubmit="event.preventDefault();">
+<!-- Legal Reg Charity Number with Verification State -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center">
+<label class="text-label-sm font-label-sm text-on-surface">Legal Registered Charity Number (OSCR / CC)</label>
+<span class="text-label-sm font-label-sm text-primary flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+                    Verified UK Registry
+                  </span>
+</div>
+<div class="relative">
+<input class="w-full text-body-md font-body-md bg-surface-container-low/60 border border-primary/50 rounded-xl px-4 py-2.5 text-on-surface focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all pr-24" type="text" value="SC039201"/>
+<div class="absolute right-3 top-2.5 flex items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-primary text-[10px] font-bold">OSCR LIVE</span>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-secondary-fixed/20 border border-secondary-container flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+<span class="text-body-sm font-body-sm text-primary font-medium">St Andrews Links Trust Community Foundation</span>
+</div>
+<span class="text-[11px] text-secondary">Established 1974</span>
+</div>
+</div>
+<!-- Charity Name & Focus Pillar -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-label-sm font-label-sm text-on-surface">Organization Legal Name</label>
+<input class="w-full text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2.5 text-on-surface focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all" type="text" value="St Andrews Links Trust Ltd"/>
+</div>
+<div class="space-y-1.5">
+<label class="text-label-sm font-label-sm text-on-surface">Focus Pillar</label>
+<div class="relative">
+<select class="w-full text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2.5 text-on-surface appearance-none focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all pr-10">
+<option selected="">Coastal Ecology &amp; Fairway Turf</option>
+<option>Youth Caddie Scholarships</option>
+<option>Highland Junior Golf Development</option>
+<option>Adaptive Golf Accessibility</option>
+</select>
+<span class="material-symbols-outlined text-secondary absolute right-3 top-3 pointer-events-none text-[20px]">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Monthly Allocation Cap -->
+<div class="space-y-1.5">
+<label class="text-label-sm font-label-sm text-on-surface">Monthly Tithe Allocation Cap ($)</label>
+<div class="relative">
+<span class="absolute left-4 top-2.5 text-outline font-medium">$</span>
+<input class="w-full text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-xl pl-8 pr-4 py-2.5 text-on-surface focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all" type="text" value="35,000.00"/>
+<span class="absolute right-4 top-2.5 text-label-sm font-label-sm text-secondary">Max 25% of draw purse</span>
+</div>
+</div>
+<!-- Tithe Bank Payout Details with Invalid State & Instant Checksum -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/60 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">payments</span>
+<span class="text-title-md font-title-md text-primary">Tithe Settlement Account (UK BACS)</span>
+</div>
+<span class="text-[11px] px-2 py-0.5 rounded bg-error-container text-on-error-container font-semibold">Checksum Mismatch</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Invalid Sort Code Field -->
+<div class="space-y-1">
+<label class="text-label-sm font-label-sm text-error font-medium">Bank Sort Code</label>
+<div class="relative">
+<input class="w-full text-body-md font-body-md bg-error-container/20 border-2 border-error rounded-xl px-4 py-2 text-error focus:outline-none" type="text" value="80-22"/>
+<span class="material-symbols-outlined text-error text-[18px] absolute right-3 top-2.5">warning</span>
+</div>
+<p class="text-[11px] text-error font-medium mt-1">Sort code must be 6 digits (XX-XX-XX)</p>
+</div>
+<!-- Account Number Field -->
+<div class="space-y-1">
+<label class="text-label-sm font-label-sm text-on-surface">Account Number</label>
+<input class="w-full text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2 text-on-surface focus:border-primary focus:ring-4 focus:ring-primary/10" type="text" value="98440182"/>
+<p class="text-[11px] text-secondary">Modulus-11 validated</p>
+</div>
+</div>
+<div class="space-y-1">
+<label class="text-label-sm font-label-sm text-on-surface">IBAN Equivalent (Optional International)</label>
+<input class="w-full text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2 text-on-surface focus:border-primary focus:ring-4 focus:ring-primary/10 placeholder:text-outline" placeholder="GB29 MIDL 4005 1512 3456 78" type="text"/>
+</div>
+</div>
+<!-- Media CMS: High-Resolution Impact Hero Banner Upload -->
+<div class="space-y-2">
+<div class="flex justify-between items-center">
+<label class="text-label-sm font-label-sm text-on-surface">Charity Impact Hero Banner</label>
+<span class="text-label-sm font-label-sm text-secondary">Min requirement: 1920×1080px (16:9)</span>
+</div>
+<!-- Active Upload Zone with Validation Feedback -->
+<div class="p-4 rounded-xl border-2 border-dashed border-primary/30 bg-surface-container-low/40 hover:bg-surface-container-low transition-colors flex flex-col items-center justify-center text-center space-y-3 cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[24px]">cloud_upload</span>
+</div>
+<div>
+<p class="text-label-md font-label-md text-primary font-semibold">Drop 4K hero imagery or <span class="underline">browse local drive</span></p>
+<p class="text-body-sm font-body-sm text-secondary mt-0.5">JPEG, WEBP, or PNG up to 15MB. Color calibrated for ivory theme.</p>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant text-[11px] text-primary">
+<span class="material-symbols-outlined text-[14px]">photo_size_select_actual</span>
+<span>Active File: st_andrews_turf_preservation_2024.webp (3840×2160 • Passed)</span>
+</div>
+</div>
+</div>
+<!-- Action Bar -->
+<div class="pt-3 flex items-center justify-end gap-3 border-t border-outline-variant/30">
+<button class="px-5 py-2.5 rounded-full text-label-md font-label-md text-on-surface-variant hover:text-primary transition-colors" type="button">
+                  Discard Draft
+                </button>
+<button class="px-6 py-2.5 rounded-full bg-primary text-surface font-label-md text-label-md font-semibold hover:bg-primary-container transition-all shadow-sm active:scale-[0.98]" type="submit">
+                  Commit Charity Entity
+                </button>
+</div>
+</form>
+</div>
+</div>
+<!-- FORM 2: Admin Prize Draw Creation & Simulation Engine Form (6 Columns) -->
+<div class="xl:col-span-6 space-y-6">
+<div class="p-6 md:p-8 rounded-2xl bg-surface-container-lowest border border-outline-variant/60 shadow-sm space-y-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-32 h-32 bg-tertiary-fixed/30 rounded-bl-full pointer-events-none"></div>
+<div class="flex items-start justify-between border-b border-outline-variant/30 pb-4">
+<div>
+<span class="text-label-sm font-label-sm text-secondary">MODULE 02 • ESCROW ENGINE</span>
+<h3 class="text-headline-md font-headline-md text-primary mt-1">Prize Draw Configuration</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Automated sweepstake logic with cryptographic seed allocation.</p>
+</div>
+<span class="p-2 rounded-xl bg-tertiary-fixed text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-[20px]">casino</span>
+</span>
+</div>
+<form class="space-y-5" onsubmit="event.preventDefault();">
+<!-- Draw Title & Month/Year -->
+<div class="space-y-1.5">
+<label class="text-label-sm font-label-sm text-on-surface">Draw Title</label>
+<input class="w-full text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2.5 text-on-surface focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-medium" type="text" value="November St Andrews Open Draw"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-label-sm font-label-sm text-on-surface">Execution Month / Year</label>
+<div class="relative">
+<input class="w-full text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2.5 text-on-surface focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all" type="month" value="2024-11"/>
+</div>
+</div>
+<!-- Guaranteed Purse with Threshold Warning -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center">
+<label class="text-label-sm font-label-sm text-on-surface">Guaranteed Purse Pool ($)</label>
+<span class="text-[11px] text-tertiary font-bold px-2 py-0.5 rounded bg-tertiary-fixed-dim/30">Escrow Locked</span>
+</div>
+<div class="relative">
+<span class="absolute left-4 top-2.5 text-outline font-medium">$</span>
+<input class="w-full text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-xl pl-8 pr-4 py-2.5 text-on-surface focus:border-primary focus:ring-4 focus:ring-primary/10 transition-all font-semibold" type="text" value="125,000"/>
+</div>
+<p class="text-[11px] text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Meets minimum escrow deposit of $100,000</span>
+</p>
+</div>
+</div>
+<!-- Winner Distribution & Minimum Rounds -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1.5">
+<label class="text-label-sm font-label-sm text-on-surface">Tiered Winner Count (1–10)</label>
+<div class="flex items-center gap-2">
+<input class="w-full accent-primary h-2 bg-surface-container-highest rounded-lg cursor-pointer" max="10" min="1" type="range" value="5"/>
+<span class="w-10 text-center py-1 rounded-lg bg-surface-container border border-outline-variant text-label-md font-label-md text-primary font-bold">5</span>
+</div>
+<p class="text-[11px] text-secondary">1st: $75k, 2nd: $25k, 3rd-5th: $8.3k</p>
+</div>
+<div class="space-y-1.5">
+<label class="text-label-sm font-label-sm text-on-surface">Min Certified Rounds Criterion</label>
+<div class="relative">
+<input class="w-full text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2 text-on-surface focus:border-primary focus:ring-4 focus:ring-primary/10" min="1" type="number" value="5"/>
+<span class="material-symbols-outlined text-secondary absolute right-3 top-2.5 text-[18px]">sports_golf</span>
+</div>
+<p class="text-[11px] text-secondary">Eligible golfers must log certified rounds</p>
+</div>
+</div>
+<!-- Execution UTC Time & Scottish Holiday Collision Detection -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/60 space-y-3">
+<div class="flex items-center justify-between">
+<span class="text-title-md font-title-md text-primary">Draw Execution Date &amp; UTC Audit Window</span>
+<span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-secondary-fixed text-primary flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]">schedule</span>
+                    UTC Synchronized
+                  </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-1">
+<label class="text-label-sm font-label-sm text-on-surface">Execution Date</label>
+<input class="w-full text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2 text-on-surface" type="date" value="2024-11-28"/>
+</div>
+<div class="space-y-1">
+<label class="text-label-sm font-label-sm text-on-surface">Time (UTC 24H)</label>
+<input class="w-full text-body-md font-body-md bg-surface-container-lowest border border-outline-variant rounded-xl px-4 py-2 text-on-surface" type="time" value="18:00"/>
+</div>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container flex items-start gap-2.5 border border-outline-variant/40">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5">event_available</span>
+<div>
+<p class="text-label-sm font-label-sm text-primary font-semibold">Scottish Banking Holiday Clearance</p>
+<p class="text-[11px] text-secondary">No collision detected with Scottish bank holidays (St Andrew’s Day substitute observed Dec 02).</p>
+</div>
+</div>
+</div>
+<!-- Escrow Bank Account Selection & Dual-Key Admin Signature Validation -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border-2 border-primary/20 space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">vpn_key</span>
+<span class="text-title-md font-title-md text-primary">Dual-Key Governance Arming</span>
+</div>
+<span class="text-[11px] px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-bold">ARMED (2/2)</span>
+</div>
+<div class="space-y-1.5">
+<label class="text-label-sm font-label-sm text-on-surface">Designated Royal Bank Escrow Vault</label>
+<select class="w-full text-body-sm font-body-sm bg-surface-container-low border border-outline-variant rounded-xl px-4 py-2 text-on-surface">
+<option selected="">RBS Commercial Escrow • Account ****-8821 ($520,000 Liquidity)</option>
+<option>Clydesdale Custody Vault • Account ****-4109</option>
+</select>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
+<!-- Key 1: Chief Steward Verified -->
+<div class="p-3 rounded-xl bg-secondary-fixed/25 border border-primary/30 flex items-center justify-between">
+<div class="space-y-0.5">
+<p class="text-label-sm font-label-sm text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                        Chief Steward Key
+                      </p>
+<p class="text-[10px] text-secondary">Signer: A. MacLeod (YubiKey OTP)</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+</div>
+<!-- Key 2: Compliance Trustee Verified -->
+<div class="p-3 rounded-xl bg-secondary-fixed/25 border border-primary/30 flex items-center justify-between">
+<div class="space-y-0.5">
+<p class="text-label-sm font-label-sm text-primary font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">lock</span>
+                        Compliance Trustee
+                      </p>
+<p class="text-[10px] text-secondary">Signer: H. Vane (Hardware Token)</p>
+</div>
+<span class="material-symbols-outlined text-primary text-[18px]">verified</span>
+</div>
+</div>
+</div>
+<!-- Simulation Run Button & Engine Status -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<span class="text-label-sm font-label-sm text-on-surface font-medium">Simulation seed ready (SHA-256)</span>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto">
+<button class="flex-1 sm:flex-initial px-5 py-2.5 rounded-full border border-outline-variant text-label-md font-label-md text-primary font-semibold hover:bg-surface-container transition-all" type="button">
+                    Dry-Run Simulation
+                  </button>
+<button class="flex-1 sm:flex-initial px-6 py-2.5 rounded-full bg-tertiary-fixed-dim text-on-tertiary-fixed font-label-md text-label-md font-bold hover:bg-tertiary-fixed transition-all shadow-sm active:scale-[0.98] flex items-center justify-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-[16px]">bolt</span>
+<span>Arm Draw Engine</span>
+</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+</div>
+<!-- SECTION 4: Interactive Ticket Pools & Audit Ledger Preview -->
+<section class="p-6 md:p-8 rounded-2xl bg-surface-container-low/50 border border-outline-variant/40 space-y-6">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<span class="text-label-sm font-label-sm text-secondary">MEMBER SEED SIMULATION</span>
+<h3 class="text-headline-md font-headline-md text-primary mt-0.5">Live Draw Token Pool Visualizer</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Inspection of cryptographic ticket distribution states and random selection weighting.</p>
+</div>
+<div class="flex items-center gap-2 flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label-sm bg-surface-container-lowest border border-outline-variant/60 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-surface-variant"></span>
+              Inactive (Queue)
+            </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label-sm bg-primary text-surface font-semibold">
+<span class="w-2 h-2 rounded-full bg-surface"></span>
+              Active (Eligible)
+            </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-label-sm font-label-sm bg-tertiary-fixed-dim text-on-tertiary-fixed font-bold">
+<span class="w-2 h-2 rounded-full bg-on-tertiary-fixed"></span>
+              Drawn Winner
+            </span>
+</div>
+</div>
+<!-- Ticket Chips Rail -->
+<div class="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-8 lg:grid-cols-10 gap-3">
+<!-- Token 1 (Active) -->
+<div class="p-3 rounded-xl bg-primary text-surface flex flex-col items-center justify-center shadow-sm">
+<span class="text-label-sm font-label-sm opacity-75">TKT</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight">#0812</span>
+<span class="text-[10px] mt-1 text-surface-variant">42 Pts</span>
+</div>
+<!-- Token 2 (Winner State) -->
+<div class="p-3 rounded-xl bg-tertiary-fixed-dim text-on-tertiary-fixed flex flex-col items-center justify-center ring-2 ring-tertiary-fixed shadow-md relative overflow-hidden">
+<div class="absolute -top-1 -right-1 px-1 bg-tertiary text-surface text-[8px] font-bold rounded">1ST</div>
+<span class="text-label-sm font-label-sm opacity-80">WINNER</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight">#1140</span>
+<span class="text-[10px] mt-1 font-semibold">$75,000</span>
+</div>
+<!-- Token 3 (Active) -->
+<div class="p-3 rounded-xl bg-primary text-surface flex flex-col items-center justify-center shadow-sm">
+<span class="text-label-sm font-label-sm opacity-75">TKT</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight">#2094</span>
+<span class="text-[10px] mt-1 text-surface-variant">39 Pts</span>
+</div>
+<!-- Token 4 (Inactive/Queue) -->
+<div class="p-3 rounded-xl bg-surface-container-high border border-outline-variant/60 text-on-surface-variant flex flex-col items-center justify-center">
+<span class="text-label-sm font-label-sm text-outline">TKT</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight text-on-surface">#3301</span>
+<span class="text-[10px] mt-1 text-outline">Pending</span>
+</div>
+<!-- Token 5 (Active) -->
+<div class="p-3 rounded-xl bg-primary text-surface flex flex-col items-center justify-center shadow-sm">
+<span class="text-label-sm font-label-sm opacity-75">TKT</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight">#4118</span>
+<span class="text-[10px] mt-1 text-surface-variant">41 Pts</span>
+</div>
+<!-- Token 6 (Winner State 2nd) -->
+<div class="p-3 rounded-xl bg-tertiary-fixed-dim text-on-tertiary-fixed flex flex-col items-center justify-center ring-2 ring-tertiary-fixed shadow-md relative overflow-hidden">
+<div class="absolute -top-1 -right-1 px-1 bg-tertiary text-surface text-[8px] font-bold rounded">2ND</div>
+<span class="text-label-sm font-label-sm opacity-80">WINNER</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight">#5022</span>
+<span class="text-[10px] mt-1 font-semibold">$25,000</span>
+</div>
+<!-- Token 7 (Active) -->
+<div class="p-3 rounded-xl bg-primary text-surface flex flex-col items-center justify-center shadow-sm">
+<span class="text-label-sm font-label-sm opacity-75">TKT</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight">#6291</span>
+<span class="text-[10px] mt-1 text-surface-variant">38 Pts</span>
+</div>
+<!-- Token 8 (Inactive) -->
+<div class="p-3 rounded-xl bg-surface-container-high border border-outline-variant/60 text-on-surface-variant flex flex-col items-center justify-center">
+<span class="text-label-sm font-label-sm text-outline">TKT</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight text-on-surface">#7740</span>
+<span class="text-[10px] mt-1 text-outline">&lt;5 Rds</span>
+</div>
+<!-- Token 9 (Active) -->
+<div class="p-3 rounded-xl bg-primary text-surface flex flex-col items-center justify-center shadow-sm">
+<span class="text-label-sm font-label-sm opacity-75">TKT</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight">#8903</span>
+<span class="text-[10px] mt-1 text-surface-variant">45 Pts</span>
+</div>
+<!-- Token 10 (Active) -->
+<div class="p-3 rounded-xl bg-primary text-surface flex flex-col items-center justify-center shadow-sm">
+<span class="text-label-sm font-label-sm opacity-75">TKT</span>
+<span class="text-headline-sm font-headline-sm font-bold tracking-tight">#9419</span>
+<span class="text-[10px] mt-1 text-surface-variant">40 Pts</span>
+</div>
+</div>
+<!-- Audit Summary Banner -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="p-2.5 rounded-full bg-secondary-container text-primary">
+<span class="material-symbols-outlined text-[20px]">balance</span>
+</span>
+<div>
+<p class="text-label-md font-label-md text-primary font-semibold">Certified Pool Audit Status: Conforming to UK Gambling Act 2005</p>
+<p class="text-body-sm font-body-sm text-secondary">Free-entry postal route verified; 100% of certified round entries tied to GHIN handicap record feeds.</p>
+</div>
+</div>
+<button class="shrink-0 px-4 py-2 rounded-full border border-outline-variant hover:bg-surface-container text-label-sm font-label-sm text-primary font-bold flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-[16px]">download</span>
+<span>Export Governance Audit PDF</span>
+</button>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar (Shared Component for Mobile Viewport) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-space-margin-mobile py-space-xs pb-safe lg:hidden bg-surface/90 backdrop-blur-md border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(13,46,36,0.06)]">
+<a class="flex flex-col items-center justify-center text-primary bg-secondary-container/50 rounded-xl px-3 py-1 font-semibold text-label-sm font-label-sm" href="#draws">
+<span class="material-symbols-outlined text-[20px]">casino</span>
+<span>Draws</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 text-label-sm font-label-sm hover:text-primary transition-colors" href="#scores">
+<span class="material-symbols-outlined text-[20px]">sports_score</span>
+<span>Scores</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 text-label-sm font-label-sm hover:text-primary transition-colors" href="#impact">
+<span class="material-symbols-outlined text-[20px]">volunteer_activism</span>
+<span>Impact</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 text-label-sm font-label-sm hover:text-primary transition-colors" href="#winnings">
+<span class="material-symbols-outlined text-[20px]">trophy</span>
+<span>Winnings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 text-label-sm font-label-sm hover:text-primary transition-colors" href="#profile">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span>Profile</span>
+</a>
+</nav>
+</body></html>

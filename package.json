@@ -1,0 +1,29 @@
+{
+  "name": "digital-heroes",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently -k \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "lint": "eslint backend frontend",
+    "format": "prettier --write backend frontend docs README.md package.json eslint.config.js .prettierrc.json",
+    "format:check": "prettier --check backend frontend docs README.md package.json eslint.config.js .prettierrc.json",
+    "test": "npm run test --workspaces",
+    "build": "npm run build --workspaces",
+    "start": "npm run start -w backend"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "concurrently": "^9.2.1",
+    "eslint": "^10.10.0",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "globals": "^16.5.0",
+    "prettier": "^3.6.2"
+  }
+}

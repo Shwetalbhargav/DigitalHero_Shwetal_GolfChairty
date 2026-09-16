@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Verification Failed — Digital Heroes</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-fixed": "#002117",
+            "on-primary-container": "#8abda9",
+            "surface-bright": "#f3fcf5",
+            "on-error-container": "#93000a",
+            "surface-dim": "#d3dcd6",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#e2eae4",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "on-secondary-container": "#49695d",
+            "background": "#f3fcf5",
+            "tertiary-fixed-dim": "#f1be65",
+            "error-container": "#ffdad6",
+            "primary-fixed-dim": "#9ed1bd",
+            "on-tertiary-container": "#dbaa53",
+            "inverse-on-surface": "#eaf3ec",
+            "on-surface-variant": "#404945",
+            "secondary-fixed": "#c7eadb",
+            "surface-container-low": "#edf6ef",
+            "inverse-primary": "#9ed1bd",
+            "on-secondary-fixed": "#002117",
+            "surface-tint": "#376757",
+            "on-surface": "#151d19",
+            "on-primary-fixed-variant": "#1d4f40",
+            "secondary-container": "#c4e8d8",
+            "secondary": "#456559",
+            "surface": "#f3fcf5",
+            "secondary-fixed-dim": "#abcebf",
+            "primary": "#003629",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#c0c9c3",
+            "tertiary-fixed": "#ffdeaa",
+            "surface-container-highest": "#dce5de",
+            "primary-container": "#1b4d3e",
+            "primary-fixed": "#baeed9",
+            "error": "#ba1a1a",
+            "outline": "#707974",
+            "on-background": "#151d19",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "on-tertiary": "#ffffff",
+            "on-error": "#ffffff",
+            "tertiary-container": "#5c3f00",
+            "surface-container": "#e7f0e9",
+            "on-tertiary-fixed": "#271900",
+            "tertiary": "#3f2a00",
+            "surface-variant": "#dce5de",
+            "on-primary": "#ffffff",
+            "inverse-surface": "#2a322e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin-mobile": "1.25rem",
+            "space-sm": "0.5rem",
+            "margin": "3rem",
+            "gutter": "1.5rem",
+            "gutter-mobile": "1rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-xl": "2.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Outfit"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-md": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "display-lg": ["Outfit"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"],
+            "title-md": ["Outfit"]
+          },
+          "fontSize": {
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }]
+          }
+        },
+      },
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col selection:bg-secondary-container selection:text-primary">
+<!-- Top Simulated Sandbox Environment Banner -->
+<aside class="bg-surface-container-high border-b border-outline-variant/30 text-on-surface-variant text-label-sm font-label-sm py-2 px-4 sticky top-0 z-50">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="inline-flex items-center justify-center w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>
+<span class="font-semibold text-primary">Simulated Sandbox Environment</span>
+<span class="text-outline hidden sm:inline">•</span>
+<span class="hidden sm:inline">UI-Only Demo</span>
+<span class="text-outline hidden sm:inline">•</span>
+<span class="hidden md:inline">Zero Real Financial Charges</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-label-sm font-semibold tracking-wide uppercase">Test Mode</span>
+<span class="text-outline text-label-sm">v2.4-stage</span>
+</div>
+</div>
+</aside>
+<!-- TopNavBar (Shared Component JSON Blueprint) -->
+<header class="bg-surface/85 dark:bg-primary/85 backdrop-blur-md border-b border-outline-variant/30 shadow-sm sticky top-9 z-40">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<!-- Brand Anchor -->
+<div class="flex items-center gap-3">
+<a class="flex items-center gap-2.5 group" href="#">
+<div class="w-8 h-8 rounded-lg bg-primary-container flex items-center justify-center text-surface-container-lowest shadow-sm">
+<span class="material-symbols-outlined text-primary-fixed text-xl">sports_golf</span>
+</div>
+<div>
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+<span class="block text-label-sm font-label-sm text-secondary -mt-1 font-medium">Feel, not fairway</span>
+</div>
+</a>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-lg font-label-lg" href="#">Draws</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-lg font-label-lg" href="#">Scorecard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-lg font-label-lg" href="#">Impact</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-lg font-label-lg" href="#">Winnings</a>
+</nav>
+<!-- Trailing Cluster -->
+<div class="flex items-center gap-3.5">
+<!-- Impact Badge -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container/60 border border-outline-variant/40 text-on-secondary-fixed-variant text-label-md font-label-md shadow-xs">
+<span class="material-symbols-outlined text-primary text-base" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span class="font-semibold text-primary">Impact: $14,250</span>
+</div>
+<!-- Notification Icon -->
+<button aria-label="Notifications" class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high/60 active:scale-[0.98] transition-all" type="button">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<!-- Golfer Avatar -->
+<div class="flex items-center gap-2 pl-1 border-l border-outline-variant/30">
+<img alt="Golfer profile avatar" class="w-8 h-8 rounded-full object-cover border border-outline-variant/40 shadow-xs" data-alt="A refined candid profile portrait of a confident amateur golfer in their late thirties wearing a dark forest green performance mock-neck sweater against a soft, sunlit links fairway background with muted botanical tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDo-vvqeLSqaNW7A0pefnt83649_KamrUJHifi6OmO4jbMjMAECi9oHADvTjvGvqKXC-SF9ui8yQ7XR9qBEaCqqkV7KfLB56dcMRLfjAbP7fBkfHCb7BgCXyMelWANvvx36kR3UjbeHNJYEmF6HyEkdziVdTaHV5osjYm1XeW6XGpy1JvMbLyITxhTKVhCUhPAYQMUwJxKhN_HIE8tkLN-A-t_qDaEk91XdxAT3b2_qLnRVfu5w8Hl00w"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow py-space-lg md:py-space-xl px-space-md md:px-space-lg">
+<div class="max-w-4xl mx-auto space-y-6">
+<!-- Breadcrumbs & Status Bar -->
+<section class="flex flex-wrap items-center justify-between gap-3 text-label-md font-label-md">
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Subscription Plans</a>
+<span class="material-symbols-outlined text-sm text-outline">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Checkout</a>
+<span class="material-symbols-outlined text-sm text-outline">chevron_right</span>
+<span class="text-primary font-semibold">Payment Verification</span>
+</nav>
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container text-on-error-container text-label-sm font-label-sm uppercase font-bold tracking-wide">
+<span class="material-symbols-outlined text-sm">priority_high</span>
+<span>Action Required</span>
+</div>
+</section>
+<!-- Primary Card: Modern Organic Minimalist Glassmorphism Container -->
+<article class="relative rounded-xl border border-outline-variant/60 bg-surface-container-lowest/90 backdrop-blur-md p-space-md sm:p-space-lg md:p-space-xl shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)] overflow-hidden">
+<!-- Subtle Top Aesthetic Indicator Bar -->
+<div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-error/70 via-tertiary-fixed-dim to-secondary"></div>
+<!-- Header Message Cluster -->
+<div class="text-center max-w-2xl mx-auto mb-8 pt-2">
+<div class="mx-auto w-14 h-14 rounded-full bg-error-container/70 flex items-center justify-center text-error mb-4 shadow-inner ring-4 ring-error-container/30">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">error_outline</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight mb-2">
+            Simulated Payment Authorization Declined
+          </h1>
+<p class="text-body-md font-body-md text-on-surface-variant leading-relaxed">
+            We could not complete your simulated transaction with the card provided. No charges or holds have been applied to your account.
+          </p>
+</div>
+<!-- Telemetry Details Box -->
+<div class="rounded-xl bg-surface-container-low border border-outline-variant/50 p-4 md:p-5 mb-6 space-y-3">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-outline font-semibold">Diagnostic Code</span>
+<span class="font-mono text-label-md font-semibold px-2 py-0.5 rounded bg-surface-container-high text-primary">SIM_DECLINED_402</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-1 text-body-sm font-body-sm">
+<div>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Issuer Explanation</p>
+<p class="font-medium text-on-surface mt-0.5">Declined by simulated issuer (Insufficient demo balance or test card restriction).</p>
+</div>
+<div>
+<p class="text-on-surface-variant text-label-sm font-label-sm">Submitted Instrument</p>
+<p class="font-medium text-on-surface mt-0.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base text-secondary">credit_card</span>
+<span>Visa ending in •••• 4491 (Julian Vance)</span>
+</p>
+<span class="text-outline text-label-sm font-label-sm block mt-0.5">Exp 09/27 • Declined at 14:38 UTC</span>
+</div>
+</div>
+</div>
+<!-- 48-Hour Reservation Protection Alert -->
+<aside class="rounded-xl border border-secondary-container bg-surface-container/60 p-4 md:p-5 mb-8">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-start gap-3">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-on-primary-container flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-primary-fixed text-lg" style="font-variation-settings: 'FILL' 1;">lock_clock</span>
+</div>
+<div>
+<h2 class="text-title-md font-title-md text-primary font-semibold">
+                  Ballot Allocation Reserved &amp; Protected (48-Hour Hold)
+                </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+                  Your 5 allocated Stableford ballot slots for the Oct 31 Draw ($250,000 Purse) and Highland Dunes youth foundation pledge remain held in escrow.
+                </p>
+</div>
+</div>
+<div class="text-right shrink-0">
+<span class="text-label-sm font-label-sm uppercase font-semibold text-secondary block">Hold Window</span>
+<span class="text-headline-sm font-headline-sm font-bold text-primary tabular-nums">47h 58m</span>
+</div>
+</div>
+<!-- Subtle Progress Timer Bar -->
+<div class="mt-4 pt-2">
+<div class="w-full bg-surface-container-highest rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-1.5 rounded-full" style="width: 98%;"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-label-sm text-outline mt-1.5">
+<span>Reservation Active</span>
+<span>Expires Thursday at 14:36 UTC</span>
+</div>
+</div>
+</aside>
+<!-- Primary Actions Group -->
+<div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2 pb-6 border-b border-outline-variant/30">
+<button class="w-full sm:w-auto px-7 py-3 rounded-full bg-primary-container text-surface-container-lowest font-label-lg font-label-lg flex items-center justify-center gap-2 hover:bg-primary active:scale-[0.98] transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-lg">refresh</span>
+<span>Retry Payment</span>
+</button>
+<button class="w-full sm:w-auto px-6 py-3 rounded-full bg-surface-container border border-outline-variant/60 text-primary font-label-lg font-label-lg flex items-center justify-center gap-2 hover:bg-surface-container-high active:scale-[0.98] transition-all" type="button">
+<span class="material-symbols-outlined text-lg">credit_card</span>
+<span>Change Payment Method</span>
+</button>
+</div>
+<div class="text-center pt-4">
+<a class="inline-flex items-center gap-1.5 text-label-md font-label-md text-secondary hover:text-primary transition-colors font-medium" href="#">
+<span class="material-symbols-outlined text-base">arrow_back</span>
+<span>Return to Subscription Plans</span>
+</a>
+</div>
+</article>
+<!-- Sandbox Developer Fast-Switch Card (For Testing/Verification) -->
+<section class="rounded-xl border border-dashed border-outline-variant bg-surface-container-low/70 p-5 backdrop-blur-xs">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">tune</span>
+<h3 class="text-title-md font-title-md text-primary font-semibold">Sandbox Quick-Fill Test Cards</h3>
+</div>
+<span class="text-label-sm font-label-sm text-outline">Click any credential to simulate instant authorization</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+<!-- Card Option 1 -->
+<button class="text-left p-3.5 rounded-lg border border-outline-variant/50 bg-surface-container-lowest hover:border-primary transition-all flex items-center justify-between group" type="button">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary-container/50 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-base">verified</span>
+</div>
+<div>
+<p class="text-label-md font-label-md font-semibold text-primary group-hover:text-primary-container">Test Visa (Auto-Approve)</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-mono">•••• 4242  |  12/28  |  CVC 123</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container text-label-sm font-semibold">Select</span>
+</button>
+<!-- Card Option 2 -->
+<button class="text-left p-3.5 rounded-lg border border-outline-variant/50 bg-surface-container-lowest hover:border-primary transition-all flex items-center justify-between group" type="button">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded bg-secondary-container/50 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-base">verified</span>
+</div>
+<div>
+<p class="text-label-md font-label-md font-semibold text-primary group-hover:text-primary-container">Test Mastercard (Auto-Approve)</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant font-mono">•••• 5555  |  08/29  |  CVC 789</p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-secondary-container text-on-secondary-container text-label-sm font-semibold">Select</span>
+</button>
+</div>
+</section>
+<!-- FAQ & Member Support Bento Layout -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- FAQ 1 -->
+<article class="p-5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest">
+<h4 class="text-title-md font-title-md text-primary font-semibold mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">help</span>
+            Why was my simulated card declined?
+          </h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant leading-relaxed">
+            In our sandbox environment, specific test tokens trigger realistic rejection scenarios (such as postal code mismatch or demo overdraft) to verify resilient member notification workflows.
+          </p>
+</article>
+<!-- Support Callout -->
+<article class="p-5 rounded-xl border border-outline-variant/40 bg-surface-container-lowest flex flex-col justify-between">
+<div>
+<h4 class="text-title-md font-title-md text-primary font-semibold mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-lg">support_agent</span>
+              Need personal assistance?
+            </h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Our Member Concierge desk is on standby to assist with subscription tier setups, charitable allocations, and club handicaps.
+            </p>
+</div>
+<div class="mt-4 pt-2">
+<a class="inline-flex items-center gap-2 text-label-md font-label-md font-semibold text-primary hover:text-secondary transition-colors" href="#">
+<span>Chat with Member Support</span>
+<span class="material-symbols-outlined text-sm">open_in_new</span>
+</a>
+</div>
+</article>
+</section>
+<!-- Escrow & Security Trust Strip -->
+<footer class="pt-4 border-t border-outline-variant/30 text-center">
+<div class="flex flex-wrap items-center justify-center gap-6 text-label-sm font-label-sm text-outline">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">verified_user</span>
+<span>256-Bit Simulated Vault Encryption</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">account_balance</span>
+<span>OSCR &amp; Scottish Charity Regulator Aligned</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span>Zero Unscheduled Recurring Charges</span>
+</div>
+</div>
+</footer>
+</div>
+</main>
+<!-- Complete Responsive Desktop Footer -->
+<footer class="mt-auto border-t border-outline-variant/30 bg-surface-container-low py-10 text-on-surface-variant">
+<div class="max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+<div class="md:col-span-2 space-y-2">
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+<p class="text-body-sm font-body-sm max-w-md text-on-surface-variant">
+            A modern, purpose-led golf subscription platform uniting athletic development, charitable giving, and recurring prize events under a unified ethos: "Feel, not fairway."
+          </p>
+</div>
+<div>
+<h4 class="text-label-md font-label-md uppercase tracking-wider text-primary font-semibold mb-3">Platform</h4>
+<ul class="space-y-2 text-body-sm font-body-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Monthly Draws</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Scorecard Intelligence</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Charity Impact Registry</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Rules of Play</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-label-md font-label-md uppercase tracking-wider text-primary font-semibold mb-3">Trust &amp; Governance</h4>
+<ul class="space-y-2 text-body-sm font-body-sm">
+<li><a class="hover:text-primary transition-colors" href="#">Charity Escrow Audits</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Responsible Participation</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/30 flex flex-col md:flex-row items-center justify-between gap-4 text-label-sm font-label-sm text-outline">
+<p>© 2025 Digital Heroes Golf Ltd. Registered Scottish Charitable Partner Network. All rights reserved.</p>
+<p>This sandbox session does not bind real payment authorization or real financial contracts.</p>
+</div>
+</div>
+</footer>
+</body></html>

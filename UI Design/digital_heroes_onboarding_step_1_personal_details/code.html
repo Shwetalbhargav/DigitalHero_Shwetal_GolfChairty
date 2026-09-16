@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Begin Your Journey | Digital Heroes</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "surface-bright": "#f3fcf5",
+            "surface-container-highest": "#dce5de",
+            "primary": "#003629",
+            "primary-container": "#1b4d3e",
+            "background": "#f3fcf5",
+            "primary-fixed-dim": "#9ed1bd",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#002117",
+            "secondary-container": "#c4e8d8",
+            "error": "#ba1a1a",
+            "tertiary": "#3f2a00",
+            "surface-tint": "#376757",
+            "on-tertiary-container": "#dbaa53",
+            "surface-variant": "#dce5de",
+            "secondary-fixed-dim": "#abcebf",
+            "on-error": "#ffffff",
+            "surface": "#f3fcf5",
+            "secondary-fixed": "#c7eadb",
+            "on-secondary-container": "#49695d",
+            "outline": "#707974",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#eaf3ec",
+            "on-surface": "#151d19",
+            "tertiary-container": "#5c3f00",
+            "surface-container-high": "#e2eae4",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffdeaa",
+            "on-primary-fixed-variant": "#1d4f40",
+            "surface-container-low": "#edf6ef",
+            "outline-variant": "#c0c9c3",
+            "on-background": "#151d19",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#9ed1bd",
+            "tertiary-fixed-dim": "#f1be65",
+            "on-secondary-fixed": "#002117",
+            "surface-dim": "#d3dcd6",
+            "on-surface-variant": "#404945",
+            "secondary": "#456559",
+            "surface-container": "#e7f0e9",
+            "inverse-surface": "#2a322e",
+            "primary-fixed": "#baeed9",
+            "on-primary-container": "#8abda9",
+            "on-tertiary-fixed": "#271900"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem",
+            "margin": "3rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"],
+            "title-md": ["Outfit"],
+            "headline-md": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "display-lg": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"],
+            "label-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-xl": ["40px", { lineHeight: "48px", letterSpacing: "-0.015em", fontWeight: "700" }],
+            "body-md": ["15px", { lineHeight: "22px", fontWeight: "400" }],
+            "title-md": ["18px", { lineHeight: "24px", fontWeight: "600" }],
+            "headline-md": ["24px", { lineHeight: "32px", letterSpacing: "-0.005em", fontWeight: "600" }],
+            "label-lg": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+            "display-lg-mobile": ["38px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.02em", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "headline-sm": ["20px", { lineHeight: "28px", fontWeight: "600" }],
+            "display-lg": ["56px", { lineHeight: "64px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "body-sm": ["13px", { lineHeight: "18px", fontWeight: "400" }],
+            "headline-xl-mobile": ["30px", { lineHeight: "36px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.04em", fontWeight: "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Subtly animated decorative backdrop glow */
+    .ambient-glow {
+      background: radial-gradient(circle at 50% 0%, rgba(196, 232, 216, 0.45), transparent 70%);
+    }
+  </style>
+</head>
+<body class="bg-[#FBFBF7] text-on-surface antialiased min-h-screen flex flex-col justify-between selection:bg-secondary-container selection:text-primary relative overflow-x-hidden">
+<!-- Ambient Organic Glow Layer -->
+<div class="ambient-glow absolute top-0 left-0 right-0 h-[500px] pointer-events-none -z-10"></div>
+<!-- Focused Minimal Header for Onboarding (Destination Rule: Suppress Full Shell to prioritize journey focus) -->
+<header class="w-full bg-[#FBFBF7]/80 backdrop-blur-md sticky top-0 z-40 border-b border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl h-16 flex items-center justify-between">
+<!-- Brand Anchor -->
+<a class="flex items-center gap-2 group" href="#">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-surface-bright shadow-sm group-hover:scale-105 transition-transform duration-150">
+<span class="material-symbols-outlined text-[18px]">sports_golf</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-primary tracking-tight leading-none font-bold">Digital Heroes</span>
+<span class="font-label-sm text-label-sm text-secondary tracking-wide">Feel, not fairway</span>
+</div>
+</a>
+<!-- Quick Trust Metric Badge -->
+<div class="hidden sm:flex items-center gap-2 bg-surface-container/70 border border-outline-variant/40 rounded-full px-3 py-1 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-primary text-[16px]">volunteer_activism</span>
+<span>Impact Generated: <span class="font-semibold text-primary">$14,250</span></span>
+</div>
+<!-- Need Help / Back link -->
+<div class="flex items-center gap-2">
+<a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors flex items-center gap-1" href="#">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span class="hidden sm:inline">Assistance</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Multi-Step Journey Canvas -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-space-margin-mobile md:px-space-lg lg:px-space-xl py-space-md md:py-space-xl flex flex-col items-center">
+<!-- 4-Step Progress Stepper -->
+<div class="w-full max-w-3xl mb-space-lg md:mb-space-xl">
+<nav aria-label="Progress">
+<ol class="grid grid-cols-4 gap-2 md:gap-4 items-start">
+<!-- Step 1: Personal Details (Active/Current) -->
+<li class="flex flex-col items-center text-center group cursor-default">
+<div class="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-primary text-on-primary font-label-lg text-label-lg shadow-sm ring-4 ring-secondary-container/60 mb-2">
+<span class="material-symbols-outlined text-[20px]">person</span>
+</div>
+<span class="font-label-sm text-label-sm text-primary font-bold">Step 1</span>
+<span class="hidden sm:inline font-body-sm text-body-sm font-semibold text-primary mt-0.5">Personal Details</span>
+<span class="sm:hidden font-body-sm text-[11px] font-semibold text-primary mt-0.5">Details</span>
+</li>
+<!-- Step 2: Membership Plan -->
+<li class="flex flex-col items-center text-center opacity-65">
+<div class="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-surface-container-high border border-outline-variant/60 text-on-surface-variant font-label-lg text-label-lg mb-2">
+<span class="material-symbols-outlined text-[20px]">card_membership</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Step 2</span>
+<span class="hidden sm:inline font-body-sm text-body-sm text-on-surface-variant mt-0.5">Membership Plan</span>
+<span class="sm:hidden font-body-sm text-[11px] text-on-surface-variant mt-0.5">Plan</span>
+</li>
+<!-- Step 3: Choose Charity -->
+<li class="flex flex-col items-center text-center opacity-65">
+<div class="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-surface-container-high border border-outline-variant/60 text-on-surface-variant font-label-lg text-label-lg mb-2">
+<span class="material-symbols-outlined text-[20px]">volunteer_activism</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Step 3</span>
+<span class="hidden sm:inline font-body-sm text-body-sm text-on-surface-variant mt-0.5">Choose Charity</span>
+<span class="sm:hidden font-body-sm text-[11px] text-on-surface-variant mt-0.5">Charity</span>
+</li>
+<!-- Step 4: Confirmation -->
+<li class="flex flex-col items-center text-center opacity-65">
+<div class="flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-full bg-surface-container-high border border-outline-variant/60 text-on-surface-variant font-label-lg text-label-lg mb-2">
+<span class="material-symbols-outlined text-[20px]">verified</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Step 4</span>
+<span class="hidden sm:inline font-body-sm text-body-sm text-on-surface-variant mt-0.5">Confirmation</span>
+<span class="sm:hidden font-body-sm text-[11px] text-on-surface-variant mt-0.5">Review</span>
+</li>
+</ol>
+</nav>
+<!-- Progress Line Fill Visual Indicator -->
+<div class="w-full bg-surface-container-high h-1 rounded-full mt-3 overflow-hidden">
+<div class="bg-primary h-full w-1/4 rounded-full transition-all duration-300"></div>
+</div>
+</div>
+<!-- Onboarding Layout (Bento Grid Composition) -->
+<div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Left Column: Form Card Canvas (7 Cols) -->
+<div class="lg:col-span-7 bg-[#E6EDE8]/75 backdrop-blur-md rounded-2xl border border-[#D1DED5] p-space-md sm:p-space-lg shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<!-- Header & Emotional Resonance -->
+<div class="mb-space-lg">
+<div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/50 border border-[#D1DED5] mb-space-sm text-primary">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">eco</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">Purpose-Led Athletic Club</span>
+</div>
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary tracking-tight font-bold">
+            Begin your journey
+          </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 max-w-xl">
+            Create your Digital Heroes account to turn your weekend rounds into community impact and monthly prize draws.
+          </p>
+</div>
+<!-- Registration Form -->
+<form class="space-y-space-md" onsubmit="event.preventDefault();">
+<!-- Two-Column Row: First Name & Last Name -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+<div>
+<label class="block font-label-md text-label-md text-primary font-semibold mb-1.5" for="first-name">
+                First Name
+              </label>
+<div class="relative">
+<input class="w-full bg-[#FBFBF7] border border-[#D1DED5] text-on-surface rounded-xl px-3.5 py-2.5 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/60" id="first-name" name="first-name" placeholder="e.g. Julian" required="" type="text"/>
+</div>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-primary font-semibold mb-1.5" for="last-name">
+                Last Name
+              </label>
+<div class="relative">
+<input class="w-full bg-[#FBFBF7] border border-[#D1DED5] text-on-surface rounded-xl px-3.5 py-2.5 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/60" id="last-name" name="last-name" placeholder="e.g. Vance" required="" type="text"/>
+</div>
+</div>
+</div>
+<!-- Email Address -->
+<div>
+<label class="block font-label-md text-label-md text-primary font-semibold mb-1.5" for="email">
+              Email Address
+            </label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-3 text-outline text-[18px]">mail</span>
+<input class="w-full bg-[#FBFBF7] border border-[#D1DED5] text-on-surface rounded-xl pl-10 pr-3.5 py-2.5 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/60" id="email" name="email" placeholder="e.g. julian.vance@example.com" required="" type="email"/>
+</div>
+</div>
+<!-- Official Handicap Index (Optional / Supported) -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="block font-label-md text-label-md text-primary font-semibold" for="handicap">
+                Official Handicap Index <span class="font-normal text-on-surface-variant text-label-sm">(Optional)</span>
+</label>
+<span class="font-label-sm text-label-sm text-secondary font-medium flex items-center gap-0.5">
+<span class="material-symbols-outlined text-[14px]">verified</span> WHS Supported
+              </span>
+</div>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-3 text-outline text-[18px]">sports_score</span>
+<input class="w-full bg-[#FBFBF7] border border-[#D1DED5] text-on-surface rounded-xl pl-10 pr-3.5 py-2.5 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-outline/60" id="handicap" name="handicap" placeholder="e.g. 8.4 or 'I have a WHS Handicap'" type="text"/>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1.5">
+              Not registered yet? You can play and submit casual Stableford cards without an established index.
+            </p>
+</div>
+<!-- Password with Security Meter -->
+<div>
+<label class="block font-label-md text-label-md text-primary font-semibold mb-1.5" for="password">
+              Password
+            </label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-3 text-outline text-[18px]">lock</span>
+<input class="w-full bg-[#FBFBF7] border border-[#D1DED5] text-on-surface rounded-xl pl-10 pr-10 py-2.5 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" id="password" name="password" placeholder="Create a strong passphrase" required="" type="password" value="Athletics&amp;Grassroots24!"/>
+<button class="absolute right-3.5 top-3 text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+</button>
+</div>
+<!-- Password Security Meter Visual -->
+<div class="mt-2 space-y-1.5">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Security Strength: <span class="text-primary font-bold">Strong</span></span>
+<span class="text-secondary font-semibold">Ready</span>
+</div>
+<div class="grid grid-cols-4 gap-1.5 h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+<div class="bg-primary rounded-full"></div>
+<div class="bg-primary rounded-full"></div>
+<div class="bg-primary rounded-full"></div>
+<div class="bg-secondary-fixed-dim rounded-full"></div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Minimum 8 characters, 1 number, 1 symbol
+              </p>
+</div>
+</div>
+<!-- Confirm Password -->
+<div>
+<label class="block font-label-md text-label-md text-primary font-semibold mb-1.5" for="confirm-password">
+              Confirm Password
+            </label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3.5 top-3 text-outline text-[18px]">lock_reset</span>
+<input class="w-full bg-[#FBFBF7] border border-[#D1DED5] text-on-surface rounded-xl pl-10 pr-10 py-2.5 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all" id="confirm-password" name="confirm-password" placeholder="Re-enter your password" required="" type="password" value="Athletics&amp;Grassroots24!"/>
+<span class="material-symbols-outlined absolute right-3.5 top-3 text-primary text-[18px]">check_circle</span>
+</div>
+</div>
+<!-- Checkbox: Terms, Regulations & 10%+ Pledge -->
+<div class="pt-space-xs">
+<label class="flex items-start gap-3 cursor-pointer group select-none">
+<input checked="" class="mt-1 rounded-[6px] border-[#D1DED5] text-primary focus:ring-primary/20 h-5 w-5 rounded cursor-pointer transition-all" required="" type="checkbox"/>
+<span class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                I agree to the <a class="text-primary font-semibold underline hover:text-primary-container" href="#">Terms of Service</a>, <a class="text-primary font-semibold underline hover:text-primary-container" href="#">Draw Regulations</a>, and acknowledge the <span class="text-primary font-bold">10%+ charitable pledge</span> allocated directly from every active subscription.
+              </span>
+</label>
+</div>
+<!-- Primary CTA Button -->
+<div class="pt-space-sm">
+<button class="w-full bg-primary-container hover:bg-primary text-[#FBFBF7] font-label-lg text-label-lg font-bold py-3.5 px-space-lg rounded-full flex items-center justify-center gap-2 shadow-sm hover:translate-y-[-1px] active:scale-[0.98] transition-all duration-150 group cursor-pointer" type="submit">
+<span>Continue to Membership</span>
+<span class="material-symbols-outlined text-[20px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+<!-- Trust Guarantee Note -->
+<div class="flex items-center justify-center gap-2 text-center pt-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">verified_user</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              No spam. Your golf scores are verified independently before draw entry.
+            </p>
+</div>
+<!-- Footer Switch Link -->
+<div class="text-center pt-space-xs border-t border-[#D1DED5]/60 mt-space-md">
+<p class="font-body-md text-body-md text-on-surface-variant">
+              Already have an account? 
+              <a class="text-primary font-bold hover:underline ml-1" href="#">Sign in</a>
+</p>
+</div>
+</form>
+</div>
+<!-- Right Column: Brand Pillars, Tactile Preview & Ambient Visuals (5 Cols) -->
+<div class="lg:col-span-5 space-y-space-md">
+<!-- Hero Visual Showcase Card -->
+<div class="relative rounded-2xl overflow-hidden border border-[#D1DED5] shadow-sm group">
+<div class="w-full h-56 md:h-64 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A tranquil, dawn-lit golf green overlooking a misty natural landscape with morning dew on pristine grass. The atmosphere embodies intentionality, quiet athletic focus, and organic beauty with rich dark forest greens, warm cream sunlight, and champagne gold touches on morning foliage. A sleek modern golfer silhouette stands with purposeful posture, completely free from traditional country club cliches." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuADNm3bpdbbh8hnRZPKZAhAWWNWglp8A2IYMTBol6LoepLfWfu8VJCLt8DoLTTPjL4fXJFV02oNEoNDELoCV6EXLiZFLPWBNdeAlvnhp59jnffhwW_nqoF01D2W6OyBJDrPy8824UfsGuBMWgiVQgnx0cKoi7cM0qVhgpcp25f8JSWvXeKpBXT1FRZym_sPZSghTOvdUiBhBdiLlxiJx0Goccm-AMj7uWkOr5AjLWzRV4a7w2p77PCp5Q')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-[#0D2E24]/90 via-[#0D2E24]/40 to-transparent flex flex-col justify-end p-space-md text-[#FBFBF7]">
+<span class="font-label-sm text-label-sm text-primary-fixed uppercase tracking-wider font-bold mb-1">Our Core Commitment</span>
+<h2 class="font-title-md text-title-md font-bold leading-tight">Every stroke logged funds junior grassroots coaching and eco-preservation.</h2>
+</div>
+</div>
+<!-- Bento Value Proposition Micro-Cards -->
+<div class="grid grid-cols-1 gap-space-sm">
+<!-- Value 1: Recurring Prize Draws -->
+<div class="bg-[#E6EDE8]/60 backdrop-blur-md rounded-xl border border-[#D1DED5] p-space-md flex items-start gap-3.5 hover:bg-[#E6EDE8] transition-colors">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">trophy</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold text-base">Monthly Member Draws</h3>
+<span class="bg-[#C99A45]/20 text-tertiary-container font-label-sm text-[10px] px-2 py-0.5 rounded-full font-bold">Guaranteed</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Subscribers receive automated verified tickets to win custom tour-level fittings, major championship access, and cash allocations.
+              </p>
+</div>
+</div>
+<!-- Value 2: Performance Tracking -->
+<div class="bg-[#E6EDE8]/60 backdrop-blur-md rounded-xl border border-[#D1DED5] p-space-md flex items-start gap-3.5 hover:bg-[#E6EDE8] transition-colors">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]">query_stats</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold text-base">Intuitive Stableford Analytics</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Log your weekend rounds seamlessly. Track strokes gained, scoring differentials, and handicap milestones in one calm digital hub.
+              </p>
+</div>
+</div>
+<!-- Value 3: Transparent Charitable Impact -->
+<div class="bg-[#E6EDE8]/60 backdrop-blur-md rounded-xl border border-[#D1DED5] p-space-md flex items-start gap-3.5 hover:bg-[#E6EDE8] transition-colors">
+<div class="w-10 h-10 rounded-full bg-secondary-container text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[20px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-primary font-bold text-base">Audited 10%+ Pledge</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+                Select your preferred initiative in Step 3—youth community golf access, mental health in sports, or bio-diverse course conservation.
+              </p>
+</div>
+</div>
+</div>
+<!-- Social Proof / Security Endorsement -->
+<div class="p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex -space-x-2 overflow-hidden">
+<div class="inline-block h-8 w-8 rounded-full ring-2 ring-[#FBFBF7] bg-primary-container text-surface-bright flex items-center justify-center font-bold text-xs">JV</div>
+<div class="inline-block h-8 w-8 rounded-full ring-2 ring-[#FBFBF7] bg-secondary text-surface-bright flex items-center justify-center font-bold text-xs">ML</div>
+<div class="inline-block h-8 w-8 rounded-full ring-2 ring-[#FBFBF7] bg-surface-tint text-surface-bright flex items-center justify-center font-bold text-xs">RK</div>
+</div>
+<div>
+<p class="font-label-md text-label-md text-primary font-semibold">1,840+ Active Players</p>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Building a better game together</p>
+</div>
+</div>
+<div class="flex text-[#C99A45]">
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Grounded Minimal Onboarding Footer -->
+<footer class="w-full bg-[#FBFBF7] border-t border-outline-variant/30 py-space-md mt-space-lg">
+<div class="max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+<div class="flex items-center gap-2 text-on-surface-variant font-body-sm text-body-sm">
+<span>© 2025 Digital Heroes Platform Ltd.</span>
+<span>•</span>
+<span class="text-secondary font-medium">Licensed &amp; Independently Audited</span>
+</div>
+<div class="flex items-center gap-6 font-label-sm text-label-sm text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-primary transition-colors" href="#">Draw Rules</a>
+<a class="hover:text-primary transition-colors" href="#">Charity Verification</a>
+<a class="hover:text-primary transition-colors" href="#">Contact Steward</a>
+</div>
+</div>
+</footer>
+</body></html>

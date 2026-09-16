@@ -1,0 +1,98 @@
+backend/
+│
+├── src/
+│   │
+│   ├── config/
+│   │   ├── db.js
+│   │   ├── cloudinary.js
+│   │   └── env.js
+│   │
+│   ├── modules/
+│   │   ├── auth/
+│   │   │   ├── auth.controller.js
+│   │   │   ├── auth.service.js
+│   │   │   ├── auth.routes.js
+│   │   │   ├── auth.validation.js
+│   │   │   └── auth.constants.js
+│   │   │
+│   │   ├── users/
+│   │   │   ├── user.model.js
+│   │   │   ├── user.controller.js
+│   │   │   ├── user.service.js
+│   │   │   ├── user.routes.js
+│   │   │   └── user.validation.js
+│   │   │
+│   │   ├── charities/
+│   │   │   ├── charity.model.js
+│   │   │   ├── charity.controller.js
+│   │   │   ├── charity.service.js
+│   │   │   ├── charity.routes.js
+│   │   │   └── charity.validation.js
+│   │   │
+│   │   ├── subscriptions/
+│   │   │   ├── subscription.model.js
+│   │   │   ├── subscription.controller.js
+│   │   │   ├── subscription.service.js
+│   │   │   └── subscription.routes.js
+│   │   │
+│   │   ├── scores/
+│   │   │   ├── score.model.js
+│   │   │   ├── score.controller.js
+│   │   │   ├── score.service.js
+│   │   │   ├── score.routes.js
+│   │   │   └── score.validation.js
+│   │   │
+│   │   ├── draws/
+│   │   │   ├── draw.model.js
+│   │   │   ├── drawEntry.model.js
+│   │   │   ├── draw.controller.js
+│   │   │   ├── draw.service.js
+│   │   │   ├── draw.routes.js
+│   │   │   ├── draw.engine.js
+│   │   │   └── draw.validation.js
+│   │   │
+│   │   ├── winners/
+│   │   │   ├── winner.model.js
+│   │   │   ├── payout.model.js
+│   │   │   ├── winner.controller.js
+│   │   │   ├── winner.service.js
+│   │   │   └── winner.routes.js
+│   │   │
+│   │   ├── payments/
+│   │   │   ├── payment.model.js
+│   │   │   ├── payment.controller.js
+│   │   │   ├── payment.service.js
+│   │   │   └── payment.routes.js
+│   │   │
+│   │   └── admin/
+│   │       ├── admin.controller.js
+│   │       ├── admin.service.js
+│   │       └── admin.routes.js
+│   │
+│   ├── middleware/
+│   │   ├── auth.middleware.js
+│   │   ├── admin.middleware.js
+│   │   ├── error.middleware.js
+│   │   ├── notFound.middleware.js
+│   │   └── upload.middleware.js
+│   │
+│   ├── utils/
+│   │   ├── asyncHandler.js
+│   │   ├── ApiError.js
+│   │   ├── ApiResponse.js
+│   │   ├── generateToken.js
+│   │   └── pagination.js
+│   │
+│   ├── routes/
+│   │   └── index.js
+│   │
+│   ├── app.js
+│   └── server.js
+│
+├── scripts/
+│   └── seed.js
+│
+├── .env
+├── .env.example
+├── package.json
+└── nodemon.json

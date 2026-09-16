@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Golf Scores &amp; Draw Ledger — Digital Heroes</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "secondary": "#456559",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "surface-bright": "#f3fcf5",
+            "error-container": "#ffdad6",
+            "on-tertiary-container": "#dbaa53",
+            "tertiary-fixed": "#ffdeaa",
+            "on-primary-fixed-variant": "#1d4f40",
+            "on-error": "#ffffff",
+            "inverse-surface": "#2a322e",
+            "on-surface": "#151d19",
+            "surface-container-high": "#e2eae4",
+            "inverse-on-surface": "#eaf3ec",
+            "on-primary": "#ffffff",
+            "surface-container": "#e7f0e9",
+            "surface-dim": "#d3dcd6",
+            "outline": "#707974",
+            "tertiary-fixed-dim": "#f1be65",
+            "on-secondary": "#ffffff",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "surface-variant": "#dce5de",
+            "surface-container-highest": "#dce5de",
+            "tertiary": "#3f2a00",
+            "on-background": "#151d19",
+            "error": "#ba1a1a",
+            "surface-container-low": "#edf6ef",
+            "primary-container": "#1b4d3e",
+            "on-tertiary-fixed": "#271900",
+            "secondary-fixed": "#c7eadb",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed": "#002117",
+            "on-secondary-container": "#49695d",
+            "tertiary-container": "#5c3f00",
+            "secondary-container": "#c4e8d8",
+            "outline-variant": "#c0c9c3",
+            "inverse-primary": "#9ed1bd",
+            "primary": "#003629",
+            "background": "#f3fcf5",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#abcebf",
+            "surface-container-lowest": "#ffffff",
+            "surface-tint": "#376757",
+            "on-surface-variant": "#404945",
+            "primary-fixed-dim": "#9ed1bd",
+            "surface": "#f3fcf5",
+            "on-primary-container": "#8abda9",
+            "on-primary-fixed": "#002117",
+            "primary-fixed": "#baeed9"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "margin": "3rem",
+            "gutter-mobile": "1rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1.25rem",
+            "space-md": "1rem",
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Outfit"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "display-lg": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"],
+            "title-md": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "headline-md": ["Outfit"],
+            "headline-lg": ["Outfit"]
+          },
+          "fontSize": {
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    };
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex selection:bg-secondary-fixed selection:text-primary">
+<!-- Desktop Persistent SideNavBar (Shared Component Anchor) -->
+<aside class="hidden lg:flex flex-col justify-between h-screen p-space-md w-64 shrink-0 bg-surface dark:bg-primary border-r border-outline-variant/30 dark:border-outline/20 fixed z-30 left-0 top-0">
+<div class="flex flex-col gap-6">
+<!-- Brand Anchor Header -->
+<div class="px-space-sm pt-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary flex items-center justify-center text-primary-fixed shadow-sm">
+<span class="material-symbols-outlined" data-icon="sports_golf">sports_golf</span>
+</div>
+<div>
+<h1 class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed tracking-tight">Digital Heroes</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Feel, not fairway</p>
+</div>
+</div>
+</div>
+<!-- Navigation Tabs (Scorecard is Active match) -->
+<nav class="flex flex-col gap-1.5 mt-2">
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-primary-container/30 active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="casino">casino</span>
+<span class="font-label-md text-label-md">Monthly Draws</span>
+</a>
+<!-- Active Item: Scorecard -->
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl bg-primary-container text-on-primary-container dark:bg-secondary-container dark:text-on-secondary-fixed font-semibold active:scale-[0.98] transition-all duration-150 shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="sports_score" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sports_score</span>
+<span class="font-label-md text-label-md text-surface-container-lowest font-semibold">Scorecard</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-primary-container/30 active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="font-label-md text-label-md">Charity Impact</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-primary-container/30 active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="trophy">trophy</span>
+<span class="font-label-md text-label-md">Winnings</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant dark:text-surface-variant hover:bg-surface-container dark:hover:bg-primary-container/30 active:scale-[0.98] transition-all duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="card_membership">card_membership</span>
+<span class="font-label-md text-label-md">Membership</span>
+</a>
+</nav>
+<!-- Sidebar Quick CTA from Blueprint -->
+<div class="px-space-xs mt-2">
+<button class="w-full py-2.5 px-4 rounded-full bg-primary text-surface-container-lowest font-label-md text-label-md flex items-center justify-center gap-2 hover:translate-y-[-1px] transition-all shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="add_circle">add_circle</span>
+          Log Stableford Round
+        </button>
+</div>
+</div>
+<!-- Sidebar Footer -->
+<div class="flex flex-col gap-1 border-t border-outline-variant/30 pt-4">
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-label-md text-label-md">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+<span class="font-label-md text-label-md">Help &amp; Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Canvas Wrapper -->
+<div class="flex-1 flex flex-col min-w-0 lg:ml-64 pb-24 lg:pb-12">
+<!-- Sticky TopNavBar -->
+<header class="sticky top-0 z-40 bg-surface/85 backdrop-blur-md border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<!-- Mobile Logo & Handicap display -->
+<div class="flex items-center gap-4">
+<div class="lg:hidden flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-fixed">
+<span class="material-symbols-outlined text-base" data-icon="sports_golf">sports_golf</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+</div>
+<!-- Handicap Token -->
+<div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/40">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">WHS Index</span>
+<span class="font-headline-sm text-headline-sm font-bold text-primary">8.4</span>
+<span class="text-xs px-1.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-medium">Verified</span>
+</div>
+</div>
+<!-- Top Nav Links (Desktop) -->
+<div class="hidden md:flex items-center gap-8">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Draws</a>
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Scorecard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Impact</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md" href="#">Winnings</a>
+</div>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-3">
+<!-- Quick Impact Pill -->
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container text-on-secondary-container border border-outline-variant/30 text-xs font-semibold">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="volunteer_activism" data-weight="fill" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span>Impact: $14,250</span>
+</div>
+<!-- Notifications & User Avatar -->
+<button class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-high/60 transition-colors text-on-surface-variant" title="Notifications">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="flex items-center gap-2 pl-1">
+<div class="w-9 h-9 rounded-full bg-secondary text-surface-container-lowest flex items-center justify-center font-bold text-xs ring-2 ring-surface-container-high">
+              AR
+            </div>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Content Container -->
+<main class="w-full max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl pt-space-lg">
+<!-- Page Header with Primary & Secondary CTAs -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 border-b border-outline-variant/20">
+<div>
+<div class="flex items-center gap-2 mb-1.5">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm tracking-wider uppercase">Member Ledger</span>
+<span class="text-outline-variant">•</span>
+<span class="text-xs text-secondary font-medium">Automatic WHS API Sync Active</span>
+</div>
+<h2 class="font-headline-xl text-headline-xl-mobile md:text-headline-xl font-bold text-primary tracking-tight">
+            Golf Scores &amp; Draw Ledger
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1 max-w-2xl">
+            Manage your verified Stableford rounds. Your latest 5 scores automatically enter you into the monthly prize draw.
+          </p>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-4 py-2.5 rounded-full bg-surface-container border border-outline-variant/40 hover:bg-surface-container-high text-primary font-label-md text-label-md flex items-center gap-2 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+            Export Scorecard (CSV)
+          </button>
+<button class="px-5 py-2.5 rounded-full bg-primary hover:bg-primary-container text-surface-container-lowest font-label-md text-label-md flex items-center gap-2 shadow-sm hover:translate-y-[-1px] transition-all">
+<span class="material-symbols-outlined text-base" data-icon="add">add</span>
+            Add New Score
+          </button>
+</div>
+</section>
+<!-- TOP FEATURED SECTION: Active Draw Numbers (Next Draw: Oct 31) -->
+<section class="mt-8 rounded-2xl p-6 md:p-8 bg-surface-container-low/70 border border-outline-variant/40 backdrop-blur-md relative overflow-hidden shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<!-- Section Header / Callout -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="casino" data-weight="fill" style="font-variation-settings: 'FILL' 1;">casino</span>
+</div>
+<div>
+<div class="flex items-center gap-2.5">
+<h3 class="font-headline-sm text-headline-sm text-primary">Active Draw Numbers (Next Draw: Oct 31)</h3>
+<span class="flex h-2 w-2 relative">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-fixed-dim opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-on-tertiary-container"></span>
+</span>
+</div>
+<p class="font-label-md text-label-md text-secondary mt-0.5">These 5 scores will be used in your next draw</p>
+</div>
+</div>
+<div class="flex items-center gap-2 self-start lg:self-auto">
+<span class="px-3 py-1 rounded-full bg-primary text-primary-fixed font-label-sm text-label-sm uppercase tracking-wider">
+              Ticket #DH-90412
+            </span>
+<span class="text-xs text-on-surface-variant font-medium bg-surface-container-highest/60 px-2.5 py-1 rounded-full">
+              Draw Pool: $25,000 + Scottish Open Excursion
+            </span>
+</div>
+</div>
+<!-- 5 Score Chips / Cards Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+<!-- Slot 1: 38 pts -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/40 flex flex-col justify-between relative hover:border-primary/40 transition-all group">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Slot 1 • Latest</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-primary bg-secondary-fixed/50 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[13px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+                Verified
+              </span>
+</div>
+<div class="my-4 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg-mobile md:text-headline-xl font-bold text-primary leading-none">38</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">pts</span>
+</div>
+<div class="border-t border-outline-variant/30 pt-3">
+<p class="font-label-lg text-label-lg text-on-surface truncate font-semibold">North Berwick</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Oct 18, 2024</p>
+</div>
+</div>
+<!-- Slot 2: 35 pts -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/40 flex flex-col justify-between relative hover:border-primary/40 transition-all group">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Slot 2</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-primary bg-secondary-fixed/50 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[13px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+                Verified
+              </span>
+</div>
+<div class="my-4 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg-mobile md:text-headline-xl font-bold text-primary leading-none">35</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">pts</span>
+</div>
+<div class="border-t border-outline-variant/30 pt-3">
+<p class="font-label-lg text-label-lg text-on-surface truncate font-semibold">Gullane No. 1</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Oct 14, 2024</p>
+</div>
+</div>
+<!-- Slot 3: 41 pts -->
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/40 flex flex-col justify-between relative hover:border-primary/40 transition-all group">
+<div class="flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Slot 3</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-semibold text-primary bg-secondary-fixed/50 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-[13px]" data-icon="verified" data-weight="fill" style="font-variation-settings: 'FILL' 1;">verified</span>
+                Verified
+              </span>
+</div>
+<div class="my-4 flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg-mobile md:text-headline-xl font-bold text-primary leading-none">41</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">pts</span>
+</div>
+<div class="border-t border-outline-variant/30 pt-3">
+<p class="font-label-lg text-label-lg text-on-surface truncate font-semibold">St. Andrews Eden</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant truncate">Oct 08, 2024</p>
+</div>
+</div>
+<!-- Slot 4: Empty (Round 4) Dashed CTA -->
+<div class="p-4 rounded-xl border-2 border-dashed border-outline-variant/80 bg-surface-container/30 flex flex-col justify-between items-center text-center hover:bg-surface-container/60 hover:border-primary/50 transition-all">
+<div class="w-full flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Slot 4</span>
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="hourglass_top">hourglass_top</span>
+</div>
+<div class="my-3 flex flex-col items-center">
+<span class="material-symbols-outlined text-primary mb-1" data-icon="edit_note">edit_note</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant">Empty</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/80">(Round 4)</span>
+</div>
+<button class="w-full py-1.5 px-3 rounded-full bg-primary-container text-surface-container-lowest font-label-sm text-label-sm hover:opacity-95 transition-opacity">
+              Log Round 4
+            </button>
+</div>
+<!-- Slot 5: Empty (Round 5) Dashed Locked -->
+<div class="p-4 rounded-xl border-2 border-dashed border-outline-variant/50 bg-surface-container/20 flex flex-col justify-between items-center text-center opacity-75">
+<div class="w-full flex justify-between items-start">
+<span class="font-label-sm text-label-sm text-on-surface-variant/60 uppercase font-semibold">Slot 5</span>
+<span class="material-symbols-outlined text-outline text-sm" data-icon="lock">lock</span>
+</div>
+<div class="my-3 flex flex-col items-center">
+<span class="material-symbols-outlined text-outline mb-1" data-icon="lock">lock</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant/60">Empty</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant/60">(Round 5)</span>
+</div>
+<div class="w-full py-1.5 px-3 rounded-full bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">
+              Awaiting Round
+            </div>
+</div>
+</div>
+<!-- Completion Progress Banner -->
+<div class="mt-6 pt-5 border-t border-outline-variant/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div class="flex-1 max-w-xl">
+<div class="flex justify-between items-center mb-1.5">
+<p class="font-label-md text-label-md font-semibold text-primary">
+                3 of 5 scores entered — 2 scores needed to activate ticket #DH-90412
+              </p>
+<span class="font-label-sm text-label-sm font-bold text-secondary">60%</span>
+</div>
+<!-- Progress Bar -->
+<div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 60%"></div>
+</div>
+</div>
+<!-- Restrained Champagne Callout Tag -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-tertiary-fixed/30 border border-tertiary-fixed text-tertiary self-start md:self-auto">
+<span class="material-symbols-outlined text-sm text-on-tertiary-container" data-icon="award_star">award_star</span>
+<span class="font-label-sm text-label-sm font-semibold text-on-tertiary-fixed-variant">Qualified for 1.5x Green Keeper Multiplier</span>
+</div>
+</div>
+<!-- Replacement Rule Callout Box -->
+<div class="mt-4 p-3.5 rounded-xl bg-surface-container border border-outline-variant/30 flex items-start gap-3 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary shrink-0 mt-0.5" data-icon="sync_alt">sync_alt</span>
+<p class="font-body-sm text-body-sm leading-relaxed">
+<span class="font-semibold text-on-surface">Rule:</span> Once 5 scores exist, each new score replaces the oldest active score in reverse chronological order (FIFO). This ensures your freshest play form determines your jackpot entry combinations.
+          </p>
+</div>
+</section>
+<!-- Validation Rules Mini Informational Strip -->
+<section class="mt-6 px-4 py-3 rounded-xl bg-secondary-fixed/30 border border-secondary-fixed-dim/40 flex flex-wrap items-center justify-between gap-3 text-on-secondary-fixed-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="policy">policy</span>
+<span class="font-label-md text-label-md font-semibold">Ledger Fair Play Verification Rules:</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 font-body-sm text-body-sm">
+<span>• Stableford points between 1 and 45</span>
+<span>• Strictly 1 score per date</span>
+<span>• Automatic WHS sync enabled</span>
+</div>
+</section>
+<!-- MAIN SECTION: Score History Ledger -->
+<section class="mt-8">
+<!-- Table Top Controls & Filter Tabs -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
+<div class="flex items-center gap-2 border-b sm:border-b-0 border-outline-variant/30 pb-2 sm:pb-0">
+<button class="px-4 py-1.5 rounded-full bg-primary text-surface-container-lowest font-label-md text-label-md font-semibold transition-all shadow-sm">
+              All Scores (14)
+            </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md font-medium transition-colors">
+              Active in Draw (3)
+            </button>
+<button class="px-4 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-md font-medium transition-colors">
+              Archived Rounds (11)
+            </button>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="filter_list">filter_list</span>
+<select class="pl-8 pr-8 py-1.5 bg-surface-container-low border border-outline-variant/40 rounded-full font-label-sm text-label-sm text-on-surface-variant focus:ring-1 focus:ring-primary focus:border-primary appearance-none cursor-pointer">
+<option>All Seasons (2024)</option>
+<option>Summer Links Series</option>
+<option>Autumn Medal</option>
+</select>
+</div>
+<span class="text-xs text-on-surface-variant">Showing 14 rounds</span>
+</div>
+</div>
+<!-- Ledger Table Surface Card -->
+<div class="bg-surface-container-lowest border border-outline-variant/40 rounded-2xl overflow-hidden shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)]">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container/60 border-b border-outline-variant/30 text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3.5 px-4 font-semibold">Date Played</th>
+<th class="py-3.5 px-4 font-semibold">Score</th>
+<th class="py-3.5 px-4 font-semibold">Golf Club &amp; Course</th>
+<th class="py-3.5 px-4 font-semibold hidden md:table-cell">Location</th>
+<th class="py-3.5 px-4 font-semibold">Verification Status</th>
+<th class="py-3.5 px-4 font-semibold text-center">Draw Status</th>
+<th class="py-3.5 px-4 font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 font-body-sm text-body-sm">
+<!-- Row 1: Oct 18, 2024 (Active #1) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-4 whitespace-nowrap font-medium text-on-surface">
+                    Oct 18, 2024
+                  </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-primary-container text-surface-container-lowest font-headline-sm text-title-md font-bold shadow-xs">
+                      38 <span class="text-xs font-normal ml-1 text-primary-fixed">pts</span>
+</span>
+</td>
+<td class="py-4 px-4">
+<div class="font-semibold text-on-surface">North Berwick — West Links</div>
+<div class="text-xs text-on-surface-variant md:hidden">East Lothian, Scotland</div>
+</td>
+<td class="py-4 px-4 hidden md:table-cell text-on-surface-variant">
+                    East Lothian, Scotland
+                  </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-semibold text-primary">WHS Verified</span>
+</div>
+<div class="text-xs text-outline">Attested by Marker #8839</div>
+</td>
+<td class="py-4 px-4 text-center whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary text-primary-fixed">
+                      Active #1
+                    </span>
+</td>
+<td class="py-4 px-4 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Edit round details">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline/50 cursor-not-allowed group relative" title="Cannot delete verified round once draw locked">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Oct 14, 2024 (Active #2) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-4 whitespace-nowrap font-medium text-on-surface">
+                    Oct 14, 2024
+                  </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-primary-container text-surface-container-lowest font-headline-sm text-title-md font-bold shadow-xs">
+                      35 <span class="text-xs font-normal ml-1 text-primary-fixed">pts</span>
+</span>
+</td>
+<td class="py-4 px-4">
+<div class="font-semibold text-on-surface">Gullane No. 1 — Championship</div>
+<div class="text-xs text-on-surface-variant md:hidden">Gullane, Scotland</div>
+</td>
+<td class="py-4 px-4 hidden md:table-cell text-on-surface-variant">
+                    Gullane, Scotland
+                  </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-semibold text-primary">WHS Verified</span>
+</div>
+<div class="text-xs text-outline">Attested by Marker #1204</div>
+</td>
+<td class="py-4 px-4 text-center whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary text-primary-fixed">
+                      Active #2
+                    </span>
+</td>
+<td class="py-4 px-4 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Edit round details">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline/50 cursor-not-allowed group relative" title="Cannot delete verified round once draw locked">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Oct 08, 2024 (Active #3) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors">
+<td class="py-4 px-4 whitespace-nowrap font-medium text-on-surface">
+                    Oct 08, 2024
+                  </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-primary-container text-surface-container-lowest font-headline-sm text-title-md font-bold shadow-xs">
+                      41 <span class="text-xs font-normal ml-1 text-primary-fixed">pts</span>
+</span>
+</td>
+<td class="py-4 px-4">
+<div class="font-semibold text-on-surface">St. Andrews Eden Course</div>
+<div class="text-xs text-on-surface-variant md:hidden">Fife, Scotland</div>
+</td>
+<td class="py-4 px-4 hidden md:table-cell text-on-surface-variant">
+                    Fife, Scotland
+                  </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-semibold text-primary">WHS Verified</span>
+</div>
+<div class="text-xs text-outline">Attested by Marker #9401</div>
+</td>
+<td class="py-4 px-4 text-center whitespace-nowrap">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-primary text-primary-fixed">
+                      Active #3
+                    </span>
+</td>
+<td class="py-4 px-4 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="Edit round details">
+<span class="material-symbols-outlined text-lg" data-icon="edit">edit</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline/50 cursor-not-allowed group relative" title="Cannot delete verified round once draw locked">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Sep 28, 2024 (Archived Round) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors opacity-85">
+<td class="py-4 px-4 whitespace-nowrap font-medium text-on-surface-variant">
+                    Sep 28, 2024
+                  </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-surface-container text-on-surface font-headline-sm text-title-md font-medium">
+                      34 <span class="text-xs font-normal ml-1 text-on-surface-variant">pts</span>
+</span>
+</td>
+<td class="py-4 px-4">
+<div class="font-medium text-on-surface">Muirfield (The Honourable Company)</div>
+<div class="text-xs text-on-surface-variant md:hidden">Gullane, Scotland</div>
+</td>
+<td class="py-4 px-4 hidden md:table-cell text-on-surface-variant">
+                    Gullane, Scotland
+                  </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-on-surface-variant">Attested by Marker #4410</span>
+</div>
+<div class="text-xs text-outline">Replaced by FIFO rule</div>
+</td>
+<td class="py-4 px-4 text-center whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-surface-container-high text-on-surface-variant">
+                      Archived
+                    </span>
+</td>
+<td class="py-4 px-4 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="View round breakdown">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-error transition-colors" title="Delete archived score">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Sep 20, 2024 (Archived Round) -->
+<tr class="hover:bg-surface-container-low/50 transition-colors opacity-85">
+<td class="py-4 px-4 whitespace-nowrap font-medium text-on-surface-variant">
+                    Sep 20, 2024
+                  </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-surface-container text-on-surface font-headline-sm text-title-md font-medium">
+                      39 <span class="text-xs font-normal ml-1 text-on-surface-variant">pts</span>
+</span>
+</td>
+<td class="py-4 px-4">
+<div class="font-medium text-on-surface">Cruden Bay Golf Club</div>
+<div class="text-xs text-on-surface-variant md:hidden">Aberdeenshire, Scotland</div>
+</td>
+<td class="py-4 px-4 hidden md:table-cell text-on-surface-variant">
+                    Aberdeenshire, Scotland
+                  </td>
+<td class="py-4 px-4 whitespace-nowrap">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+<span class="text-on-surface-variant">Attested by Marker #7712</span>
+</div>
+<div class="text-xs text-outline">September Draw Participant</div>
+</td>
+<td class="py-4 px-4 text-center whitespace-nowrap">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-surface-container-high text-on-surface-variant">
+                      Archived
+                    </span>
+</td>
+<td class="py-4 px-4 text-right whitespace-nowrap">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-primary transition-colors" title="View round breakdown">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+<button class="p-1.5 rounded-lg hover:bg-surface-container text-on-surface-variant hover:text-error transition-colors" title="Delete archived score">
+<span class="material-symbols-outlined text-lg" data-icon="delete">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Pagination & Footer Status -->
+<div class="p-4 bg-surface-container/30 border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-3 text-on-surface-variant font-label-sm text-label-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="verified_user">verified_user</span>
+<span>All Stableford points calculated via USGA / R&amp;A standard tables.</span>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 rounded-lg border border-outline-variant/40 hover:bg-surface-container disabled:opacity-40" disabled="">Previous</button>
+<span class="font-medium text-primary">Page 1 of 3</span>
+<button class="px-3 py-1 rounded-lg border border-outline-variant/40 hover:bg-surface-container">Next</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Quick-Add Drawer Teaser / Inline Modal Preview -->
+<section class="mt-8 mb-12 p-6 rounded-2xl bg-surface-container border border-outline-variant/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-2xl bg-primary text-surface-container-lowest flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl" data-icon="speed">speed</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-primary">Fast Score Entry (Express Attestation)</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 max-w-xl">
+              Just played 18 holes? Sync straight from your club’s handicap terminal or enter your gross score with marker member number for automatic 15-minute verification.
+            </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-5 py-2.5 rounded-full bg-primary hover:bg-primary-container text-surface-container-lowest font-label-md text-label-md transition-all">
+            Quick Add Round
+          </button>
+</div>
+</section>
+</main>
+<!-- Mobile Bottom Navigation (Shared Component Anchor) -->
+<!-- Responsive Pivot: On MOBILE (lg:hidden), BottomNavBar is active. Scores tab is highlighted -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 rounded-t-xl bg-surface/90 backdrop-blur-md shadow-[0_-4px_20px_rgba(13,46,36,0.06)] border-t border-outline-variant/30 flex justify-around items-center px-space-margin-mobile py-space-xs pb-safe lg:hidden">
+<!-- Tab 1: Draws -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="casino">casino</span>
+<span class="font-label-sm text-label-sm mt-0.5">Draws</span>
+</a>
+<!-- Tab 2: Scores (ACTIVE TAB) -->
+<a class="flex flex-col items-center justify-center text-primary bg-secondary-container/50 rounded-xl px-3 py-1 font-semibold active:scale-[0.96] transition-transform duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="sports_score" data-weight="fill" style="font-variation-settings: 'FILL' 1;">sports_score</span>
+<span class="font-label-sm text-label-sm mt-0.5">Scores</span>
+</a>
+<!-- Tab 3: Impact -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="font-label-sm text-label-sm mt-0.5">Impact</span>
+</a>
+<!-- Tab 4: Winnings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="trophy">trophy</span>
+<span class="font-label-sm text-label-sm mt-0.5">Winnings</span>
+</a>
+<!-- Tab 5: Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-sm text-label-sm mt-0.5">Profile</span>
+</a>
+</nav>
+</div>
+</body></html>

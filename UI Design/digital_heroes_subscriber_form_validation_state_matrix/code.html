@@ -1,0 +1,1308 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Heroes — Form Validation &amp; State Architecture System</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Forms and Container Queries -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#f3fcf5",
+            "tertiary-fixed-dim": "#f1be65",
+            "tertiary-fixed": "#ffdeaa",
+            "surface-container-highest": "#dce5de",
+            "on-primary-container": "#8abda9",
+            "surface-container-high": "#e2eae4",
+            "secondary-container": "#c4e8d8",
+            "secondary-fixed-dim": "#abcebf",
+            "on-primary-fixed": "#002117",
+            "primary-container": "#1b4d3e",
+            "on-surface-variant": "#404945",
+            "primary": "#003629",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed": "#271900",
+            "secondary": "#456559",
+            "surface-container": "#e7f0e9",
+            "on-secondary-container": "#49695d",
+            "on-secondary": "#ffffff",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "primary-fixed-dim": "#9ed1bd",
+            "surface-container-low": "#edf6ef",
+            "outline": "#707974",
+            "surface-variant": "#dce5de",
+            "inverse-surface": "#2a322e",
+            "on-secondary-fixed": "#002117",
+            "error": "#ba1a1a",
+            "on-surface": "#151d19",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-container": "#5c3f00",
+            "on-error": "#ffffff",
+            "primary-fixed": "#baeed9",
+            "surface-tint": "#376757",
+            "surface-dim": "#d3dcd6",
+            "on-primary": "#ffffff",
+            "inverse-on-surface": "#eaf3ec",
+            "error-container": "#ffdad6",
+            "tertiary": "#3f2a00",
+            "on-tertiary-container": "#dbaa53",
+            "inverse-primary": "#9ed1bd",
+            "background": "#f3fcf5",
+            "surface-bright": "#f3fcf5",
+            "on-primary-fixed-variant": "#1d4f40",
+            "on-background": "#151d19",
+            "secondary-fixed": "#c7eadb",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#c0c9c3",
+            "on-tertiary-fixed-variant": "#5f4100"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "margin": "3rem",
+            "space-sm": "0.5rem",
+            "margin-mobile": "1.25rem",
+            "space-xs": "0.25rem",
+            "gutter-mobile": "1rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "headline-md": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "headline-xl-mobile": ["Outfit"],
+            "title-md": ["Outfit"],
+            "headline-xl": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "display-lg-mobile": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "display-lg": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Ambient backdrop blur container styles */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid #c0c9c3;
+    }
+    .glass-input {
+      background: #ffffff;
+      border: 1px solid #c0c9c3;
+      transition: all 0.15s ease-in-out;
+    }
+    .glass-input:focus {
+      outline: none;
+      border-color: #1b4d3e;
+      box-shadow: 0 0 0 3px rgba(27, 77, 62, 0.12);
+    }
+    /* Range Slider Styling */
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 20px;
+      width: 20px;
+      border-radius: 9999px;
+      background: #1b4d3e;
+      cursor: pointer;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0, 54, 41, 0.25);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen font-body-md antialiased flex flex-col selection:bg-secondary-container selection:text-primary">
+<!-- TopNavBar (Shared Component from JSON) -->
+<header class="bg-surface/85 backdrop-blur-md text-primary docked full-width top sticky z-40 border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<div class="flex items-center gap-6">
+<a class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-primary" data-icon="sports_golf" style="font-size: 26px;">sports_golf</span>
+          Digital Heroes
+        </a>
+<span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-secondary text-label-sm font-label-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container animate-ping"></span>
+          Forms &amp; Design System Spec v2.4
+        </span>
+</div>
+<!-- Navigation links from JSON -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Draws</a>
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 text-label-md font-label-md" href="#">Scorecard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Impact</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Winnings</a>
+</nav>
+<!-- Trailing actions from JSON -->
+<div class="flex items-center gap-3">
+<div class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-secondary-container/60 text-primary text-label-md font-label-md">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="font-bold">Impact: $14,250</span>
+</div>
+<button class="p-2 rounded-xl text-on-surface-variant hover:bg-surface-container-high/60 transition-colors" title="Notifications">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="flex items-center gap-2 p-1.5 rounded-xl hover:bg-surface-container-high/60 transition-colors" title="Account">
+<span class="material-symbols-outlined text-primary" data-icon="account_circle">account_circle</span>
+<span class="text-label-md font-label-md hidden sm:inline text-primary">Marcus V.</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Side Navigation + Main Canvas Layout -->
+<div class="flex-1 flex max-w-7xl w-full mx-auto">
+<!-- SideNavBar (Shared Component from JSON) -->
+<aside class="hidden lg:flex flex-col justify-between h-[calc(100vh-4rem)] sticky top-16 p-space-md w-64 shrink-0 border-r border-outline-variant/30 bg-surface">
+<div>
+<!-- SideNav Brand Sub-header -->
+<div class="px-space-md py-3 mb-4 rounded-xl bg-surface-container-low border border-outline-variant/20">
+<div class="text-title-md font-title-md text-primary">Digital Heroes</div>
+<div class="text-body-sm font-body-sm text-secondary">Feel, not fairway</div>
+</div>
+<!-- 5 Tabs from JSON -->
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors text-label-md font-label-md" href="#draws">
+<span class="material-symbols-outlined text-secondary" data-icon="casino">casino</span>
+<span>Monthly Draws</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl bg-primary-container text-on-secondary font-semibold text-label-md font-label-md shadow-sm" href="#scorecard">
+<span class="material-symbols-outlined text-secondary-fixed" data-icon="sports_score">sports_score</span>
+<span>Scorecard</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors text-label-md font-label-md" href="#impact">
+<span class="material-symbols-outlined text-secondary" data-icon="volunteer_activism">volunteer_activism</span>
+<span>Charity Impact</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors text-label-md font-label-md" href="#winnings">
+<span class="material-symbols-outlined text-secondary" data-icon="trophy">trophy</span>
+<span>Winnings</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors text-label-md font-label-md" href="#membership">
+<span class="material-symbols-outlined text-secondary" data-icon="card_membership">card_membership</span>
+<span>Membership</span>
+</a>
+</nav>
+<!-- CTA from JSON -->
+<div class="mt-6 px-2">
+<button class="w-full py-2.5 px-4 rounded-full bg-primary hover:bg-primary-container text-surface-container-lowest text-label-md font-label-md font-bold transition-all shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add_circle">add_circle</span>
+            Log Stableford Round
+          </button>
+</div>
+</div>
+<!-- Footer tabs from JSON -->
+<div class="pt-4 border-t border-outline-variant/30 space-y-1">
+<a class="flex items-center gap-3 px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors text-body-sm font-body-sm" href="#settings">
+<span class="material-symbols-outlined text-outline" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-2 rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors text-body-sm font-body-sm" href="#help">
+<span class="material-symbols-outlined text-outline" data-icon="help_outline">help_outline</span>
+<span>Help &amp; Support</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 p-space-md md:p-space-lg lg:p-space-xl overflow-y-auto pb-24 lg:pb-12">
+<!-- Section 1: Hero & Architecture Intro -->
+<div class="mb-10">
+<div class="flex flex-wrap items-center justify-between gap-4 mb-2">
+<div>
+<span class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-secondary-container/70 text-on-secondary-container text-label-sm font-label-sm mb-2">
+<span class="material-symbols-outlined text-xs" data-icon="verified_user">verified_user</span>
+              Purpose-Driven Validation Architecture
+            </span>
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight">
+              Subscriber &amp; Player Validation System
+            </h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1 max-w-3xl">
+              Calm, non-punitive inline verification engineered for athletic progression and transparent philanthropy. Standardizing feedback across 7 atomic input states without aggressive neon reds or disruptive popups.
+            </p>
+</div>
+<div class="flex items-center gap-2">
+<button class="px-4 py-2 rounded-full border border-outline-variant/80 bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-label-md font-label-md transition-colors flex items-center gap-1.5" onclick="simulateAllValid()">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+              Simulate Valid State
+            </button>
+<button class="px-4 py-2 rounded-full border border-outline-variant/80 bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-label-md font-label-md transition-colors flex items-center gap-1.5" onclick="simulateAllInvalid()">
+<span class="material-symbols-outlined text-sm text-[#b33927]" data-icon="sync_problem">sync_problem</span>
+              Trigger Edge Errors
+            </button>
+</div>
+</div>
+</div>
+<!-- SECTION 1: THE UNIVERSAL FIELD STATE MATRIX (7 CORE STATES) -->
+<section class="mb-12">
+<div class="flex items-center justify-between mb-4">
+<div>
+<h2 class="text-title-md font-title-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="grid_view">grid_view</span>
+              Universal Field State Matrix (7 Core Token States)
+            </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Exhaustive visual taxonomy demonstrating how every text container behaves across interaction cycles.
+            </p>
+</div>
+<span class="text-label-sm font-label-sm text-secondary bg-surface-container px-2.5 py-1 rounded-full border border-outline-variant/40">
+            Atomic Standard
+          </span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+<!-- State 1: Default -->
+<div class="glass-panel p-space-md rounded-2xl flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">State 01</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm">Default / Resting</span>
+</div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5">Member Club Handicap</label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl text-body-md font-body-md bg-surface-container-lowest border border-outline-variant text-on-surface cursor-default focus:ring-0" readonly="" type="text" value="14.2"/>
+<span class="absolute right-3 top-3 text-outline text-sm font-label-sm">INDEX</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-outline" data-icon="info">info</span>
+              Gossamer 1px border (#C0C9C3). Zero shadow.
+            </p>
+</div>
+<!-- State 2: Focused -->
+<div class="glass-panel p-space-md rounded-2xl flex flex-col justify-between ring-1 ring-primary-container/20">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-primary">State 02</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/60 text-primary text-label-sm font-label-sm">Focused</span>
+</div>
+<label class="block text-label-md font-label-md text-primary font-bold mb-1.5">Scottish Golf ID</label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl text-body-md font-body-md bg-surface-container-lowest border-2 border-primary-container text-primary shadow-[0_0_0_3px_rgba(27,77,62,0.12)] outline-none" type="text" value="SG-84920"/>
+<span class="absolute right-3 top-2.5 material-symbols-outlined text-primary" data-icon="edit">edit</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-primary mt-3 flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="center_focus_strong">center_focus_strong</span>
+              Deep Forest Green (#1B4D3E) with 3px soft aura.
+            </p>
+</div>
+<!-- State 3: Valid -->
+<div class="glass-panel p-space-md rounded-2xl flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">State 03</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-primary text-label-sm font-label-sm font-bold">Valid Confirmed</span>
+</div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5">Registered Player Email</label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl text-body-md font-body-md bg-surface-container-lowest border border-secondary text-primary pr-10" readonly="" type="text" value="marcus.vance@linksclub.co"/>
+<span class="absolute right-3 top-2.5 material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-secondary mt-3 flex items-center gap-1 font-medium">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="task_alt">task_alt</span>
+              Soft Sage (#456559) icon indicator &amp; confirmed format.
+            </p>
+</div>
+<!-- State 4: Invalid -->
+<div class="glass-panel p-space-md rounded-2xl flex flex-col justify-between bg-error-container/10 border-[#e8c8c5]">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-[#b33927]">State 04</span>
+<span class="px-2 py-0.5 rounded-full bg-[#fbeae8] text-[#b33927] text-label-sm font-label-sm font-bold">Invalid Boundary</span>
+</div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5">Stableford Round Points</label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl text-body-md font-body-md bg-[#fffaf9] border-2 border-[#b33927] text-[#b33927] pr-10 outline-none" type="text" value="58"/>
+<span class="absolute right-3 top-2.5 material-symbols-outlined text-[#b33927]" data-icon="error">error</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-[#b33927] mt-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-[#b33927]" data-icon="warning">warning</span>
+              Subdued terracotta/coral. Calm, dignified feedback.
+            </p>
+</div>
+<!-- State 5: Disabled -->
+<div class="glass-panel p-space-md rounded-2xl flex flex-col justify-between opacity-70 bg-surface-container-high/40">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-outline">State 05</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-outline text-label-sm font-label-sm">Disabled / Readonly</span>
+</div>
+<label class="block text-label-md font-label-md text-outline mb-1.5">Season Seed Number</label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl text-body-md font-body-md bg-surface-container-high/60 border border-outline-variant/50 text-outline cursor-not-allowed" disabled="" type="text" value="LOCK-2024-DH"/>
+<span class="absolute right-3 top-2.5 material-symbols-outlined text-outline" data-icon="lock">lock</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-outline mt-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="do_not_disturb">do_not_disturb</span>
+              Muted greyed slate. Inaccessible cursor state.
+            </p>
+</div>
+<!-- State 6: Loading / Asynchronous Checking -->
+<div class="glass-panel p-space-md rounded-2xl flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-primary">State 06</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/40 text-primary text-label-sm font-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+                  Checking
+                </span>
+</div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5">Handicap Verification PIN</label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl text-body-md font-body-md bg-surface-container-lowest border border-primary-container/60 text-primary pr-10" readonly="" type="text" value="9021-SCOT"/>
+<span class="absolute right-3 top-2.5">
+<svg class="animate-spin h-5 w-5 text-primary" fill="none" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+<path class="opacity-75" d="M4 12a8 8 0 018-8v8H4z" fill="currentColor"></path>
+</svg>
+</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-secondary mt-3 flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="sync">sync</span>
+              Live lookup with World Handicap System registry.
+            </p>
+</div>
+<!-- State 7: Success / Celebration Milestone -->
+<div class="glass-panel p-space-md rounded-2xl flex flex-col justify-between bg-[#fffbf2] border-[#e0c694]">
+<div>
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-tertiary">State 07</span>
+<span class="px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-label-sm font-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="stars">stars</span>
+                  Milestone Winner
+                </span>
+</div>
+<label class="block text-label-md font-label-md text-tertiary font-bold mb-1.5">Golden Ballot Allocation</label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl text-body-md font-body-md bg-surface-container-lowest border-2 border-tertiary-fixed-dim text-tertiary font-semibold pr-10 shadow-[0_0_12px_rgba(201,154,69,0.2)]" readonly="" type="text" value="TICKET-DH-77492-GOLD"/>
+<span class="absolute right-3 top-2.5 material-symbols-outlined text-tertiary" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+</div>
+<p class="text-body-sm font-body-sm text-tertiary mt-3 flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-sm text-tertiary" data-icon="emoji_events">emoji_events</span>
+              Champagne Gold (#C99A45) reserved for draw claims.
+            </p>
+</div>
+<!-- Helper Explainer Card -->
+<div class="p-space-md rounded-2xl bg-surface-container border border-outline-variant/40 flex flex-col justify-between">
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Token Rules</span>
+<h3 class="text-headline-sm font-headline-sm text-primary mt-1 mb-2">Dignified Tone</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Errors never scold or create panic. Validation messages employ empathetic phrasing ("Score must be between 1 and 45 points") instead of blunt system exceptions.
+              </p>
+</div>
+<div class="pt-3 border-t border-outline-variant/30 flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#1b4d3e]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#456559]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#b33927]"></span>
+<span class="w-2.5 h-2.5 rounded-full bg-[#c99a45]"></span>
+<span class="text-label-sm font-label-sm text-outline ml-auto">WCAG AAA Compliance</span>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: INTERACTIVE FORM PANELS & TABS -->
+<section class="space-y-8">
+<div class="flex items-center justify-between border-b border-outline-variant/40 pb-4">
+<div>
+<h2 class="text-headline-md font-headline-md text-primary">
+              Interactive Member Flow Showcase
+            </h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Examine live form validation scenarios with granular micro-feedback, asynchronous indicators, and boundary constraints.
+            </p>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-label-sm font-label-sm text-secondary bg-surface-container px-3 py-1.5 rounded-full font-medium">
+              6 Core Workflow Modules
+            </span>
+</div>
+</div>
+<!-- Tab Navigation Buttons -->
+<div class="flex flex-wrap gap-2 border-b border-outline-variant/30 pb-3" id="tab-buttons">
+<button class="px-4 py-2 rounded-full text-label-md font-label-md font-semibold transition-all bg-primary text-surface-container-lowest shadow-sm flex items-center gap-2" id="btn-tab-scorecard" onclick="switchTab('tab-scorecard')">
+<span class="material-symbols-outlined text-sm" data-icon="sports_score">sports_score</span>
+            1. Add / Edit Score
+          </button>
+<button class="px-4 py-2 rounded-full text-label-md font-label-md font-semibold transition-all bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-2" id="btn-tab-registration" onclick="switchTab('tab-registration')">
+<span class="material-symbols-outlined text-sm" data-icon="how_to_reg">how_to_reg</span>
+            2. Player Registration
+          </button>
+<button class="px-4 py-2 rounded-full text-label-md font-label-md font-semibold transition-all bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-2" id="btn-tab-login" onclick="switchTab('tab-login')">
+<span class="material-symbols-outlined text-sm" data-icon="lock_open">lock_open</span>
+            3. Member Authentication
+          </button>
+<button class="px-4 py-2 rounded-full text-label-md font-label-md font-semibold transition-all bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-2" id="btn-tab-charity" onclick="switchTab('tab-charity')">
+<span class="material-symbols-outlined text-sm" data-icon="volunteer_activism">volunteer_activism</span>
+            4. Charity Allocation
+          </button>
+<button class="px-4 py-2 rounded-full text-label-md font-label-md font-semibold transition-all bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-2" id="btn-tab-payment" onclick="switchTab('tab-payment')">
+<span class="material-symbols-outlined text-sm" data-icon="credit_card">credit_card</span>
+            5. Subscription &amp; Payment
+          </button>
+<button class="px-4 py-2 rounded-full text-label-md font-label-md font-semibold transition-all bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-2" id="btn-tab-kyc" onclick="switchTab('tab-kyc')">
+<span class="material-symbols-outlined text-sm" data-icon="cloud_upload">cloud_upload</span>
+            6. Winner KYC Upload
+          </button>
+</div>
+<!-- TAB 1: ADD & EDIT GOLF SCORE FORM (LIVE BOUNDARIES) -->
+<div class="tab-panel block" id="tab-scorecard">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-8 glass-panel p-space-lg rounded-3xl">
+<div class="flex items-center justify-between pb-4 mb-6 border-b border-outline-variant/30">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Log Stableford Round</h3>
+<p class="text-body-sm font-body-sm text-secondary">Verified against CONGU / USGA handicap governance.</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-container/60 text-primary text-label-sm font-label-sm font-semibold">
+                  Round Validation Engine
+                </span>
+</div>
+<form class="space-y-5" onsubmit="event.preventDefault();">
+<!-- Course Search Dropdown -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5">
+                    Course / Links Selection <span class="text-[#b33927]">*</span>
+</label>
+<div class="relative">
+<span class="absolute left-3.5 top-3 material-symbols-outlined text-outline" data-icon="golf_course">golf_course</span>
+<select class="w-full pl-11 pr-10 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md focus:border-primary-container focus:ring-2 focus:ring-primary-container/20">
+<option selected="">North Berwick Golf Club — West Links (Par 71, CR 72.8, Slope 131)</option>
+<option>Royal Dornoch Golf Club — Championship Course</option>
+<option>Cruden Bay Golf Club — Championship Links</option>
+<option>Carnoustie Golf Links — Championship Course</option>
+</select>
+<span class="absolute right-3.5 top-3 material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-body-sm font-body-sm text-secondary mt-1.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="verified">verified</span>
+                    Official course rating and slope slope loaded automatically.
+                  </p>
+</div>
+<!-- Date of Round with Conflict Warning -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="text-label-md font-label-md text-on-surface">
+                      Date of Played Round <span class="text-[#b33927]">*</span>
+</label>
+<span class="text-label-sm font-label-sm text-[#b33927] font-semibold">Schedule Conflict Detected</span>
+</div>
+<div class="relative">
+<span class="absolute left-3.5 top-3 material-symbols-outlined text-[#b33927]" data-icon="event_busy">event_busy</span>
+<input class="w-full pl-11 pr-10 py-2.5 rounded-xl bg-[#fffaf9] border-2 border-[#b33927] text-on-surface text-body-md font-body-md focus:outline-none" type="date" value="2024-10-14"/>
+<span class="absolute right-3.5 top-3 material-symbols-outlined text-[#b33927]" data-icon="error">error</span>
+</div>
+<!-- Inline Error Callout -->
+<div class="mt-2 p-3 rounded-xl bg-[#fbeae8] border border-[#e8c8c5] flex items-start gap-2.5">
+<span class="material-symbols-outlined text-[#b33927] text-lg shrink-0 mt-0.5" data-icon="warning">warning</span>
+<div class="text-body-sm font-body-sm text-[#b33927]">
+<strong>Duplicate Entry Warning:</strong> A score already exists for this date — Oct 14 at North Berwick Links (37 pts recorded by Marker Fraser Campbell). Would you like to revise the existing scorecard instead?
+                    </div>
+</div>
+</div>
+<!-- Stableford Points Input with live boundary check -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="text-label-md font-label-md text-on-surface">
+                        Stableford Points Total <span class="text-[#b33927]">*</span>
+</label>
+<span class="text-label-sm font-label-sm text-outline">Range: 1 – 45 pts</span>
+</div>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md focus:border-primary-container" id="scoreInput" max="45" min="1" oninput="validateScorePoints(this.value)" type="number" value="38"/>
+<span class="absolute right-3.5 top-3 material-symbols-outlined text-secondary" data-icon="check_circle" id="scoreStatusIcon" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-body-sm font-body-sm text-secondary mt-1.5 flex items-center gap-1" id="scoreFeedback">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span>
+                      Valid handicap qualifying score (38 points).
+                    </p>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5">
+                      Attestation Marker Member ID / Email <span class="text-[#b33927]">*</span>
+</label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md pr-10" type="text" value="calum.mackenzie@luffness.co.uk"/>
+<span class="absolute right-3.5 top-3 material-symbols-outlined text-secondary" data-icon="how_to_reg" style="font-variation-settings: 'FILL' 1;">how_to_reg</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="schedule">schedule</span>
+                      Automated digital attestation notification dispatched upon submission.
+                    </p>
+</div>
+</div>
+<!-- Form Controls -->
+<div class="pt-4 border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="lock">lock</span>
+<span class="text-label-sm font-label-sm text-secondary">Encrypted with Scottish Golf Central Database API</span>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2.5 rounded-full border border-outline-variant bg-surface-container hover:bg-surface-container-high text-on-surface text-label-md font-label-md transition-colors" type="button">
+                      Cancel
+                    </button>
+<button class="px-6 py-2.5 rounded-full bg-primary hover:bg-primary-container text-surface-container-lowest text-label-md font-label-md font-bold transition-all shadow-sm flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="save">save</span>
+                      Submit Verified Score
+                    </button>
+</div>
+</div>
+</form>
+</div>
+<!-- Side Metric Card -->
+<div class="lg:col-span-4 space-y-4">
+<div class="glass-panel p-space-md rounded-2xl">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Attestation Rules</span>
+<h4 class="text-title-md font-title-md text-primary mt-1 mb-2">Fairway Integrity</h4>
+<ul class="space-y-3 text-body-sm font-body-sm text-on-surface-variant">
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-base shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span>Stableford scores above 45 points prompt mandatory secondary committee review.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-base shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span>Marker must hold an active Digital Heroes or Scottish Golf index.</span>
+</li>
+<li class="flex items-start gap-2">
+<span class="material-symbols-outlined text-secondary text-base shrink-0 mt-0.5" data-icon="check_circle">check_circle</span>
+<span>Duplicate round protection active across all Scottish links networks.</span>
+</li>
+</ul>
+</div>
+<div class="p-space-md rounded-2xl bg-secondary-container/40 border border-secondary-fixed-dim">
+<div class="flex items-center gap-2 text-primary font-bold text-label-md font-label-md mb-1">
+<span class="material-symbols-outlined text-sm" data-icon="lightbulb">lightbulb</span>
+                  Validation Live Tester
+                </div>
+<p class="text-body-sm font-body-sm text-secondary mb-3">
+                  Try typing "52" or "-3" into the points box to observe real-time boundary error messaging.
+                </p>
+<div class="flex gap-2">
+<button class="px-3 py-1 rounded-lg bg-surface text-label-sm font-label-sm border border-outline-variant text-[#b33927]" onclick="document.getElementById('scoreInput').value = '50'; validateScorePoints('50');">
+                    Trigger &gt; 45 pts
+                  </button>
+<button class="px-3 py-1 rounded-lg bg-surface text-label-sm font-label-sm border border-outline-variant text-primary" onclick="document.getElementById('scoreInput').value = '36'; validateScorePoints('36');">
+                    Reset (36 pts)
+                  </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB 2: REGISTRATION FORM (STRENGTH METER & HANDICAP CHECK) -->
+<div class="tab-panel hidden" id="tab-registration">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-8 glass-panel p-space-lg rounded-3xl">
+<div class="flex items-center justify-between pb-4 mb-6 border-b border-outline-variant/30">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Member Registration</h3>
+<p class="text-body-sm font-body-sm text-secondary">Join the purpose-led Scottish golf collective.</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm">
+                  Step 1 of 3
+                </span>
+</div>
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Full Name (Valid) -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5">Full Name</label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md pr-10" type="text" value="Marcus Vance"/>
+<span class="absolute right-3.5 top-3 material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Email (Asynchronous Checking state) -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5">Official Club Email</label>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-primary-container text-on-surface text-body-md font-body-md pr-10" type="email" value="marcus.vance@linksclub.co"/>
+<span class="absolute right-3.5 top-3 material-symbols-outlined text-secondary animate-pulse" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<p class="text-body-sm font-body-sm text-secondary mt-1.5 flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="done_all">done_all</span>
+                      Domain verified with authorized Scottish home club.
+                    </p>
+</div>
+</div>
+<!-- Password with Strength Meter -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="text-label-md font-label-md text-on-surface">Account Passphrase</label>
+<span class="text-label-sm font-label-sm text-secondary font-bold">Strong (Security Grade A)</span>
+</div>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md pr-10" id="regPassword" type="text" value="Gullane#1892Links"/>
+<button class="absolute right-3.5 top-3 text-outline hover:text-primary" onclick="togglePassVisibility('regPassword', this)" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+</button>
+</div>
+<!-- Visual Strength Bar -->
+<div class="grid grid-cols-4 gap-1.5 mt-2">
+<div class="h-1.5 rounded-full bg-secondary"></div>
+<div class="h-1.5 rounded-full bg-secondary"></div>
+<div class="h-1.5 rounded-full bg-secondary"></div>
+<div class="h-1.5 rounded-full bg-secondary"></div>
+</div>
+<!-- Criteria checklist -->
+<div class="flex flex-wrap gap-x-4 gap-y-1 mt-2 text-label-sm font-label-sm">
+<span class="text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> 8+ characters
+                    </span>
+<span class="text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> At least 1 number
+                    </span>
+<span class="text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> 1 uppercase letter
+                    </span>
+<span class="text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span> Special character
+                    </span>
+</div>
+</div>
+<!-- Handicap Index (Valid vs Invalid boundary trigger) -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="text-label-md font-label-md text-on-surface">Handicap Index (WHS Standard)</label>
+<span class="text-label-sm font-label-sm text-outline">Boundary: -5.0 to 54.0</span>
+</div>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md pr-10" id="handicapInput" oninput="validateHandicap(this.value)" step="0.1" type="number" value="8.4"/>
+<span class="absolute right-3.5 top-3 material-symbols-outlined text-secondary" data-icon="verified" id="handicapIcon" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-body-sm font-body-sm text-secondary mt-1.5" id="handicapFeedback">
+                    Handicap 8.4 is within official amateur limits.
+                  </p>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 flex justify-end">
+<button class="px-6 py-2.5 rounded-full bg-primary hover:bg-primary-container text-surface-container-lowest text-label-md font-label-md font-bold transition-all shadow-sm" type="button">
+                    Continue to Membership Tier
+                  </button>
+</div>
+</form>
+</div>
+<!-- Testing Sandbox for Handicap -->
+<div class="lg:col-span-4 glass-panel p-space-md rounded-2xl flex flex-col justify-between">
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Boundary Playground</span>
+<h4 class="text-title-md font-title-md text-primary mt-1 mb-2">Handicap Rules</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+                  The World Handicap System only authorizes values ranging between scratch plus -5.0 and ceiling 54.0. Test the reactive inline handler below:
+                </p>
+<div class="space-y-2">
+<button class="w-full text-left p-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-body-sm font-body-sm text-[#b33927] flex items-center justify-between" onclick="testHandicap('62.5')">
+<span>Test Out of Bounds (62.5)</span>
+<span class="material-symbols-outlined text-sm" data-icon="error">error</span>
+</button>
+<button class="w-full text-left p-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-body-sm font-body-sm text-[#b33927] flex items-center justify-between" onclick="testHandicap('-8.0')">
+<span>Test Excess Plus Handicap (-8.0)</span>
+<span class="material-symbols-outlined text-sm" data-icon="error">error</span>
+</button>
+<button class="w-full text-left p-2 rounded-xl bg-secondary-container/40 hover:bg-secondary-container/60 text-body-sm font-body-sm text-primary flex items-center justify-between font-semibold" onclick="testHandicap('8.4')">
+<span>Restore Normal Index (8.4)</span>
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
+</button>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 text-label-sm font-label-sm text-outline">
+                CONGU Rule 6.2 Certified Parser
+              </div>
+</div>
+</div>
+</div>
+<!-- TAB 3: MEMBER AUTHENTICATION (LOGIN) -->
+<div class="tab-panel hidden" id="tab-login">
+<div class="max-w-xl mx-auto glass-panel p-space-lg md:p-space-xl rounded-3xl">
+<div class="text-center mb-6">
+<span class="material-symbols-outlined text-primary text-3xl mb-2" data-icon="lock">lock</span>
+<h3 class="text-headline-sm font-headline-sm text-primary">Member Portal Access</h3>
+<p class="text-body-sm font-body-sm text-secondary mt-1">Authenticate to access monthly prize ballots and impact ledger.</p>
+</div>
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<!-- Email / Member ID with Invalid State Demo -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="text-label-md font-label-md text-on-surface">Member Email or Club ID</label>
+<span class="text-label-sm font-label-sm text-[#b33927]">Input required</span>
+</div>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-[#fffaf9] border-2 border-[#b33927] text-on-surface text-body-md font-body-md pr-10 focus:outline-none" id="loginUser" type="text" value="marcus.vance#linksclub"/>
+<span class="absolute right-3.5 top-3 material-symbols-outlined text-[#b33927]" data-icon="error">error</span>
+</div>
+<p class="text-body-sm font-body-sm text-[#b33927] mt-1.5 flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-[#b33927]" data-icon="info">info</span>
+                  Please enter a valid member email (e.g. name@domain.com) or official 7-digit club ID.
+                </p>
+</div>
+<!-- Password with Mask Toggle -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="text-label-md font-label-md text-on-surface">Secret Passphrase</label>
+<a class="text-label-sm font-label-sm text-secondary hover:underline" href="#forgot">Forgotten credentials?</a>
+</div>
+<div class="relative">
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant text-on-surface text-body-md font-body-md pr-10 focus:border-primary-container focus:ring-2 focus:ring-primary-container/20" id="loginPass" type="password" value="secretScottishLinks24"/>
+<button class="absolute right-3.5 top-3 text-outline hover:text-primary" onclick="togglePassVisibility('loginPass', this)" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="visibility_off">visibility_off</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between pt-2">
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="w-4 h-4 rounded text-primary-container focus:ring-primary-container/30 border-outline-variant" type="checkbox"/>
+<span class="text-body-sm font-body-sm text-on-surface-variant">Remember this terminal for 30 days</span>
+</label>
+</div>
+<div class="pt-3">
+<button class="w-full py-3 rounded-full bg-primary hover:bg-primary-container text-surface-container-lowest text-label-lg font-label-lg font-bold transition-all shadow-sm flex items-center justify-center gap-2" type="button">
+<span class="material-symbols-outlined text-base" data-icon="login">login</span>
+                  Sign In to Dashboard
+                </button>
+</div>
+<div class="text-center pt-3">
+<p class="text-body-sm font-body-sm text-outline">
+                  Protected by Scottish Data Trust &amp; 256-bit biometric safeguards.
+                </p>
+</div>
+</form>
+</div>
+</div>
+<!-- TAB 4: CHARITY ALLOCATION & TITHE SYSTEM -->
+<div class="tab-panel hidden" id="tab-charity">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-8 glass-panel p-space-lg rounded-3xl">
+<div class="flex items-center justify-between pb-4 mb-6 border-b border-outline-variant/30">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Grassroots Charity Allocation</h3>
+<p class="text-body-sm font-body-sm text-secondary">Every subscription guarantees direct conservation and youth athletic tithes.</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-label-sm font-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="eco">eco</span>
+                  Living Impact
+                </span>
+</div>
+<form class="space-y-6" onsubmit="event.preventDefault();">
+<!-- Beneficiary Selection -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5">
+                    Designated Primary Beneficiary Cause <span class="text-[#b33927]">*</span>
+</label>
+<div class="relative">
+<span class="absolute left-3.5 top-3 material-symbols-outlined text-secondary" data-icon="nature_people">nature_people</span>
+<select class="w-full pl-11 pr-10 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md focus:border-primary-container">
+<option selected="">Highland Dunes Conservation Trust (Cromarty Firth)</option>
+<option>Scottish Junior Golf Access Foundation</option>
+<option>Coastal Erosion Defense Fund — Montrose Basin</option>
+<option>The Tom Morris Caddie Bursary Scheme</option>
+</select>
+<span class="absolute right-3.5 top-3 material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<!-- Percentage Slider & Number with Constraint Check -->
+<div class="p-space-md rounded-2xl bg-surface-container border border-outline-variant/40 space-y-3">
+<div class="flex items-center justify-between">
+<div>
+<span class="text-label-md font-label-md text-primary font-bold">Monthly Subscription Tithe Allocation</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Rule: Contribution must be at least 10% of monthly membership.</p>
+</div>
+<div class="flex items-center gap-1 bg-surface-container-lowest px-3 py-1.5 rounded-xl border border-secondary">
+<input class="w-12 text-right border-0 p-0 text-title-md font-title-md text-primary font-bold focus:ring-0" id="titheNumber" max="100" min="10" oninput="syncTithe(this.value)" type="number" value="25"/>
+<span class="text-title-md font-title-md text-primary font-bold">%</span>
+</div>
+</div>
+<input class="w-full h-2 bg-surface-container-highest rounded-lg appearance-none cursor-pointer" id="titheRange" max="100" min="0" oninput="syncTithe(this.value)" type="range" value="25"/>
+<!-- Reactive Warning Banner if < 10% -->
+<div class="hidden p-3 rounded-xl bg-[#fbeae8] border border-[#e8c8c5] flex items-center gap-2 text-body-sm font-body-sm text-[#b33927]" id="titheWarning">
+<span class="material-symbols-outlined text-sm shrink-0" data-icon="error">error</span>
+<span><strong>Constraint violation:</strong> Contribution must be at least 10% of monthly membership to maintain active ballot eligibility.</span>
+</div>
+<div class="flex items-center justify-between text-label-sm font-label-sm text-secondary pt-1" id="titheSuccess">
+<span class="flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary" data-icon="check_circle">check_circle</span>
+                      Qualifies for 4x Impact multiplier ballot entries
+                    </span>
+<span class="font-bold text-primary">Est. $11.25 / month direct donation</span>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 flex justify-end">
+<button class="px-6 py-2.5 rounded-full bg-primary hover:bg-primary-container text-surface-container-lowest text-label-md font-label-md font-bold transition-all shadow-sm flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="volunteer_activism">volunteer_activism</span>
+                    Update Beneficiary Tithe
+                  </button>
+</div>
+</form>
+</div>
+<div class="lg:col-span-4 glass-panel p-space-md rounded-2xl flex flex-col justify-between">
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Transparency Ledger</span>
+<h4 class="text-title-md font-title-md text-primary mt-1 mb-2">100% Direct Pass-Through</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+                  Unlike traditional corporate givebacks, Digital Heroes audits every tithe through open cryptographic receipts published on the 1st of each calendar month.
+                </p>
+<div class="p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 space-y-2">
+<div class="flex justify-between text-body-sm font-body-sm">
+<span class="text-outline">Platform Total Donated</span>
+<span class="font-bold text-primary">$14,250.00</span>
+</div>
+<div class="flex justify-between text-body-sm font-body-sm">
+<span class="text-outline">Active Scottish Acres</span>
+<span class="font-bold text-secondary">420 hectares</span>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 flex items-center gap-2 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="security">security</span>
+                OSCR Scottish Charity Regulator Verified
+              </div>
+</div>
+</div>
+</div>
+<!-- TAB 5: SUBSCRIPTION & SIMULATED PAYMENT -->
+<div class="tab-panel hidden" id="tab-payment">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-8 glass-panel p-space-lg rounded-3xl">
+<div class="flex items-center justify-between pb-4 mb-6 border-b border-outline-variant/30">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Subscription &amp; Payment Sandbox</h3>
+<p class="text-body-sm font-body-sm text-secondary">Real-time Luhn algorithm card evaluation with calm security cues.</p>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-3 py-1 rounded-full bg-surface-container text-secondary text-label-sm font-label-sm font-semibold">
+                    Sandbox Active
+                  </span>
+</div>
+</div>
+<!-- Tier Selector Radio Cards -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+<label class="p-3.5 rounded-2xl border-2 border-primary-container bg-surface-container-low cursor-pointer flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-md font-label-md font-bold text-primary">The Linksman</span>
+<input checked="" class="text-primary-container focus:ring-0" name="subTier" type="radio"/>
+</div>
+<div class="text-title-md font-title-md text-primary font-bold">$45<span class="text-body-sm font-body-sm font-normal text-outline">/mo</span></div>
+<div class="text-label-sm font-label-sm text-secondary mt-1">5 Draw Tickets · 10% Tithe</div>
+</label>
+<label class="p-3.5 rounded-2xl border border-outline-variant bg-surface-container-lowest cursor-pointer flex flex-col justify-between hover:border-secondary">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-md font-label-md font-bold text-on-surface">The Champion</span>
+<input class="text-primary-container focus:ring-0" name="subTier" type="radio"/>
+</div>
+<div class="text-title-md font-title-md text-on-surface font-bold">$85<span class="text-body-sm font-body-sm font-normal text-outline">/mo</span></div>
+<div class="text-label-sm font-label-sm text-secondary mt-1">12 Draw Tickets · 15% Tithe</div>
+</label>
+<label class="p-3.5 rounded-2xl border border-outline-variant bg-surface-container-lowest cursor-pointer flex flex-col justify-between hover:border-secondary">
+<div class="flex items-center justify-between mb-2">
+<span class="text-label-md font-label-md font-bold text-on-surface">The Patron</span>
+<input class="text-primary-container focus:ring-0" name="subTier" type="radio"/>
+</div>
+<div class="text-title-md font-title-md text-on-surface font-bold">$150<span class="text-body-sm font-body-sm font-normal text-outline">/mo</span></div>
+<div class="text-label-sm font-label-sm text-secondary mt-1">25 Draw Tickets · 20% Tithe</div>
+</label>
+</div>
+<form class="space-y-4" onsubmit="event.preventDefault();">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5">Cardholder Full Name</label>
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md focus:border-primary-container" type="text" value="Marcus Alexander Vance"/>
+</div>
+<!-- Card Number with Luhn validation simulation -->
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="text-label-md font-label-md text-on-surface">Card Number</label>
+<span class="text-label-sm font-label-sm text-secondary font-semibold" id="cardTypeLabel">Mastercard Verified</span>
+</div>
+<div class="relative">
+<span class="absolute left-3.5 top-3 material-symbols-outlined text-secondary" data-icon="credit_card">credit_card</span>
+<input class="w-full pl-11 pr-10 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md focus:border-primary-container" id="cardNumInput" type="text" value="5424 •••• •••• 8921"/>
+<span class="absolute right-3.5 top-3 material-symbols-outlined text-secondary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1.5">Expiry Date</label>
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md text-center" placeholder="MM / YY" type="text" value="09 / 27"/>
+</div>
+<div>
+<div class="flex items-center justify-between mb-1.5">
+<label class="text-label-md font-label-md text-on-surface">CVC / CVV</label>
+<span class="material-symbols-outlined text-xs text-outline cursor-help" data-icon="help_outline" title="3 digits on back of card">help_outline</span>
+</div>
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md text-center" maxlength="4" type="password" value="482"/>
+</div>
+<div class="col-span-2 sm:col-span-1">
+<label class="block text-label-md font-label-md text-on-surface mb-1.5">Postal / ZIP Code</label>
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md text-center uppercase" type="text" value="EH39 4SS"/>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-outline">
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="lock">lock</span>
+                    PCI-DSS Level 1 Encrypted
+                  </div>
+<button class="px-6 py-2.5 rounded-full bg-primary hover:bg-primary-container text-surface-container-lowest text-label-md font-label-md font-bold transition-all shadow-sm flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+                    Authorize $45.00 Monthly Subscription
+                  </button>
+</div>
+</form>
+</div>
+<!-- Side Card: Payment Sandbox Trigger -->
+<div class="lg:col-span-4 space-y-4">
+<div class="glass-panel p-space-md rounded-2xl">
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Card Simulation</span>
+<h4 class="text-title-md font-title-md text-primary mt-1 mb-2">Simulated Responses</h4>
+<div class="space-y-2">
+<button class="w-full text-left p-2.5 rounded-xl bg-[#fffaf9] border border-[#e8c8c5] text-body-sm font-body-sm text-[#b33927] flex items-center justify-between" onclick="simulateCardError()">
+<span>Simulate Insufficient Funds / Decline</span>
+<span class="material-symbols-outlined text-sm" data-icon="credit_card_off">credit_card_off</span>
+</button>
+<button class="w-full text-left p-2.5 rounded-xl bg-surface-container-low border border-outline-variant/40 text-body-sm font-body-sm text-primary flex items-center justify-between font-semibold" onclick="simulateCardSuccess()">
+<span>Simulate Verified Card Auth</span>
+<span class="material-symbols-outlined text-sm text-secondary" data-icon="check_circle">check_circle</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- TAB 6: WINNER PROOF & SCORECARD KYC UPLOAD -->
+<div class="tab-panel hidden" id="tab-kyc">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<div class="lg:col-span-8 glass-panel p-space-lg rounded-3xl">
+<div class="flex items-center justify-between pb-4 mb-6 border-b border-outline-variant/30">
+<div>
+<h3 class="text-headline-sm font-headline-sm text-primary">Winner Proof &amp; Scorecard KYC Upload</h3>
+<p class="text-body-sm font-body-sm text-secondary">Mandatory prize verification for monthly draw winners and gross champions.</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-label-sm font-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="emoji_events">emoji_events</span>
+                  Prize Claim #DH-9014
+                </span>
+</div>
+<!-- Drag and Drop Zone Container -->
+<div class="border-2 border-dashed border-secondary rounded-2xl p-space-lg text-center bg-surface-container-low hover:bg-surface-container transition-all cursor-pointer" id="dropzone">
+<div class="mx-auto w-14 h-14 rounded-full bg-secondary-container/60 flex items-center justify-center text-primary mb-3">
+<span class="material-symbols-outlined text-3xl" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<h4 class="text-headline-sm font-headline-sm text-primary mb-1">Drag and drop attested scorecard image or signed PDF</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant max-w-md mx-auto mb-3">
+                  JPG, PNG, or certified PDF up to 15MB. Must clearly show marker signature, date, and tee colors.
+                </p>
+<div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-surface-container-lowest border border-outline-variant text-label-md font-label-md text-primary font-semibold shadow-sm">
+<span class="material-symbols-outlined text-sm" data-icon="attachment">attachment</span>
+                  Browse Local Files
+                </div>
+</div>
+<!-- Upload Validation State Demonstrator -->
+<div class="mt-6 space-y-3">
+<div class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Demonstrated File States</div>
+<!-- Valid Uploaded File -->
+<div class="p-3 rounded-2xl bg-surface-container-lowest border border-secondary flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-2xl" data-icon="description">description</span>
+<div>
+<div class="text-body-md font-body-md font-semibold text-primary">North_Berwick_Attested_Card_Oct14.pdf</div>
+<div class="text-label-sm font-label-sm text-outline">4.2 MB · MD5 Hash Verified · Marker Signed</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="px-2.5 py-1 rounded-full bg-secondary-fixed text-primary text-label-sm font-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="check">check</span>
+                      Valid
+                    </span>
+<button class="p-1 rounded-lg text-outline hover:text-[#b33927]">
+<span class="material-symbols-outlined text-sm" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+<!-- Invalid File Type Rejected (Demonstrating non-alarming coral error) -->
+<div class="p-3 rounded-2xl bg-[#fffaf9] border border-[#e8c8c5] flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[#b33927] text-2xl" data-icon="report">report</span>
+<div>
+<div class="text-body-md font-body-md font-semibold text-[#b33927]">scorecard_script_patch.exe</div>
+<div class="text-body-sm font-body-sm text-[#b33927]">Unsupported file format. Executable binaries (.exe, .bat, .sh) are strictly prohibited.</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-[#fbeae8] text-[#b33927] text-label-sm font-label-sm font-bold">
+                    Rejected
+                  </span>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/30 flex justify-end gap-3 mt-6">
+<button class="px-6 py-2.5 rounded-full bg-primary hover:bg-primary-container text-surface-container-lowest text-label-md font-label-md font-bold transition-all shadow-sm flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-sm" data-icon="verified">verified</span>
+                  Confirm Scorecard KYC &amp; Claim Prize
+                </button>
+</div>
+</div>
+<!-- KYC Guidelines Card -->
+<div class="lg:col-span-4 glass-panel p-space-md rounded-2xl flex flex-col justify-between">
+<div>
+<span class="text-label-sm font-label-sm uppercase tracking-wider text-secondary">Governance Standard</span>
+<h4 class="text-title-md font-title-md text-primary mt-1 mb-2">Audit Compliance</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+                  All cash distributions exceeding $1,000 undergo human attestation by our Scottish Independent Scrutineer within 48 hours of ticket draws.
+                </p>
+<div class="space-y-2 text-body-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check">check</span>
+                    Legible marker handicap &amp; club affiliation
+                  </div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm" data-icon="check">check</span>
+                    Unmodified gross hole scores
+                  </div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant/30 text-label-sm font-label-sm text-outline">
+                Gaming Commission &amp; R&amp;A Compliant
+              </div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: EDITORIAL SYSTEM PRINCIPLES (BENTO GRID) -->
+<section class="mt-12">
+<div class="mb-4">
+<h2 class="text-title-md font-title-md text-primary">System Design Guardrails</h2>
+<p class="text-body-sm font-body-sm text-secondary">The cognitive rules underpinning form interactions across the platform.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="glass-panel p-space-md rounded-2xl">
+<div class="w-8 h-8 rounded-full bg-secondary-container/60 text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="sentiment_calm">sentiment_calm</span>
+</div>
+<h4 class="text-label-lg font-label-lg text-primary font-bold mb-1">Empathetic Boundary Coaching</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              When numbers exceed thresholds, inputs never lock out violently. They explain context and offer quick-adjust buttons to guide the golfer safely back inside rules.
+            </p>
+</div>
+<div class="glass-panel p-space-md rounded-2xl">
+<div class="w-8 h-8 rounded-full bg-secondary-container/60 text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+</div>
+<h4 class="text-label-lg font-label-lg text-primary font-bold mb-1">Proactive Inline Clarity</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Helper texts live permanently beside high-cognitive inputs (e.g. attestation IDs, tithes) so players do not have to guess format rules before submitting.
+            </p>
+</div>
+<div class="glass-panel p-space-md rounded-2xl">
+<div class="w-8 h-8 rounded-full bg-secondary-container/60 text-primary flex items-center justify-center mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h4 class="text-label-lg font-label-lg text-primary font-bold mb-1">Celebratory Gold Discipline</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+              Champagne gold tokens (#C99A45) are never degraded for ordinary inputs or trivial successes. They activate strictly when actual cash prizes or golden tickets are unlocked.
+            </p>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar (Shared Component from JSON - Mobile Viewport Only) -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 rounded-t-xl bg-surface/90 backdrop-blur-md text-primary shadow-[0_-4px_20px_rgba(13,46,36,0.06)] flex justify-around items-center px-space-margin-mobile py-space-xs pb-safe lg:hidden border-t border-outline-variant/30">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1" href="#draws">
+<span class="material-symbols-outlined" data-icon="casino">casino</span>
+<span class="text-label-sm font-label-sm">Draws</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary bg-secondary-container/50 rounded-xl px-3 py-1 font-semibold" href="#scores">
+<span class="material-symbols-outlined" data-icon="sports_score">sports_score</span>
+<span class="text-label-sm font-label-sm">Scores</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1" href="#impact">
+<span class="material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="text-label-sm font-label-sm">Impact</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1" href="#winnings">
+<span class="material-symbols-outlined" data-icon="trophy">trophy</span>
+<span class="text-label-sm font-label-sm">Winnings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1" href="#profile">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Interactive JavaScript Logic for Validation Demonstrations -->
+<script>
+    // Tab Switcher
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.add('hidden'));
+      document.querySelectorAll('#tab-buttons button').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-surface-container-lowest');
+        btn.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      const activePanel = document.getElementById(tabId);
+      if (activePanel) activePanel.classList.remove('hidden');
+
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.add('bg-primary', 'text-surface-container-lowest');
+        activeBtn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      }
+    }
+
+    // Password visibility toggle
+    function togglePassVisibility(inputId, btn) {
+      const input = document.getElementById(inputId);
+      const icon = btn.querySelector('.material-symbols-outlined');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.textContent = 'visibility';
+      } else {
+        input.type = 'password';
+        icon.textContent = 'visibility_off';
+      }
+    }
+
+    // Stableford Live Boundary Validator
+    function validateScorePoints(val) {
+      const num = parseInt(val, 10);
+      const feedback = document.getElementById('scoreFeedback');
+      const icon = document.getElementById('scoreStatusIcon');
+      const input = document.getElementById('scoreInput');
+
+      if (isNaN(num) || num < 1 || num > 45) {
+        input.className = "w-full px-3.5 py-2.5 rounded-xl bg-[#fffaf9] border-2 border-[#b33927] text-[#b33927] text-body-md font-body-md outline-none";
+        icon.textContent = 'error';
+        icon.className = 'absolute right-3.5 top-3 material-symbols-outlined text-[#b33927]';
+        feedback.innerHTML = `<span class="material-symbols-outlined text-xs text-[#b33927]">error</span> <span class="text-[#b33927] font-semibold">Boundary error: Stableford score must be between 1 and 45 points.</span>`;
+      } else {
+        input.className = "w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md focus:border-primary-container";
+        icon.textContent = 'check_circle';
+        icon.className = 'absolute right-3.5 top-3 material-symbols-outlined text-secondary';
+        feedback.innerHTML = `<span class="material-symbols-outlined text-xs text-secondary">check</span> <span class="text-secondary">Valid handicap qualifying score (${num} points).</span>`;
+      }
+    }
+
+    // Handicap Range Checker
+    function validateHandicap(val) {
+      const num = parseFloat(val);
+      const feedback = document.getElementById('handicapFeedback');
+      const icon = document.getElementById('handicapIcon');
+      const input = document.getElementById('handicapInput');
+
+      if (isNaN(num) || num < -5.0 || num > 54.0) {
+        input.className = "w-full px-3.5 py-2.5 rounded-xl bg-[#fffaf9] border-2 border-[#b33927] text-[#b33927] text-body-md font-body-md outline-none pr-10";
+        icon.textContent = 'warning';
+        icon.className = 'absolute right-3.5 top-3 material-symbols-outlined text-[#b33927]';
+        feedback.innerHTML = `<span class="text-[#b33927] font-semibold">Must be between -5.0 and 54.0 per World Handicap System specifications.</span>`;
+      } else {
+        input.className = "w-full px-3.5 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md pr-10";
+        icon.textContent = 'verified';
+        icon.className = 'absolute right-3.5 top-3 material-symbols-outlined text-secondary';
+        feedback.innerHTML = `<span class="text-secondary">Handicap ${num} is within official amateur limits.</span>`;
+      }
+    }
+
+    function testHandicap(val) {
+      const input = document.getElementById('handicapInput');
+      input.value = val;
+      validateHandicap(val);
+    }
+
+    // Tithe percentage synchronizer & boundary checker
+    function syncTithe(val) {
+      const num = parseInt(val, 10);
+      document.getElementById('titheRange').value = num;
+      document.getElementById('titheNumber').value = num;
+
+      const warn = document.getElementById('titheWarning');
+      const success = document.getElementById('titheSuccess');
+
+      if (num < 10) {
+        warn.classList.remove('hidden');
+        success.classList.add('opacity-40');
+      } else {
+        warn.classList.add('hidden');
+        success.classList.remove('opacity-40');
+      }
+    }
+
+    // Payment Sandbox Responses
+    function simulateCardError() {
+      const input = document.getElementById('cardNumInput');
+      input.className = "w-full pl-11 pr-10 py-2.5 rounded-xl bg-[#fffaf9] border-2 border-[#b33927] text-[#b33927] text-body-md font-body-md outline-none";
+      document.getElementById('cardTypeLabel').innerHTML = '<span class="text-[#b33927]">Decline Code 05: Do Not Honor</span>';
+    }
+
+    function simulateCardSuccess() {
+      const input = document.getElementById('cardNumInput');
+      input.className = "w-full pl-11 pr-10 py-2.5 rounded-xl bg-surface-container-lowest border border-secondary text-on-surface text-body-md font-body-md focus:border-primary-container";
+      document.getElementById('cardTypeLabel').innerHTML = '<span class="text-secondary font-semibold">Mastercard Verified &middot; Sandbox 3DS Clear</span>';
+    }
+
+    // Global simulator helpers
+    function simulateAllValid() {
+      validateScorePoints('38');
+      validateHandicap('8.4');
+      syncTithe('25');
+      simulateCardSuccess();
+      switchTab('tab-scorecard');
+    }
+
+    function simulateAllInvalid() {
+      validateScorePoints('54');
+      validateHandicap('62.5');
+      syncTithe('4');
+      simulateCardError();
+      switchTab('tab-scorecard');
+    }
+  </script>
+</body></html>

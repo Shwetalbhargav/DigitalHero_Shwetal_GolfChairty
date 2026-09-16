@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Charity Partner Management & Media CMS | Digital Heroes Admin Console</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#f3fcf5",
+            "primary-fixed": "#baeed9",
+            "secondary-fixed-dim": "#abcebf",
+            "on-primary-fixed": "#002117",
+            "on-surface": "#151d19",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#3f2a00",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#c0c9c3",
+            "tertiary-fixed-dim": "#f1be65",
+            "surface-tint": "#376757",
+            "surface-variant": "#dce5de",
+            "inverse-primary": "#9ed1bd",
+            "outline": "#707974",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "primary": "#003629",
+            "surface-dim": "#d3dcd6",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "tertiary-container": "#5c3f00",
+            "secondary": "#456559",
+            "on-tertiary-container": "#dbaa53",
+            "secondary-fixed": "#c7eadb",
+            "on-primary-fixed-variant": "#1d4f40",
+            "surface-container-low": "#edf6ef",
+            "surface-bright": "#f3fcf5",
+            "secondary-container": "#c4e8d8",
+            "primary-container": "#1b4d3e",
+            "on-surface-variant": "#404945",
+            "inverse-on-surface": "#eaf3ec",
+            "on-tertiary-fixed": "#271900",
+            "error-container": "#ffdad6",
+            "on-primary-container": "#8abda9",
+            "primary-fixed-dim": "#9ed1bd",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface": "#f3fcf5",
+            "surface-container": "#e7f0e9",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#e2eae4",
+            "on-background": "#151d19",
+            "surface-container-highest": "#dce5de",
+            "tertiary-fixed": "#ffdeaa",
+            "on-secondary-fixed": "#002117",
+            "on-secondary-container": "#49695d",
+            "inverse-surface": "#2a322e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem",
+            "margin": "3rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "headline-xl": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "headline-md": ["Outfit"],
+            "title-md": ["Outfit"],
+            "display-lg": ["Outfit"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Custom subtle scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(231, 240, 233, 0.4);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c0c9c3;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #707974;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md selection:bg-secondary-container selection:text-primary">
+<!-- Desktop Top Navigation Bar (Shared Component Anchor) -->
+<header class="bg-surface/85 backdrop-blur-md sticky top-0 z-40 w-full border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<!-- Brand & Admin Console Identifier -->
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2 group" href="#">
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-label-sm border border-outline-variant/40">
+            Console
+          </span>
+</a>
+<!-- Main Desktop Navigation Links -->
+<nav class="hidden md:flex items-center gap-6 text-label-md font-label-md">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Draws</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Scorecard</a>
+<a class="text-primary font-semibold border-b-2 border-primary pb-1" href="#">Charities & CMS</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Winnings</a>
+</nav>
+</div>
+<!-- Trailing Primary Action & Superadmin Badge -->
+<div class="flex items-center gap-4">
+<!-- Impact Metric Badge from Shared Component Context -->
+<div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-container/40 border border-secondary/20">
+<span class="material-symbols-outlined text-primary text-[18px]">volunteer_activism</span>
+<span class="font-label-md text-label-md font-semibold text-primary">Impact: $14,250</span>
+</div>
+<!-- Superadmin Status Badge -->
+<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-label-sm shadow-sm">
+<span class="w-2 h-2 rounded-full bg-primary-fixed animate-pulse"></span>
+<span>Superadmin</span>
+</div>
+<!-- Notification and Avatar Actions -->
+<div class="flex items-center gap-2 border-l border-outline-variant/30 pl-4">
+<button aria-label="Notifications" class="p-2 rounded-full hover:bg-surface-container-high/60 text-on-surface-variant transition-colors duration-150" type="button">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="flex items-center gap-2 p-1 pl-2 pr-3 rounded-full hover:bg-surface-container-high/60 transition-colors cursor-pointer">
+<img alt="Golfer profile avatar" class="w-8 h-8 rounded-full object-cover border border-outline-variant/40" data-alt="Modern professional portrait of a golf club senior administrator in an understated dark evergreen technical polo shirt, crisp warm ivory indoor architectural setting, natural window daylight, subtle depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjxycl78m2ukguL6qn679mD48JRU-WcQOj36MVunAIafTKy_PAFyMzhK2K_IaFtyy3sWsmhMWn7poHtLyMUDgdqnIxbovgST_zL0zLoNdshyIvP_nkx8NkZjckF_GadfYPN8LG219-TWEXaG_F5VoR9LfWc-nrVsk4iQLGGbts9kA50aQ83M6-22rJBi4_HePl_PBDOJDRxOcqnWwMkzrSHRv3-RIDRN8UrULBbIa2f5EmQeU3HwPA2Q"/>
+<span class="hidden sm:inline font-label-md text-label-md text-on-surface font-medium">A. Campbell</span>
+<span class="material-symbols-outlined text-outline text-[18px]">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Body Content Canvas -->
+<main class="flex-1 max-w-7xl w-full mx-auto px-space-md md:px-space-lg lg:px-space-xl py-space-lg space-y-space-lg">
+<!-- 1. Header & Bento Stats Section -->
+<section class="space-y-space-md">
+<!-- Title & Contextual Header Actions -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider font-bold">Enterprise Media Console</span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm text-outline">Scottish Land Trust & 501(c)(3)</span>
+</div>
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight">Charity Partner Management & Media CMS</h1>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1 max-w-3xl">
+            Curate vetted non-profit partners, manage Cloudinary media assets, impact metrics, and story releases.
+          </p>
+</div>
+<!-- Header Actions Group -->
+<div class="flex flex-wrap items-center gap-3">
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-primary hover:bg-surface-container transition-all font-label-lg text-label-lg active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[18px]">download</span>
+<span>Export Impact Report</span>
+</button>
+<button class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-secondary/30 bg-surface-container-low text-primary hover:bg-secondary-container/50 transition-all font-label-lg text-label-lg active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[18px]">cloud_sync</span>
+<span>Cloudinary Asset Library</span>
+</button>
+<button class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-primary text-on-primary hover:bg-primary-container transition-all font-label-lg text-label-lg shadow-sm active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-[18px]">add</span>
+<span>+ Add New Charity</span>
+</button>
+</div>
+</div>
+<!-- Stats Bento Grid (Modern Organic Minimalism) -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Stat Card 1 -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-xl p-5 border border-outline-variant/30 shadow-[0_4px_20px_rgba(13,46,36,0.03)] flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Active Causes</span>
+<span class="p-2 rounded-lg bg-surface-container text-primary">
+<span class="material-symbols-outlined text-[20px]">domain</span>
+</span>
+</div>
+<div class="mt-3">
+<div class="text-headline-md font-headline-md font-bold text-primary">14</div>
+<div class="flex items-center gap-1.5 mt-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>100% verified non-profits</span>
+</div>
+</div>
+</div>
+<!-- Stat Card 2: Champagne Impact Milestone -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-xl p-5 border border-outline-variant/30 shadow-[0_4px_20px_rgba(13,46,36,0.03)] flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Total Vetted Grants</span>
+<span class="p-2 rounded-lg bg-tertiary-fixed text-tertiary">
+<span class="material-symbols-outlined text-[20px]">payments</span>
+</span>
+</div>
+<div class="mt-3">
+<div class="text-headline-md font-headline-md font-bold text-tertiary-container">$418,290</div>
+<div class="flex items-center gap-1.5 mt-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]">trending_up</span>
+<span>+$28.4k this monthly cycle</span>
+</div>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-xl p-5 border border-outline-variant/30 shadow-[0_4px_20px_rgba(13,46,36,0.03)] flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Cloudinary Assets Managed</span>
+<span class="p-2 rounded-lg bg-surface-container text-secondary">
+<span class="material-symbols-outlined text-[20px]">photo_library</span>
+</span>
+</div>
+<div class="mt-3">
+<div class="text-headline-md font-headline-md font-bold text-primary">248</div>
+<div class="flex items-center gap-1.5 mt-1 text-label-sm font-label-sm text-secondary">
+<span class="material-symbols-outlined text-[14px]">cloud_done</span>
+<span>WebP & AVIF auto-optimized</span>
+</div>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-xl p-5 border border-outline-variant/30 shadow-[0_4px_20px_rgba(13,46,36,0.03)] flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Pending Cause Approvals</span>
+<span class="p-2 rounded-lg bg-surface-container-high text-primary">
+<span class="material-symbols-outlined text-[20px]">pending_actions</span>
+</span>
+</div>
+<div class="mt-3">
+<div class="text-headline-md font-headline-md font-bold text-on-surface">2</div>
+<div class="flex items-center gap-1.5 mt-1 text-label-sm font-label-sm text-outline">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<span>Requires trust committee review</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Two-Column Split CMS Workspace -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT COLUMN: Charity Directory & Partner Status Ledger (5 cols) -->
+<section class="lg:col-span-5 space-y-4">
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 shadow-sm p-4 space-y-4">
+<!-- Search Bar & Filters -->
+<div class="space-y-3">
+<div class="flex items-center justify-between">
+<h2 class="text-title-md font-title-md font-bold text-primary">Partner Ledger</h2>
+<span class="text-label-sm font-label-sm text-on-surface-variant">5 Organizations</span>
+</div>
+<!-- Search input -->
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[20px]">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-xl bg-surface-bright border border-outline-variant/60 text-body-sm font-body-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all placeholder:text-outline" placeholder="Search partners, tax ID, cause..." type="text"/>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-label-sm font-label-sm">
+<button class="px-3 py-1 rounded-full bg-primary text-on-primary font-semibold whitespace-nowrap" type="button">All Causes</button>
+<button class="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant whitespace-nowrap transition-colors" type="button">Environmental</button>
+<button class="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant whitespace-nowrap transition-colors" type="button">Youth & Caddies</button>
+<button class="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant whitespace-nowrap transition-colors" type="button">Veterans</button>
+<button class="px-3 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant whitespace-nowrap transition-colors" type="button">Accessible Sport</button>
+</div>
+</div>
+<!-- Partner Directory Cards / Rows -->
+<div class="space-y-2.5">
+<!-- Item 1: Active Selected (Highland Dunes Native Restoration) -->
+<div class="p-3.5 rounded-xl border-2 border-primary bg-secondary-container/20 shadow-sm transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<img alt="Highland Dunes Native Restoration emblem" class="w-10 h-10 rounded-lg object-cover border border-outline-variant/40 bg-surface-bright shrink-0" data-alt="Minimalist graphic mark for Highland Dunes Native Restoration, depicting stylized Scottish sand dunes and marram grass inside a subtle botanical badge, warm ivory background with deep evergreen lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWKjExtdF1i_JV_Q8_pZkrVUxzqhwZ5D-gx1bwuhAphTS73fQtnKVlj0ORSNx9sJaf3fEfxpImRHAAanWYRGMTYtWPNTmLYowaG0FfQO9Qw9VYpZGZ7rM2EjRJ2LcNLXcLKhPbOYhyHUL6xi0x59RHtnyAWepdkJzeKmbgwbjYDTVnrs1OWc7HLDUlLxRW50NUEknNpxxhWDEyHO_8rthSMgb3iD86rEjgJabAYFkHvMBmBlj89J_kPQ"/>
+<div>
+<div class="flex items-center gap-1.5">
+<h3 class="font-title-md text-[16px] font-semibold text-primary">Highland Dunes Native Restoration</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">Coastal biodiversity & dunes conservation</p>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<button aria-label="Toggle Featured Partner" class="text-tertiary-container hover:scale-110 transition-transform" type="button">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</button>
+<span class="text-label-sm font-label-sm font-semibold px-2 py-0.5 rounded-full bg-primary text-on-primary">Active</span>
+</div>
+</div>
+<!-- Metadata & Impact Allocation -->
+<div class="mt-3 pt-2.5 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-3">
+<span class="font-semibold text-primary">$48,200 raised</span>
+<span>•</span>
+<span>15% pool allocation</span>
+</div>
+<div class="flex items-center gap-1 text-secondary font-medium">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Primary Feature</span>
+</div>
+</div>
+</div>
+<!-- Item 2: Fairway Youth Caddie Trust -->
+<div class="p-3.5 rounded-xl border border-outline-variant/40 bg-surface-bright hover:bg-surface-container-lowest transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<img alt="Fairway Youth Caddie Trust logo" class="w-10 h-10 rounded-lg object-cover border border-outline-variant/40 bg-surface shrink-0" data-alt="Clean corporate logo for Fairway Youth Caddie Trust featuring an athletic youth silhouette against a minimalist fairway topography line, deep green and sand color scheme" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDD9HRTpzNCOuznIGkpiJ_q5AGnQS0l1WTzXCPJ04_NfLdup06G9dnJ_9FGgxom4Qid5bFQH0JfJ3-7yNoe1kHDr872ORd6KQAGVEDLwch7aArP1bO1yQvaeGusGiXBsSsIBxJChJI1O7oyhfAFk1OCw5ULmkAsjs4NkbzSrocVg2AKfazWw74Mc6kMX26qYM00R5xxtQHDW4_79t2QVDhQeqnSG9sGVUhUvnvpPXuo-nr__gMz7xVXIw"/>
+<div>
+<h3 class="font-title-md text-[15px] font-semibold text-on-surface">Fairway Youth Caddie Trust</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Youth mentorship & caddie scholarships</p>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<button aria-label="Toggle Featured Partner" class="text-outline-variant hover:text-tertiary-container transition-colors" type="button">
+<span class="material-symbols-outlined">star</span>
+</button>
+<span class="text-label-sm font-label-sm font-medium px-2 py-0.5 rounded-full bg-surface-container text-secondary">Active</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="font-semibold text-primary">$65,000 raised</span>
+<span class="text-secondary font-medium">94% graduation rate</span>
+</div>
+</div>
+<!-- Item 3: Veterans Golf & PTSD Recovery -->
+<div class="p-3.5 rounded-xl border border-outline-variant/40 bg-surface-bright hover:bg-surface-container-lowest transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<img alt="Veterans Golf & PTSD Recovery badge" class="w-10 h-10 rounded-lg object-cover border border-outline-variant/40 bg-surface shrink-0" data-alt="Modern emblem for Veterans Golf Recovery program, incorporating a subtle olive branch and golf club icon in crisp line art style over a clean ivory surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmuqJNvDoXk77opBp5C89uGHNCsaIm0mOSniqfDbpImd0Mdv2_hJUjCzL9x3NxPppEC0r35PKMM99UdWB5l301QkjekAiyavLWlnAXZnNPEwpDiJZG-PH2bYGXIyw3nzLDiDvO3deA6xkeVguZaGUd-jXVbQsKbpgOqjgRgwhjxDuIk33eGG45OsBjkyB71qm1rXrbwKmlC3wWtNyBmTKqSUWazBPqG3Qny8hKN76itM_zEHT6nAKBUA"/>
+<div>
+<h3 class="font-title-md text-[15px] font-semibold text-on-surface">Veterans Golf & PTSD Recovery</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Therapeutic outdoor athletic recovery</p>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<button aria-label="Toggle Featured Partner" class="text-outline-variant hover:text-tertiary-container transition-colors" type="button">
+<span class="material-symbols-outlined">star</span>
+</button>
+<span class="text-label-sm font-label-sm font-medium px-2 py-0.5 rounded-full bg-surface-container text-secondary">Active</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="font-semibold text-primary">$32,000 raised</span>
+<span>88 participants</span>
+</div>
+</div>
+<!-- Item 4: Adaptive Greens Initiative -->
+<div class="p-3.5 rounded-xl border border-outline-variant/40 bg-surface-bright hover:bg-surface-container-lowest transition-all cursor-pointer">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<img alt="Adaptive Greens Initiative logo" class="w-10 h-10 rounded-lg object-cover border border-outline-variant/40 bg-surface shrink-0" data-alt="Accessible sports initiative emblem with clean geometric design representing inclusivity and fairway putting greens, high resolution vector aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKRZd9-PoT_wIcLrvKGYJNuGMejcXM29_1k81La6-CPysFFA6yTNdnXn_px3WW2BycdmpGcUYP9OFXPhiMZO_gGL_qk-swAtmMGE7LXDV-aTYBEmbiMMZGmHqmz6Wt4cGw4Sbad_0gDue6v8RZngroL0htce2fYjT2EYsDVHpitEx0sGl8oNLNQbLXDUf-Pi6pNj3_CP1Ch5XaSJL8NntrmtQfWd853PJDKx4Gf5SsitugGQXS_DHE3g"/>
+<div>
+<h3 class="font-title-md text-[15px] font-semibold text-on-surface">Adaptive Greens Initiative</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Para-golfer terrain modifications</p>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<button aria-label="Toggle Featured Partner" class="text-outline-variant hover:text-tertiary-container transition-colors" type="button">
+<span class="material-symbols-outlined">star</span>
+</button>
+<span class="text-label-sm font-label-sm font-medium px-2 py-0.5 rounded-full bg-surface-container text-secondary">Active</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="font-semibold text-primary">$28,500 raised</span>
+<span>6 Courses converted</span>
+</div>
+</div>
+<!-- Item 5: St. Andrews Grassroots Academy (Draft / Review) -->
+<div class="p-3.5 rounded-xl border border-dashed border-outline-variant bg-surface-container-low/60 hover:bg-surface-container-low transition-all cursor-pointer opacity-85">
+<div class="flex items-start justify-between gap-2">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg border border-outline-variant/60 bg-surface-container flex items-center justify-between justify-center text-outline">
+<span class="material-symbols-outlined text-[20px] mx-auto">pending</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-title-md text-[15px] font-semibold text-on-surface">St. Andrews Grassroots Academy</h3>
+</div>
+<p class="font-body-sm text-body-sm text-outline">Subsidized coaching for local schools</p>
+</div>
+</div>
+<div class="flex items-center gap-1 shrink-0">
+<span class="text-label-sm font-label-sm font-semibold px-2 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed border border-tertiary-fixed-dim">Under Review</span>
+</div>
+</div>
+<div class="mt-3 pt-2.5 border-t border-outline-variant/20 flex items-center justify-between text-label-sm font-label-sm text-outline">
+<span>Application submitted Oct 28</span>
+<span class="font-medium text-secondary">Auditing 501(c)(3)</span>
+</div>
+</div>
+</div>
+<!-- Quick Ledger Actions -->
+<div class="pt-2 flex items-center justify-between">
+<button class="text-label-sm font-label-sm text-secondary hover:text-primary font-semibold flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">tune</span>
+<span>Reorder Priority Pools</span>
+</button>
+<span class="text-label-sm font-label-sm text-outline">Next draw sync: in 4 days</span>
+</div>
+</div>
+</section>
+<!-- RIGHT COLUMN: Comprehensive Add/Edit Charity & Media Form (7 cols) -->
+<section class="lg:col-span-7 space-y-6">
+<div class="bg-surface-container-lowest rounded-2xl border border-outline-variant/40 shadow-sm p-6 space-y-6">
+<!-- Form Header & Status Bar -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-outline-variant/30 gap-3">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+<h2 class="text-headline-sm font-headline-sm font-bold text-primary">Edit Partner Profile</h2>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-container text-on-secondary-fixed-variant font-medium">ID: CAUSE-0048</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Highland Dunes Native Restoration • Primary Feature Cause</p>
+</div>
+<!-- Quick Live / Inactive Switch -->
+<div class="flex items-center gap-3 bg-surface-bright px-3 py-1.5 rounded-xl border border-outline-variant/40">
+<span class="text-label-sm font-label-sm text-on-surface-variant font-medium">Live on App:</span>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-outline-variant peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<!-- Section A: General Info -->
+<div class="space-y-4">
+<h3 class="text-title-md font-title-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">badge</span>
+<span>General Organization Details</span>
+</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Cause Name -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1 font-semibold">Cause Name</label>
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-bright border border-outline-variant/60 text-body-sm font-body-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-medium" type="text" value="Highland Dunes Native Restoration"/>
+</div>
+<!-- Category Dropdown -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1 font-semibold">Category Classification</label>
+<select class="w-full px-3.5 py-2.5 rounded-xl bg-surface-bright border border-outline-variant/60 text-body-sm font-body-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all">
+<option selected="">Environmental & Coastal Conservation</option>
+<option>Youth & Caddie Development</option>
+<option>Veterans Recovery & Wellness</option>
+<option>Adaptive Golf Accessibility</option>
+</select>
+</div>
+<!-- Tagline -->
+<div class="md:col-span-2">
+<label class="block text-label-md font-label-md text-on-surface mb-1 font-semibold">Public Tagline</label>
+<input class="w-full px-3.5 py-2.5 rounded-xl bg-surface-bright border border-outline-variant/60 text-body-sm font-body-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="text" value="Preserving Scotland's wild links ecosystems and safeguarding natural dune barriers."/>
+</div>
+<!-- Tax ID & Allocation Share -->
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1 font-semibold">Tax Exemption / Scottish Land Trust ID</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">verified_user</span>
+<input class="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-surface-bright border border-outline-variant/60 text-body-sm font-body-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all font-mono" type="text" value="#SC-4482"/>
+</div>
+</div>
+<div>
+<label class="block text-label-md font-label-md text-on-surface mb-1 font-semibold">Charity Draw Allocation Share (%)</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-outline text-[18px]">pie_chart</span>
+<input class="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-surface-bright border border-outline-variant/60 text-body-sm font-body-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all" type="number" value="15"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Section B: Cloudinary Media Uploader Components -->
+<div class="space-y-4 pt-2 border-t border-outline-variant/30">
+<div class="flex items-center justify-between">
+<h3 class="text-title-md font-title-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">cloud_upload</span>
+<span>Cloudinary Media Management</span>
+</h3>
+<span class="text-label-sm font-label-sm text-secondary bg-secondary-container/40 px-2.5 py-0.5 rounded-full font-mono">
+                q_auto,f_auto
+              </span>
+</div>
+<!-- Logo Uploader & Hero Cover Banner -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
+<!-- 1. Logo Uploader (Square dropzone) -->
+<div class="space-y-2">
+<label class="block text-label-md font-label-md text-on-surface font-semibold">Emblem / Logo</label>
+<div class="p-3 border-2 border-dashed border-outline-variant rounded-xl bg-surface-bright hover:bg-surface-container-low transition-all text-center flex flex-col items-center justify-center min-h-[170px]">
+<div class="relative group">
+<img alt="Highland Dunes emblem" class="w-16 h-16 rounded-lg object-contain border border-outline-variant/50 p-1 bg-white shadow-sm" data-alt="Emblem mark for Highland Dunes Native Restoration, high-contrast clean botanical emblem with stylized Scottish marram grass, square logo mockup on ivory canvas" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_26xzWxksKQVuRS3YaS_Ma5xDkWwD4diH4-SI3I5-_-of2imo9SIiu8J4wxiMV97QIpHcfeNIAQuxf396Uq6KEqC7Y1PR9bgkjScWpRPET-MaDrJnQ30VdKiWCIZTyIQyY3Kkh2fbU_S3YdhiAbx9nBiQgS6Z6m-uzGKg5IeRny38NvjEDsQql84i9J-LDDybLj0zOjey148lqD7M1HQYr_MysNOHT5vPdRIEbBAeBZZDMauaGwhW2Q"/>
+<button aria-label="Remove image" class="absolute -top-2 -right-2 bg-primary text-on-primary rounded-full p-1 shadow hover:bg-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">close</span>
+</button>
+</div>
+<p class="text-label-sm font-label-sm text-secondary font-medium mt-2">Upload new SVG/PNG</p>
+<p class="text-[10px] text-outline">Auto-WebP, 400x400 via Cloudinary</p>
+</div>
+</div>
+<!-- 2. Hero Cover Banner (Wide 16:9 banner preview) -->
+<div class="md:col-span-2 space-y-2">
+<div class="flex items-center justify-between">
+<label class="block text-label-md font-label-md text-on-surface font-semibold">Hero Cover Banner (16:9)</label>
+<span class="text-[11px] font-mono text-outline">Transformation: q_auto,f_auto,w_1200</span>
+</div>
+<div class="relative rounded-xl overflow-hidden border border-outline-variant/60 group shadow-sm bg-surface-container">
+<img alt="Scenic Scottish sand dunes banner" class="w-full h-36 object-cover" data-alt="Sweeping panoramic shot of dramatic Scottish coastal sand dunes covered in golden marram grass at twilight, moody coastal clouds, historic golf links fairway visible in the far distance, pristine conservation reserve aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfJ7luZUC-G7cFEve88L74BG3oya20DT7Lxqb7yAFGwPhzQNpLngvZtSxMGKwKGT-MdXLC6PKJDWHszl9wFriOOHbMB4j8VwEaOdt_o6A7unrC-oF-ArJh59jD312bXO1l2dD9GCazmLyoGgBIvwwpgFAmx7lFk2o-qrU4SUuQ3QGtxBssh7yZR7Vn10OoEkS8i7LjW9tty8F_Q8m2C2SKeZh8_o6m_NgoNNYstgJ22EQuCpGpnehIUA"/>
+<!-- Overlay Controls Bar -->
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3 backdrop-blur-[2px]">
+<button class="px-3 py-1.5 rounded-full bg-white text-primary text-label-sm font-label-sm font-semibold shadow hover:bg-surface-bright flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">crop</span>
+<span>Crop / Focal Point</span>
+</button>
+<button class="px-3 py-1.5 rounded-full bg-primary-container text-on-primary text-label-sm font-label-sm font-semibold shadow hover:bg-primary flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">sync</span>
+<span>Replace Asset</span>
+</button>
+</div>
+<!-- Badge -->
+<div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-primary/80 text-on-primary text-[10px] font-mono backdrop-blur-sm">
+                    Focal: Center-Gravity (g_auto)
+                  </div>
+</div>
+</div>
+</div>
+<!-- 3. Field Operations Photo Gallery (4 thumbnails grid) -->
+<div class="space-y-2 pt-1">
+<div class="flex items-center justify-between">
+<label class="block text-label-md font-label-md text-on-surface font-semibold">Field Operations Photo Gallery</label>
+<span class="text-label-sm font-label-sm text-outline">Drag thumbnails to reorder presentation priority</span>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+<!-- Thumb 1 -->
+<div class="relative group rounded-xl overflow-hidden border border-outline-variant/60 bg-surface-bright">
+<img alt="Volunteer planting marram grass" class="w-full h-20 object-cover" data-alt="Close up of conservation volunteer hands carefully planting native marram grass stalks on a rugged Scottish links coastal sand embankment, organic earthy greens and warm sand textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhRQsR_kj6cimwWBDHVUCb_vw0w9blLwguxbymlH8pARQgxZ5i8GT25X4dGCyWZRsuhR6VXj7mI8WTYFdQCbERIaWQL9uBmqLvQiJWhB1RXeMiH9iH2COQyu3zOvYA6TRoj_qoQ1a5rCRxiq_BSC-LAaMe2s0CSOm3gs8pI_gkn-YtBlCOb98tk-QRhieoNDpp9BruWq6hMcSLQsq9UhqhOlz0nxti4Upe-8oz7766l6TScrcT-Ar9Cg"/>
+<div class="absolute top-1 right-1 flex items-center gap-1">
+<span class="p-1 rounded bg-black/40 text-white cursor-grab">
+<span class="material-symbols-outlined text-[14px]">drag_indicator</span>
+</span>
+<button class="p-1 rounded bg-black/40 text-white hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Thumb 2 -->
+<div class="relative group rounded-xl overflow-hidden border border-outline-variant/60 bg-surface-bright">
+<img alt="Dune conservation boundary at Scottish links" class="w-full h-20 object-cover" data-alt="Wide environmental landscape of coastal golf course boundary with protected marram dunes under a gentle Scottish morning mist, clean natural tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_JhkcVmjYcNMmp42Chmk2SWoNIuwsR81mp0N5amJHZwSZrfsZbgr63j7IR8aJsIT-b3OXwhYImFiSd_X8fG9qMYrtMldEpI8TbxteSsQ4FEucTlDlmSeavJAvOyK-A0x-Y7b2_HnTfziSsjxaQSPlrWMdT7nOno7gutESnJ1bEL63U1P1yeklAth6IdOOaQl1brUlZe0FuxgXx8Q631AHnH2Udmsz-DMLZEqusTwfEt96sSGcVFVNHg"/>
+<div class="absolute top-1 right-1 flex items-center gap-1">
+<span class="p-1 rounded bg-black/40 text-white cursor-grab">
+<span class="material-symbols-outlined text-[14px]">drag_indicator</span>
+</span>
+<button class="p-1 rounded bg-black/40 text-white hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Thumb 3 -->
+<div class="relative group rounded-xl overflow-hidden border border-outline-variant/60 bg-surface-bright">
+<img alt="Ecologists surveying coastal ecosystem" class="w-full h-20 object-cover" data-alt="Young student environmental apprentices studying dune biodiversity with a Scottish biologist by the Firth of Forth coastline, professional documentary style photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5KFfmD9Z7MhYv4rvaaLxHGzLZPplZQjYcqkLTou0REQPhi0YzsD43kflMWuaIFGgBPnphd_Zkk0W3OUDeFoCmsXlTRHTTeXuY_Ep4hIjUVEzEzA3lPEAoKA1FrYUQM2VMkgYlK2O7KyHGHF5eGZ1t2XuUx8OELeRj0FcE7sk6atG-LGRjbndm6YnafgQCr3hdWZtucEXVLFzH3swJ6ljJPjBIU63bmieYAXKrBPXPad0Gcagv2HuRWA"/>
+<div class="absolute top-1 right-1 flex items-center gap-1">
+<span class="p-1 rounded bg-black/40 text-white cursor-grab">
+<span class="material-symbols-outlined text-[14px]">drag_indicator</span>
+</span>
+<button class="p-1 rounded bg-black/40 text-white hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[14px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Uploader Button Dropzone -->
+<button class="border-2 border-dashed border-outline-variant rounded-xl p-3 flex flex-col items-center justify-center text-center hover:bg-surface-container transition-colors group h-20" type="button">
+<span class="material-symbols-outlined text-secondary group-hover:scale-110 transition-transform text-[20px]">add_photo_alternate</span>
+<span class="text-label-sm font-label-sm text-primary font-semibold mt-1">+ Upload</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Section C: Story & Mission Editor (Rich Text Block) -->
+<div class="space-y-3 pt-2 border-t border-outline-variant/30">
+<div class="flex items-center justify-between">
+<h3 class="text-title-md font-title-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">edit_note</span>
+<span>Story & Theory of Change</span>
+</h3>
+<span class="text-label-sm font-label-sm text-outline">Markdown & Rich Format Supported</span>
+</div>
+<!-- Mini WYSIWYG Toolbar -->
+<div class="border border-outline-variant/60 rounded-xl overflow-hidden bg-surface-bright">
+<div class="flex items-center gap-1 p-2 bg-surface-container border-b border-outline-variant/40 text-on-surface-variant">
+<button class="p-1 rounded hover:bg-surface-container-high text-[16px]" type="button"><span class="material-symbols-outlined text-[18px]">format_bold</span></button>
+<button class="p-1 rounded hover:bg-surface-container-high text-[16px]" type="button"><span class="material-symbols-outlined text-[18px]">format_italic</span></button>
+<button class="p-1 rounded hover:bg-surface-container-high text-[16px]" type="button"><span class="material-symbols-outlined text-[18px]">format_underlined</span></button>
+<span class="w-[1px] h-4 bg-outline-variant mx-1"></span>
+<button class="p-1 rounded hover:bg-surface-container-high text-[16px]" type="button"><span class="material-symbols-outlined text-[18px]">format_list_bulleted</span></button>
+<button class="p-1 rounded hover:bg-surface-container-high text-[16px]" type="button"><span class="material-symbols-outlined text-[18px]">format_quote</span></button>
+<button class="p-1 rounded hover:bg-surface-container-high text-[16px]" type="button"><span class="material-symbols-outlined text-[18px]">link</span></button>
+<div class="ml-auto text-[11px] font-mono text-outline">Words: 142</div>
+</div>
+<!-- Editable Text Area -->
+<textarea class="w-full p-3.5 bg-transparent border-none text-body-sm font-body-sm text-on-surface focus:ring-0 focus:outline-none resize-none leading-relaxed" rows="4">Highland Dunes Native Restoration operates across the East Coast of Scotland, partnering directly with historic golf links to rehabilitate eroded coastal dunes. By systematically propagating native Marram grass (Ammophila arenaria) and establishing stabilized sand fences, we protect fragile coastal habitats from severe North Sea storm surges while educating visiting golfers on non-intrusive stewardship.</textarea>
+</div>
+</div>
+<!-- Section D: Quantifiable Impact Metrics Inputs -->
+<div class="space-y-3 pt-2 border-t border-outline-variant/30">
+<h3 class="text-title-md font-title-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">analytics</span>
+<span>Quantifiable Impact Metrics (Live Display Counters)</span>
+</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<!-- Metric 1 -->
+<div class="p-3 rounded-xl bg-surface-bright border border-outline-variant/50 space-y-1">
+<span class="text-label-sm font-label-sm text-outline">Metric 1 (Flora / Planting)</span>
+<input class="w-full px-2.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40 text-body-sm font-body-sm font-semibold text-primary focus:ring-1 focus:ring-primary" type="text" value="12,400 Marram Stems"/>
+<span class="text-[10px] text-secondary">Displayed on impact drawer</span>
+</div>
+<!-- Metric 2 -->
+<div class="p-3 rounded-xl bg-surface-bright border border-outline-variant/50 space-y-1">
+<span class="text-label-sm font-label-sm text-outline">Metric 2 (Area Restored)</span>
+<input class="w-full px-2.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40 text-body-sm font-body-sm font-semibold text-primary focus:ring-1 focus:ring-primary" type="text" value="1.4 Hectares Restored"/>
+<span class="text-[10px] text-secondary">Verified via GPS mapping</span>
+</div>
+<!-- Metric 3 -->
+<div class="p-3 rounded-xl bg-surface-bright border border-outline-variant/50 space-y-1">
+<span class="text-label-sm font-label-sm text-outline">Metric 3 (Patron Support)</span>
+<input class="w-full px-2.5 py-1.5 rounded-lg bg-surface-container border border-outline-variant/40 text-body-sm font-body-sm font-semibold text-tertiary-container focus:ring-1 focus:ring-primary" type="text" value="$680.00 avg patron support"/>
+<span class="text-[10px] text-secondary">Monthly subscription share</span>
+</div>
+</div>
+</div>
+<!-- Section E: Upcoming Beneficiary Events Manager -->
+<div class="space-y-3 pt-2 border-t border-outline-variant/30">
+<div class="flex items-center justify-between">
+<h3 class="text-title-md font-title-md font-bold text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">event</span>
+<span>Beneficiary Events & Field Days</span>
+</h3>
+<button class="text-label-sm font-label-sm text-primary font-semibold hover:underline flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[16px]">add</span>
+<span>+ Add Event</span>
+</button>
+</div>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-bright border border-outline-variant/40">
+<div class="flex items-center gap-3">
+<div class="p-2 rounded-lg bg-secondary-container/50 text-primary">
+<span class="material-symbols-outlined text-[20px]">calendar_today</span>
+</div>
+<div>
+<h4 class="text-body-sm font-body-sm font-semibold text-on-surface">North Berwick Dune Cleanup & Native Planting</h4>
+<p class="text-[12px] text-on-surface-variant">North Berwick West Links • 34 Members Registered</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-label-sm font-label-sm font-medium px-2.5 py-1 rounded-full bg-surface-container text-primary font-mono">Nov 20, 2024</span>
+<button class="text-outline hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-[18px]">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Footer -->
+<div class="pt-5 border-t border-outline-variant/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<button class="px-4 py-2 rounded-full border border-outline-variant text-on-surface-variant hover:bg-surface-container font-label-lg text-label-lg transition-all active:scale-[0.98]" type="button">
+              Discard Changes
+            </button>
+<div class="flex items-center gap-3">
+<button class="px-5 py-2 rounded-full border border-secondary/40 bg-surface-container-low text-primary hover:bg-secondary-container/60 font-label-lg text-label-lg transition-all active:scale-[0.98]" type="button">
+                Save Draft
+              </button>
+<button class="px-6 py-2.5 rounded-full bg-primary text-on-primary hover:bg-primary-container font-label-lg text-label-lg font-semibold shadow-md hover:shadow-lg transition-all active:scale-[0.98] flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">send</span>
+<span>Publish Updates to Live Directory</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Mobile Bottom Nav Bar (Shared Component Anchor) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-space-margin-mobile py-space-xs pb-safe lg:hidden bg-surface/90 backdrop-blur-md border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(13,46,36,0.06)]">
+<!-- Draws -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1" href="#">
+<span class="material-symbols-outlined text-[22px]">casino</span>
+<span class="text-label-sm font-label-sm">Draws</span>
+</a>
+<!-- Scores -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1" href="#">
+<span class="material-symbols-outlined text-[22px]">sports_score</span>
+<span class="text-label-sm font-label-sm">Scores</span>
+</a>
+<!-- Impact (Active for Charities & CMS) -->
+<a class="flex flex-col items-center justify-center text-primary bg-secondary-container/50 rounded-xl px-3 py-1 font-semibold" href="#">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span class="text-label-sm font-label-sm">Impact</span>
+</a>
+<!-- Winnings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1" href="#">
+<span class="material-symbols-outlined text-[22px]">trophy</span>
+<span class="text-label-sm font-label-sm">Winnings</span>
+</a>
+<!-- Profile -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1" href="#">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Lightweight Micro-Interactions Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Toggle favorite star micro-interaction
+      const starButtons = document.querySelectorAll('button[aria-label="Toggle Featured Partner"]');
+      starButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const icon = btn.querySelector('.material-symbols-outlined');
+          const isFilled = icon.getAttribute('style')?.includes("'FILL' 1");
+          if (isFilled) {
+            icon.style.fontVariationSettings = "'FILL' 0";
+            btn.classList.remove('text-tertiary-container');
+            btn.classList.add('text-outline-variant');
+          } else {
+            icon.style.fontVariationSettings = "'FILL' 1";
+            btn.classList.add('text-tertiary-container');
+            btn.classList.remove('text-outline-variant');
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

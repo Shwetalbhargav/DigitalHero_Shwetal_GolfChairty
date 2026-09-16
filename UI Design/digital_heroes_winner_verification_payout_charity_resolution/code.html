@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Heroes - Verification, Payout &amp; Charity Resolution</title>
+<!-- Fonts: Outfit (display/headlines) & Plus Jakarta Sans (body/labels) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "error-container": "#ffdad6",
+          "tertiary": "#3f2a00",
+          "on-primary-fixed": "#002117",
+          "on-surface": "#151d19",
+          "tertiary-fixed-dim": "#f1be65",
+          "secondary-fixed-dim": "#abcebf",
+          "background": "#f3fcf5",
+          "on-secondary": "#ffffff",
+          "surface-dim": "#d3dcd6",
+          "on-error": "#ffffff",
+          "on-primary-fixed-variant": "#1d4f40",
+          "on-error-container": "#93000a",
+          "on-primary": "#ffffff",
+          "secondary": "#456559",
+          "surface-container-highest": "#dce5de",
+          "surface-container": "#e7f0e9",
+          "on-tertiary": "#ffffff",
+          "primary-fixed": "#baeed9",
+          "inverse-on-surface": "#eaf3ec",
+          "on-tertiary-fixed-variant": "#5f4100",
+          "on-secondary-fixed": "#002117",
+          "surface-container-lowest": "#ffffff",
+          "surface-variant": "#dce5de",
+          "surface-container-high": "#e2eae4",
+          "primary-container": "#1b4d3e",
+          "surface-bright": "#f3fcf5",
+          "inverse-surface": "#2a322e",
+          "on-surface-variant": "#404945",
+          "surface-container-low": "#edf6ef",
+          "primary": "#003629",
+          "tertiary-fixed": "#ffdeaa",
+          "on-primary-container": "#8abda9",
+          "on-tertiary-fixed": "#271900",
+          "inverse-primary": "#9ed1bd",
+          "outline-variant": "#c0c9c3",
+          "secondary-container": "#c4e8d8",
+          "on-secondary-container": "#49695d",
+          "outline": "#707974",
+          "on-background": "#151d19",
+          "surface": "#f3fcf5",
+          "secondary-fixed": "#c7eadb",
+          "on-secondary-fixed-variant": "#2d4d42",
+          "tertiary-container": "#5c3f00",
+          "error": "#ba1a1a",
+          "on-tertiary-container": "#dbaa53",
+          "surface-tint": "#376757",
+          "primary-fixed-dim": "#9ed1bd"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-lg": "1.5rem",
+          "margin-mobile": "1.25rem",
+          "gutter-mobile": "1rem",
+          "space-sm": "0.5rem",
+          "space-md": "1rem",
+          "margin": "3rem",
+          "space-xl": "2.5rem",
+          "gutter": "1.5rem",
+          "space-xs": "0.25rem"
+        },
+        "fontFamily": {
+          "body-md": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "label-lg": ["Plus Jakarta Sans"],
+          "display-lg": ["Outfit"],
+          "headline-xl-mobile": ["Outfit"],
+          "title-md": ["Outfit"],
+          "label-md": ["Plus Jakarta Sans"],
+          "body-sm": ["Plus Jakarta Sans"],
+          "headline-sm": ["Outfit"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "display-lg-mobile": ["Outfit"],
+          "headline-xl": ["Outfit"],
+          "headline-md": ["Outfit"],
+          "headline-lg": ["Outfit"]
+        },
+        "fontSize": {
+          "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+          "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+          "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+          "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+          "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+          "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+          "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+          "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+          "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+          "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+          "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+        }
+      },
+    },
+  }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      height: 4px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #c0c9c3;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col font-body-md">
+<!-- TopNavBar (Shared Component) -->
+<header class="bg-surface/85 backdrop-blur-md text-primary docked full-width top sticky z-40 border-b border-outline-variant/30 shadow-sm">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<div class="flex items-center gap-6">
+<a class="flex items-center gap-2 group" href="#">
+<div class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-primary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[18px]">golf_course</span>
+</div>
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+</a>
+<div class="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/40 border border-outline-variant/30">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-secondary">Feel, not fairway</span>
+</div>
+</div>
+<!-- Desktop Nav cluster -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#draws">Draws</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#scorecard">Scorecard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#impact">Impact</a>
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 text-label-md font-label-md" href="#winnings">Winnings</a>
+</nav>
+<div class="flex items-center gap-3">
+<div class="hidden sm:flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/40">
+<span class="material-symbols-outlined text-[16px] text-tertiary-container" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span class="text-label-md font-label-md font-semibold text-primary">Impact: $14,250</span>
+</div>
+<button aria-label="Notifications" class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high/60 transition-colors active:scale-[0.98]">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<div class="flex items-center gap-2 pl-1">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center border border-outline-variant/50 overflow-hidden">
+<span class="material-symbols-outlined text-primary text-[22px]">account_circle</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Layout Container -->
+<div class="flex-1 max-w-7xl w-full mx-auto flex">
+<!-- SideNavBar (Shared Component - Desktop) -->
+<aside class="hidden lg:flex flex-col justify-between h-[calc(100vh-4rem)] p-space-md w-64 shrink-0 border-r border-outline-variant/30 sticky top-16 bg-surface">
+<div class="space-y-6">
+<div class="px-2 py-1">
+<div class="flex items-center gap-2.5">
+<div class="w-7 h-7 rounded-lg bg-secondary-container flex items-center justify-center text-primary font-bold text-xs">
+              WHS
+            </div>
+<div>
+<p class="text-label-md font-label-md font-bold text-primary leading-tight">Member Trust Portal</p>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Scottish Trust Escrow</p>
+</div>
+</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors active:scale-[0.98]" href="#monthly-draws">
+<span class="material-symbols-outlined text-[20px]">casino</span>
+<span class="text-label-md font-label-md">Monthly Draws</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors active:scale-[0.98]" href="#scorecard">
+<span class="material-symbols-outlined text-[20px]">sports_score</span>
+<span class="text-label-md font-label-md">Scorecard</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors active:scale-[0.98]" href="#charity-impact">
+<span class="material-symbols-outlined text-[20px]">volunteer_activism</span>
+<span class="text-label-md font-label-md">Charity Impact</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl bg-primary-container text-on-primary-container font-semibold active:scale-[0.98]" href="#winnings">
+<span class="material-symbols-outlined text-[20px] text-primary-fixed" style="font-variation-settings: 'FILL' 1;">trophy</span>
+<span class="text-label-md font-label-md text-surface-bright">Winnings &amp; Escrow</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors active:scale-[0.98]" href="#membership">
+<span class="material-symbols-outlined text-[20px]">card_membership</span>
+<span class="text-label-md font-label-md">Membership</span>
+</a>
+</nav>
+<div class="pt-2">
+<button class="w-full py-2.5 px-3 rounded-full bg-surface-container-high border border-outline-variant/60 text-primary hover:bg-surface-container-highest transition-all flex items-center justify-center gap-2 text-label-md font-label-md font-semibold">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+            Log Stableford Round
+          </button>
+</div>
+</div>
+<!-- SideNav Footer -->
+<div class="pt-4 border-t border-outline-variant/30 space-y-1">
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors text-label-md font-label-md" href="#settings">
+<span class="material-symbols-outlined text-[18px]">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-space-md py-space-sm rounded-xl text-on-surface-variant hover:bg-surface-container transition-colors text-label-md font-label-md" href="#help">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+<span>Help &amp; Support</span>
+</a>
+</div>
+</aside>
+<!-- Canvas: Suite 3 Resolution States -->
+<main class="flex-1 p-4 md:p-6 lg:p-8 space-y-6 pb-24 lg:pb-12 max-w-5xl">
+<!-- Breadcrumbs & Trust Banner -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-outline-variant/30 pb-4">
+<div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-secondary uppercase tracking-wider mb-1">
+<span>Escrow &amp; Resolution Hub</span>
+<span>•</span>
+<span class="text-primary font-semibold">Suite 3 Audit Protocol</span>
+</div>
+<h1 class="text-headline-md font-headline-md text-primary tracking-tight">Claim Verification, Payouts &amp; Charity Tithes</h1>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Calm, dignified dispute handling and purpose-led resolution for Scottish Trust Escrow allocations.</p>
+</div>
+<!-- Gold Trust Seal -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-tertiary-fixed/30 border border-tertiary-fixed-dim/40 shadow-sm shrink-0">
+<span class="material-symbols-outlined text-tertiary-container text-[18px]" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<span class="text-label-sm font-label-sm font-semibold text-tertiary">Scottish Trust Escrow Certified</span>
+</div>
+</div>
+<!-- State Selector Controller (Horizontal Scroller / Pills) -->
+<div class="bg-surface-container-low rounded-2xl p-2 border border-outline-variant/40 shadow-sm">
+<div class="flex items-center justify-between px-2 pb-2 pt-1 border-b border-outline-variant/20 mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[16px] text-primary">tune</span>
+<span class="text-label-sm font-label-sm font-bold text-primary uppercase tracking-wider">Interactive Test States (Suite 3)</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Select scenario to preview resolution state</span>
+</div>
+<div class="flex gap-1.5 overflow-x-auto custom-scrollbar pb-1 text-label-md font-label-md">
+<button class="state-tab-btn active shrink-0 px-3.5 py-1.5 rounded-full text-xs transition-all bg-primary text-surface font-semibold flex items-center gap-1.5" id="btn-state-1" onclick="switchState('state-1')">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span> 1. Upload Failed
+          </button>
+<button class="state-tab-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs transition-all bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-1.5" id="btn-state-2" onclick="switchState('state-2')">
+            2. Unsupported File
+          </button>
+<button class="state-tab-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs transition-all bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-1.5" id="btn-state-3" onclick="switchState('state-3')">
+            3. Verification Pending
+          </button>
+<button class="state-tab-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs transition-all bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-1.5" id="btn-state-4" onclick="switchState('state-4')">
+            4. WHS Discrepancy
+          </button>
+<button class="state-tab-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs transition-all bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-1.5" id="btn-state-5" onclick="switchState('state-5')">
+            5. Payout Failed
+          </button>
+<button class="state-tab-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs transition-all bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-1.5" id="btn-state-6" onclick="switchState('state-6')">
+            6. No Charity Selected
+          </button>
+<button class="state-tab-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs transition-all bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-1.5" id="btn-state-7" onclick="switchState('state-7')">
+            7. Charity Goal Met
+          </button>
+<button class="state-tab-btn shrink-0 px-3.5 py-1.5 rounded-full text-xs transition-all bg-surface-container hover:bg-surface-container-high text-on-surface-variant flex items-center gap-1.5" id="btn-state-8" onclick="switchState('state-8')">
+            8. Sensor Offline
+          </button>
+</div>
+</div>
+<!-- ========================================================================= -->
+<!-- STATE 1: Proof Upload Failed -->
+<!-- ========================================================================= -->
+<section class="state-view block space-y-6" id="state-1">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)] relative overflow-hidden">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-error-container/60 text-error flex items-center justify-center shrink-0 border border-error-container">
+<span class="material-symbols-outlined text-[24px]">cloud_off</span>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-error-container/40 text-on-surface-variant text-label-sm font-label-sm mb-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Connection Interrupted
+              </div>
+<h2 class="text-headline-sm font-headline-sm text-primary">Scorecard Upload Interrupted</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">
+                Your scorecard photo or club receipt couldn't be uploaded. Network was interrupted during the 256-bit encryption handshake with the audit registry.
+              </p>
+</div>
+</div>
+<!-- Drag and Drop Retry Zone -->
+<div class="mt-6 border-2 border-dashed border-outline-variant/70 rounded-2xl p-8 bg-surface-container-low/40 hover:bg-surface-container-low/80 transition-all text-center flex flex-col items-center justify-center space-y-3">
+<div class="w-14 h-14 rounded-full bg-surface-container-high flex items-center justify-center text-primary group cursor-pointer">
+<span class="material-symbols-outlined text-[28px] text-primary">replay</span>
+</div>
+<div class="space-y-1">
+<p class="text-title-md font-title-md text-on-surface">Drag and drop your attested scorecard file</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">High-resolution JPEG, PNG, or attested PDF up to 15MB</p>
+</div>
+<div class="pt-2 flex flex-wrap gap-3 justify-center">
+<button class="px-5 py-2.5 rounded-full bg-primary-container text-surface-bright font-semibold text-label-md font-label-md hover:bg-primary transition-all shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">sync</span>
+                Retry Upload
+              </button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary border border-outline-variant/60 font-semibold text-label-md font-label-md transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+                Select Alternative File
+              </button>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[15px]">lock</span> Encrypted via WHS Trust Protocol</span>
+<span class="font-mono">Reference: ERR_NET_DROP_771A</span>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 2: Unsupported File Type -->
+<!-- ========================================================================= -->
+<section class="state-view hidden space-y-6" id="state-2">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed/40 text-tertiary-container flex items-center justify-center shrink-0 border border-tertiary-fixed-dim/40">
+<span class="material-symbols-outlined text-[24px]">attribution</span>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-tertiary-fixed/30 text-tertiary text-label-sm font-label-sm mb-1">
+                Format Non-Compliant
+              </div>
+<h2 class="text-headline-sm font-headline-sm text-primary">Unsupported File Format Detected</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">
+                We accept JPEG, PNG, or PDF files under 15MB. HEIC and raw image formats are not supported by the Scottish Trust Escrow verification system.
+              </p>
+</div>
+</div>
+<!-- File Preview Card Showing Error Badge -->
+<div class="bg-surface-container-low rounded-xl p-4 border border-outline-variant/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest border border-outline-variant/60 flex items-center justify-center text-on-surface-variant shrink-0 relative">
+<span class="material-symbols-outlined text-[26px]">image_not_supported</span>
+<span class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-error text-surface-bright flex items-center justify-center text-[10px]">!</span>
+</div>
+<div>
+<p class="text-label-lg font-label-lg text-on-surface font-semibold flex items-center gap-2">
+<span>scorecard_turnberry_rnd14.HEIC</span>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-error text-[10px] font-bold uppercase">Invalid HEIC</span>
+</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Apple High Efficiency Image Format • 18.4 MB (Exceeds 15MB limit)</p>
+</div>
+</div>
+<button class="text-label-md font-label-md text-error hover:underline flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">delete</span>
+              Remove File
+            </button>
+</div>
+<div class="mt-6 flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-full bg-primary-container text-surface-bright font-semibold text-label-md font-label-md hover:bg-primary transition-all shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">add_photo_alternate</span>
+              Choose JPEG or PDF
+            </button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary border border-outline-variant/60 font-semibold text-label-md font-label-md transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">help_outline</span>
+              Learn File Requirements
+            </button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 3: Verification Pending -->
+<!-- ========================================================================= -->
+<section class="state-view hidden space-y-6" id="state-3">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-outline-variant/30 pb-6 mb-6">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container/60 text-secondary flex items-center justify-center shrink-0 border border-secondary-fixed">
+<span class="material-symbols-outlined text-[24px]">hourglass_top</span>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container/50 text-secondary text-label-sm font-label-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span> Step 2 of 3 In Progress
+                </div>
+<h2 class="text-headline-sm font-headline-sm text-primary">Scottish Trust Escrow Verification Pending</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">
+                  Your Oct 31 prize claim ($5,000 Highland Flight Winner) is being verified by the Scottish Trust Escrow audit team.
+                </p>
+</div>
+</div>
+<div class="px-4 py-2 rounded-xl bg-surface-container-low border border-outline-variant/40 text-right shrink-0">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase tracking-wider block">Award Escrow</span>
+<span class="text-headline-sm font-headline-sm text-primary font-bold">$5,000.00 USD</span>
+</div>
+</div>
+<!-- Step Timeline Tracker -->
+<div class="py-4">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 relative">
+<!-- Step 1 Complete -->
+<div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/40 relative">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-6 h-6 rounded-full bg-primary-container text-surface-bright flex items-center justify-center text-xs font-bold">
+<span class="material-symbols-outlined text-[14px]">check</span>
+</span>
+<span class="text-label-md font-label-md font-bold text-primary">1. Digital Scorecard Submission</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Validated via Carnoustie Links Club WHS API on Nov 01, 09:14 GMT.</p>
+</div>
+<!-- Step 2 In Progress -->
+<div class="p-4 rounded-xl bg-secondary-container/30 border-2 border-primary relative shadow-sm">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-6 h-6 rounded-full bg-primary text-surface-bright flex items-center justify-center text-xs font-bold animate-pulse">
+                    2
+                  </span>
+<span class="text-label-md font-label-md font-bold text-primary">2. Escrow &amp; Handicap Audit</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Trustee matching Stableford differential against 12-month playing register.</p>
+</div>
+<!-- Step 3 Pending -->
+<div class="p-4 rounded-xl bg-surface-container-low/50 border border-outline-variant/30 opacity-70">
+<div class="flex items-center gap-2 mb-2">
+<span class="w-6 h-6 rounded-full bg-surface-container-highest text-outline flex items-center justify-center text-xs font-bold">
+                    3
+                  </span>
+<span class="text-label-md font-label-md font-bold text-outline">3. Payout &amp; Charity Tithe</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Direct wire transfer and 15% automatic allocation to selected foundation.</p>
+</div>
+</div>
+</div>
+<div class="mt-6 flex flex-wrap items-center gap-3 pt-4 border-t border-outline-variant/30">
+<button class="px-5 py-2.5 rounded-full bg-primary-container text-surface-bright font-semibold text-label-md font-label-md hover:bg-primary transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+              Check Audit Status
+            </button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary border border-outline-variant/60 font-semibold text-label-md font-label-md transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">download</span>
+              Download Claim Receipt
+            </button>
+<span class="text-label-sm font-label-sm text-secondary ml-auto flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+              Estimated Completion: Today, 17:00 UTC
+            </span>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 4: Verification Rejected (WHS Handicap Mismatch) -->
+<!-- ========================================================================= -->
+<section class="state-view hidden space-y-6" id="state-4">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-secondary flex items-center justify-center shrink-0 border border-outline-variant">
+<span class="material-symbols-outlined text-[24px]">gavel</span>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm mb-1">
+                Handicap Register Discrepancy
+              </div>
+<h2 class="text-headline-sm font-headline-sm text-primary">Scorecard Attestation Requires Clarification</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">
+                The submitted scorecard handicap index (12.4) did not match the Scottish Golf WHS attested register (14.1) on competition day.
+              </p>
+</div>
+</div>
+<!-- Calm Dignified Dispute Card -->
+<div class="rounded-xl border border-outline-variant/50 bg-surface-container-low p-5 space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="p-3.5 bg-surface-container-lowest rounded-lg border border-outline-variant/30">
+<span class="text-label-sm font-label-sm text-on-surface-variant block mb-1">Submitted Round Index</span>
+<span class="text-headline-sm font-headline-sm font-bold text-primary">12.4 WHS</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Stated on upload: #4092 Carnoustie Buddon Links card.</p>
+</div>
+<div class="p-3.5 bg-surface-container-lowest rounded-lg border border-outline-variant/30">
+<span class="text-label-sm font-label-sm text-on-surface-variant block mb-1">Central Scottish Register Index</span>
+<span class="text-headline-sm font-headline-sm font-bold text-tertiary-container">14.1 WHS</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Recorded at 06:00 BST official tee-sheet cutoff.</p>
+</div>
+</div>
+<div class="flex items-start gap-2.5 text-body-sm font-body-sm text-on-surface-variant bg-surface-container/60 p-3 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0">info</span>
+<span>In accordance with Digital Heroes charter rules, prize pools are quarantined for 14 days to enable peaceful peer or committee attestation. You may submit a signed letter from your Club Handicap Secretary.</span>
+</div>
+</div>
+<div class="mt-6 flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-full bg-primary-container text-surface-bright font-semibold text-label-md font-label-md hover:bg-primary transition-all shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+              Submit Appeal with Club Attestation
+            </button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary border border-outline-variant/60 font-semibold text-label-md font-label-md transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">support_agent</span>
+              Contact Independent Arbiter
+            </button>
+<button class="px-5 py-2.5 rounded-full hover:bg-surface-container text-on-surface-variant font-semibold text-label-md font-label-md transition-all">
+              Return to Dashboard
+            </button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 5: Payout Failed (Clearing Interruption) -->
+<!-- ========================================================================= -->
+<section class="state-view hidden space-y-6" id="state-5">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-error-container/60 text-error flex items-center justify-center shrink-0 border border-error-container">
+<span class="material-symbols-outlined text-[24px]">account_balance</span>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-error-container/40 text-on-surface-variant text-label-sm font-label-sm mb-1">
+                Clearing Network Notice
+              </div>
+<h2 class="text-headline-sm font-headline-sm text-primary">Bank Transfer Could Not Be Cleared</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">
+                Bank transfer to Sort Code ••-••-12 could not be cleared by the BACS clearing system. Your prize funds remain secured in Scottish Trust Escrow.
+              </p>
+</div>
+</div>
+<!-- Payout Details Card -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/50 space-y-3">
+<div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 pb-3 border-b border-outline-variant/30">
+<span class="text-label-md font-label-md text-on-surface-variant">Intended Destination</span>
+<span class="font-mono text-label-lg font-label-lg font-bold text-on-surface">Royal Bank of Scotland (Sort: 83-28-12 • Acc: ••••4910)</span>
+</div>
+<div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2 pb-3 border-b border-outline-variant/30">
+<span class="text-label-md font-label-md text-on-surface-variant">Transfer Amount</span>
+<span class="text-title-md font-title-md font-bold text-primary">$4,250.00 USD <span class="text-label-sm font-label-sm font-normal text-on-surface-variant">(After 15% Tithe)</span></span>
+</div>
+<div class="flex flex-col sm:flex-row justify-between sm:items-center gap-2">
+<span class="text-label-md font-label-md text-on-surface-variant">Clearing Rejection Reason</span>
+<span class="text-label-md font-label-md text-error font-medium">BACS Error 409: Account Holder Name Ambiguity</span>
+</div>
+</div>
+<div class="mt-6 flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-full bg-primary-container text-surface-bright font-semibold text-label-md font-label-md hover:bg-primary transition-all shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">credit_card</span>
+              Update Payout Bank Details
+            </button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary border border-outline-variant/60 font-semibold text-label-md font-label-md transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">markunread_mailbox</span>
+              Request Cheque or Escrow Escort
+            </button>
+<button class="px-5 py-2.5 rounded-full hover:bg-surface-container text-on-surface-variant font-semibold text-label-md font-label-md transition-all">
+              Back to Winnings
+            </button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 6: No Charity Selected -->
+<!-- ========================================================================= -->
+<section class="state-view hidden space-y-6" id="state-6">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-secondary-container text-secondary flex items-center justify-center shrink-0 border border-secondary-fixed">
+<span class="material-symbols-outlined text-[24px]">favorite</span>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-container/40 text-secondary text-label-sm font-label-sm mb-1">
+                Tithe Alignment Required
+              </div>
+<h2 class="text-headline-sm font-headline-sm text-primary">Empower Your Impact: Select a Charity Partner</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">
+                You have not selected a conservation or youth golf charity for your 15% monthly tithe. Digital Heroes is founded on purpose first; please guide your impact.
+              </p>
+</div>
+</div>
+<!-- Bento Grid Selection: Highland Dunes vs Youth Caddies -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Highland Dunes Card -->
+<div class="rounded-xl border-2 border-primary-container/30 bg-surface-container-low p-5 hover:border-primary-container transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2.5 py-1 rounded-full bg-secondary-container/60 text-secondary text-label-sm font-label-sm font-bold">Ecological Stewardship</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">100% Direct Tithe</span>
+</div>
+<h3 class="text-title-md font-title-md font-bold text-primary mb-1">Highland Dunes Coastal Trust</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+                  Restoring indigenous marram grass along coastal links to protect vulnerable Scottish coastlines against tidal erosion.
+                </p>
+</div>
+<button class="w-full py-2 px-4 rounded-full bg-primary-container text-surface-bright text-label-md font-label-md font-semibold hover:bg-primary transition-all flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">check</span>
+                Select Highland Dunes
+              </button>
+</div>
+<!-- Youth Caddies Card -->
+<div class="rounded-xl border border-outline-variant/40 bg-surface-container-low p-5 hover:border-primary-container transition-all flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2.5 py-1 rounded-full bg-tertiary-fixed/40 text-tertiary text-label-sm font-label-sm font-bold">Grassroots Mentorship</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant font-mono">100% Direct Tithe</span>
+</div>
+<h3 class="text-title-md font-title-md font-bold text-primary mb-1">Scottish Youth Caddie Academy</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mb-4">
+                  Providing full scholarships, technical clubmaking apprenticeships, and caddie credentials to underrepresented junior players.
+                </p>
+</div>
+<button class="w-full py-2 px-4 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary border border-outline-variant/60 text-label-md font-label-md font-semibold transition-all flex items-center justify-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">add</span>
+                Select Youth Academy
+              </button>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30 flex flex-wrap items-center justify-between gap-3">
+<button class="px-5 py-2.5 rounded-full bg-primary-container text-surface-bright font-semibold text-label-md font-label-md hover:bg-primary transition-all shadow-sm">
+              Select a Charity Partner
+            </button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-secondary border border-outline-variant/60 font-semibold text-label-md font-label-md transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">balance</span>
+              Let Platform Allocate to High-Need Fund
+            </button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 7: Charity Partner No Longer Active (Goal Met) -->
+<!-- ========================================================================= -->
+<section class="state-view hidden space-y-6" id="state-7">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-tertiary-fixed/50 text-tertiary-container flex items-center justify-center shrink-0 border border-tertiary-fixed-dim/50">
+<span class="material-symbols-outlined text-[24px]">flag</span>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-tertiary-fixed/30 text-tertiary text-label-sm font-label-sm mb-1">
+                Milestone Reached • Goal 100% Fulfilled
+              </div>
+<h2 class="text-headline-sm font-headline-sm text-primary">Highland Peatland Trust Goal Completed</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">
+                Highland Peatland Trust has fulfilled its 2024 endowment goal and is no longer accepting recurring tithes. Your contributions sequestered 840 metric tons of carbon across 120 hectares.
+              </p>
+</div>
+</div>
+<!-- Transition Card -->
+<div class="bg-surface-container-low rounded-xl p-5 border border-outline-variant/50 space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md font-bold text-primary">Recommended Sister Initiative</span>
+<span class="text-label-sm font-label-sm text-secondary flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">eco</span> Peatland Sister Conservancy
+              </span>
+</div>
+<div class="p-4 bg-surface-container-lowest rounded-lg border border-outline-variant/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+<div>
+<h4 class="text-label-lg font-label-lg font-bold text-on-surface">Cairngorm Moorland Regeneration Project</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Adjacent watershed restoration maintaining continuous ecological monitoring.</p>
+</div>
+<span class="px-3 py-1 rounded-full bg-secondary-container/50 text-primary font-bold text-label-sm font-label-sm whitespace-nowrap">
+                Match 98%
+              </span>
+</div>
+</div>
+<div class="mt-6 flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-full bg-primary-container text-surface-bright font-semibold text-label-md font-label-md hover:bg-primary transition-all shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">swap_horiz</span>
+              Re-allocate My 15% Tithe to Sister Initiative
+            </button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary border border-outline-variant/60 font-semibold text-label-md font-label-md transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">history_edu</span>
+              View Accomplished Impact Report
+            </button>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- STATE 8: Charity Media Unavailable (Drone Sensor Maintenance) -->
+<!-- ========================================================================= -->
+<section class="state-view hidden space-y-6" id="state-8">
+<div class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-6 md:p-8 border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.06)]">
+<div class="flex items-start gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest text-on-surface-variant flex items-center justify-center shrink-0 border border-outline-variant">
+<span class="material-symbols-outlined text-[24px]">videocam_off</span>
+</div>
+<div class="space-y-1">
+<div class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm mb-1">
+                Sensor Network Maintenance
+              </div>
+<h2 class="text-headline-sm font-headline-sm text-primary">Live Dune Camera Feed Temporarily Offline</h2>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-2xl">
+                The live drone restoration feed from East Lothian Dunes is temporarily offline for sensor maintenance. Showing latest attested satellite radar survey instead.
+              </p>
+</div>
+</div>
+<!-- Fallback Satellite Map Placeholder -->
+<div class="rounded-xl overflow-hidden border border-outline-variant/50 relative bg-surface-container-high">
+<div class="w-full h-64 bg-cover bg-center flex items-center justify-center relative" data-alt="A sophisticated satellite radar vegetation map of Scottish coastal golf dunes rendered in calm botanical dark greens and warm ivory. Clean topographic contours, precise coordinate indicators, and high-tech environmental monitoring markers convey modern organic minimalism with soft frosted tactile glass overlays." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAb393VvrUeV8P2UqVIw2jxLHAbGWI3St0-aWon-RAVCuwBXcIY8y3etGz12fYHD_JGpGM66vRy8ZErOo9VqPzx--JZKussFpdhfLf5vcoo2Z-9zeh9Z56jqgbpV8xHgQdYNviIJ_zBHO3wyad6_aJFPcW2wcJS_7ixX1tW8HIuSBkaOZjQJRBF3S86w-JerBzn6kr2_-X9drcNARx76OY-4N1sgRCJllgMoRVlPeqCsSl7a39vYZDhug')">
+<div class="absolute inset-0 bg-primary/20 backdrop-blur-[2px]"></div>
+<div class="relative bg-surface-container-lowest/90 backdrop-blur-md p-5 rounded-2xl border border-outline-variant/60 max-w-md mx-4 text-center shadow-lg">
+<div class="w-10 h-10 rounded-full bg-secondary-container/60 text-primary mx-auto mb-2 flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">satellite_alt</span>
+</div>
+<h4 class="text-title-md font-title-md text-primary font-bold">Copernicus Sentinel-2 Survey Loaded</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+                  Vegetation Index (NDVI): +0.64 (Dense indigenous root system established). East Lothian parcel 4A.
+                </p>
+<div class="mt-3 inline-flex items-center gap-1 text-label-sm font-label-sm text-secondary">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> Telemetry Sync: 12 minutes ago
+                </div>
+</div>
+</div>
+</div>
+<div class="mt-6 flex flex-wrap gap-3">
+<button class="px-5 py-2.5 rounded-full bg-primary-container text-surface-bright font-semibold text-label-md font-label-md hover:bg-primary transition-all shadow-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">article</span>
+              View Monthly Soil Health Report
+            </button>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-high hover:bg-surface-container-highest text-primary border border-outline-variant/60 font-semibold text-label-md font-label-md transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+              Back to Charity Hub
+            </button>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- BottomNavBar (Shared Component - Mobile Only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-space-margin-mobile py-space-xs pb-safe lg:hidden bg-surface/90 backdrop-blur-md border-t border-outline-variant/30 shadow-[0_-4px_20px_rgba(13,46,36,0.06)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-[0.96]" href="#draws">
+<span class="material-symbols-outlined text-[22px]">casino</span>
+<span class="text-label-sm font-label-sm">Draws</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-[0.96]" href="#scorecard">
+<span class="material-symbols-outlined text-[22px]">sports_score</span>
+<span class="text-label-sm font-label-sm">Scores</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-[0.96]" href="#impact">
+<span class="material-symbols-outlined text-[22px]">volunteer_activism</span>
+<span class="text-label-sm font-label-sm">Impact</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary bg-secondary-container/50 rounded-xl px-3 py-1 font-semibold active:scale-[0.96]" href="#winnings">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">trophy</span>
+<span class="text-label-sm font-label-sm">Winnings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-[0.96]" href="#profile">
+<span class="material-symbols-outlined text-[22px]">person</span>
+<span class="text-label-sm font-label-sm">Profile</span>
+</a>
+</nav>
+<!-- Interactive JavaScript State Switcher -->
+<script>
+    function switchState(stateId) {
+      // Hide all states
+      const states = document.querySelectorAll('.state-view');
+      states.forEach(state => {
+        state.classList.add('hidden');
+        state.classList.remove('block');
+      });
+
+      // Show selected state
+      const targetState = document.getElementById(stateId);
+      if (targetState) {
+        targetState.classList.remove('hidden');
+        targetState.classList.add('block');
+      }
+
+      // Reset button styles
+      const buttons = document.querySelectorAll('.state-tab-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-surface', 'font-semibold');
+        btn.classList.add('bg-surface-container', 'hover:bg-surface-container-high', 'text-on-surface-variant');
+      });
+
+      // Set active button
+      const activeBtn = document.getElementById('btn-' + stateId);
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-surface-container', 'hover:bg-surface-container-high', 'text-on-surface-variant');
+        activeBtn.classList.add('bg-primary', 'text-surface', 'font-semibold');
+      }
+    }
+  </script>
+</body></html>

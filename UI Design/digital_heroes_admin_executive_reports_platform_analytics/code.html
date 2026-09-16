@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Executive Reports &amp; Performance Analytics — Digital Heroes</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-tertiary-fixed": "#271900",
+            "outline-variant": "#c0c9c3",
+            "surface-bright": "#f3fcf5",
+            "secondary-fixed": "#c7eadb",
+            "surface-container": "#e7f0e9",
+            "tertiary-container": "#5c3f00",
+            "surface": "#f3fcf5",
+            "inverse-on-surface": "#eaf3ec",
+            "outline": "#707974",
+            "secondary-container": "#c4e8d8",
+            "error": "#ba1a1a",
+            "inverse-surface": "#2a322e",
+            "surface-variant": "#dce5de",
+            "surface-container-high": "#e2eae4",
+            "tertiary-fixed": "#ffdeaa",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "primary-container": "#1b4d3e",
+            "on-primary": "#ffffff",
+            "primary-fixed": "#baeed9",
+            "secondary-fixed-dim": "#abcebf",
+            "secondary": "#456559",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed-variant": "#1d4f40",
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#9ed1bd",
+            "error-container": "#ffdad6",
+            "tertiary-fixed-dim": "#f1be65",
+            "on-secondary-fixed": "#002117",
+            "surface-dim": "#d3dcd6",
+            "on-surface-variant": "#404945",
+            "on-error": "#ffffff",
+            "background": "#f3fcf5",
+            "on-surface": "#151d19",
+            "on-error-container": "#93000a",
+            "on-background": "#151d19",
+            "on-primary-fixed": "#002117",
+            "inverse-primary": "#9ed1bd",
+            "surface-container-low": "#edf6ef",
+            "on-primary-container": "#8abda9",
+            "surface-tint": "#376757",
+            "on-tertiary": "#ffffff",
+            "primary": "#003629",
+            "on-tertiary-container": "#dbaa53",
+            "on-secondary-container": "#49695d",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "tertiary": "#3f2a00",
+            "surface-container-highest": "#dce5de"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-lg": "1.5rem",
+            "margin": "3rem",
+            "space-xl": "2.5rem",
+            "gutter-mobile": "1rem",
+            "margin-mobile": "1.25rem",
+            "space-sm": "0.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-sm": ["Outfit"],
+            "headline-md": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "display-lg": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"],
+            "headline-xl": ["Outfit"],
+            "label-sm": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "title-md": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"]
+          },
+          "fontSize": {
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 500;
+    }
+    .frosted-glass {
+      background: rgba(243, 252, 245, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .table-scrollbar::-webkit-scrollbar {
+      height: 6px;
+    }
+    .table-scrollbar::-webkit-scrollbar-track {
+      background: #edf6ef;
+    }
+    .table-scrollbar::-webkit-scrollbar-thumb {
+      background: #c0c9c3;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen selection:bg-secondary-container selection:text-primary">
+<!-- TopNavBar (Shared Component implementation with Contextual Mapping) -->
+<header class="bg-surface/85 backdrop-blur-md text-primary docked full-width top sticky z-40 border-b border-outline-variant/30 shadow-sm transition-colors duration-150">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<!-- Logo Anchor -->
+<div class="flex items-center gap-4">
+<a class="flex items-center gap-2 group" href="#">
+<div class="w-8 h-8 rounded-xl bg-primary-container flex items-center justify-center text-on-primary shadow-sm group-hover:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined fill-icon" data-icon="sports_golf">sports_golf</span>
+</div>
+<div>
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+<span class="hidden md:inline-block ml-2 px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm uppercase tracking-wider">Console</span>
+</div>
+</a>
+</div>
+<!-- Navigation Links Desktop (Shared Component anchor: Draws, Scorecard, Impact, Winnings + Contextual Audit Active) -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md py-1" href="#">Draws</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md py-1" href="#">Scorecard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md py-1" href="#">Impact</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md py-1" href="#">Winnings</a>
+<a class="text-primary font-semibold border-b-2 border-primary pb-1 text-label-md font-label-md flex items-center gap-1.5" href="#">
+<span>Audit &amp; Reports</span>
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+</a>
+</nav>
+<!-- Trailing Status & Actions -->
+<div class="flex items-center gap-3">
+<!-- Live Escrow Attestation Pill -->
+<div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 text-on-surface">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Escrow Active:</span>
+<span class="text-label-sm font-label-sm font-bold text-primary">₹4,85,000</span>
+</div>
+<!-- RFC 6962 Compliance Badge -->
+<div class="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-secondary-container/60 text-secondary border border-secondary/20">
+<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
+<span class="text-label-sm font-label-sm font-semibold">RFC 6962 Logged</span>
+</div>
+<!-- Trailing Icon Actions -->
+<div class="flex items-center gap-1">
+<button class="w-9 h-9 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-high/60 active:scale-[0.98] transition-all" title="System Notifications">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant/40">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-primary/20 bg-surface-container-high flex items-center justify-center text-primary font-bold text-xs" title="Dr. Jeremy Vance, Chief Fiduciary Auditor">
+              JV
+            </div>
+<div class="hidden xl:flex flex-col text-left">
+<span class="text-label-sm font-label-sm font-semibold text-primary">Dr. J. Vance</span>
+<span class="text-[10px] leading-tight text-on-surface-variant">Chief Auditor</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Layout -->
+<main class="max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl py-space-lg md:py-space-xl pb-24 md:pb-16 space-y-space-lg">
+<!-- Hero / Header Section -->
+<section class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-2 border-b border-outline-variant/30">
+<div class="space-y-2 max-w-2xl">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container text-primary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-base fill-icon" data-icon="shield">shield</span>
+<span>Fiduciary Governance &amp; Provable Randomness Engine</span>
+</div>
+<h1 class="text-headline-xl-mobile md:text-headline-xl font-headline-xl text-primary tracking-tight">
+          Executive Reporting &amp; Platform Metrics
+        </h1>
+<p class="text-body-md font-body-md text-on-surface-variant">
+          Live immutable performance ledger, subscriber retention flows, verified charity tithing, and cryptographic RNG entropy health.
+        </p>
+</div>
+<!-- Controls & Filters Strip -->
+<div class="flex flex-wrap items-center gap-3">
+<!-- Timeframe Selector -->
+<div class="inline-flex bg-surface-container-high p-1 rounded-full border border-outline-variant/30">
+<button class="px-3.5 py-1.5 rounded-full text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors">30 Days</button>
+<button class="px-3.5 py-1.5 rounded-full text-label-sm font-label-sm bg-primary-container text-on-primary shadow-sm font-semibold">Q3 2024</button>
+<button class="px-3.5 py-1.5 rounded-full text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors">YTD 2024</button>
+<button class="px-3.5 py-1.5 rounded-full text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors">All-Time</button>
+</div>
+<!-- Export Buttons Group -->
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full border border-outline-variant/50 bg-surface text-primary hover:bg-surface-container text-label-md font-label-md font-semibold transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-base" data-icon="download">download</span>
+<span>Export CSV</span>
+</button>
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary-container text-on-primary hover:bg-primary text-label-md font-label-md font-semibold shadow-sm transition-all active:scale-[0.98]">
+<span class="material-symbols-outlined text-base" data-icon="picture_as_pdf">picture_as_pdf</span>
+<span>Audit PDF</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Key KPI Executive Cards Grid (6 Bento Modules) -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+<!-- Card 1: Total Platform Users -->
+<div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)] flex flex-col justify-between hover:border-primary/30 transition-all">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Total Platform Users</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs" data-icon="trending_up">trending_up</span> +14.2% MoM
+            </span>
+</div>
+<div class="mt-4 flex items-baseline gap-3">
+<span class="text-headline-lg font-headline-lg text-primary">12,840</span>
+<span class="text-body-sm font-body-sm text-secondary font-medium">88.9% Active Converted</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+            Verified handicap profiles registered across 18 regional golf associations.
+          </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm">
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+<span class="text-on-surface">Patrons: <strong>8,940</strong> (69.6%)</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2.5 h-2.5 rounded-full bg-secondary-fixed-dim"></span>
+<span class="text-on-surface-variant">Standard: <strong>3,900</strong></span>
+</div>
+</div>
+</div>
+<!-- Card 2: Active Paid Subscribers (MRR / ARR) -->
+<div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)] flex flex-col justify-between hover:border-primary/30 transition-all">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Active Paid Subscribers</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-secondary text-label-sm font-label-sm">
+<span class="material-symbols-outlined text-xs" data-icon="check_circle">check_circle</span> 1.2% Churn
+            </span>
+</div>
+<div class="mt-4 flex items-baseline gap-3">
+<span class="text-headline-lg font-headline-lg text-primary">11,420</span>
+<span class="text-body-sm font-body-sm text-primary font-semibold">MRR $1.14M</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+            Annual Run Rate (ARR) pacing at <span class="font-semibold text-primary">$13.7M</span> with net negative revenue churn.
+          </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Monthly Retention: <strong class="text-primary">98.8%</strong></span>
+<span class="text-on-surface-variant">Net Expansion: <strong class="text-secondary">+420 golfers/mo</strong></span>
+</div>
+</div>
+<!-- Card 3: Cumulative Prize Pools Disbursed & In Escrow -->
+<div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)] flex flex-col justify-between hover:border-primary/30 transition-all">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Lifetime Purses Disbursed</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs" data-icon="lock">lock</span> ₹4.85L in Escrow
+            </span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-headline-lg font-headline-lg text-primary">₹3,850,000</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Total Distributed</span>
+</div>
+<div class="mt-3 grid grid-cols-3 gap-2 py-2 px-3 rounded-xl bg-surface-container text-center">
+<div>
+<div class="text-[11px] text-on-surface-variant leading-tight">5-Match Roll</div>
+<div class="text-label-sm font-label-sm font-bold text-primary">₹1,200,000</div>
+</div>
+<div class="border-x border-outline-variant/30">
+<div class="text-[11px] text-on-surface-variant leading-tight">4-Match Paid</div>
+<div class="text-label-sm font-label-sm font-bold text-primary">₹1,450,000</div>
+</div>
+<div>
+<div class="text-[11px] text-on-surface-variant leading-tight">3-Match Attest</div>
+<div class="text-label-sm font-label-sm font-bold text-primary">₹1,200,000</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Barclays Bank Trust Escrow:</span>
+<span class="text-primary font-semibold">Audited Weekly</span>
+</div>
+</div>
+<!-- Card 4: Philanthropic Tithe & Charity Contribution -->
+<div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)] flex flex-col justify-between hover:border-primary/30 transition-all">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Total Philanthropic Tithe</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs fill-icon" data-icon="volunteer_activism">volunteer_activism</span> 100% Tax Verified
+            </span>
+</div>
+<div class="mt-4 flex items-baseline gap-3">
+<span class="text-headline-lg font-headline-lg text-primary">$418,290</span>
+<span class="text-body-sm font-body-sm text-secondary font-medium">14.8% Avg Member Pledge</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+            Outperforming minimum 10% platform baseline pledge by +480 bps.
+          </p>
+</div>
+<div class="mt-4 space-y-2 pt-3 border-t border-outline-variant/30 text-body-sm font-body-sm">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Fairway Caddies &amp; Grassroots</span>
+<span class="font-semibold text-primary">$165,000</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 39.4%;"></div>
+</div>
+<div class="flex justify-between items-center text-label-sm font-label-sm pt-1">
+<span class="text-on-surface-variant">Highland Dunes Eco Restoration</span>
+<span class="font-semibold text-primary">$148,000</span>
+</div>
+</div>
+</div>
+<!-- Card 5: Draw Analytics & RNG Entropy Health -->
+<div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)] flex flex-col justify-between hover:border-primary/30 transition-all">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">RNG Entropy &amp; Provable Randomness</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-surface-container text-primary text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs" data-icon="casino">casino</span> 12 Audited Cycles
+            </span>
+</div>
+<div class="mt-4 flex items-baseline gap-2">
+<span class="text-headline-lg font-headline-lg text-primary">99.98%</span>
+<span class="text-body-sm font-body-sm text-secondary font-medium">Entropy Confidence</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+            Drand League of Entropy hash beacon integration with zero detected bias across 11,420 average ballot allocations.
+          </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Average 3-Match Hit: <strong class="text-primary">2.4%</strong></span>
+<span class="text-secondary font-semibold">Chi-Square Test: Pass (p=0.48)</span>
+</div>
+</div>
+<!-- Card 6: Scorecard Verification & Attestation SLAs -->
+<div class="p-6 rounded-2xl bg-surface-container-low border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)] flex flex-col justify-between hover:border-primary/30 transition-all">
+<div>
+<div class="flex items-center justify-between">
+<span class="text-label-md font-label-md text-on-surface-variant">Attestation &amp; Payout SLA</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-xs" data-icon="speed">speed</span> 18.4h Avg Speed
+            </span>
+</div>
+<div class="mt-4 flex items-baseline gap-3">
+<span class="text-headline-lg font-headline-lg text-primary">94.2%</span>
+<span class="text-body-sm font-body-sm text-secondary font-medium">First-Pass WHS Match</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+            312 golfers rewarded. Marker corroboration verification completed well under the 48-hour fiduciary target window.
+          </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Dispute Rate: <strong class="text-primary">&lt; 0.3%</strong></span>
+<span class="inline-flex items-center gap-1 text-secondary font-semibold">
+<span class="w-2 h-2 rounded-full bg-secondary"></span> 0 Unresolved Cases
+          </span>
+</div>
+</div>
+</section>
+<!-- Deep-Dive Analytics Section: 2 Column Layout (Monthly Draw Audit Ledger + Philanthropic Allocation Matrix) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+<!-- Table: Monthly Draw Performance & Payout Trend (8 Cols) -->
+<div class="lg:col-span-8 p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)] space-y-4">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+<div>
+<h2 class="text-headline-md font-headline-md text-primary">Monthly Draw Performance &amp; Cryptographic Ledger</h2>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Complete audit ledger verified against the SHA-256 transparency log tree.</p>
+</div>
+<span class="self-start sm:self-auto px-3 py-1 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm font-medium">
+            Showing Past 6 Epochs
+          </span>
+</div>
+<!-- Table Responsive Container -->
+<div class="overflow-x-auto table-scrollbar -mx-6 px-6">
+<table class="w-full text-left border-collapse min-w-[680px]">
+<thead>
+<tr class="border-b border-outline-variant/40 text-label-sm font-label-sm text-on-surface-variant">
+<th class="py-3 pr-4 font-semibold">Draw Cycle</th>
+<th class="py-3 px-3 font-semibold">Total Purse</th>
+<th class="py-3 px-3 font-semibold">Eligible Ballots</th>
+<th class="py-3 px-3 font-semibold">Distribution (5 / 4 / 3)</th>
+<th class="py-3 px-3 font-semibold">Charity Tithe</th>
+<th class="py-3 px-3 font-semibold">Escrow Reserve</th>
+<th class="py-3 pl-3 font-semibold text-right">Audit Ledger</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 text-body-sm font-body-sm text-on-surface">
+<!-- Row 1: September 2024 (Latest) -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 pr-4">
+<div class="font-semibold text-primary">Sep 2024 (Cycle #12)</div>
+<div class="text-[11px] text-on-surface-variant">Drawn 30 Sep, 20:00 UTC</div>
+</td>
+<td class="py-3.5 px-3 font-semibold text-on-surface">₹750,000</td>
+<td class="py-3.5 px-3">11,420</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium">
+<span class="text-tertiary font-bold">0</span> / 
+                    <span class="text-primary font-bold">14</span> / 
+                    <span class="text-secondary font-bold">288</span>
+</span>
+</td>
+<td class="py-3.5 px-3">
+<div class="text-primary font-medium">$74,800</div>
+<div class="text-[11px] text-secondary font-medium">15.2% pledge</div>
+</td>
+<td class="py-3.5 px-3 text-secondary font-medium">₹1,200,000 (Roll)</td>
+<td class="py-3.5 pl-3 text-right">
+<a class="inline-flex items-center gap-1 font-mono text-label-sm font-label-sm text-primary hover:text-secondary underline decoration-dotted" href="#">
+<span>0x9f4a…81e2</span>
+<span class="material-symbols-outlined text-xs" data-icon="open_in_new">open_in_new</span>
+</a>
+</td>
+</tr>
+<!-- Row 2: August 2024 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 pr-4">
+<div class="font-semibold text-primary">Aug 2024 (Cycle #11)</div>
+<div class="text-[11px] text-on-surface-variant">Drawn 31 Aug, 20:00 UTC</div>
+</td>
+<td class="py-3.5 px-3 font-semibold text-on-surface">₹680,000</td>
+<td class="py-3.5 px-3">10,950</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium">
+<span class="text-tertiary font-bold">1</span> / 
+                    <span class="text-primary font-bold">9</span> / 
+                    <span class="text-secondary font-bold">264</span>
+</span>
+</td>
+<td class="py-3.5 px-3">
+<div class="text-primary font-medium">$68,200</div>
+<div class="text-[11px] text-secondary font-medium">14.6% pledge</div>
+</td>
+<td class="py-3.5 px-3 text-on-surface-variant font-medium">Disbursed (Full)</td>
+<td class="py-3.5 pl-3 text-right">
+<a class="inline-flex items-center gap-1 font-mono text-label-sm font-label-sm text-primary hover:text-secondary underline decoration-dotted" href="#">
+<span>0x4b7c…291a</span>
+<span class="material-symbols-outlined text-xs" data-icon="open_in_new">open_in_new</span>
+</a>
+</td>
+</tr>
+<!-- Row 3: July 2024 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 pr-4">
+<div class="font-semibold text-primary">Jul 2024 (Cycle #10)</div>
+<div class="text-[11px] text-on-surface-variant">Drawn 31 Jul, 20:00 UTC</div>
+</td>
+<td class="py-3.5 px-3 font-semibold text-on-surface">₹640,000</td>
+<td class="py-3.5 px-3">10,400</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium">
+<span class="text-tertiary font-bold">0</span> / 
+                    <span class="text-primary font-bold">11</span> / 
+                    <span class="text-secondary font-bold">242</span>
+</span>
+</td>
+<td class="py-3.5 px-3">
+<div class="text-primary font-medium">$62,400</div>
+<div class="text-[11px] text-secondary font-medium">14.4% pledge</div>
+</td>
+<td class="py-3.5 px-3 text-secondary font-medium">₹600,000 (Roll)</td>
+<td class="py-3.5 pl-3 text-right">
+<a class="inline-flex items-center gap-1 font-mono text-label-sm font-label-sm text-primary hover:text-secondary underline decoration-dotted" href="#">
+<span>0x1d8e…55fa</span>
+<span class="material-symbols-outlined text-xs" data-icon="open_in_new">open_in_new</span>
+</a>
+</td>
+</tr>
+<!-- Row 4: June 2024 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 pr-4">
+<div class="font-semibold text-primary">Jun 2024 (Cycle #9)</div>
+<div class="text-[11px] text-on-surface-variant">Drawn 30 Jun, 20:00 UTC</div>
+</td>
+<td class="py-3.5 px-3 font-semibold text-on-surface">₹610,000</td>
+<td class="py-3.5 px-3">9,880</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium">
+<span class="text-tertiary font-bold">0</span> / 
+                    <span class="text-primary font-bold">8</span> / 
+                    <span class="text-secondary font-bold">220</span>
+</span>
+</td>
+<td class="py-3.5 px-3">
+<div class="text-primary font-medium">$58,900</div>
+<div class="text-[11px] text-secondary font-medium">14.1% pledge</div>
+</td>
+<td class="py-3.5 px-3 text-secondary font-medium">₹400,000 (Roll)</td>
+<td class="py-3.5 pl-3 text-right">
+<a class="inline-flex items-center gap-1 font-mono text-label-sm font-label-sm text-primary hover:text-secondary underline decoration-dotted" href="#">
+<span>0xaa32…009b</span>
+<span class="material-symbols-outlined text-xs" data-icon="open_in_new">open_in_new</span>
+</a>
+</td>
+</tr>
+<!-- Row 5: May 2024 -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-3.5 pr-4">
+<div class="font-semibold text-primary">May 2024 (Cycle #8)</div>
+<div class="text-[11px] text-on-surface-variant">Drawn 31 May, 20:00 UTC</div>
+</td>
+<td class="py-3.5 px-3 font-semibold text-on-surface">₹585,000</td>
+<td class="py-3.5 px-3">9,310</td>
+<td class="py-3.5 px-3">
+<span class="inline-flex items-center gap-1 text-label-sm font-label-sm font-medium">
+<span class="text-tertiary font-bold">1</span> / 
+                    <span class="text-primary font-bold">7</span> / 
+                    <span class="text-secondary font-bold">198</span>
+</span>
+</td>
+<td class="py-3.5 px-3">
+<div class="text-primary font-medium">$56,100</div>
+<div class="text-[11px] text-secondary font-medium">14.0% pledge</div>
+</td>
+<td class="py-3.5 px-3 text-on-surface-variant font-medium">Disbursed (Full)</td>
+<td class="py-3.5 pl-3 text-right">
+<a class="inline-flex items-center gap-1 font-mono text-label-sm font-label-sm text-primary hover:text-secondary underline decoration-dotted" href="#">
+<span>0x5f11…34ac</span>
+<span class="material-symbols-outlined text-xs" data-icon="open_in_new">open_in_new</span>
+</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pt-2 flex flex-col sm:flex-row items-center justify-between text-label-sm font-label-sm text-on-surface-variant gap-2">
+<span>Cryptographic Hash Algorithm: SHA-256 (RFC 6962 CT Audit Path Compliant)</span>
+<a class="text-primary font-semibold hover:underline flex items-center gap-1" href="#">
+<span>View Full 12-Month Ledger</span>
+<span class="material-symbols-outlined text-xs" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Beneficiary Breakdown & Philanthropic Flow (4 Cols) -->
+<div class="lg:col-span-4 p-6 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 shadow-[0_12px_32px_-8px_rgba(13,46,36,0.04)] flex flex-col justify-between space-y-5">
+<div>
+<div class="flex items-center justify-between">
+<h3 class="text-headline-md font-headline-md text-primary">Charity Tithe Flow</h3>
+<span class="w-8 h-8 rounded-full bg-secondary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined fill-icon" data-icon="diversity_3">diversity_3</span>
+</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+            Disbursement allocations governed strictly by subscriber balloted selections.
+          </p>
+<!-- Beneficiary List Progress Bars -->
+<div class="mt-5 space-y-4">
+<!-- Charity 1 -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-label-md font-label-md">
+<span class="font-semibold text-primary">Fairway Caddies &amp; Grassroots</span>
+<span class="text-primary font-bold">$165,000</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="bg-primary-container h-full rounded-full" style="width: 39.4%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>39.4% allocation</span>
+<span>Youth caddie training &amp; gear</span>
+</div>
+</div>
+<!-- Charity 2 -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-label-md font-label-md">
+<span class="font-semibold text-primary">Highland Dunes Eco Restoration</span>
+<span class="text-primary font-bold">$148,000</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 35.4%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>35.4% allocation</span>
+<span>Native marram grass rewilding</span>
+</div>
+</div>
+<!-- Charity 3 -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-label-md font-label-md">
+<span class="font-semibold text-primary">Veterans Fairway Rehabilitation</span>
+<span class="text-primary font-bold">$62,290</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="bg-secondary-fixed-dim h-full rounded-full" style="width: 14.9%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>14.9% allocation</span>
+<span>Adaptive mobility carts &amp; clinics</span>
+</div>
+</div>
+<!-- Charity 4 -->
+<div class="space-y-1.5">
+<div class="flex justify-between items-center text-label-md font-label-md">
+<span class="font-semibold text-primary">Adaptive Greens Access Initiative</span>
+<span class="text-primary font-bold">$43,000</span>
+</div>
+<div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+<div class="bg-tertiary-fixed-dim h-full rounded-full" style="width: 10.3%;"></div>
+</div>
+<div class="flex justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>10.3% allocation</span>
+<span>Wheelchair accessible bunkers</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Fiduciary Badge Footer -->
+<div class="pt-4 border-t border-outline-variant/30 bg-surface-container/50 -mx-6 -mb-6 p-4 rounded-b-2xl">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="policy">policy</span>
+<div class="text-label-sm font-label-sm">
+<span class="font-semibold text-primary">Zero Platform Take-Rate on Charity Funds:</span>
+<span class="text-on-surface-variant block">100% of donor pledges route directly to 501(c)(3) &amp; Registered Charities.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Operational Attestation Integrity & Winner SLAs -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-5">
+<!-- Attestation Pillar 1 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined fill-icon" data-icon="fact_check">fact_check</span>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-primary">WHS API Match Efficiency</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+            Official World Handicap System (WHS) automated score card matching at <strong>98.7% accuracy</strong> within 6 minutes of round submission.
+          </p>
+<div class="mt-3 text-label-sm font-label-sm text-secondary font-semibold">
+            Latency SLA: &lt; 15 mins (Actual 4.8m)
+          </div>
+</div>
+</div>
+<!-- Attestation Pillar 2 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined fill-icon" data-icon="handshake">handshake</span>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-primary">Marker Dual Attestation</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+            Every submitted winning Stableford scorecard requires verified cryptographic confirmation from playing partner or course pro shop.
+          </p>
+<div class="mt-3 text-label-sm font-label-sm text-secondary font-semibold">
+            Marker Confirmation Rate: 99.4%
+          </div>
+</div>
+</div>
+<!-- Attestation Pillar 3 -->
+<div class="p-5 rounded-2xl bg-surface-container-lowest border border-outline-variant/40 flex items-start gap-4">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined fill-icon" data-icon="account_balance">account_balance</span>
+</div>
+<div>
+<h4 class="text-title-md font-title-md text-primary">UK Trust &amp; Escrow Custody</h4>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+            Independent custodial escrow ring-fenced under UK Trust Law. Player entry fees and designated charity reserves cannot be commingled with OPEX.
+          </p>
+<div class="mt-3 text-label-sm font-label-sm text-secondary font-semibold">
+            Auditor Sign-off: Barclays Trust Co.
+          </div>
+</div>
+</div>
+</section>
+<!-- Fiduciary Regulatory Compliance Banner -->
+<section class="p-6 rounded-2xl bg-primary-container text-on-primary shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-start md:items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-surface/10 flex items-center justify-center shrink-0 text-on-primary-container">
+<span class="material-symbols-outlined text-2xl fill-icon" data-icon="verified">verified</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="text-headline-sm font-headline-sm font-bold text-on-primary tracking-tight">Independent Fiduciary Audit Certification (Q3 2024)</h3>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed text-label-sm font-label-sm font-semibold uppercase">Certified</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-primary-container mt-1 max-w-2xl">
+            Conducted by Deloitte Fiduciary &amp; Gaming Advisory LLP. Provable entropy seeds, prize distribution solvency, and 100% charity pass-through confirmed with zero material discrepancies.
+          </p>
+</div>
+</div>
+<div class="flex items-center gap-3 shrink-0">
+<button class="px-4 py-2.5 rounded-full bg-surface text-primary hover:bg-surface-bright text-label-md font-label-md font-semibold transition-all active:scale-[0.98]">
+          View Full Report
+        </button>
+<button class="px-4 py-2.5 rounded-full border border-outline-variant/40 text-on-primary hover:bg-surface/10 text-label-md font-label-md font-semibold transition-all active:scale-[0.98]">
+          Ledger Root Key
+        </button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Shared Component implementation with Contextual State for Mobile) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-space-margin-mobile py-space-xs pb-safe lg:hidden bg-surface/90 backdrop-blur-md shadow-[0_-4px_20px_rgba(13,46,36,0.06)] border-t border-outline-variant/30">
+<!-- Draws -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-[0.96]" href="#">
+<span class="material-symbols-outlined" data-icon="casino">casino</span>
+<span class="text-label-sm font-label-sm mt-0.5">Draws</span>
+</a>
+<!-- Scores -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-[0.96]" href="#">
+<span class="material-symbols-outlined" data-icon="sports_score">sports_score</span>
+<span class="text-label-sm font-label-sm mt-0.5">Scores</span>
+</a>
+<!-- Impact -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-[0.96]" href="#">
+<span class="material-symbols-outlined" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="text-label-sm font-label-sm mt-0.5">Impact</span>
+</a>
+<!-- Winnings -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant px-3 py-1 hover:text-primary transition-colors active:scale-[0.96]" href="#">
+<span class="material-symbols-outlined" data-icon="trophy">trophy</span>
+<span class="text-label-sm font-label-sm mt-0.5">Winnings</span>
+</a>
+<!-- Profile / Audit (Active state context for Executive Auditor) -->
+<a class="flex flex-col items-center justify-center text-primary bg-secondary-container/50 rounded-xl px-3 py-1 font-semibold active:scale-[0.96]" href="#">
+<span class="material-symbols-outlined fill-icon" data-icon="person">person</span>
+<span class="text-label-sm font-label-sm mt-0.5">Auditor</span>
+</a>
+</nav>
+<!-- Lightweight Inline Micro-interactions -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Timeframe buttons toggle interactivity
+      const timeframeButtons = document.querySelectorAll('section div.inline-flex button');
+      timeframeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          timeframeButtons.forEach(b => {
+            b.className = 'px-3.5 py-1.5 rounded-full text-label-sm font-label-sm text-on-surface-variant hover:text-primary transition-colors';
+          });
+          btn.className = 'px-3.5 py-1.5 rounded-full text-label-sm font-label-sm bg-primary-container text-on-primary shadow-sm font-semibold';
+        });
+      });
+    });
+  </script>
+</body></html>

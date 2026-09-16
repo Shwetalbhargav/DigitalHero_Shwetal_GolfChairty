@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Heroes — Admin Member 360 Console</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#f3fcf5",
+            "primary-fixed": "#baeed9",
+            "secondary-fixed-dim": "#abcebf",
+            "on-primary-fixed": "#002117",
+            "on-surface": "#151d19",
+            "on-tertiary": "#ffffff",
+            "tertiary": "#3f2a00",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "outline-variant": "#c0c9c3",
+            "tertiary-fixed-dim": "#f1be65",
+            "surface-tint": "#376757",
+            "surface-variant": "#dce5de",
+            "inverse-primary": "#9ed1bd",
+            "outline": "#707974",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "primary": "#003629",
+            "surface-dim": "#d3dcd6",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "tertiary-container": "#5c3f00",
+            "secondary": "#456559",
+            "on-tertiary-container": "#dbaa53",
+            "secondary-fixed": "#c7eadb",
+            "on-primary-fixed-variant": "#1d4f40",
+            "surface-container-low": "#edf6ef",
+            "surface-bright": "#f3fcf5",
+            "secondary-container": "#c4e8d8",
+            "primary-container": "#1b4d3e",
+            "on-surface-variant": "#404945",
+            "inverse-on-surface": "#eaf3ec",
+            "on-tertiary-fixed": "#271900",
+            "error-container": "#ffdad6",
+            "on-primary-container": "#8abda9",
+            "primary-fixed-dim": "#9ed1bd",
+            "on-primary": "#ffffff",
+            "on-error-container": "#93000a",
+            "surface": "#f3fcf5",
+            "surface-container": "#e7f0e9",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-high": "#e2eae4",
+            "on-background": "#151d19",
+            "surface-container-highest": "#dce5de",
+            "tertiary-fixed": "#ffdeaa",
+            "on-secondary-fixed": "#002117",
+            "on-secondary-container": "#49695d",
+            "inverse-surface": "#2a322e"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "gutter": "1.5rem",
+            "space-xl": "2.5rem",
+            "space-xs": "0.25rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem",
+            "margin": "3rem",
+            "space-md": "1rem",
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem"
+          },
+          "fontFamily": {
+            "label-sm": ["Plus Jakarta Sans"],
+            "body-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "headline-xl": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "headline-md": ["Outfit"],
+            "title-md": ["Outfit"],
+            "display-lg": ["Outfit"]
+          },
+          "fontSize": {
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1;
+    }
+    /* Subtle scrollbars for data console */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #edf6ef;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c0c9c3;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #707974;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface h-full flex flex-col font-body-md antialiased overflow-hidden select-none">
+<!-- TOP ADMIN NAVIGATION BAR -->
+<header class="bg-surface/85 backdrop-blur-md sticky top-0 z-40 border-b border-outline-variant/30 shadow-sm shrink-0">
+<div class="flex justify-between items-center w-full px-space-md lg:px-space-xl h-16 max-w-full">
+<!-- Left: Brand Logo & Context -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-primary-container flex items-center justify-center text-primary-fixed shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="sports_golf">sports_golf</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<span class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight">Digital Heroes</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-label-sm font-label-sm uppercase tracking-wider">Console</span>
+</div>
+<p class="text-label-md font-label-md text-on-surface-variant leading-none mt-0.5">Feel, not fairway — Admin Enterprise</p>
+</div>
+</div>
+<!-- Global Navigation Links -->
+<nav class="hidden xl:flex items-center space-x-1 pl-4 border-l border-outline-variant/30">
+<a class="px-3 py-1.5 rounded-lg text-label-lg font-label-lg text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-high/60" href="#">Overview</a>
+<a class="px-3 py-1.5 rounded-lg text-label-lg font-label-lg text-primary font-semibold border-b-2 border-primary pb-1 bg-surface-container/70" href="#">Users</a>
+<a class="px-3 py-1.5 rounded-lg text-label-lg font-label-lg text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-high/60" href="#">Draws &amp; RNG</a>
+<a class="px-3 py-1.5 rounded-lg text-label-lg font-label-lg text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-high/60" href="#">Charities &amp; CMS</a>
+<a class="px-3 py-1.5 rounded-lg text-label-lg font-label-lg text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-high/60" href="#">Winners &amp; Payouts</a>
+<a class="px-3 py-1.5 rounded-lg text-label-lg font-label-lg text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-high/60" href="#">Audit Logs</a>
+</nav>
+</div>
+<!-- Right: Telemetry & Admin Profile -->
+<div class="flex items-center gap-4">
+<!-- Live System Metric Ticker -->
+<div class="hidden md:flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-surface-container border border-outline-variant/40">
+<span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="text-label-md font-label-md text-on-surface-variant">RNG Engine: <span class="font-semibold text-primary">Cryptographically Verified</span></span>
+<span class="text-outline-variant">|</span>
+<span class="text-label-md font-label-md text-primary font-bold">Total Impact Pool: $418,290</span>
+</div>
+<!-- Superadmin Status & Controls -->
+<div class="flex items-center gap-2.5 pl-2">
+<span class="px-2.5 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-label-sm font-label-sm flex items-center gap-1 border border-tertiary-fixed-dim/40">
+<span class="material-symbols-outlined text-[14px]" data-icon="shield_person">shield_person</span>
+            Superadmin
+          </span>
+<button class="w-9 h-9 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors" title="Notifications">
+<span class="material-symbols-outlined text-[20px]" data-icon="notifications">notifications</span>
+</button>
+<button class="w-9 h-9 flex items-center justify-center rounded-xl text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors" title="Admin Settings">
+<span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+</button>
+<div class="flex items-center gap-2 pl-2 border-l border-outline-variant/30">
+<div class="w-8 h-8 rounded-full bg-primary-container text-surface flex items-center justify-center text-label-md font-label-md font-bold shadow-xs">
+              AD
+            </div>
+<div class="hidden 2xl:block text-left">
+<p class="text-label-md font-label-md font-semibold text-primary leading-tight">Arthur Davies</p>
+<p class="text-label-sm font-label-sm text-outline">Lead Auditor</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- MAIN DUAL-PANEL WORKSPACE -->
+<div class="flex-1 flex overflow-hidden">
+<!-- LEFT EXPANDED WORKSPACE: Directory & Metrics -->
+<main class="flex-1 flex flex-col min-w-0 border-r border-outline-variant/30 bg-surface-bright">
+<!-- SUBHEADER / METRICS BAR -->
+<div class="px-space-lg pt-space-lg pb-space-md border-b border-outline-variant/20 bg-surface-container-lowest">
+<div class="flex flex-wrap items-center justify-between gap-4 mb-4">
+<div>
+<div class="flex items-center gap-2.5">
+<h1 class="text-headline-md font-headline-md font-bold text-primary tracking-tight">Member Directory &amp; 360° Management</h1>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-high text-on-surface-variant text-label-sm font-label-sm">v2.4 Live Sync</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-0.5">Audited member ledger, Stableford ballot allocations, and verified philanthropic pledges.</p>
+</div>
+<!-- Primary Actions -->
+<div class="flex items-center gap-2.5">
+<button class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full border border-outline-variant bg-surface-container-lowest text-on-surface text-label-lg font-label-lg hover:bg-surface-container hover:border-outline transition-colors shadow-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="download">download</span>
+              Export CSV
+            </button>
+<button class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-primary-container text-surface-bright text-label-lg font-label-lg hover:bg-primary transition-all shadow-sm hover:translate-y-[-1px]">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+              + New Member
+            </button>
+</div>
+</div>
+<!-- Quick Metric Chips Hierarchy -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+<div class="px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between">
+<div>
+<p class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Total Members</p>
+<p class="text-headline-sm font-headline-sm font-bold text-primary mt-0.5">12,840</p>
+</div>
+<div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+</div>
+</div>
+<div class="px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between">
+<div>
+<p class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Active Subscribers</p>
+<div class="flex items-center gap-2 mt-0.5">
+<p class="text-headline-sm font-headline-sm font-bold text-primary">11,420</p>
+<span class="text-label-sm font-label-sm text-primary-container bg-secondary-container/60 px-1.5 py-0.5 rounded font-bold">88.9%</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-secondary-container/50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="verified">verified</span>
+</div>
+</div>
+<div class="px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between">
+<div>
+<p class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Pending Attestation</p>
+<div class="flex items-center gap-2 mt-0.5">
+<p class="text-headline-sm font-headline-sm font-bold text-tertiary">142</p>
+<span class="text-label-sm font-label-sm text-tertiary bg-tertiary-fixed/60 px-1.5 py-0.5 rounded font-bold">Action Req</span>
+</div>
+</div>
+<div class="w-9 h-9 rounded-lg bg-tertiary-fixed/40 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined text-[20px]" data-icon="pending_actions">pending_actions</span>
+</div>
+</div>
+<div class="px-4 py-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between">
+<div>
+<p class="text-label-sm font-label-sm text-outline uppercase tracking-wider">Suspended / Flagged</p>
+<p class="text-headline-sm font-headline-sm font-bold text-error mt-0.5">18</p>
+</div>
+<div class="w-9 h-9 rounded-lg bg-error-container/60 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[20px]" data-icon="flag">flag</span>
+</div>
+</div>
+</div>
+</div>
+<!-- FILTER & AUDIT SEARCH TOOLBAR -->
+<div class="px-space-lg py-3 bg-surface-container border-b border-outline-variant/20 flex flex-wrap items-center gap-2.5">
+<!-- Instant Search Input -->
+<div class="relative flex-1 min-w-[280px]">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[18px]" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-1.5 bg-surface-container-lowest border border-outline-variant/60 rounded-lg text-body-sm font-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:border-primary-container focus:ring-1 focus:ring-primary-container transition-all" placeholder="Search by name, email, patron token, or handicap..." type="text" value="Julian Vance"/>
+</div>
+<!-- Filter Dropdowns -->
+<div class="flex items-center gap-2 flex-wrap">
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest border border-outline-variant/60 rounded-lg pl-3 pr-8 py-1.5 text-label-md font-label-md text-on-surface focus:outline-none focus:border-primary">
+<option>Role: All</option>
+<option selected="">Role: Patron</option>
+<option>Role: Member</option>
+<option>Role: Guest</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest border border-outline-variant/60 rounded-lg pl-3 pr-8 py-1.5 text-label-md font-label-md text-on-surface focus:outline-none focus:border-primary">
+<option selected="">Status: Active</option>
+<option>Status: All</option>
+<option>Status: Past Due</option>
+<option>Status: Grace Period</option>
+<option>Status: Expired</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest border border-outline-variant/60 rounded-lg pl-3 pr-8 py-1.5 text-label-md font-label-md text-on-surface focus:outline-none focus:border-primary">
+<option selected="">Charity: All Causes</option>
+<option>Highland Dunes</option>
+<option>Fairway Youth</option>
+<option>Caddie Trust Fund</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest border border-outline-variant/60 rounded-lg pl-3 pr-8 py-1.5 text-label-md font-label-md text-on-surface focus:outline-none focus:border-primary">
+<option selected="">Scores: Full 5/5 Ready</option>
+<option>Scores: All</option>
+<option>Scores: 0 Logged</option>
+<option>Scores: 1-4 Partial</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-1/2 -translate-y-1/2 text-outline text-[16px] pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+<button class="p-1.5 text-on-surface-variant hover:text-primary hover:bg-surface-container-high rounded-lg transition-colors" title="Reset Filters">
+<span class="material-symbols-outlined text-[18px]" data-icon="restart_alt">restart_alt</span>
+</button>
+</div>
+</div>
+<!-- DATA GRID: AUDIT-FRIENDLY ENTERPRISE TABLE -->
+<div class="flex-1 overflow-auto">
+<table class="w-full text-left border-collapse">
+<thead class="sticky top-0 bg-surface-container-high/90 backdrop-blur z-10 border-b border-outline-variant/40">
+<tr>
+<th class="py-2.5 px-4 text-label-sm font-label-sm text-outline uppercase tracking-wider">Member Details</th>
+<th class="py-2.5 px-3 text-label-sm font-label-sm text-outline uppercase tracking-wider">Role &amp; Tier</th>
+<th class="py-2.5 px-3 text-label-sm font-label-sm text-outline uppercase tracking-wider">Designated Charity</th>
+<th class="py-2.5 px-3 text-label-sm font-label-sm text-outline uppercase tracking-wider">Ballot Readiness</th>
+<th class="py-2.5 px-3 text-label-sm font-label-sm text-outline uppercase tracking-wider">Account Status</th>
+<th class="py-2.5 px-3 text-label-sm font-label-sm text-outline uppercase tracking-wider">Joined Date</th>
+<th class="py-2.5 px-4 text-label-sm font-label-sm text-outline uppercase tracking-wider text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/20 text-body-sm font-body-sm">
+<!-- ROW 1: SELECTED ROW (Julian Vance) -->
+<tr class="bg-secondary-container/30 hover:bg-secondary-container/40 transition-colors cursor-pointer border-l-4 border-l-primary-container">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-primary-container text-surface font-headline-sm font-bold flex items-center justify-center text-sm ring-2 ring-primary-container/30">
+                    JV
+                  </div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-primary">Julian Vance</span>
+<span class="material-symbols-outlined text-primary-container text-[14px]" data-icon="verified_user">verified_user</span>
+</div>
+<div class="flex items-center gap-2 text-outline text-[12px]">
+<span>julian.vance@links.co.uk</span>
+<span>•</span>
+<span class="font-mono">#DH-90412</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[12px]" data-icon="award_star">award_star</span>
+                  Annual Patron ($799/mo)
+                </span>
+</td>
+<td class="py-3 px-3">
+<div>
+<p class="font-medium text-on-surface leading-tight">Highland Dunes Native Restoration</p>
+<p class="text-label-sm font-label-sm text-primary font-semibold mt-0.5">15% Allocation Pledge</p>
+</div>
+</td>
+<td class="py-3 px-3">
+<div class="w-36">
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-1">
+<span class="font-semibold text-primary">5/5 Ready</span>
+<span class="text-outline">Score 41 pts</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-variant overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-full"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-primary text-label-sm font-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Active (In Good Standing)
+                </span>
+</td>
+<td class="py-3 px-3 text-outline">
+                Nov 12, 2023
+              </td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container transition-colors" title="Edit Member">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="px-2 py-1 rounded-md bg-primary-container text-surface text-label-sm font-label-sm font-medium hover:bg-primary transition-all shadow-xs">
+                    View 360°
+                  </button>
+<button class="p-1 rounded text-outline hover:text-error hover:bg-error-container/40 transition-colors" title="Suspend">
+<span class="material-symbols-outlined text-[18px]" data-icon="block">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 2: Fiona Campbell (Past Due) -->
+<tr class="hover:bg-surface-container/50 transition-colors cursor-pointer">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container text-on-surface font-headline-sm font-semibold flex items-center justify-center text-sm">
+                    FC
+                  </div>
+<div>
+<span class="font-semibold text-on-surface">Fiona Campbell</span>
+<div class="flex items-center gap-2 text-outline text-[12px]">
+<span>f.campbell@edinburghlaw.com</span>
+<span>•</span>
+<span class="font-mono">#DH-88194</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm font-medium">
+                  Standard Member ($149/mo)
+                </span>
+</td>
+<td class="py-3 px-3">
+<p class="font-medium text-on-surface leading-tight">Fairway Youth Mentorship</p>
+<p class="text-label-sm font-label-sm text-outline mt-0.5">10% Default Pledge</p>
+</td>
+<td class="py-3 px-3">
+<div class="w-36">
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-1">
+<span class="font-medium text-tertiary">3/5 Partial</span>
+<span class="text-outline">Score 34 pts</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-variant overflow-hidden">
+<div class="h-full bg-tertiary-fixed-dim rounded-full w-3/5"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container text-error text-label-sm font-label-sm font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  Past Due (Billing Failed)
+                </span>
+</td>
+<td class="py-3 px-3 text-outline">
+                Jan 28, 2024
+              </td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container transition-colors" title="Edit Member">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="px-2 py-1 rounded-md border border-outline-variant text-on-surface-variant text-label-sm font-label-sm font-medium hover:bg-surface-container transition-colors">
+                    View 360°
+                  </button>
+<button class="p-1 rounded text-outline hover:text-error hover:bg-error-container/40 transition-colors" title="Suspend">
+<span class="material-symbols-outlined text-[18px]" data-icon="block">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 3: Liam MacLeod (Active Patron) -->
+<tr class="hover:bg-surface-container/50 transition-colors cursor-pointer">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container-high text-primary font-headline-sm font-semibold flex items-center justify-center text-sm">
+                    LM
+                  </div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-on-surface">Liam MacLeod</span>
+<span class="material-symbols-outlined text-primary-container text-[14px]" data-icon="verified_user">verified_user</span>
+</div>
+<div class="flex items-center gap-2 text-outline text-[12px]">
+<span>liam.macleod@highlandtech.io</span>
+<span>•</span>
+<span class="font-mono">#DH-71044</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-[12px]" data-icon="award_star">award_star</span>
+                  Annual Patron ($799/mo)
+                </span>
+</td>
+<td class="py-3 px-3">
+<p class="font-medium text-on-surface leading-tight">Scottish Caddie Welfare Fund</p>
+<p class="text-label-sm font-label-sm text-primary font-semibold mt-0.5">20% Allocation Pledge</p>
+</td>
+<td class="py-3 px-3">
+<div class="w-36">
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-1">
+<span class="font-semibold text-primary">5/5 Ready</span>
+<span class="text-outline">Score 39 pts</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-variant overflow-hidden">
+<div class="h-full bg-primary-container rounded-full w-full"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-primary text-label-sm font-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Active
+                </span>
+</td>
+<td class="py-3 px-3 text-outline">
+                Aug 14, 2023
+              </td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container transition-colors" title="Edit Member">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="px-2 py-1 rounded-md border border-outline-variant text-on-surface-variant text-label-sm font-label-sm font-medium hover:bg-surface-container transition-colors">
+                    View 360°
+                  </button>
+<button class="p-1 rounded text-outline hover:text-error hover:bg-error-container/40 transition-colors" title="Suspend">
+<span class="material-symbols-outlined text-[18px]" data-icon="block">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 4: Sarah Jenkins (Active, 0 Scores) -->
+<tr class="hover:bg-surface-container/50 transition-colors cursor-pointer">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-surface-container text-on-surface font-headline-sm font-semibold flex items-center justify-center text-sm">
+                    SJ
+                  </div>
+<div>
+<span class="font-semibold text-on-surface">Sarah Jenkins</span>
+<div class="flex items-center gap-2 text-outline text-[12px]">
+<span>sarah.jenkins@glenlinks.org</span>
+<span>•</span>
+<span class="font-mono">#DH-94812</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm font-medium">
+                  Monthly Member ($99/mo)
+                </span>
+</td>
+<td class="py-3 px-3">
+<p class="font-medium text-on-surface leading-tight">Highland Dunes Native Restoration</p>
+<p class="text-label-sm font-label-sm text-outline mt-0.5">10% Default Pledge</p>
+</td>
+<td class="py-3 px-3">
+<div class="w-36">
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-1">
+<span class="text-outline">0/5 Scores</span>
+<span class="text-outline text-label-sm">No rounds</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-surface-variant overflow-hidden">
+<div class="h-full bg-outline-variant rounded-full w-0"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-primary text-label-sm font-label-sm font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  Active
+                </span>
+</td>
+<td class="py-3 px-3 text-outline">
+                Feb 03, 2025
+              </td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container transition-colors" title="Edit Member">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="px-2 py-1 rounded-md border border-outline-variant text-on-surface-variant text-label-sm font-label-sm font-medium hover:bg-surface-container transition-colors">
+                    View 360°
+                  </button>
+<button class="p-1 rounded text-outline hover:text-error hover:bg-error-container/40 transition-colors" title="Suspend">
+<span class="material-symbols-outlined text-[18px]" data-icon="block">block</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- ROW 5: Alistair Reid (Suspended / Flagged) -->
+<tr class="bg-error-container/10 hover:bg-error-container/20 transition-colors cursor-pointer">
+<td class="py-3 px-4">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-full bg-error-container text-error font-headline-sm font-semibold flex items-center justify-center text-sm">
+                    AR
+                  </div>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-semibold text-error">Alistair Reid</span>
+<span class="material-symbols-outlined text-error text-[14px]" data-icon="warning">warning</span>
+</div>
+<div class="flex items-center gap-2 text-outline text-[12px]">
+<span>a.reid@forthclyde.co.uk</span>
+<span>•</span>
+<span class="font-mono">#DH-49102</span>
+</div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm font-medium">
+                  Standard Member
+                </span>
+</td>
+<td class="py-3 px-3">
+<p class="font-medium text-on-surface leading-tight">Fairway Youth Mentorship</p>
+<p class="text-label-sm font-label-sm text-outline mt-0.5">Frozen Pledges</p>
+</td>
+<td class="py-3 px-3">
+<div class="w-36">
+<div class="flex items-center justify-between text-label-sm font-label-sm mb-1">
+<span class="font-semibold text-error">Flagged Card</span>
+<span class="text-error text-label-sm">49 pts (Fraud)</span>
+</div>
+<div class="w-full h-1.5 rounded-full bg-error-container overflow-hidden">
+<div class="h-full bg-error rounded-full w-full"></div>
+</div>
+</div>
+</td>
+<td class="py-3 px-3">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-error-container text-error text-label-sm font-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span>
+                  Suspended (Score Inquest)
+                </span>
+</td>
+<td class="py-3 px-3 text-outline">
+                Oct 09, 2023
+              </td>
+<td class="py-3 px-4 text-right">
+<div class="inline-flex items-center gap-1">
+<button class="p-1 rounded text-outline hover:text-primary hover:bg-surface-container transition-colors" title="Edit Member">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+</button>
+<button class="px-2 py-1 rounded-md border border-error text-error text-label-sm font-label-sm font-medium hover:bg-error hover:text-on-error transition-colors">
+                    Audit Case
+                  </button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- TABLE FOOTER / AUDIT PAGINATION -->
+<div class="px-space-lg py-2.5 bg-surface-container-lowest border-t border-outline-variant/30 flex items-center justify-between text-label-md font-label-md text-on-surface-variant">
+<div class="flex items-center gap-2">
+<span>Showing <strong class="text-on-surface">1–5</strong> of 12,840 members</span>
+<span class="text-outline-variant">|</span>
+<span class="text-outline">Latency: 28ms</span>
+</div>
+<div class="flex items-center gap-1">
+<button class="px-2.5 py-1 rounded-md border border-outline-variant/60 text-outline hover:bg-surface-container transition-colors disabled:opacity-50" disabled="">Previous</button>
+<button class="px-2.5 py-1 rounded-md bg-primary text-surface font-semibold">1</button>
+<button class="px-2.5 py-1 rounded-md hover:bg-surface-container transition-colors">2</button>
+<button class="px-2.5 py-1 rounded-md hover:bg-surface-container transition-colors">3</button>
+<span class="px-1 text-outline">...</span>
+<button class="px-2.5 py-1 rounded-md hover:bg-surface-container transition-colors">2568</button>
+<button class="px-2.5 py-1 rounded-md border border-outline-variant/60 text-on-surface hover:bg-surface-container transition-colors">Next</button>
+</div>
+</div>
+</main>
+<!-- RIGHT FIXED PANEL: MEMBER 360° DEEP-DIVE INSPECTOR -->
+<aside class="w-[490px] xl:w-[540px] 2xl:w-[590px] flex flex-col bg-surface-container-lowest overflow-hidden shrink-0 shadow-[-4px_0_24px_rgba(0,54,41,0.04)]">
+<!-- INSPECTOR HEADER -->
+<div class="p-space-lg border-b border-outline-variant/20 bg-surface-container-low/60">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-3.5">
+<div class="w-14 h-14 rounded-2xl bg-primary-container text-surface flex items-center justify-center font-headline-md font-headline-md font-bold ring-4 ring-secondary-container/50 shadow-sm">
+              JV
+            </div>
+<div>
+<div class="flex items-center gap-2">
+<h2 class="text-headline-sm font-headline-sm font-bold text-primary">Julian Vance</h2>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-label-sm font-label-sm font-semibold">Annual Patron</span>
+</div>
+<p class="text-body-sm font-body-sm text-outline flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-[16px]" data-icon="alternate_email">alternate_email</span>
+                julian.vance@links.co.uk
+                <span>•</span>
+<span class="font-mono text-primary font-medium">DH-90412</span>
+</p>
+</div>
+</div>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded-lg text-outline hover:text-primary hover:bg-surface-container transition-colors" title="Copy Member Data">
+<span class="material-symbols-outlined text-[20px]" data-icon="content_copy">content_copy</span>
+</button>
+<button class="p-1.5 rounded-lg text-outline hover:text-primary hover:bg-surface-container transition-colors" title="Close Panel">
+<span class="material-symbols-outlined text-[20px]" data-icon="close">close</span>
+</button>
+</div>
+</div>
+<!-- Selected User Quick Stats Pill Group -->
+<div class="grid grid-cols-3 gap-2.5 mt-4">
+<div class="p-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/30 text-center">
+<p class="text-label-sm font-label-sm text-outline">Verified Handicap</p>
+<p class="text-title-md font-title-md font-bold text-primary mt-0.5 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-primary-container text-[16px]" data-icon="sports_score">sports_score</span>
+              WHS 8.4
+            </p>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-lowest border border-outline-variant/30 text-center">
+<p class="text-label-sm font-label-sm text-outline">Lifetime Impact</p>
+<p class="text-title-md font-title-md font-bold text-primary mt-0.5 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-secondary text-[16px]" data-icon="volunteer_activism">volunteer_activism</span>
+              $680.00
+            </p>
+</div>
+<div class="p-2.5 rounded-xl bg-tertiary-fixed/30 border border-tertiary-fixed-dim/40 text-center">
+<p class="text-label-sm font-label-sm text-tertiary">Lifetime Winnings</p>
+<p class="text-title-md font-title-md font-bold text-tertiary mt-0.5 flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="trophy">trophy</span>
+              $23,500
+            </p>
+</div>
+</div>
+</div>
+<!-- INSPECTOR TABS BAR -->
+<div class="flex items-center border-b border-outline-variant/30 px-space-lg bg-surface-container-lowest gap-1 shrink-0 overflow-x-auto">
+<button class="px-3 py-2.5 text-label-md font-label-md text-outline hover:text-primary transition-colors">Profile</button>
+<button class="px-3 py-2.5 text-label-md font-label-md text-outline hover:text-primary transition-colors">Subscription</button>
+<button class="px-3 py-2.5 text-label-md font-label-md text-primary font-bold border-b-2 border-primary">Golf Scores (Active)</button>
+<button class="px-3 py-2.5 text-label-md font-label-md text-outline hover:text-primary transition-colors">Charity Stewardship</button>
+<button class="px-3 py-2.5 text-label-md font-label-md text-outline hover:text-primary transition-colors">Draw History</button>
+<button class="px-3 py-2.5 text-label-md font-label-md text-outline hover:text-primary transition-colors">Winnings</button>
+</div>
+<!-- INSPECTOR BODY CONTENT (SCROLLABLE) -->
+<div class="flex-1 overflow-y-auto p-space-lg space-y-6">
+<!-- SECTION: ACTIVE 5-SCORE BALLOT MATRIX -->
+<div>
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<h3 class="text-title-md font-title-md font-bold text-primary">Current Ballot Matrix (5/5 Ready)</h3>
+<span class="material-symbols-outlined text-primary-container text-[18px]" data-icon="task_alt">task_alt</span>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-fixed-variant text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="sync">sync</span>
+              WHS Live Verified
+            </span>
+</div>
+<p class="text-body-sm font-body-sm text-outline mb-3.5">Verified Stableford rounds attested by club handicapping secretaries. Top-quartile weighted for Draw #048.</p>
+<!-- 5 Score Chips Grid -->
+<div class="grid grid-cols-5 gap-2">
+<div class="p-2 rounded-xl bg-surface-container border border-outline-variant/50 text-center hover:border-primary transition-all">
+<span class="text-label-sm font-label-sm text-outline">Slot #1</span>
+<p class="text-headline-sm font-headline-sm font-bold text-primary my-1">38</p>
+<span class="text-[10px] text-on-surface-variant font-medium block truncate">N. Berwick</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container border border-outline-variant/50 text-center hover:border-primary transition-all">
+<span class="text-label-sm font-label-sm text-outline">Slot #2</span>
+<p class="text-headline-sm font-headline-sm font-bold text-primary my-1">35</p>
+<span class="text-[10px] text-on-surface-variant font-medium block truncate">Gullane No. 1</span>
+</div>
+<div class="p-2 rounded-xl bg-primary-container text-surface-bright border border-primary text-center ring-2 ring-primary-container/40 shadow-xs">
+<span class="text-label-sm font-label-sm text-secondary-fixed">Slot #3 (High)</span>
+<p class="text-headline-sm font-headline-sm font-bold text-surface-bright my-1">41</p>
+<span class="text-[10px] text-surface-bright font-medium block truncate">St. Andrews</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container border border-outline-variant/50 text-center hover:border-primary transition-all">
+<span class="text-label-sm font-label-sm text-outline">Slot #4</span>
+<p class="text-headline-sm font-headline-sm font-bold text-primary my-1">39</p>
+<span class="text-[10px] text-on-surface-variant font-medium block truncate">Muirfield</span>
+</div>
+<div class="p-2 rounded-xl bg-surface-container border border-outline-variant/50 text-center hover:border-primary transition-all">
+<span class="text-label-sm font-label-sm text-outline">Slot #5</span>
+<p class="text-headline-sm font-headline-sm font-bold text-primary my-1">37</p>
+<span class="text-[10px] text-on-surface-variant font-medium block truncate">Prestwick</span>
+</div>
+</div>
+<!-- Score Attestation Metadata Sub-card -->
+<div class="mt-3.5 p-3 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]" data-icon="fact_check">fact_check</span>
+<div>
+<p class="text-label-md font-label-md font-semibold text-primary">All 5 Attestations Confirmed</p>
+<p class="text-label-sm font-label-sm text-outline">Latest verified by: E. Stewart (Marker #MS-4410)</p>
+</div>
+</div>
+<button class="text-label-md font-label-md text-primary font-semibold hover:underline">
+              Inspect Raw Scores
+            </button>
+</div>
+</div>
+<!-- SECTION: CHARITY & DRAW ALLOCATION -->
+<div class="pt-4 border-t border-outline-variant/20">
+<h3 class="text-title-md font-title-md font-bold text-primary mb-3">Charity Stewardship Commitment</h3>
+<div class="p-4 rounded-2xl bg-surface-container border border-outline-variant/40 flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container text-primary-fixed flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[24px]" data-icon="nature">nature</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex items-center justify-between">
+<p class="font-semibold text-primary">Highland Dunes Native Restoration</p>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-high text-primary font-bold text-label-sm font-label-sm">15% Pledged</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">Direct endowment conserving East Lothian coastal ecology and youth access corridors.</p>
+<div class="mt-3 pt-3 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-outline">Next Draw Allocation: <strong>$119.85</strong></span>
+<span class="text-primary font-semibold">Tax Receipt: Sent (UK GiftAid)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- SECTION: AUDIT LOG SNIPPET -->
+<div class="pt-4 border-t border-outline-variant/20">
+<div class="flex items-center justify-between mb-3">
+<h3 class="text-title-md font-title-md font-bold text-primary">Immutable Audit Trail</h3>
+<a class="text-label-sm font-label-sm text-primary font-semibold hover:underline" href="#">Full Log</a>
+</div>
+<div class="space-y-2.5">
+<div class="p-2.5 rounded-xl bg-surface-container-low border border-outline-variant/20 flex items-start gap-2.5 text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-primary text-[18px] mt-0.5" data-icon="history_edu">history_edu</span>
+<div class="flex-1">
+<p class="text-on-surface leading-tight"><strong class="font-semibold text-primary">Auto-Sync WHS:</strong> Round 41 pts attested at St. Andrews Links.</p>
+<p class="text-label-sm font-label-sm text-outline mt-0.5">Today at 11:24 AM • via R&amp;A Central API Sync</p>
+</div>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low border border-outline-variant/20 flex items-start gap-2.5 text-body-sm font-body-sm">
+<span class="material-symbols-outlined text-secondary text-[18px] mt-0.5" data-icon="lock_reset">lock_reset</span>
+<div class="flex-1">
+<p class="text-on-surface leading-tight"><strong class="font-semibold text-primary">Admin Override:</strong> Charity pledge altered from 10% to 15% upon Patron request.</p>
+<p class="text-label-sm font-label-sm text-outline mt-0.5">Feb 14, 2025 • Admin: Arthur Davies (#AD-01)</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- ADMINISTRATIVE ACTION BAR (STICKY DOCKED BOTTOM) -->
+<div class="p-space-md border-t border-outline-variant/30 bg-surface-container-high/80 backdrop-blur-md shrink-0">
+<div class="grid grid-cols-2 gap-2 mb-2">
+<button class="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container-lowest border border-outline-variant text-primary text-label-md font-label-md font-semibold hover:bg-surface-container hover:border-outline transition-colors shadow-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit_note">edit_note</span>
+            Edit User Info
+          </button>
+<button class="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container-lowest border border-outline-variant text-primary text-label-md font-label-md font-semibold hover:bg-surface-container hover:border-outline transition-colors shadow-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="tune">tune</span>
+            Override / Edit Scores
+          </button>
+</div>
+<div class="grid grid-cols-2 gap-2">
+<button class="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-primary-container text-surface-bright text-label-md font-label-md font-semibold hover:bg-primary transition-all shadow-sm">
+<span class="material-symbols-outlined text-[18px]" data-icon="credit_card">credit_card</span>
+            Manage Subscription
+          </button>
+<button class="inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl bg-error-container/40 border border-error-container text-error text-label-md font-label-md font-semibold hover:bg-error hover:text-on-error transition-all shadow-xs">
+<span class="material-symbols-outlined text-[18px]" data-icon="gavel">gavel</span>
+            Suspend User Account
+          </button>
+</div>
+</div>
+</aside>
+</div>
+<!-- Micro-interaction toast for live administrative status -->
+<div class="fixed bottom-4 left-6 bg-primary text-surface-bright px-4 py-2.5 rounded-full shadow-lg border border-primary-container flex items-center gap-3 text-body-sm font-body-sm z-50 animate-fade-in" id="admin-toast">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary-fixed animate-ping"></span>
+<span>Connected to Digital Heroes Master Ledger • Read/Write Audit Active</span>
+<button class="text-surface-variant hover:text-white ml-2" onclick="document.getElementById('admin-toast').style.display='none'">
+<span class="material-symbols-outlined text-[16px]" data-icon="close">close</span>
+</button>
+</div>
+</body></html>

@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Heroes UI System — Master States &amp; Edge Cases</title>
+<!-- Google Fonts: Outfit and Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "on-tertiary-fixed": "#271900",
+          "outline-variant": "#c0c9c3",
+          "surface-bright": "#f3fcf5",
+          "secondary-fixed": "#c7eadb",
+          "surface-container": "#e7f0e9",
+          "tertiary-container": "#5c3f00",
+          "surface": "#f3fcf5",
+          "inverse-on-surface": "#eaf3ec",
+          "outline": "#707974",
+          "secondary-container": "#c4e8d8",
+          "error": "#ba1a1a",
+          "inverse-surface": "#2a322e",
+          "surface-variant": "#dce5de",
+          "surface-container-high": "#e2eae4",
+          "tertiary-fixed": "#ffdeaa",
+          "on-tertiary-fixed-variant": "#5f4100",
+          "primary-container": "#1b4d3e",
+          "on-primary": "#ffffff",
+          "primary-fixed": "#baeed9",
+          "secondary-fixed-dim": "#abcebf",
+          "secondary": "#456559",
+          "surface-container-lowest": "#ffffff",
+          "on-primary-fixed-variant": "#1d4f40",
+          "on-secondary": "#ffffff",
+          "primary-fixed-dim": "#9ed1bd",
+          "error-container": "#ffdad6",
+          "tertiary-fixed-dim": "#f1be65",
+          "on-secondary-fixed": "#002117",
+          "surface-dim": "#d3dcd6",
+          "on-surface-variant": "#404945",
+          "on-error": "#ffffff",
+          "background": "#f3fcf5",
+          "on-surface": "#151d19",
+          "on-error-container": "#93000a",
+          "on-background": "#151d19",
+          "on-primary-fixed": "#002117",
+          "inverse-primary": "#9ed1bd",
+          "surface-container-low": "#edf6ef",
+          "on-primary-container": "#8abda9",
+          "surface-tint": "#376757",
+          "on-tertiary": "#ffffff",
+          "primary": "#003629",
+          "on-tertiary-container": "#dbaa53",
+          "on-secondary-container": "#49695d",
+          "on-secondary-fixed-variant": "#2d4d42",
+          "tertiary": "#3f2a00",
+          "surface-container-highest": "#dce5de"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "gutter": "1.5rem",
+          "space-lg": "1.5rem",
+          "margin": "3rem",
+          "space-xl": "2.5rem",
+          "gutter-mobile": "1rem",
+          "margin-mobile": "1.25rem",
+          "space-sm": "0.5rem",
+          "space-md": "1rem",
+          "space-xs": "0.25rem"
+        },
+        "fontFamily": {
+          "headline-sm": ["Outfit"],
+          "headline-md": ["Outfit"],
+          "label-lg": ["Plus Jakarta Sans"],
+          "body-lg": ["Plus Jakarta Sans"],
+          "headline-lg": ["Outfit"],
+          "display-lg": ["Outfit"],
+          "body-md": ["Plus Jakarta Sans"],
+          "headline-xl": ["Outfit"],
+          "label-sm": ["Plus Jakarta Sans"],
+          "label-md": ["Plus Jakarta Sans"],
+          "display-lg-mobile": ["Outfit"],
+          "title-md": ["Outfit"],
+          "body-sm": ["Plus Jakarta Sans"],
+          "headline-xl-mobile": ["Outfit"]
+        },
+        "fontSize": {
+          "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+          "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+          "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+          "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+          "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+          "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+          "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+          "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }],
+          "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+          "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+          "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+          "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+          "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+        }
+      }
+    }
+  }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    @keyframes subtlePulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.85; transform: scale(1.02); }
+    }
+    .animate-radar {
+      animation: subtlePulse 2.2s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-primary">
+<!-- TopNavBar (Shared Component JSON Blueprint) -->
+<header class="bg-surface/85 dark:bg-primary/85 backdrop-blur-md text-primary dark:text-primary-fixed docked full-width top sticky z-40 border-b border-outline-variant/30 dark:border-outline/20 shadow-sm">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<div class="flex items-center gap-6">
+<a class="text-headline-sm font-headline-sm font-bold text-primary dark:text-primary-fixed tracking-tight flex items-center gap-2" href="#">
+<span class="material-symbols-outlined text-primary-container" style="font-variation-settings: 'FILL' 1;">eco</span>
+          Digital Heroes
+        </a>
+<nav class="hidden md:flex items-center gap-6 text-label-md font-label-md">
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#category-feedback">Core System</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#category-subscription">Subscription</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#category-scores">Scorecard Lifecycle</a>
+<a class="text-on-surface-variant dark:text-surface-variant hover:text-primary dark:hover:text-primary-fixed transition-colors" href="#category-draws">Draws &amp; Winnings</a>
+</nav>
+</div>
+<div class="flex items-center gap-3">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container border border-outline-variant/40 text-label-sm font-label-sm text-primary font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
+          Impact: $14,250
+        </div>
+<button aria-label="Notifications" class="p-2 rounded-full hover:bg-surface-container-high/60 transition-colors duration-150 text-on-surface-variant">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-secondary-container flex items-center justify-center text-primary font-bold text-label-sm">
+<span class="material-symbols-outlined text-primary">account_circle</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Page Header & Interactive Section Anchor Pills -->
+<section class="w-full bg-surface-container-low border-b border-outline-variant/30 py-8 px-space-md md:px-space-lg lg:px-space-xl">
+<div class="max-w-7xl mx-auto space-y-4">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<div class="flex items-center gap-2 text-label-sm font-label-sm text-primary uppercase tracking-wider mb-1 font-semibold">
+<span class="material-symbols-outlined text-sm">widgets</span>
+            Component Catalog &amp; Edge Cases
+          </div>
+<h1 class="text-headline-lg font-headline-lg text-primary tracking-tight">
+            Digital Heroes UI System — Master States, Edge Cases &amp; Feedback Architecture
+          </h1>
+<p class="text-body-md font-body-md text-on-surface-variant max-w-3xl mt-1">
+            Standardized, auditable UI states governing WHS golf scorecard attestation, fiduciary multi-sig custody, charitable link conservation, and prize draw mechanics.
+          </p>
+</div>
+<div class="flex items-center gap-2 self-start md:self-auto">
+<span class="px-3 py-1 bg-surface-container-highest text-on-surface-variant text-label-sm font-label-sm rounded-full border border-outline-variant/30">
+            17 Verified Edge States
+          </span>
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-fixed text-label-sm font-label-sm rounded-full font-medium">
+            System v2.4 (Audited)
+          </span>
+</div>
+</div>
+<!-- Quick Section Anchor Jump Pills -->
+<div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/20">
+<span class="text-label-sm font-label-sm text-on-surface-variant self-center mr-1">Jump to domain:</span>
+<a class="px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-label-sm font-label-sm text-on-surface transition-all flex items-center gap-1.5 shadow-sm" href="#category-feedback">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span> Core System Feedback (1–6)
+        </a>
+<a class="px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-label-sm font-label-sm text-on-surface transition-all flex items-center gap-1.5 shadow-sm" href="#category-subscription">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Subscription &amp; Account (7–9)
+        </a>
+<a class="px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-label-sm font-label-sm text-on-surface transition-all flex items-center gap-1.5 shadow-sm" href="#category-scores">
+<span class="w-1.5 h-1.5 rounded-full bg-primary-container"></span> Golf Scorecard &amp; Ballot (10–12)
+        </a>
+<a class="px-3 py-1 rounded-full bg-surface-container-lowest hover:bg-surface-container border border-outline-variant/40 text-label-sm font-label-sm text-on-surface transition-all flex items-center gap-1.5 shadow-sm" href="#category-draws">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span> Draws, Winnings &amp; Escrow (13–17)
+        </a>
+</div>
+</div>
+</section>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl py-10 space-y-16 pb-24">
+<!-- ========================================================================= -->
+<!-- CATEGORY 1: CORE SYSTEM & NETWORK FEEDBACK STATES (1 - 6)                -->
+<!-- ========================================================================= -->
+<section class="space-y-6 scroll-mt-24" id="category-feedback">
+<div class="flex items-center justify-between border-b border-outline-variant/40 pb-3">
+<div>
+<span class="text-label-sm font-label-sm text-primary uppercase font-bold tracking-wider">Operational Domain 01</span>
+<h2 class="text-headline-md font-headline-md text-primary">Core System &amp; Network Feedback States</h2>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">6 States Documented</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- 1. LOADING STATE -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 01</div>
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-primary text-label-sm font-label-sm font-semibold">
+                Async In-Flight
+              </span>
+</div>
+<!-- Radar Pulse Icon Animation -->
+<div class="flex items-center justify-center my-6">
+<div class="relative flex items-center justify-center">
+<div class="w-16 h-16 rounded-full bg-secondary-container/40 animate-ping absolute"></div>
+<div class="w-14 h-14 rounded-full bg-primary-container text-on-primary flex items-center justify-center relative shadow-md">
+<span class="material-symbols-outlined text-2xl animate-spin">sync</span>
+</div>
+</div>
+</div>
+<!-- Skeleton Shimmering Content -->
+<div class="space-y-3">
+<h3 class="text-title-md font-title-md text-primary text-center">Verifying WHS Scorecard with Scottish Golf API...</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-center">Validating marker handicap index and Slope Rating checksum.</p>
+<div class="space-y-2 pt-2">
+<div class="h-3 bg-surface-container-high rounded-full w-full animate-pulse"></div>
+<div class="h-3 bg-surface-container rounded-full w-4/5 mx-auto animate-pulse"></div>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<span>Timeout: 8000ms</span>
+<span class="font-mono text-xs">STATUS: 202 ACCEPTED</span>
+</div>
+</div>
+<!-- 2. EMPTY / NO DATA STATE -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border-2 border-dashed border-outline-variant/60 shadow-sm flex flex-col justify-between relative">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 02</div>
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm font-semibold">
+                Zero Inventory
+              </span>
+</div>
+<!-- Clean Illustrated Empty Target -->
+<div class="flex items-center justify-center my-4">
+<div class="w-16 h-16 rounded-2xl bg-surface-container-low border border-outline-variant/50 flex items-center justify-center text-on-surface-variant">
+<span class="material-symbols-outlined text-3xl">sports_score</span>
+</div>
+</div>
+<div class="text-center space-y-2">
+<h3 class="text-title-md font-title-md text-primary">No Attested Rounds Found</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Once you record your first Stableford round, your 5-score ballot will activate and enter the recurring pool.
+              </p>
+</div>
+</div>
+<div class="mt-6 pt-4">
+<button class="w-full py-2.5 px-4 rounded-full bg-primary text-on-primary hover:bg-primary-container transition-colors text-label-md font-label-md flex items-center justify-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-base">add</span>
+              + Log First Round
+            </button>
+</div>
+</div>
+<!-- 3. ERROR STATE (FIDUCIARY / NETWORK) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-error/30 shadow-sm flex flex-col justify-between relative">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 03</div>
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">error</span> Exception 503
+              </span>
+</div>
+<div class="flex items-center justify-center my-4">
+<div class="w-16 h-16 rounded-full bg-error-container/50 border border-error/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-3xl">cloud_off</span>
+</div>
+</div>
+<div class="text-center space-y-2">
+<h3 class="text-title-md font-title-md text-error">Escrow Ledger Synchronization Interrupted</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Your funds and ballot remain securely locked in custody. Multi-sig nodes failed to reach consensus.
+              </p>
+</div>
+</div>
+<div class="mt-6 pt-4 space-y-2">
+<button class="w-full py-2 px-4 rounded-full bg-primary text-on-primary hover:bg-primary-container text-label-md font-label-md transition-colors">
+              Retry Sync
+            </button>
+<button class="w-full py-2 px-4 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface text-label-md font-label-md transition-colors border border-outline-variant/40">
+              Contact Concierge
+            </button>
+</div>
+</div>
+<!-- 4. SUCCESS STATE -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-primary/20 shadow-sm flex flex-col justify-between relative bg-gradient-to-b from-secondary-container/20 to-surface-container-lowest">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 04</div>
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-primary text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">verified</span> Attested
+              </span>
+</div>
+<div class="flex items-center justify-center my-4">
+<div class="w-16 h-16 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+</div>
+<div class="text-center space-y-2">
+<h3 class="text-title-md font-title-md text-primary">Round Attested &amp; Seed Ballot Locked</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Your <strong class="text-on-surface font-semibold">38 pts</strong> score has entered the Oct 31 $250,000 prize draw under seed <span class="font-mono text-xs bg-surface-container px-1 py-0.5 rounded font-bold">#DH-90412</span>.
+              </p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Draw: Oct 31, 2024</span>
+<a class="text-primary font-semibold hover:underline" href="#">View Ticket Details →</a>
+</div>
+</div>
+<!-- 5. 404 NOT FOUND STATE -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-between relative">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 05</div>
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm font-semibold">
+                Out of Bounds
+              </span>
+</div>
+<div class="flex items-center justify-center my-4">
+<div class="w-16 h-16 rounded-2xl bg-surface-container flex items-center justify-center text-primary-container relative">
+<span class="material-symbols-outlined text-3xl">sports_golf</span>
+<span class="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-error text-[10px] text-white font-bold">!</span>
+</div>
+</div>
+<div class="text-center space-y-2">
+<h3 class="text-title-md font-title-md text-primary">Hole Out of Bounds (404)</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                The fairway, handicap certificate, or ballot ticket you requested has landed beyond the perimeter markers.
+              </p>
+</div>
+</div>
+<div class="mt-6 pt-4">
+<button class="w-full py-2.5 px-4 rounded-full bg-surface-container-high hover:bg-surface-container text-primary text-label-md font-label-md transition-colors border border-outline-variant/40 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">arrow_back</span>
+              Return to Dashboard
+            </button>
+</div>
+</div>
+<!-- 6. UNAUTHORIZED / RESTRICTED STATE (401/403) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-between relative">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 06</div>
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">shield</span> 403 Forbidden
+              </span>
+</div>
+<div class="flex items-center justify-center my-4">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed/30 border border-tertiary/20 flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined text-3xl">lock</span>
+</div>
+</div>
+<div class="text-center space-y-2">
+<h3 class="text-title-md font-title-md text-primary">Audited Access Restricted</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Chief Auditor or Superadmin credentials required to view Escrow Multi-Sig transactions and raw cryptographic hashes.
+              </p>
+</div>
+</div>
+<div class="mt-6 pt-4">
+<button class="w-full py-2.5 px-4 rounded-full bg-primary text-on-primary hover:bg-primary-container text-label-md font-label-md transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">key</span>
+              Request Clearance
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- CATEGORY 2: SUBSCRIPTION & ACCOUNT LIFECYCLE STATES (7 - 9)              -->
+<!-- ========================================================================= -->
+<section class="space-y-6 scroll-mt-24" id="category-subscription">
+<div class="flex items-center justify-between border-b border-outline-variant/40 pb-3">
+<div>
+<span class="text-label-sm font-label-sm text-secondary uppercase font-bold tracking-wider">Operational Domain 02</span>
+<h2 class="text-headline-md font-headline-md text-primary">Subscription &amp; Account Lifecycle States</h2>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">3 States Documented</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- 7. NO SUBSCRIPTION STATE -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-between relative">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 07</div>
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm font-semibold">
+                Unregistered
+              </span>
+</div>
+<div class="flex items-center justify-center my-4">
+<div class="w-16 h-16 rounded-full bg-surface-container border border-outline-variant/50 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">card_membership</span>
+</div>
+</div>
+<div class="text-center space-y-2">
+<h3 class="text-title-md font-title-md text-primary">Complete Your Membership Registration</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Subscribe to unlock automated monthly prize draws and channel 10% of dues to coastal links conservation.
+              </p>
+</div>
+<!-- Locked Features Indicator -->
+<div class="mt-4 p-3 bg-surface-container-low rounded-lg space-y-1.5 text-body-sm font-body-sm text-on-surface-variant border border-outline-variant/30">
+<div class="flex items-center gap-2 text-xs">
+<span class="material-symbols-outlined text-xs text-outline">lock</span>
+<span>$250,000 Verified Monthly Ballots</span>
+</div>
+<div class="flex items-center gap-2 text-xs">
+<span class="material-symbols-outlined text-xs text-outline">lock</span>
+<span>WHS Automated Handicap Sync</span>
+</div>
+</div>
+</div>
+<div class="mt-6 pt-4">
+<button class="w-full py-2.5 px-4 rounded-full bg-primary text-on-primary hover:bg-primary-container text-label-md font-label-md transition-colors shadow-sm">
+              Choose Plan ($19/mo)
+            </button>
+</div>
+</div>
+<!-- 8. EXPIRED SUBSCRIPTION STATE -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-tertiary-fixed-dim/40 shadow-sm flex flex-col justify-between relative bg-gradient-to-b from-tertiary-fixed/10 to-surface-container-lowest">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 08</div>
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">history</span> Expired Grace Period
+              </span>
+</div>
+<div class="flex items-center justify-center my-4">
+<div class="w-16 h-16 rounded-full bg-tertiary-fixed/40 border border-tertiary/20 flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined text-3xl">hourglass_bottom</span>
+</div>
+</div>
+<div class="text-center space-y-2">
+<h3 class="text-title-md font-title-md text-primary">Membership Inactive / Expired on Oct 15, 2024</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Your ballot tokens are on hold. Renew within 7 days to preserve your active draw entries for Highland Links.
+              </p>
+</div>
+<div class="mt-4 p-3 bg-surface-container rounded-lg text-center text-xs text-on-surface font-medium border border-outline-variant/40">
+              Hold expires in <span class="text-error font-bold">4 days, 6 hours</span>
+</div>
+</div>
+<div class="mt-6 pt-4">
+<button class="w-full py-2.5 px-4 rounded-full bg-primary-container text-on-primary hover:bg-primary text-label-md font-label-md transition-colors shadow-sm">
+              Renew Membership
+            </button>
+</div>
+</div>
+<!-- 9. PAYMENT FAILED / PAST DUE STATE -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-error/40 shadow-sm flex flex-col justify-between relative bg-gradient-to-b from-error-container/20 to-surface-container-lowest">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 09</div>
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">credit_card_off</span> Billing Past Due
+              </span>
+</div>
+<div class="flex items-center justify-center my-4">
+<div class="w-16 h-16 rounded-full bg-error-container flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-3xl">payments</span>
+</div>
+</div>
+<div class="text-center space-y-2">
+<h3 class="text-title-md font-title-md text-error">Payment Failed: Visa •••• 4491 Declined</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Update payment details before Oct 30 to protect your registered $250,000 draw ballot from forfeiture.
+              </p>
+</div>
+</div>
+<div class="mt-6 pt-4 space-y-2">
+<button class="w-full py-2.5 px-4 rounded-full bg-error text-on-error hover:bg-on-error-container transition-colors text-label-md font-label-md shadow-sm">
+              Update Payment Method
+            </button>
+<p class="text-center text-label-sm font-label-sm text-on-surface-variant">Attempt 2 of 3 scheduled</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- CATEGORY 3: GOLF SCORES & BALLOT READINESS STATES (10 - 12)               -->
+<!-- ========================================================================= -->
+<section class="space-y-6 scroll-mt-24" id="category-scores">
+<div class="flex items-center justify-between border-b border-outline-variant/40 pb-3">
+<div>
+<span class="text-label-sm font-label-sm text-primary-container uppercase font-bold tracking-wider">Operational Domain 03</span>
+<h2 class="text-headline-md font-headline-md text-primary">Golf Scorecard &amp; Ballot Readiness Lifecycle</h2>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">3 States Documented</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- 10. NO GOLF SCORES STATE (0 OF 5) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-between relative">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 10</div>
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm font-semibold">
+                Ballot Inactive
+              </span>
+</div>
+<h3 class="text-title-md font-title-md text-primary">0 of 5 Scores Entered</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+              Add your recent Stableford rounds to generate your 5-number draw ticket.
+            </p>
+<!-- 5 Empty Slot Scorecard Wireframe -->
+<div class="my-6 p-4 rounded-xl bg-surface-container-low border border-outline-variant/40">
+<div class="text-xs text-on-surface-variant font-medium mb-3 text-center">Required 5-Differential Ballot Seed</div>
+<div class="flex items-center justify-between gap-2">
+<div class="w-11 h-11 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center text-outline text-label-sm font-bold bg-surface-container-lowest">1</div>
+<div class="w-11 h-11 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center text-outline text-label-sm font-bold bg-surface-container-lowest">2</div>
+<div class="w-11 h-11 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center text-outline text-label-sm font-bold bg-surface-container-lowest">3</div>
+<div class="w-11 h-11 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center text-outline text-label-sm font-bold bg-surface-container-lowest">4</div>
+<div class="w-11 h-11 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center text-outline text-label-sm font-bold bg-surface-container-lowest">5</div>
+</div>
+</div>
+</div>
+<div class="mt-2">
+<button class="w-full py-2.5 px-4 rounded-full bg-primary text-on-primary hover:bg-primary-container text-label-md font-label-md transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">golf_course</span>
+              + Log Round 1
+            </button>
+</div>
+</div>
+<!-- 11. PARTIAL SCORES STATE (1-4 SCORES READY) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-between relative">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 11</div>
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary-container text-primary text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> In Progress: 60%
+              </span>
+</div>
+<h3 class="text-title-md font-title-md text-primary">3 of 5 Scores Entered (60%)</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+              2 more rounds needed by <strong class="text-on-surface">Oct 30 midnight</strong> to lock your entry.
+            </p>
+<!-- 3 Filled, 2 Pending Slots -->
+<div class="my-6 p-4 rounded-xl bg-surface-container-low border border-outline-variant/40">
+<div class="text-xs text-on-surface-variant font-medium mb-3 text-center">Active Differential Allocation</div>
+<div class="flex items-center justify-between gap-2">
+<div class="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center text-label-md font-bold shadow-sm" title="Round 1: St. Andrews">38</div>
+<div class="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center text-label-md font-bold shadow-sm" title="Round 2: Carnoustie">35</div>
+<div class="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center text-label-md font-bold shadow-sm" title="Round 3: North Berwick">41</div>
+<div class="w-11 h-11 rounded-full border-2 border-dashed border-primary/50 flex items-center justify-center text-primary text-label-sm font-bold bg-surface-container-lowest animate-pulse">?</div>
+<div class="w-11 h-11 rounded-full border-2 border-dashed border-outline-variant flex items-center justify-center text-outline text-label-sm font-bold bg-surface-container-lowest">5</div>
+</div>
+</div>
+</div>
+<div class="mt-2">
+<button class="w-full py-2.5 px-4 rounded-full bg-primary text-on-primary hover:bg-primary-container text-label-md font-label-md transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">add_circle</span>
+              Log Round 4 (Stableford)
+            </button>
+</div>
+</div>
+<!-- 12. ALL 5 SCORES READY STATE (SEALED BALLOT) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border-2 border-primary shadow-md flex flex-col justify-between relative bg-gradient-to-b from-secondary-container/30 to-surface-container-lowest">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 12</div>
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2.5 py-0.5 rounded-full bg-primary text-on-primary text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">lock</span> 100% Sealed
+              </span>
+</div>
+<h3 class="text-title-md font-title-md text-primary">Ballot Sealed #DH-90412</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-1">
+              Guaranteed participation in the upcoming draw with 10% tithe routed to Marine Ecosystem Trust.
+            </p>
+<!-- 5 Filled & Verified Badges with Lock Indicator -->
+<div class="my-6 p-4 rounded-xl bg-surface-container-lowest border border-primary/30 shadow-inner">
+<div class="flex items-center justify-between text-xs text-primary font-semibold mb-3">
+<span>WHS Validated Tokens</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-xs">encrypted</span> SHA-256</span>
+</div>
+<div class="flex items-center justify-between gap-2">
+<div class="w-11 h-11 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-label-md font-bold">38</div>
+<div class="w-11 h-11 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-label-md font-bold">35</div>
+<div class="w-11 h-11 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-label-md font-bold">41</div>
+<div class="w-11 h-11 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-label-md font-bold">39</div>
+<div class="w-11 h-11 rounded-full bg-primary-container text-on-primary flex items-center justify-center text-label-md font-bold">37</div>
+</div>
+</div>
+</div>
+<div class="mt-2">
+<div class="w-full py-2.5 px-4 rounded-full bg-secondary-container text-primary font-semibold text-center text-label-md font-label-md border border-outline-variant/40 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+              Draw Verified &amp; Locked
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================================================= -->
+<!-- CATEGORY 4: DRAWS, WINNINGS & ESCROW VERIFICATION STATES (13 - 17)        -->
+<!-- ========================================================================= -->
+<section class="space-y-6 scroll-mt-24" id="category-draws">
+<div class="flex items-center justify-between border-b border-outline-variant/40 pb-3">
+<div>
+<span class="text-label-sm font-label-sm text-tertiary-container uppercase font-bold tracking-wider">Operational Domain 04</span>
+<h2 class="text-headline-md font-headline-md text-primary">Draws, Winnings &amp; Escrow Verification States</h2>
+</div>
+<span class="text-label-md font-label-md text-on-surface-variant">5 States Documented</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- 13. NO UPCOMING DRAW STATE -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-between relative">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 13</div>
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-label-sm font-label-sm font-semibold">
+                Draw In Recess
+              </span>
+</div>
+<div class="flex items-center justify-center my-4">
+<div class="w-16 h-16 rounded-full bg-surface-container-low border border-outline-variant/40 flex items-center justify-center text-outline">
+<span class="material-symbols-outlined text-3xl">event_busy</span>
+</div>
+</div>
+<div class="text-center space-y-2">
+<h3 class="text-title-md font-title-md text-primary">Monthly Draw In Recess</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                The next draw schedule will be published on Nov 1. Keep logging rounds to refresh your lowest differentials.
+              </p>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/30 text-center">
+<span class="text-label-sm font-label-sm text-on-surface-variant">Auditor: Scottish Golf Union multi-sig</span>
+</div>
+</div>
+<!-- 14. NO WINNINGS / NON-WINNER STATE (PURPOSE FIRST) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-outline-variant/50 shadow-sm flex flex-col justify-between relative">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 14</div>
+<div>
+<div class="flex items-center gap-2 mb-4">
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-secondary text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">volunteer_activism</span> Collective Impact
+              </span>
+</div>
+<div class="p-3 bg-surface-container rounded-lg mb-4 text-center">
+<span class="text-label-sm font-label-sm text-on-surface-variant uppercase">Ballot Results</span>
+<div class="text-title-md font-title-md text-primary mt-0.5 font-bold">2 Matches (18, 24)</div>
+</div>
+<div class="space-y-2 text-center">
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                No prize tier matched this month. Your 10% subscription tithe funded:
+              </p>
+<div class="p-3 bg-secondary-container/40 rounded-xl border border-secondary-container text-primary font-semibold text-label-md font-label-md">
+                🌱 14 Marram Grass Plantings at Highland Dunes
+              </div>
+</div>
+</div>
+<div class="mt-6 pt-4 text-center">
+<a class="text-primary hover:underline text-label-sm font-label-sm font-semibold inline-flex items-center gap-1" href="#">
+              Read Highland Dunes Restoration Audit →
+            </a>
+</div>
+</div>
+<!-- 15. WINNER AWAITING VERIFICATION STATE -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border-2 border-tertiary-fixed-dim shadow-sm flex flex-col justify-between relative bg-gradient-to-b from-tertiary-fixed/20 to-surface-container-lowest">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 15</div>
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2.5 py-0.5 rounded-full bg-tertiary-fixed text-on-tertiary-fixed text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">celebration</span> Tier 2 Winner
+              </span>
+</div>
+<div class="text-center my-3">
+<span class="text-label-sm font-label-sm text-on-tertiary-fixed uppercase font-bold">Prize Declared</span>
+<div class="text-headline-md font-headline-md text-primary font-bold">₹5,000 — 3 Matches</div>
+</div>
+<div class="p-3 bg-surface-container rounded-lg border border-outline-variant/40 space-y-1.5 text-center mb-3">
+<div class="flex items-center justify-center gap-1.5 text-tertiary-container text-label-sm font-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm">schedule</span> Escrow Lock: 72h Left
+              </div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                Upload your signed marker scorecard or WHS app screenshot to begin escrow disbursement.
+              </p>
+</div>
+</div>
+<div class="mt-2">
+<button class="w-full py-2.5 px-4 rounded-full bg-tertiary-container text-on-primary hover:opacity-95 text-label-md font-label-md transition-all shadow-sm flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">upload_file</span>
+              Upload Scorecard Proof
+            </button>
+</div>
+</div>
+<!-- 16. VERIFICATION REJECTED / FLAGGED STATE -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border border-error/30 shadow-sm flex flex-col justify-between relative">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 16</div>
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container text-label-sm font-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs">warning</span> Flagged by Marker Audit
+              </span>
+</div>
+<div class="flex items-center justify-center my-3">
+<div class="w-14 h-14 rounded-full bg-error-container/50 border border-error/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-2xl">policy</span>
+</div>
+</div>
+<div class="text-center space-y-2">
+<h3 class="text-title-md font-title-md text-error">Marker Signature Unclear</h3>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+                The marker member number could not be matched with Scottish Golf registry. Resubmit proof within 5 days.
+              </p>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-outline-variant/30 space-y-2">
+<button class="w-full py-2 px-4 rounded-full bg-primary text-on-primary hover:bg-primary-container text-label-md font-label-md transition-colors">
+              Resubmit Clear Proof
+            </button>
+<button class="w-full py-2 px-4 rounded-full bg-transparent hover:bg-surface-container text-on-surface-variant text-label-md font-label-md transition-colors text-center block">
+              Dispute Audit Finding
+            </button>
+</div>
+</div>
+<!-- 17. JACKPOT ROLLOVER STATE (FULL-WIDTH ACCENT) -->
+<div class="bg-surface-container-lowest rounded-xl p-6 border-2 border-primary-container shadow-md flex flex-col justify-between relative md:col-span-2 lg:col-span-2 bg-gradient-to-r from-surface-container to-secondary-container/20">
+<div class="absolute top-3 right-3 text-label-sm font-label-sm text-on-surface-variant font-mono">STATE 17</div>
+<div>
+<div class="flex items-center gap-2 mb-3">
+<span class="px-3 py-1 rounded-full bg-primary text-on-primary text-label-sm font-label-sm font-semibold flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">savings</span> Automated Vault Rollover
+              </span>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-6 my-4">
+<div class="w-20 h-20 rounded-2xl bg-primary text-tertiary-fixed flex items-center justify-center shrink-0 shadow-lg">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+</div>
+<div class="space-y-1 text-center md:text-left">
+<h3 class="text-headline-md font-headline-md text-primary font-bold">
+                  Rollover Alert: No 5-Match Perfect Jackpot Hit in October
+                </h3>
+<p class="text-body-md font-body-md text-on-surface-variant">
+<strong class="text-primary font-semibold">₹100,000</strong> rolls into the November Purse, boosting next month's pool to an unprecedented <strong class="text-primary-container font-bold text-base">₹350,000!</strong>
+</p>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-4 text-label-sm font-label-sm text-on-surface-variant">
+<span>Next Draw: Nov 30, 2024</span>
+<span>•</span>
+<span>10% Tithe: ₹35,000 Reserved</span>
+</div>
+<button class="py-2 px-5 rounded-full bg-primary text-on-primary hover:bg-primary-container text-label-md font-label-md transition-colors flex items-center gap-2 shadow-sm">
+<span class="material-symbols-outlined text-base">casino</span>
+              Enter November Draw Pool
+            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- System Design Tokens Reference Card -->
+<section class="bg-surface-container rounded-2xl p-6 border border-outline-variant/40 shadow-sm space-y-4">
+<div class="flex items-center justify-between border-b border-outline-variant/30 pb-3">
+<h3 class="text-title-md font-title-md text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">rule</span>
+          Governance &amp; Visual Token Integrity Rules
+        </h3>
+<span class="text-label-sm font-label-sm text-on-surface-variant">WCAG 2.1 AAA Compliant</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-body-sm font-body-sm text-on-surface-variant">
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30">
+<div class="font-semibold text-primary mb-1">Color Discipline</div>
+<p>Champagne Gold is strictly governed—reserved only for verified winnings (State 15) and jackpot rollovers (State 17).</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30">
+<div class="font-semibold text-primary mb-1">State Consistency</div>
+<p>Every card maintains uniform 16px radius (`rounded-xl`), 1px outline boundary, and dedicated state badge tokens.</p>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-lowest border border-outline-variant/30">
+<div class="font-semibold text-primary mb-1">Audit Trail</div>
+<p>Cryptographic seed identifiers (#DH-xxxxx) and WHS markers ensure all non-winner and winner states are provable.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Shared Components JSON Blueprint) - Mobile Only -->
+<nav class="fixed bottom-0 left-0 right-0 w-full z-50 rounded-t-xl bg-surface/90 dark:bg-primary/90 backdrop-blur-md border-t border-outline-variant/30 dark:border-outline/20 shadow-[0_-4px_20px_rgba(13,46,36,0.06)] flex justify-around items-center px-space-margin-mobile py-space-xs pb-safe lg:hidden">
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed bg-secondary-container/50 dark:bg-secondary/40 rounded-xl px-3 py-1 font-semibold text-label-sm font-label-sm" href="#">
+<span class="material-symbols-outlined text-xl">casino</span>
+<span>Draws</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 text-label-sm font-label-sm hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">sports_score</span>
+<span>Scores</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 text-label-sm font-label-sm hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">volunteer_activism</span>
+<span>Impact</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 text-label-sm font-label-sm hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">trophy</span>
+<span>Winnings</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-surface-variant px-3 py-1 text-label-sm font-label-sm hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-xl">person</span>
+<span>Profile</span>
+</a>
+</nav>
+<!-- Interactive Smooth Scroll Script -->
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body></html>

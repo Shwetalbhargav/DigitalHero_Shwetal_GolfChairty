@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Heroes - Choose Charity &amp; Contribution</title>
+<!-- Google Fonts: Outfit (Headlines) & Plus Jakarta Sans (Body/Labels) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "error-container": "#ffdad6",
+            "surface-bright": "#f3fcf5",
+            "surface-container-highest": "#dce5de",
+            "primary": "#003629",
+            "primary-container": "#1b4d3e",
+            "background": "#f3fcf5",
+            "primary-fixed-dim": "#9ed1bd",
+            "on-primary": "#ffffff",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed": "#002117",
+            "secondary-container": "#c4e8d8",
+            "error": "#ba1a1a",
+            "tertiary": "#3f2a00",
+            "surface-tint": "#376757",
+            "on-tertiary-container": "#dbaa53",
+            "surface-variant": "#dce5de",
+            "secondary-fixed-dim": "#abcebf",
+            "on-error": "#ffffff",
+            "surface": "#f3fcf5",
+            "secondary-fixed": "#c7eadb",
+            "on-secondary-container": "#49695d",
+            "outline": "#707974",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#eaf3ec",
+            "on-surface": "#151d19",
+            "tertiary-container": "#5c3f00",
+            "surface-container-high": "#e2eae4",
+            "surface-container-lowest": "#ffffff",
+            "tertiary-fixed": "#ffdeaa",
+            "on-primary-fixed-variant": "#1d4f40",
+            "surface-container-low": "#edf6ef",
+            "outline-variant": "#c0c9c3",
+            "on-background": "#151d19",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "on-secondary": "#ffffff",
+            "inverse-primary": "#9ed1bd",
+            "tertiary-fixed-dim": "#f1be65",
+            "on-secondary-fixed": "#002117",
+            "surface-dim": "#d3dcd6",
+            "on-surface-variant": "#404945",
+            "secondary": "#456559",
+            "surface-container": "#e7f0e9",
+            "inverse-surface": "#2a322e",
+            "primary-fixed": "#baeed9",
+            "on-primary-container": "#8abda9",
+            "on-tertiary-fixed": "#271900"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-sm": "0.5rem",
+            "space-lg": "1.5rem",
+            "space-md": "1rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem",
+            "margin": "3rem",
+            "space-xl": "2.5rem",
+            "gutter": "1.5rem",
+            "space-xs": "0.25rem"
+          },
+          "fontFamily": {
+            "headline-xl": ["Outfit"],
+            "body-md": ["Plus Jakarta Sans"],
+            "title-md": ["Outfit"],
+            "headline-md": ["Outfit"],
+            "label-lg": ["Plus Jakarta Sans"],
+            "display-lg-mobile": ["Outfit"],
+            "label-md": ["Plus Jakarta Sans"],
+            "body-lg": ["Plus Jakarta Sans"],
+            "headline-lg": ["Outfit"],
+            "headline-sm": ["Outfit"],
+            "display-lg": ["Outfit"],
+            "body-sm": ["Plus Jakarta Sans"],
+            "headline-xl-mobile": ["Outfit"],
+            "label-sm": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "headline-xl": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.015em", "fontWeight": "700" }],
+            "body-md": ["15px", { "lineHeight": "22px", "fontWeight": "400" }],
+            "title-md": ["18px", { "lineHeight": "24px", "fontWeight": "600" }],
+            "headline-md": ["24px", { "lineHeight": "32px", "letterSpacing": "-0.005em", "fontWeight": "600" }],
+            "label-lg": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+            "display-lg-mobile": ["38px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+            "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display-lg": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body-sm": ["13px", { "lineHeight": "18px", "fontWeight": "400" }],
+            "headline-xl-mobile": ["30px", { "lineHeight": "36px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.04em", "fontWeight": "700" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-primary">
+<!-- Linear / Task-Focused Onboarding Header (Navigation Shell suppressed per Mandate) -->
+<header class="sticky top-0 z-40 bg-surface/85 backdrop-blur-md border-b border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<a class="font-headline-sm text-headline-sm font-bold text-primary tracking-tight" href="#">Digital Heroes</a>
+<span class="hidden sm:inline-block px-space-sm py-0.5 rounded-full bg-surface-container text-secondary text-label-sm font-label-sm border border-outline-variant/30">Feel, not fairway</span>
+</div>
+<div class="flex items-center gap-space-md">
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high/60 border border-outline-variant/40">
+<span class="material-symbols-outlined text-secondary text-[18px]" data-icon="volunteer_activism">volunteer_activism</span>
+<span class="text-label-md font-label-md text-primary font-semibold">Collective Impact: $14,250</span>
+</div>
+<a aria-label="Help and FAQ" class="text-on-surface-variant hover:text-primary p-2 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl py-space-lg md:py-space-xl">
+<!-- Progress Stepper -->
+<div class="mb-space-xl">
+<div class="max-w-4xl mx-auto">
+<nav aria-label="Onboarding Progress">
+<ol class="grid grid-cols-4 items-center gap-2 md:gap-4">
+<!-- Step 1: Completed -->
+<li class="flex flex-col items-center sm:items-start group">
+<div class="flex items-center w-full">
+<div class="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-full bg-primary text-on-primary shrink-0 transition-all shadow-sm">
+<span class="material-symbols-outlined text-base" data-icon="check">check</span>
+</div>
+<div class="hidden sm:block w-full h-1 ml-2 rounded-full bg-primary"></div>
+</div>
+<div class="mt-2 text-center sm:text-left">
+<span class="block text-label-sm font-label-sm text-secondary font-semibold">Step 1</span>
+<span class="hidden sm:block text-label-md font-label-md text-on-surface font-semibold">Personal Details</span>
+</div>
+</li>
+<!-- Step 2: Completed -->
+<li class="flex flex-col items-center sm:items-start group">
+<div class="flex items-center w-full">
+<div class="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-full bg-primary text-on-primary shrink-0 transition-all shadow-sm">
+<span class="material-symbols-outlined text-base" data-icon="check">check</span>
+</div>
+<div class="hidden sm:block w-full h-1 ml-2 rounded-full bg-primary"></div>
+</div>
+<div class="mt-2 text-center sm:text-left">
+<span class="block text-label-sm font-label-sm text-secondary font-semibold">Step 2</span>
+<span class="hidden sm:block text-label-md font-label-md text-on-surface font-semibold">Membership Plan</span>
+</div>
+</li>
+<!-- Step 3: Active -->
+<li aria-current="step" class="flex flex-col items-center sm:items-start group">
+<div class="flex items-center w-full">
+<div class="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-full bg-primary-container text-on-primary ring-4 ring-secondary-container/60 shrink-0 font-semibold shadow-sm">
+<span class="font-label-md text-label-md">3</span>
+</div>
+<div class="hidden sm:block w-full h-1 ml-2 rounded-full bg-surface-container-highest"></div>
+</div>
+<div class="mt-2 text-center sm:text-left">
+<span class="block text-label-sm font-label-sm text-primary font-bold">Step 3</span>
+<span class="hidden sm:block text-label-md font-label-md text-primary font-bold">Choose Charity</span>
+</div>
+</li>
+<!-- Step 4: Upcoming -->
+<li class="flex flex-col items-center sm:items-start opacity-60">
+<div class="flex items-center w-full">
+<div class="flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-full bg-surface-container-highest text-on-surface-variant shrink-0 font-medium">
+<span class="font-label-md text-label-md">4</span>
+</div>
+</div>
+<div class="mt-2 text-center sm:text-left">
+<span class="block text-label-sm font-label-sm text-on-surface-variant font-medium">Step 4</span>
+<span class="hidden sm:block text-label-md font-label-md text-on-surface-variant">Confirmation</span>
+</div>
+</li>
+</ol>
+</nav>
+</div>
+</div>
+<!-- Header Section -->
+<div class="max-w-3xl mb-space-lg">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/60 text-on-secondary-fixed-variant text-label-sm font-label-sm mb-3">
+<span class="material-symbols-outlined text-sm" data-icon="eco">eco</span>
+<span>Purpose-Led Impact</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg md:font-headline-xl md:text-headline-xl text-primary font-bold tracking-tight mb-2">
+        Choose your cause &amp; pledge percentage
+      </h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+        Direct your subscription pledge to a vetted grassroots partner. You can switch your charity at any time before monthly draw closes.
+      </p>
+</div>
+<!-- Search and Filter Bar -->
+<div class="p-space-sm md:p-space-md rounded-xl bg-surface-container-low border border-outline-variant/30 mb-space-lg shadow-sm">
+<div class="flex flex-col md:flex-row gap-space-sm md:items-center justify-between">
+<!-- Search Input -->
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-full bg-surface border border-outline-variant/50 text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant/70 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all" id="charitySearch" placeholder="Search by cause, charity name, or region..." type="text"/>
+</div>
+<!-- Filter Pills -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+<button class="filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-label-sm font-label-sm transition-all bg-primary text-on-primary font-semibold shadow-xs" data-filter="all" type="button">
+            All Causes
+          </button>
+<button class="filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-label-sm font-label-sm transition-all bg-surface hover:bg-surface-container text-on-surface-variant border border-outline-variant/40" data-filter="environment" type="button">
+            Environment &amp; Links
+          </button>
+<button class="filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-label-sm font-label-sm transition-all bg-surface hover:bg-surface-container text-on-surface-variant border border-outline-variant/40" data-filter="youth" type="button">
+            Youth &amp; Caddies
+          </button>
+<button class="filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-label-sm font-label-sm transition-all bg-surface hover:bg-surface-container text-on-surface-variant border border-outline-variant/40" data-filter="veterans" type="button">
+            Veterans &amp; Wellbeing
+          </button>
+<button class="filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-label-sm font-label-sm transition-all bg-surface hover:bg-surface-container text-on-surface-variant border border-outline-variant/40" data-filter="accessible" type="button">
+            Accessible Golf
+          </button>
+</div>
+</div>
+</div>
+<!-- Charity Selection Grid (4 Rich Selectable Cards) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg mb-space-xl" id="charityGrid">
+<!-- Card 1: Highland Dunes (Selected by default) -->
+<div class="charity-card group relative flex flex-col justify-between rounded-xl bg-surface/90 border-2 border-primary-container p-space-md shadow-[0_12px_32px_-8px_rgba(13,46,36,0.08)] transition-all duration-200 cursor-pointer ring-2 ring-primary-container/20" data-category="environment" data-id="1" data-name="Highland Dunes Native Restoration">
+<div class="space-y-space-md">
+<div class="relative h-44 w-full rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Sweeping panoramic shot of dramatic Scottish coastal sand dunes covered in wild native marram grass overlooking a quiet North Sea golf fairway at misty golden sunrise with deep green foliage and natural sand bunkers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc-c4NqqBNeYXNYovtYEH4v9NltT_zc60-kHpavnWYcaJ-rL6W11LR8-cciHXod2uAVAvZAd53HlaCY1naDWOFLp88BBQYRerzrSV6CGzJ8VY9FW1azwEtheqGJ5gQb5uqv4CQxMIKt0vxOBgm72sgMtGRH0BJ_IXCFc7IlclK28-AuFvRPGtEQlSneEnd11WALz31aMCq9gOqlWiYcZfso2baMWWi92bjBqXD04Z3-Asl3UuXkFEfkA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[15px]" data-icon="park">park</span>
+                Environment
+              </span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary">
+<span class="text-label-sm font-label-sm opacity-90">Partner since 2022</span>
+<span class="text-label-sm font-label-sm font-semibold bg-primary/80 px-2 py-0.5 rounded backdrop-blur-sm">North Berwick, UK</span>
+</div>
+</div>
+<div>
+<div class="flex items-start justify-between gap-3 mb-1.5">
+<h3 class="font-title-md text-title-md text-primary font-bold">
+                Highland Dunes Native Restoration
+              </h3>
+<!-- Checked Radio Icon for Selected Card -->
+<div class="radio-indicator shrink-0 w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]" data-icon="check">check</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Restoring Scotland and coastal links habitats with native marram grass to preserve indigenous ecosystems and safeguard coastlines.
+            </p>
+</div>
+</div>
+<div class="mt-space-md pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant block">Total Community Fund</span>
+<span class="text-title-md font-title-md font-bold text-primary">Raised $48,200</span>
+</div>
+<button class="card-select-btn px-4 py-1.5 rounded-full font-label-md text-label-md transition-all duration-150 bg-primary-container text-on-primary font-semibold" type="button">
+            Selected
+          </button>
+</div>
+</div>
+<!-- Card 2: Fairway Youth Caddie Trust -->
+<div class="charity-card group relative flex flex-col justify-between rounded-xl bg-surface/80 border border-outline-variant/40 hover:border-outline p-space-md shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer" data-category="youth" data-id="2" data-name="Fairway Youth Caddie Trust">
+<div class="space-y-space-md">
+<div class="relative h-44 w-full rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Diverse group of cheerful adolescent golfers and teenage caddies carrying tour bags on an open grassy practice green during a warm afternoon session, smiling proudly under high key natural sunlight." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFe6DiemAgyaCsoSrIal0cCGQcdiqFzvVDLaV3w2be9C2icZgHdrulx-BgBuokcdVLEvL_FIsIGtAeY4jmkbOeXL6ZEn_c5KLhzvM8DwDHBklc9_JGeJ-ABX7FNpU_Y39wJ1NzpNtWBdRXFHO__C10O60Tv8dFxNpu1sTPN3qw3dSNghGMXlPEwmEYu3qmSaNn6jbyttbpEeDUVNhEcWcAhJ_QRRJoK2qmXyA0gg1v84bPzvJB-s6jCg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[15px]" data-icon="school">school</span>
+                Youth &amp; Education
+              </span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary">
+<span class="text-label-sm font-label-sm opacity-90">Partner since 2023</span>
+<span class="text-label-sm font-label-sm font-semibold bg-primary/80 px-2 py-0.5 rounded backdrop-blur-sm">Chicago, IL</span>
+</div>
+</div>
+<div>
+<div class="flex items-start justify-between gap-3 mb-1.5">
+<h3 class="font-title-md text-title-md text-primary font-bold">
+                Fairway Youth Caddie Trust
+              </h3>
+<div class="radio-indicator shrink-0 w-6 h-6 rounded-full border-2 border-outline-variant bg-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-transparent" data-icon="check">check</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Providing equipment, green fees, and career mentorship for underprivileged youth looking to build futures on and off the course.
+            </p>
+</div>
+</div>
+<div class="mt-space-md pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant block">Total Community Fund</span>
+<span class="text-title-md font-title-md font-bold text-primary">Raised $65,000</span>
+</div>
+<button class="card-select-btn px-4 py-1.5 rounded-full font-label-md text-label-md transition-all duration-150 bg-surface-container text-primary font-medium hover:bg-surface-container-high" type="button">
+            Select
+          </button>
+</div>
+</div>
+<!-- Card 3: Veterans Golf & Rehabilitation -->
+<div class="charity-card group relative flex flex-col justify-between rounded-xl bg-surface/80 border border-outline-variant/40 hover:border-outline p-space-md shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer" data-category="veterans" data-id="3" data-name="Veterans Golf &amp; Rehabilitation">
+<div class="space-y-space-md">
+<div class="relative h-44 w-full rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Two military veterans in relaxed athletic polo shirts sharing a laugh while practicing on a manicured putting green under warm morning sunlight, showcasing camaraderie and calm outdoor healing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuApychYkfsSC9RCVh1g7Al1OFcnMujpCetgEYFzbK6UkXxAqCh1TLORqpDlXyumWXwHWGIqHSDxkeJ1Kcx0zxNxTOII6kYYRTSMhB_UrOCJaDB9GbJC3M2Ixlic5RFlJLxESRZMb5qzPc8HNwZMa78MdZwFyu4_Se-rq5nueE1gRxNbw1pVwWsXU0WJFlemoglfcJGL5GTtUQvf0SxxQjethdiA7uIFAMwvFaSLECAGdrSV2acUMMe8Zw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[15px]" data-icon="shield">shield</span>
+                Veterans &amp; Wellbeing
+              </span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary">
+<span class="text-label-sm font-label-sm opacity-90">Partner since 2021</span>
+<span class="text-label-sm font-label-sm font-semibold bg-primary/80 px-2 py-0.5 rounded backdrop-blur-sm">San Diego, CA</span>
+</div>
+</div>
+<div>
+<div class="flex items-start justify-between gap-3 mb-1.5">
+<h3 class="font-title-md text-title-md text-primary font-bold">
+                Veterans Golf &amp; Rehabilitation
+              </h3>
+<div class="radio-indicator shrink-0 w-6 h-6 rounded-full border-2 border-outline-variant bg-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-transparent" data-icon="check">check</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Mental health therapy and community through adaptive golf programs, peer groups, and trauma-informed instruction.
+            </p>
+</div>
+</div>
+<div class="mt-space-md pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant block">Total Community Fund</span>
+<span class="text-title-md font-title-md font-bold text-primary">Raised $32,000</span>
+</div>
+<button class="card-select-btn px-4 py-1.5 rounded-full font-label-md text-label-md transition-all duration-150 bg-surface-container text-primary font-medium hover:bg-surface-container-high" type="button">
+            Select
+          </button>
+</div>
+</div>
+<!-- Card 4: Adaptive Greens Initiative -->
+<div class="charity-card group relative flex flex-col justify-between rounded-xl bg-surface/80 border border-outline-variant/40 hover:border-outline p-space-md shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer" data-category="accessible" data-id="4" data-name="Adaptive Greens Initiative">
+<div class="space-y-space-md">
+<div class="relative h-44 w-full rounded-lg overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Athletic golfer swinging with precision from a specialized paramobile adaptive golf wheelchair on a lush green course fairway under bright daylight with pines in the soft background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyb9Mr2-zZCS_li_0MVexuZNIIuKpQWT8mHVvezHiW5LCv-CeNZTHJ0Y6Wmac67oqCcss8EnJ-JfT6YTDoXDhg-fZCyb6vbD3A6WWyS1rApijvZc0xBI_k1HRzDoaYnCF6LcKRZrAb69hTYLgXwtGG4Z_oR85eysGUW5dr33nFBFnJzRMrRcKLZK8_rqwo9cFby6pzoq0BMGBALQJlbxA2KIncdUohr1-FO2qRDGrT4WvKwkzY39jYdw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+<div class="absolute top-3 left-3 flex gap-2">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md text-primary font-label-sm text-label-sm font-semibold flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-[15px]" data-icon="accessible">accessible</span>
+                Community &amp; Access
+              </span>
+</div>
+<div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-on-primary">
+<span class="text-label-sm font-label-sm opacity-90">Partner since 2024</span>
+<span class="text-label-sm font-label-sm font-semibold bg-primary/80 px-2 py-0.5 rounded backdrop-blur-sm">Denver, CO</span>
+</div>
+</div>
+<div>
+<div class="flex items-start justify-between gap-3 mb-1.5">
+<h3 class="font-title-md text-title-md text-primary font-bold">
+                Adaptive Greens Initiative
+              </h3>
+<div class="radio-indicator shrink-0 w-6 h-6 rounded-full border-2 border-outline-variant bg-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px] text-transparent" data-icon="check">check</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+              Wheelchair golf accessibility, specialized all-terrain carts, and course modifications to guarantee universal course entry.
+            </p>
+</div>
+</div>
+<div class="mt-space-md pt-3 border-t border-outline-variant/30 flex items-center justify-between">
+<div>
+<span class="text-label-sm font-label-sm text-on-surface-variant block">Total Community Fund</span>
+<span class="text-title-md font-title-md font-bold text-primary">Raised $28,500</span>
+</div>
+<button class="card-select-btn px-4 py-1.5 rounded-full font-label-md text-label-md transition-all duration-150 bg-surface-container text-primary font-medium hover:bg-surface-container-high" type="button">
+            Select
+          </button>
+</div>
+</div>
+</div>
+<!-- Bottom Contribution Percentage Control Card -->
+<div class="rounded-2xl bg-surface-container-low border border-outline-variant/40 p-space-md md:p-space-lg shadow-sm mb-space-xl">
+<div class="max-w-3xl">
+<div class="flex items-center gap-2 mb-1">
+<span class="material-symbols-outlined text-primary" data-icon="tune">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-primary font-bold">Your Charitable Contribution Percentage</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mb-space-md">
+          10% is included in your membership by default. Feel free to increase your pledge from personal winnings or subscription tithe.
+        </p>
+<!-- Segmented Percentage Selector -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-space-md">
+<!-- 10% Baseline -->
+<button class="tier-btn flex flex-col items-center justify-center p-3 rounded-xl border border-outline-variant/50 bg-surface hover:bg-surface-container text-left transition-all" data-amount="1.90" data-label="Default baseline" data-percentage="10" type="button">
+<span class="text-title-md font-title-md font-bold text-primary">10%</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Default baseline</span>
+</button>
+<!-- 15% Active -->
+<button class="tier-btn active flex flex-col items-center justify-center p-3 rounded-xl border-2 border-primary-container bg-secondary-container/50 text-left transition-all ring-2 ring-primary-container/10" data-amount="2.85" data-label="Impact booster" data-percentage="15" type="button">
+<span class="text-title-md font-title-md font-bold text-primary">15%</span>
+<span class="text-label-sm font-label-sm text-primary font-semibold">Impact booster</span>
+</button>
+<!-- 20% Hero -->
+<button class="tier-btn flex flex-col items-center justify-center p-3 rounded-xl border border-outline-variant/50 bg-surface hover:bg-surface-container text-left transition-all" data-amount="3.80" data-label="Hero tier" data-percentage="20" type="button">
+<span class="text-title-md font-title-md font-bold text-primary">20%</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Hero tier</span>
+</button>
+<!-- 25% Patron -->
+<button class="tier-btn flex flex-col items-center justify-center p-3 rounded-xl border border-outline-variant/50 bg-surface hover:bg-surface-container text-left transition-all" data-amount="4.75" data-label="Community patron" data-percentage="25" type="button">
+<span class="text-title-md font-title-md font-bold text-primary">25%</span>
+<span class="text-label-sm font-label-sm text-on-surface-variant">Community patron</span>
+</button>
+</div>
+<!-- Live Calculation Pill -->
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface border border-outline-variant/30 text-primary">
+<span class="material-symbols-outlined text-secondary shrink-0" data-icon="sparkles">arrow_back_ios_new</span>
+<p class="font-body-md text-body-md font-medium" id="livePill">
+            At <span class="font-bold text-primary" id="calcPercent">15%</span>, you contribute <span class="font-bold text-primary" id="calcAmount">$2.85</span> every month directly to <span class="font-bold text-primary" id="calcCharity">Highland Dunes Native Restoration</span>.
+          </p>
+</div>
+</div>
+</div>
+<!-- Actions & Submission Section -->
+<div class="flex flex-col-reverse sm:flex-row items-center justify-between gap-4 pt-space-md border-t border-outline-variant/30">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-on-surface font-label-lg text-label-lg hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="arrow_back">arrow_back</span>
+        Back to plans
+      </a>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-primary-container text-on-primary font-label-lg text-label-lg font-bold shadow-md hover:translate-y-[-1px] hover:shadow-lg transition-all active:scale-[0.98]" id="continueBtn" type="button">
+<span>Review &amp; Confirm</span>
+<span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</main>
+<!-- Grounded Minimal Footer for Focused Journeys -->
+<footer class="mt-auto border-t border-outline-variant/20 py-space-md bg-surface text-center text-on-surface-variant">
+<div class="max-w-7xl mx-auto px-space-md flex flex-col sm:flex-row items-center justify-between gap-2 text-label-sm font-label-sm">
+<span>Digital Heroes Platform © 2025. Grassroots Golf &amp; Impact Initiative.</span>
+<div class="flex items-center gap-4">
+<a class="hover:text-primary" href="#">Charity Verification FAQ</a>
+<a class="hover:text-primary" href="#">Terms of Pledge</a>
+<a class="hover:text-primary" href="#">Privacy Policy</a>
+</div>
+</div>
+</footer>
+<!-- Micro-interactions Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let selectedCharityName = 'Highland Dunes Native Restoration';
+      let selectedPercentage = '15%';
+      let selectedAmount = '$2.85';
+
+      const charityCards = document.querySelectorAll('.charity-card');
+      const tierButtons = document.querySelectorAll('.tier-btn');
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const searchInput = document.getElementById('charitySearch');
+      
+      const calcPercent = document.getElementById('calcPercent');
+      const calcAmount = document.getElementById('calcAmount');
+      const calcCharity = document.getElementById('calcCharity');
+
+      function updateCalculation() {
+        calcPercent.textContent = selectedPercentage;
+        calcAmount.textContent = selectedAmount;
+        calcCharity.textContent = selectedCharityName;
+      }
+
+      // Card Selection Logic
+      charityCards.forEach(card => {
+        card.addEventListener('click', () => {
+          charityCards.forEach(c => {
+            c.classList.remove('border-primary-container', 'ring-2', 'ring-primary-container/20', 'bg-surface/90');
+            c.classList.add('border-outline-variant/40', 'bg-surface/80');
+            
+            // Radio Indicator
+            const radio = c.querySelector('.radio-indicator');
+            radio.className = 'radio-indicator shrink-0 w-6 h-6 rounded-full border-2 border-outline-variant bg-surface flex items-center justify-center';
+            radio.querySelector('.material-symbols-outlined').classList.add('text-transparent');
+            radio.querySelector('.material-symbols-outlined').classList.remove('text-on-primary');
+
+            // Button
+            const btn = c.querySelector('.card-select-btn');
+            btn.className = 'card-select-btn px-4 py-1.5 rounded-full font-label-md text-label-md transition-all duration-150 bg-surface-container text-primary font-medium hover:bg-surface-container-high';
+            btn.textContent = 'Select';
+          });
+
+          // Set Active
+          card.classList.remove('border-outline-variant/40', 'bg-surface/80');
+          card.classList.add('border-primary-container', 'ring-2', 'ring-primary-container/20', 'bg-surface/90');
+
+          const radio = card.querySelector('.radio-indicator');
+          radio.className = 'radio-indicator shrink-0 w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center';
+          radio.querySelector('.material-symbols-outlined').classList.remove('text-transparent');
+
+          const btn = card.querySelector('.card-select-btn');
+          btn.className = 'card-select-btn px-4 py-1.5 rounded-full font-label-md text-label-md transition-all duration-150 bg-primary-container text-on-primary font-semibold';
+          btn.textContent = 'Selected';
+
+          selectedCharityName = card.dataset.name;
+          updateCalculation();
+        });
+      });
+
+      // Percentage Segment Selector
+      tierButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tierButtons.forEach(b => {
+            b.classList.remove('active', 'border-2', 'border-primary-container', 'bg-secondary-container/50', 'ring-2', 'ring-primary-container/10');
+            b.classList.add('border', 'border-outline-variant/50', 'bg-surface');
+            const subtext = b.querySelector('.text-label-sm');
+            subtext.className = 'text-label-sm font-label-sm text-on-surface-variant';
+          });
+
+          btn.classList.remove('border', 'border-outline-variant/50', 'bg-surface');
+          btn.classList.add('active', 'border-2', 'border-primary-container', 'bg-secondary-container/50', 'ring-2', 'ring-primary-container/10');
+          const subtext = btn.querySelector('.text-label-sm');
+          subtext.className = 'text-label-sm font-label-sm text-primary font-semibold';
+
+          selectedPercentage = btn.dataset.percentage + '%';
+          selectedAmount = '$' + btn.dataset.amount;
+          updateCalculation();
+        });
+      });
+
+      // Filter Buttons
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterButtons.forEach(b => {
+            b.className = 'filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-label-sm font-label-sm transition-all bg-surface hover:bg-surface-container text-on-surface-variant border border-outline-variant/40';
+          });
+          btn.className = 'filter-btn shrink-0 px-3.5 py-1.5 rounded-full text-label-sm font-label-sm transition-all bg-primary text-on-primary font-semibold shadow-xs';
+
+          const filter = btn.dataset.filter;
+          charityCards.forEach(card => {
+            if (filter === 'all' || card.dataset.category === filter) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Realtime Client-side Search
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        charityCards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body></html>

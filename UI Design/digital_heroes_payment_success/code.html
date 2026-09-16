@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Payment Success &amp; Membership Activated | Digital Heroes</title>
+<!-- Google Fonts: Outfit & Plus Jakarta Sans -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Theme Configuration Verbatim -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "outline": "#707974",
+            "on-primary-container": "#8abda9",
+            "on-surface": "#151d19",
+            "surface-bright": "#f3fcf5",
+            "surface": "#f3fcf5",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary": "#ffffff",
+            "on-tertiary-container": "#dbaa53",
+            "secondary-container": "#c4e8d8",
+            "inverse-on-surface": "#eaf3ec",
+            "on-error-container": "#93000a",
+            "on-tertiary-fixed-variant": "#5f4100",
+            "primary-fixed-dim": "#9ed1bd",
+            "surface-container-highest": "#dce5de",
+            "outline-variant": "#c0c9c3",
+            "on-secondary-fixed-variant": "#2d4d42",
+            "error": "#ba1a1a",
+            "surface-tint": "#376757",
+            "inverse-primary": "#9ed1bd",
+            "on-tertiary": "#ffffff",
+            "secondary-fixed-dim": "#abcebf",
+            "tertiary": "#3f2a00",
+            "surface-variant": "#dce5de",
+            "on-primary-fixed": "#002117",
+            "background": "#f3fcf5",
+            "secondary": "#456559",
+            "surface-container": "#e7f0e9",
+            "primary": "#003629",
+            "surface-container-low": "#edf6ef",
+            "inverse-surface": "#2a322e",
+            "on-primary": "#ffffff",
+            "secondary-fixed": "#c7eadb",
+            "on-primary-fixed-variant": "#1d4f40",
+            "primary-container": "#1b4d3e",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed": "#002117",
+            "primary-fixed": "#baeed9",
+            "on-surface-variant": "#404945",
+            "on-background": "#151d19",
+            "on-error": "#ffffff",
+            "on-secondary-container": "#49695d",
+            "tertiary-fixed": "#ffdeaa",
+            "tertiary-container": "#5c3f00",
+            "surface-dim": "#d3dcd6",
+            "tertiary-fixed-dim": "#f1be65",
+            "surface-container-high": "#e2eae4",
+            "on-tertiary-fixed": "#271900"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "2.5rem",
+            "margin": "3rem",
+            "space-sm": "0.5rem",
+            "gutter": "1.5rem",
+            "space-md": "1rem",
+            "space-xs": "0.25rem",
+            "space-lg": "1.5rem",
+            "margin-mobile": "1.25rem",
+            "gutter-mobile": "1rem"
+          },
+          "fontFamily": {
+            "body-md": [
+              "Plus Jakarta Sans"
+            ],
+            "title-md": [
+              "Outfit"
+            ],
+            "label-sm": [
+              "Plus Jakarta Sans"
+            ],
+            "body-sm": [
+              "Plus Jakarta Sans"
+            ],
+            "label-md": [
+              "Plus Jakarta Sans"
+            ],
+            "headline-lg": [
+              "Outfit"
+            ],
+            "headline-sm": [
+              "Outfit"
+            ],
+            "body-lg": [
+              "Plus Jakarta Sans"
+            ],
+            "headline-xl-mobile": [
+              "Outfit"
+            ],
+            "headline-md": [
+              "Outfit"
+            ],
+            "headline-xl": [
+              "Outfit"
+            ],
+            "label-lg": [
+              "Plus Jakarta Sans"
+            ],
+            "display-lg-mobile": [
+              "Outfit"
+            ],
+            "display-lg": [
+              "Outfit"
+            ]
+          },
+          "fontSize": {
+            "body-md": [
+              "15px",
+              {
+                "lineHeight": "22px",
+                "fontWeight": "400"
+              }
+            ],
+            "title-md": [
+              "18px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "600"
+              }
+            ],
+            "label-sm": [
+              "11px",
+              {
+                "lineHeight": "14px",
+                "letterSpacing": "0.04em",
+                "fontWeight": "700"
+              }
+            ],
+            "body-sm": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "400"
+              }
+            ],
+            "label-md": [
+              "12px",
+              {
+                "lineHeight": "16px",
+                "letterSpacing": "0.02em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-lg": [
+              "32px",
+              {
+                "lineHeight": "40px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-sm": [
+              "20px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "600"
+              }
+            ],
+            "body-lg": [
+              "18px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "400"
+              }
+            ],
+            "headline-xl-mobile": [
+              "30px",
+              {
+                "lineHeight": "36px",
+                "letterSpacing": "-0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-md": [
+              "24px",
+              {
+                "lineHeight": "32px",
+                "letterSpacing": "-0.005em",
+                "fontWeight": "600"
+              }
+            ],
+            "headline-xl": [
+              "40px",
+              {
+                "lineHeight": "48px",
+                "letterSpacing": "-0.015em",
+                "fontWeight": "700"
+              }
+            ],
+            "label-lg": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "letterSpacing": "0.01em",
+                "fontWeight": "600"
+              }
+            ],
+            "display-lg-mobile": [
+              "38px",
+              {
+                "lineHeight": "44px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "display-lg": [
+              "56px",
+              {
+                "lineHeight": "64px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: normal;
+      text-transform: none;
+      display: inline-block;
+      white-space: nowrap;
+      word-wrap: normal;
+      direction: ltr;
+      -webkit-font-feature-settings: 'liga';
+      -webkit-font-smoothing: antialiased;
+    }
+    .hero-glass {
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(209, 222, 213, 0.65);
+    }
+    .stamp-gold-glow {
+      box-shadow: 0 0 0 4px rgba(201, 154, 69, 0.18), 0 10px 25px -4px rgba(27, 77, 62, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-full flex flex-col antialiased selection:bg-secondary-container selection:text-primary">
+<!-- Sandbox Simulation Banner -->
+<div class="bg-surface-container-high border-b border-outline-variant/40 px-space-md py-1.5 text-center flex items-center justify-center gap-2">
+<span class="inline-block w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span>
+<p class="font-label-md text-label-md text-on-surface-variant tracking-wide">
+      Simulated Sandbox Environment • UI-Only Demo • Zero Real Financial Charges
+    </p>
+</div>
+<!-- Shared Component: TopNavBar (Docked top sticky) -->
+<header class="bg-surface/85 backdrop-blur-md text-primary shadow-sm border-b border-outline-variant/30 sticky top-0 z-40">
+<div class="flex justify-between items-center w-full px-space-md md:px-space-lg lg:px-space-xl max-w-7xl mx-auto h-16">
+<!-- Brand Logo -->
+<div class="flex items-center gap-3">
+<a class="text-headline-sm font-headline-sm font-bold text-primary tracking-tight flex items-center gap-2" href="#">
+<span class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-primary-fixed shadow-sm">
+<span class="material-symbols-outlined" data-icon="sports_golf">sports_golf</span>
+</span>
+          Digital Heroes
+        </a>
+<span class="hidden sm:inline-flex items-center text-label-sm font-label-sm px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container border border-outline-variant/40">
+          Feel, not fairway
+        </span>
+</div>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Draws</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Scorecard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Impact</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors text-label-md font-label-md" href="#">Winnings</a>
+</nav>
+<!-- Trailing Actions Cluster -->
+<div class="flex items-center gap-4">
+<!-- Impact Metric Pill -->
+<div class="hidden lg:flex items-center gap-2 bg-surface-container-low border border-outline-variant/50 rounded-full px-3 py-1 shadow-sm">
+<span class="material-symbols-outlined text-primary text-base" data-icon="volunteer_activism" data-weight="fill" style="font-variation-settings: 'FILL' 1;">volunteer_activism</span>
+<span class="text-label-md font-label-md text-primary font-semibold">Impact: $14,250</span>
+</div>
+<button aria-label="Notifications" class="p-2 rounded-full text-on-surface-variant hover:bg-surface-container-high/60 transition-colors duration-150 active:scale-[0.98]">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<div class="flex items-center gap-2 pl-1 border-l border-outline-variant/40">
+<div class="w-8 h-8 rounded-full bg-primary-container text-on-primary flex items-center justify-center font-label-md font-bold ring-2 ring-outline-variant/30">
+            JH
+          </div>
+<span class="text-label-md font-label-md text-on-surface hidden sm:inline font-semibold">Julian H.</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Canvas: Desktop Payment Success & Membership Activated Flow -->
+<main class="flex-grow max-w-7xl mx-auto w-full px-space-md md:px-space-lg lg:px-space-xl py-space-xl">
+<!-- Flow Stepper Indicator -->
+<div class="max-w-2xl mx-auto mb-8">
+<div class="flex items-center justify-between relative">
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-0.5 bg-outline-variant/40 -z-0"></div>
+<div class="absolute left-0 top-1/2 -translate-y-1/2 w-full h-0.5 bg-primary -z-0"></div>
+<!-- Step 1 Done -->
+<div class="relative z-10 flex flex-col items-center bg-background px-2">
+<div class="w-7 h-7 rounded-full bg-primary text-primary-fixed flex items-center justify-center text-xs font-semibold">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-1">Select Tier</span>
+</div>
+<!-- Step 2 Done -->
+<div class="relative z-10 flex flex-col items-center bg-background px-2">
+<div class="w-7 h-7 rounded-full bg-primary text-primary-fixed flex items-center justify-center text-xs font-semibold">
+<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant mt-1">Verify Method</span>
+</div>
+<!-- Step 3 Active (Complete) -->
+<div class="relative z-10 flex flex-col items-center bg-background px-2">
+<div class="w-8 h-8 rounded-full bg-primary text-surface-container-lowest flex items-center justify-center text-xs font-bold ring-4 ring-secondary-container">
+<span class="material-symbols-outlined text-sm" data-icon="flag">flag</span>
+</div>
+<span class="text-label-sm font-label-sm text-primary font-bold mt-1">Confirmation</span>
+</div>
+</div>
+</div>
+<!-- Centered Celebration Container -->
+<section class="text-center max-w-3xl mx-auto mb-10">
+<div class="inline-flex items-center justify-center mb-5">
+<div class="relative">
+<!-- Outer subtle golden glow boundary -->
+<div class="w-24 h-24 rounded-full bg-primary-container text-surface-container-lowest flex items-center justify-center stamp-gold-glow relative z-10 border-2 border-[#C99A45]">
+<span class="material-symbols-outlined text-4xl" data-icon="check" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check</span>
+</div>
+<!-- Subtle festive aura -->
+<div class="absolute -inset-2 rounded-full bg-secondary-container/40 blur-md -z-0"></div>
+</div>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container text-label-sm font-label-sm font-bold mb-3 border border-outline-variant/30">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="workspace_premium">workspace_premium</span>
+        STEP 3 OF 3: SUBSCRIBER REGISTRATION COMPLETED
+      </div>
+<h1 class="text-headline-xl font-headline-xl text-primary tracking-tight mb-3">
+        Membership Activated!
+      </h1>
+<p class="text-body-lg font-body-lg text-on-surface-variant max-w-2xl mx-auto">
+        Welcome to Digital Heroes, Julian. Your subscription is active and your October ballot entries are officially registered.
+      </p>
+</section>
+<!-- Bento Grid Section: Receipt & Entitlements + Charity Context -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg mb-12">
+<!-- Left Column: Transaction & Entitlement Blueprint (8 Cols) -->
+<section class="lg:col-span-8 space-y-6">
+<div class="hero-glass rounded-2xl p-space-lg shadow-sm">
+<!-- Card Header & Metadata -->
+<div class="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-outline-variant/40">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant tracking-wider uppercase">Official Entitlement Certificate</p>
+<h2 class="text-headline-sm font-headline-sm text-primary mt-0.5">Subscription Ledger Record</h2>
+</div>
+<div class="text-right">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-primary font-label-md font-label-md border border-outline-variant/40">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+                Paid &amp; Provisioned
+              </span>
+</div>
+</div>
+<!-- Key Financial & Identity Breakdown -->
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 py-5 border-b border-outline-variant/30">
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Transaction Ref</p>
+<p class="text-label-md font-label-md font-semibold text-on-surface mt-1 font-mono">#SIM-DH-90412-PAY</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Oct 28, 2024</p>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Payment Method</p>
+<div class="flex items-center gap-2 mt-1">
+<span class="material-symbols-outlined text-primary text-lg" data-icon="credit_card">credit_card</span>
+<span class="text-label-md font-label-md font-semibold text-on-surface">Visa •••• 4491</span>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant">Instant Simulated Clearing</p>
+</div>
+<div>
+<p class="text-label-sm font-label-sm text-on-surface-variant">Subscription Tier</p>
+<p class="text-title-md font-title-md text-primary mt-0.5">Monthly Hero Plan</p>
+<p class="text-body-sm font-body-sm text-on-surface-variant">$19.00 USD / billed monthly</p>
+</div>
+</div>
+<!-- Ballot Allocation Block -->
+<div class="py-5 border-b border-outline-variant/30">
+<div class="flex items-center justify-between mb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="casino">casino</span>
+<h3 class="text-title-md font-title-md text-primary">Ballot Allocation &amp; Draw Pool</h3>
+</div>
+<span class="text-label-sm font-label-sm bg-[#ffdeaa] text-tertiary px-2.5 py-0.5 rounded-full font-bold">
+                $250,000 Purse
+              </span>
+</div>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">
+              5 Verified Stableford Ballots locked into October 31 Draw. Your allocation gives you 5 chances in the monthly prize events.
+            </p>
+<!-- 5 Interactive Number / Ticket Chips -->
+<div class="flex flex-wrap gap-2.5 items-center">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container text-surface-container-lowest font-label-md font-semibold shadow-xs">
+<span class="material-symbols-outlined text-sm" data-icon="tag">tag</span>
+                DH-8812-A
+              </div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container text-surface-container-lowest font-label-md font-semibold shadow-xs">
+<span class="material-symbols-outlined text-sm" data-icon="tag">tag</span>
+                DH-8812-B
+              </div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container text-surface-container-lowest font-label-md font-semibold shadow-xs">
+<span class="material-symbols-outlined text-sm" data-icon="tag">tag</span>
+                DH-8812-C
+              </div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container text-surface-container-lowest font-label-md font-semibold shadow-xs">
+<span class="material-symbols-outlined text-sm" data-icon="tag">tag</span>
+                DH-8812-D
+              </div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary-container text-surface-container-lowest font-label-md font-semibold shadow-xs">
+<span class="material-symbols-outlined text-sm" data-icon="tag">tag</span>
+                DH-8812-E
+              </div>
+</div>
+</div>
+<!-- Cryptographic Ballot Hash & Audit Footprint -->
+<div class="pt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-body-sm font-body-sm text-on-surface-variant bg-surface-container-low/70 rounded-xl p-3 border border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="verified_user">verified_user</span>
+<span><strong>Cryptographic Ballot Hash:</strong> <code class="font-mono text-primary font-semibold">SHA-256 #8b02f...c34b</code></span>
+</div>
+<div class="flex items-center gap-1 text-label-sm font-label-sm text-secondary font-medium">
+<span class="material-symbols-outlined text-sm" data-icon="account_balance">account_balance</span>
+              Audited by Barclays Trust Escrow
+            </div>
+</div>
+</div>
+</section>
+<!-- Right Column: Charity Impact Spotlight & Heritage (4 Cols) -->
+<section class="lg:col-span-4 space-y-6">
+<div class="hero-glass rounded-2xl p-space-lg shadow-sm flex flex-col justify-between h-full border-secondary-fixed">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="text-label-sm font-label-sm uppercase font-bold text-primary tracking-wider flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-base" data-icon="nature">nature</span>
+                Charity Allocation
+              </span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-primary font-bold text-label-sm font-label-sm">
+                15% Tithe
+              </span>
+</div>
+<h3 class="text-headline-sm font-headline-sm text-primary mb-2">
+              Highland Dunes Native Restoration
+            </h3>
+<p class="text-body-md font-body-md text-on-surface-variant mb-4">
+              Your monthly subscription automatically earmarks <strong class="text-primary">$2.85/mo</strong> directly toward coastal marram grass dune stabilization across historic Scottish coastal courses.
+            </p>
+<!-- Curated Thematic Visual Frame -->
+<div class="rounded-xl overflow-hidden mb-4 border border-outline-variant/40 shadow-inner">
+<img class="w-full h-40 object-cover" data-alt="An expansive Scottish coastal links golf landscape at golden hour, showcasing rolling sand dunes covered with delicate native marram grasses in warm sunlight. The North Sea extends in the background under soft overcast clouds, highlighting organic botanical greens and muted earth tones that harmonize with a refined minimalist athletic aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7D9iKLDUT7seAugsAcfm9UzIjzNQ8MfCxqXvJbkThyZoFNk5GPWi8HQeJhH35IXB1ciF7n8rldozSDT4ehwyD-Ed2JG8tn6q8zBd_ck5SHSta4R0UZ5HceEhV-9MLUnRXmXKTkFT4n4dmdkh2XI0QzTI_WrJZCYFESJvlbwaE_2ttI9k2UMOlg01rR4P0n5LaQhRcaAe3waPbTw_yeDCV2DSSEqMY5Rl3dK8VuIfoRJ7s6h5DXO8M-A"/>
+</div>
+<div class="space-y-2 bg-surface-container rounded-xl p-3 border border-outline-variant/30">
+<div class="flex justify-between items-center text-label-sm font-label-sm">
+<span class="text-on-surface-variant">Annual Dune Protection Pledge</span>
+<span class="font-bold text-primary">$34.20 / yr</span>
+</div>
+<div class="w-full bg-surface-container-highest rounded-full h-1.5">
+<div class="bg-primary-container h-1.5 rounded-full w-3/4"></div>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant text-right">Target 2024 Course Area: Dornoch Firth</p>
+</div>
+</div>
+<div class="pt-4 mt-4 border-t border-outline-variant/30 flex items-center gap-2 text-body-sm font-body-sm text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="energy_savings_leaf">energy_savings_leaf</span>
+<span>Carbon-Neutral &amp; Geo-Certified Partner</span>
+</div>
+</div>
+</section>
+</div>
+<!-- What Happens Next: 3 Visual Milestone Cards -->
+<section class="mb-12">
+<div class="text-center max-w-xl mx-auto mb-8">
+<h2 class="text-headline-md font-headline-md text-primary tracking-tight">What Happens Next</h2>
+<p class="text-body-md font-body-md text-on-surface-variant mt-1">Your three-phase subscriber journey commences today.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Milestone Card 1 -->
+<div class="hero-glass rounded-2xl p-space-lg shadow-sm border border-outline-variant/40 flex flex-col justify-between hover:translate-y-[-2px] transition-transform duration-200">
+<div>
+<div class="w-10 h-10 rounded-full bg-secondary-container text-primary flex items-center justify-center font-bold font-title-md mb-4 shadow-xs">
+              1
+            </div>
+<h3 class="text-title-md font-title-md text-primary mb-2">Log Your 5 Scores</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">
+              Attest your Stableford scores or sync seamlessly with Scottish Golf WHS to finalize numbers and validate your handicap differential for ballot weight.
+            </p>
+</div>
+<div class="mt-6 pt-3 border-t border-outline-variant/20 flex items-center gap-2 text-label-md font-label-md text-primary font-semibold">
+<span class="material-symbols-outlined text-base" data-icon="sports_score">sports_score</span>
+            Scorecard portal active
+          </div>
+</div>
+<!-- Milestone Card 2 -->
+<div class="hero-glass rounded-2xl p-space-lg shadow-sm border border-outline-variant/40 flex flex-col justify-between hover:translate-y-[-2px] transition-transform duration-200">
+<div>
+<div class="w-10 h-10 rounded-full bg-secondary-container text-primary flex items-center justify-center font-bold font-title-md mb-4 shadow-xs">
+              2
+            </div>
+<h3 class="text-title-md font-title-md text-primary mb-2">Track Your Impact</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">
+              Receive monthly updates showing GPS coordinates and drone imagery of dunes restored from your tithe across coastal preservation zones.
+            </p>
+</div>
+<div class="mt-6 pt-3 border-t border-outline-variant/20 flex items-center gap-2 text-label-md font-label-md text-primary font-semibold">
+<span class="material-symbols-outlined text-base" data-icon="satellite_alt">satellite_alt</span>
+            Quarterly drone report
+          </div>
+</div>
+<!-- Milestone Card 3 -->
+<div class="hero-glass rounded-2xl p-space-lg shadow-sm border border-outline-variant/40 flex flex-col justify-between hover:translate-y-[-2px] transition-transform duration-200">
+<div>
+<div class="w-10 h-10 rounded-full bg-secondary-container text-primary flex items-center justify-center font-bold font-title-md mb-4 shadow-xs">
+              3
+            </div>
+<h3 class="text-title-md font-title-md text-primary mb-2">Monthly Draw Reveal</h3>
+<p class="text-body-md font-body-md text-on-surface-variant">
+              The grand draw occurs Oct 31 at 20:00 UTC. Check verified winnings and audited prize allocations directly in your member dashboard.
+            </p>
+</div>
+<div class="mt-6 pt-3 border-t border-outline-variant/20 flex items-center gap-2 text-label-md font-label-md text-[#C99A45] font-semibold">
+<span class="material-symbols-outlined text-base" data-icon="trophy">trophy</span>
+            Live stream &amp; escrow audit
+          </div>
+</div>
+</div>
+</section>
+<!-- Action Buttons Cluster -->
+<section class="max-w-3xl mx-auto text-center pb-6">
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<!-- Primary CTA: Go to Dashboard -->
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-3.5 rounded-full bg-primary-container text-surface-container-lowest font-label-lg font-label-lg hover:bg-primary transition-all duration-150 shadow-md hover:shadow-lg active:scale-[0.98]" href="#">
+<span class="material-symbols-outlined text-xl" data-icon="dashboard">dashboard</span>
+          Go to Subscriber Dashboard
+        </a>
+<!-- Secondary CTA: Download Simulated Tax Receipt -->
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-surface-container border border-outline-variant/60 text-primary font-label-md font-label-md hover:bg-surface-container-high transition-colors active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="download">download</span>
+          Download Simulated Tax Receipt (PDF)
+        </button>
+<!-- Secondary CTA: Log First Round -->
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-transparent hover:bg-surface-container/60 border border-outline-variant/40 text-on-surface font-label-md font-label-md transition-colors active:scale-[0.98]" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="add_circle">add_circle</span>
+          Log Your First Round
+        </button>
+</div>
+<p class="text-body-sm font-body-sm text-on-surface-variant mt-4">
+        A confirmation dispatch with ballot serial keys has been simulated to <span class="font-semibold text-on-surface">julian.h@example.com</span>.
+      </p>
+</section>
+</main>
+<!-- Global Footer Component -->
+<footer class="bg-surface-container border-t border-outline-variant/30 mt-auto">
+<div class="max-w-7xl mx-auto px-space-md md:px-space-lg lg:px-space-xl py-space-lg">
+<div class="flex flex-col md:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="w-6 h-6 rounded-full bg-primary text-primary-fixed flex items-center justify-center text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="sports_golf">sports_golf</span>
+</span>
+<p class="text-body-sm font-body-sm text-on-surface-variant">
+            © 2024 Digital Heroes Golf Club Ltd. Operating under simulated regulatory guidelines.
+          </p>
+</div>
+<div class="flex items-center gap-6 text-label-md font-label-md text-on-surface-variant">
+<a class="hover:text-primary transition-colors" href="#">Privacy Charter</a>
+<a class="hover:text-primary transition-colors" href="#">Ballot Terms &amp; Escrow</a>
+<a class="hover:text-primary transition-colors" href="#">Scottish Links Trust Impact</a>
+<a class="hover:text-primary transition-colors" href="#">Support Desk</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

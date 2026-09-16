@@ -1,0 +1,151 @@
+:root {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #151d19;
+  background: #f3fcf5;
+  font-synthesis: none;
+  line-height: 1.6;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+header,
+footer {
+  max-width: 1240px;
+  margin: auto;
+  padding: 24px 32px;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #dce5de;
+}
+.brand {
+  font-family: Outfit, sans-serif;
+  font-size: 26px;
+  color: #004a36;
+  text-decoration: none;
+}
+.brand span {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 12px;
+}
+.pill {
+  background: #e7f0e9;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-size: 12px;
+}
+main {
+  max-width: 880px;
+  margin: 64px auto;
+  padding: 0 24px;
+  text-align: center;
+}
+.eyebrow {
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  color: #476459;
+}
+h1,
+h2 {
+  font-family: Outfit, sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  font-weight: 600;
+  color: #004a36;
+}
+h1 {
+  font-size: 56px;
+  margin: 16px 0;
+}
+h2 {
+  font-size: 32px;
+}
+.intro {
+  color: #3f4944;
+}
+section {
+  margin-top: 40px;
+  padding: 40px;
+  background: #edf6ef;
+  border: 1px solid #dce5de;
+  border-radius: 32px;
+  box-shadow: 0 12px 28px -6px #0b292014;
+}
+.symbol {
+  display: grid;
+  place-items: center;
+  background: #dce5de;
+  color: #004a36;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  margin: auto;
+  font-size: 32px;
+}
+button {
+  font: inherit;
+  min-height: 52px;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 9999px;
+  color: white;
+  background: #18634b;
+  cursor: pointer;
+  margin-top: 16px;
+}
+button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+:focus-visible {
+  outline: 3px solid #216a52;
+  outline-offset: 5px;
+}
+.note,
+footer {
+  font-size: 13px;
+  color: #476459;
+}
+.note {
+  margin-top: 24px;
+}
+.request {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+footer {
+  text-align: center;
+}
+@media (max-width: 600px) {
+  header {
+    padding: 16px;
+    align-items: flex-start;
+  }
+  .brand {
+    font-size: 22px;
+  }
+  .pill {
+    max-width: 120px;
+  }
+  main {
+    margin: 40px auto;
+    padding: 0 16px;
+  }
+  h1 {
+    font-size: 38px;
+  }
+  h2 {
+    font-size: 26px;
+  }
+  section {
+    padding: 24px 16px;
+    border-radius: 24px;
+  }
+}
