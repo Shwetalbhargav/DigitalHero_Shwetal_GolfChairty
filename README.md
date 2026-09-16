@@ -1,6 +1,6 @@
-# Digital Heroes — B01 project setup
+# Digital Heroes — B02 UI foundation
 
-JavaScript Express/Mongoose API and React/Vite client. This release delivers the runnable platform foundation and a live readiness screen. Membership, payments, scores and draws belong to later branches.
+JavaScript Express/Mongoose API and React/Vite client. This release adds accessible shared components, public/member/admin layout previews, an interactive UI reference, and live readiness. Membership, payments, scores and draws belong to later branches.
 
 ## Setup
 
@@ -38,3 +38,25 @@ One root package-lock.json covers both workspaces. npm run format formats only i
 
 See [API contract](docs/API.md), [decisions](docs/Decisions.md), [architecture and function walkthrough](docs/Architecture.md), and [verification and PR handoff](docs/Handoff.md).
 ```
+
+## UI foundation and browser checks
+
+Use /ui for the component library, /dashboard for the member shell, /admin for the admin shell and /status for the live connection. Member/admin pages are openly accessible previews with no private data or authorization. Each shell also has /ui and /status child routes.
+
+To work on the UI without MongoDB, run npm run dev -w frontend. The service card will honestly show an unavailable response while the rest of the foundation works. For full-stack development follow the environment setup above.
+
+Run from the root:
+
+```powershell
+npm ci
+npx playwright install chromium
+npm run lint
+npm run format:check
+npm test
+npm run build
+npm run test:e2e -w frontend
+```
+
+Playwright starts Vite on port 5173 (or reuses a running server), checks keyboard behavior, axe accessibility rules, and overflow at 360/768/1440px, then captures screenshots under docs/screenshots/b02. Production static hosting must rewrite non-asset browser routes to index.html while keeping /api routed to Express.
+
+See [component/function contracts](docs/UI-Foundation.md) and [B02 results and prepared commit/PR](docs/B02-Handoff.md).

@@ -46,3 +46,20 @@ Probes have no request body. Initial DB connection failure exits before opening 
 Credentialed CORS allows exactly CLIENT_ORIGIN. Requests with no Origin (probes/CLI) are accepted. CORS is not authentication or CSRF protection. Add server-side authorization and CSRF defenses before introducing cookie-authenticated writes.
 
 The frontend api(path, options) uses credentials: include, accepts an AbortSignal and returns unwrapped data. It throws ApiClientError with message, status, code and requestId for HTTP errors. NETWORK_ERROR, TIMEOUT, INVALID_PATH and INVALID_RESPONSE are local client codes (status 0 when no HTTP response exists). Caller cancellation passes through to the caller. For future JSON writes, callers must serialize the body and supply Content-Type: application/json.
+
+## B02 browser routes (not backend endpoints)
+
+| Path | Layout and content | Access |
+| --- | --- | --- |
+| / | Public foundation overview and live readiness card | Public |
+| /ui | Interactive component reference | Public |
+| /status | Live GET /api/ready status | Public |
+| /dashboard | Member layout preview; no account data | Public preview |
+| /dashboard/ui | Component reference in member layout | Public preview |
+| /dashboard/status | Readiness in member layout | Public preview |
+| /admin | Admin layout preview; no authorization granted | Public preview |
+| /admin/ui | Component reference in admin layout | Public preview |
+| /admin/status | Readiness in admin layout | Public preview |
+| Other paths | Visible not-found view; /dashboard/* and /admin/* retain their shell | Public |
+
+B02 adds no API endpoints and no persistence. The library's display-name example accepts a trimmed length of 2–50 characters locally and reports that nothing was saved. Future private product routes require server-side authorization and authentication integration. Production hosting needs history fallback to index.html for these browser paths; do not rewrite /api requests to the SPA.

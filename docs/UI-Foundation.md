@@ -1,0 +1,80 @@
+# B02 UI foundation: contracts and walkthrough
+
+## Architecture and data flow
+
+main.jsx imports locally bundled fonts and the shared stylesheet, then mounts App in StrictMode. App installs BrowserRouter. AppRoutes chooses PublicLayout or DashboardLayout and supplies member/admin mode. Each layout renders one main landmark and an Outlet for the selected page. Header and Footer share public links; Sidebar and MobileNav derive their links from the same shellNavigation function. NavLink supplies aria-current for the active URL. RouteFocus updates the document title and moves focus to main after a path change, including browser back/forward.
+
+This branch provides openly accessible **shell previews**, not authenticated account pages. There is no client-side role simulation, private data, or claim of administrator authorization. Future auth branches must gate real private routes and APIs. The library is a functional development reference: its style selector changes selection, its form validates locally, and its dialog opens/closes. It does not claim to save anything. Disabled examples visibly communicate unavailable actions.
+
+ServiceStatus preserves B01's live data flow: mount or retry → api('/ready', signal) → credentialed fetch → envelope validation → Loader, ErrorState or connected status. Cleanup cancels the request. The backend API contract is unchanged.
+
+## Common component contracts
+
+All files are under frontend/src/components/common. Components accept children/standard DOM props only where listed below. Callers provide meaningful visible labels and maintain valid heading levels. React 19 passes refs as ordinary props; Input and Button forward those refs through their DOM props.
+
+| Component/function | Inputs and callers | Output and side effects |
+| --- | --- | --- |
+| Button | children; variant primary/secondary/ghost/danger; size default/small; loading, loadingText, disabled, type, className and button props. Used by dialogs, library, status and Header. | Native button with a safe default type=button. Loading disables activation and sets aria-busy with visible loading text and decorative spinner. Unknown visual variant falls back to primary. Calls supplied event handlers only through normal enabled-button behavior. Navigation uses Link, not a button pretending to navigate. |
+| Input | Required visible label; optional id, hint, error, required, className, aria-describedby and native input props/ref. Used in the library form and dialog. | Labelled native input. useId generates a stable unique ID when none is supplied. Joins caller/hint/error description IDs and sets aria-invalid for errors. Does not validate or persist on its own. Caller owns value/change/error state. |
+| Card | as element (default div), tone default/soft/forest/outline, children, className and DOM props. Used across foundation pages. | Semantic container using the requested tag, token-based surface and safe tone fallback. No events or state beyond passed DOM props. |
+| Badge | children, variant neutral/success/warning/error/info, className and span props. Used by Header, overview and library. | Text-labelled status pill with decorative dot. No implied live announcement; caller can add a role when the state actually changes. Unknown variant falls back to neutral. |
+| SectionTitle | as heading (default h2), eyebrow, title, description, action and heading id. Used by each page/section. | Heading and description with optional action region. Callers use h1 once per page and h2 for sections. No side effects. |
+| Loader | label, variant spinner/skeleton. Used by live readiness and static library example. | Polite role=status with visible loading text; decorative spinner/skeleton bars hidden from assistive technology. Reduced-motion preference stops animation. No fabricated progress percentage. |
+| EmptyState | title, description, action React node, headingLevel (default h3). Used by shell overviews, library and NotFound. | Centred empty feedback and optional real action. Does not claim that unconnected features have zero records. No side effects. |
+| ErrorState | title, message, requestId, onRetry, retrying, headingLevel. Used by live readiness and library. | Alert-labelled reason, optional safe request reference, and a working retry Button only when supplied. retrying prevents duplicate retries. No internal fetching. |
+| Modal | open, required onClose/title, description, children, footer, initialFocusRef, className. Used by Header and ComponentLibrary. | Native dialog in a body portal. showModal makes the background inert. Focus starts at the supplied field or focusable title. A controlled cancel callback handles Escape; close buttons call onClose. Effect closes the dialog and restores its trigger during close/unmount. A shared reference-counted body scroll lock supports overlapping dialogs. No backdrop click dismissal to avoid accidental loss of input. |
+| Modal.trapFocus | Keyboard event from dialog. | On Tab/Shift+Tab, finds enabled, visible, non-inert tabbable descendants (including checking hidden ancestors), wraps at both ends, or focuses the dialog when no controls remain. Other keys keep native behavior. |
+
+## Layout and route contracts
+
+All layout files are under frontend/src/components/layout.
+
+| Component/function | Inputs and caller | Output and side effects |
+| --- | --- | --- |
+| Header | mode public/member/admin from the layout. | Skip link, purpose strip, brand home link, desktop navigation, preview badge and mobile menu trigger. Local state tracks whether navigation is open and the location key at opening. A location change makes the menu close even when navigation happens through browser history. The menu uses Modal for focus/escape/inert behavior; clicking a link also closes it. |
+| Footer | No props, called by both layouts. | Site identity, working library/status links and release-scope note in a footer landmark. No fake legal/social links. |
+| PublicLayout | Router outlet, called by AppRoutes. | Header, one focusable main and Footer. No data access. |
+| DashboardLayout | mode member/admin and router outlet, called by AppRoutes. | Header, Sidebar, main, Footer and MobileNav. CSS shows the sidebar at desktop widths and the dock below 1024px. Does not authorize an account. |
+| Sidebar | mode from DashboardLayout. | Labelled nav links derived from shellNavigation, active state, and explicit unavailable-feature note. Hidden and removed from keyboard navigation at smaller sizes with display:none. |
+| MobileNav | mode from DashboardLayout. | Labelled three-link dock with active state, safe-area spacing and accessible text. Hidden on desktop. Symbols are decorative. |
+| ROUTES / publicNavigation | Imported route constants. | Single route/link definitions for public pages and shell roots. No side effects. |
+| shellNavigation | mode from Sidebar/MobileNav/ShellOverview. | A fresh array for overview, library and service-status links under the correct role shell. Unknown mode selects member. No side effects. |
+| App | Mounted by main.jsx, no props. | BrowserRouter around AppRoutes. The old B01 readiness logic now lives in ServiceStatus. |
+| AppRoutes | No props; called by App inside Router. | Nested public, member and admin routes, context-preserving nested not-found routes, plus RouteFocus. No auth is implied. |
+| RouteFocus | Reads pathname from Router; mounted by AppRoutes. | Sets title from current main h1. On path changes, schedules main focus and scroll-to-top after dialog cleanup. Cancels queued animation frame on cleanup. Initial load preserves native initial focus; same-page anchors keep native behavior. |
+| main.jsx | DOM root. | Imports Outfit 600 and Plus Jakarta Sans 400/600 locally, imports styles/index.css, mounts StrictMode/App. |
+
+## Page and event contracts
+
+Purposeful additions under frontend/src/pages/foundation provide working integration and a reusable reference without implementing later product branches.
+
+| Component/function | Inputs/caller | Output and side effects |
+| --- | --- | --- |
+| FoundationHome | No props; public index route. | Design-led introduction, working links to the library/shells, and embedded live ServiceStatus. No sample financial records. |
+| ShellOverview | mode from AppRoutes. | Role-specific introduction and an honest unavailable state, with links to that shell's library/status. No requests or private data. |
+| ServiceStatus | standalone defaults true; called by routes and FoundationHome (false). | B01 readiness component with correctly ranked heading. Owns attempt/result state, creates an AbortController per request, checks ready/database values and cancels on cleanup. |
+| ServiceStatus.retry | Click from ErrorState or connected-state Button. | Sets loading and increments attempt so the effect performs a fresh real request. |
+| ServiceStatus promise callbacks | API data/error, effect closure. | Update result only while the request is not aborted; preserve message/requestId or reject malformed readiness data as an error state. |
+| ComponentLibrary | No props; public and role-nested library routes. | Token samples, stateful style selection, static labelled badge/loading/empty/error examples, local validation form and a working dialog. State is in memory and resets on unmount. No API calls or storage writes. |
+| ComponentLibrary.validate | Form submit event, current display name. | Prevents navigation; trims input and checks 2–50 characters. Invalid data sets an inline error and focuses the field. Valid data announces that only local validation passed and nothing was saved. |
+| Library style handlers | Variant button clicks. | Update selected style and aria-pressed; no business action. |
+| Library input change handler | Input event. | Updates the controlled name and clears stale error/validation messages. |
+| Library dialog handlers | Open/close click or Escape. | Toggle local open state; Modal owns focus effects. |
+| NotFound | Unknown route selected by AppRoutes. | Visible 404 heading and a working foundation recovery link within the current shell. |
+
+## Styles and integration decisions
+
+styles/tokens.css centralizes the selected DESIGN.md sage palette, typography, spacing, control dimensions, radii and shadows. styles/index.css implements responsive component/layout styling and imports those tokens. The obsolete B01 styles.css was removed to prevent competing global rules. Forest cards use a light focus outline. Native controls have visible outlines, labelled errors and 48px or larger button/navigation targets. Reduced-motion mode disables animations/transitions; smaller-screen focus scrolling leaves space for the bottom dock. No CDN scripts, export Tailwind runtime, remote fonts, fake notifications, invented balances or legal claims were copied.
+
+## Test/support functions
+
+- App.test.jsx exercises readiness retry/cancellation, explicit admin preview and not-found recovery. beforeEach resets browser history to the status route.
+- common.test.jsx uses user-event to verify disabled/busy actions, input description wiring, local validation, dialog tab wrapping/restoration and retry callbacks. Its Harness owns only test dialog state.
+- test/setup.js retains cleanup and adds minimal showModal/close shims because jsdom lacks native dialog methods. They only toggle the open attribute; browser tests separately verify real top-layer modality.
+- playwright.config.js provides a one-worker Chromium runner and starts/stops a Vite server when one is not already running. Screenshots are review artifacts under docs/screenshots/b02; transient reports are ignored.
+- e2e/foundation.spec.js checks four page types at three sizes with axe, overflow and JavaScript-error assertions, plus real keyboard/dialog/routing/validation/reduced-motion checks. Only visual fixture tests intercept readiness with an explicit 503 contract; production code has no fixture path.
+- vite.config.js now limits unit-test discovery to src/**/*.test.{js,jsx}, so Playwright browser tests are not executed by Vitest. The existing single-thread setting is retained.
+
+## Browser routes
+
+See API.md for the route table. Static production hosting must serve frontend/dist/index.html for non-asset browser paths while keeping /api routed to Express. Otherwise direct links such as /dashboard/ui will return the host's 404. No new backend routes were added.

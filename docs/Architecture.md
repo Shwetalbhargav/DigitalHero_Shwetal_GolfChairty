@@ -45,3 +45,7 @@ The browser mounts App, which calls the shared credentialed client for /ready. T
 | main.jsx bootstrap          | DOM root                                                        | Imports local fonts/styles and renders App in StrictMode                                                          |
 
 Test callbacks exercise public contracts, network failures, real Mongoose refusal, startup/shutdown, CORS, malformed requests and client retry/unmount behavior. fixture builds isolated apps with controlled readiness. Frontend setup registers DOM assertions and cleans rendered trees after each test. No test API is exposed in production.
+
+## B02 extension
+
+B02 replaces the single-screen App with React Router and reusable public/member/admin layouts. The B01 App readiness behavior now lives in pages/foundation/ServiceStatus.jsx and uses the shared controls. The B01 descriptions above record the initial foundation; [UI-Foundation.md](UI-Foundation.md) contains the current component, function, prop, caller and side-effect contracts. Added common/layout components, route constants, nested routing, foundation reference pages, centralized styles, and browser accessibility tests each serve the B02 integration and acceptance scope.
