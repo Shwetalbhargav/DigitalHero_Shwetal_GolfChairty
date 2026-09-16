@@ -1,4 +1,4 @@
-# Digital Heroes — B03 homepage
+# Digital Heroes — B04 public charity API
 
 JavaScript Express/Mongoose API and React/Vite client. This release adds accessible shared components, public/member/admin layout previews, an interactive UI reference, and live readiness. Membership, payments, scores and draws belong to later branches.
 
@@ -66,3 +66,28 @@ See [component/function contracts](docs/UI-Foundation.md) and [B02 results and p
 The homepage is at /. It links to /how-it-works for a complete explanation and to /register and /charities for explicit availability notices while those later features are being built. B02's overview is retained at /foundation. The homepage uses labelled illustrative score/prize/cause data and never displays invented live totals.
 
 Run npm run dev -w frontend to view it without a database. npm test runs unit/regression tests; npm run test:e2e -w frontend runs Chromium acceptance checks and captures docs/screenshots/b03. Setup, lint and build commands above are unchanged. See [homepage contracts](docs/Homepage.md) and [B03 handoff](docs/B03-Handoff.md).
+
+## Public charity API and demo seed
+
+Configure backend/.env with a reachable development MongoDB as described above, then run from the root:
+
+```powershell
+npm ci
+npm run seed -w backend
+npm run seed -w backend
+npm run dev -w backend
+```
+
+The first seed inserts three clearly fictional charities; the second reports them as existing without overwriting edits. It is disabled in production mode. No real charity data or funds are created. Seed uses the standard backend environment parser, including CLIENT_ORIGIN.
+
+```powershell
+Invoke-RestMethod 'http://localhost:4000/api/charities?q=golf&category=youth&page=1&limit=12'
+Invoke-RestMethod 'http://localhost:4000/api/charities/featured'
+npm run test -w backend
+npm test
+npm run lint
+npm run format:check
+npm run build
+```
+
+Backend tests now start their own real temporary MongoDB 8.2.6 process. They never use your MONGODB_URI for test data. The first install/test may download the test binary and requires a supported OS/network; subsequent runs use its cache. Production still requires your separately configured MongoDB. See [API examples](docs/API.md), [function walkthrough](docs/Charity-API.md) and [B04 verification/handoff](docs/B04-Handoff.md). B04 exposes the public API; the frontend directory is not wired until its own branch.

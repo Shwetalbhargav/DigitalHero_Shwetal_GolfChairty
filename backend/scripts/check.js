@@ -14,3 +14,4 @@ function check(directory) {
   }
 }
 check('src');
+check('scripts');

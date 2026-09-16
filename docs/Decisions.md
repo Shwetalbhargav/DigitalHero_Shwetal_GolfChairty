@@ -121,3 +121,15 @@ Applies to: B07, B23
 - Featured charity content is explicitly illustrative cause categories. The view contract requires isExample and meaningful alt text, handles invalid/loading/empty/error states, and allows later module-client integration without coupling this page to an unavailable API.
 - Bundle source-reference images locally and retain source URLs. The photographic hero is presented with CSS cropping because the source image contains mobile browser chrome. No remote runtime image/font requests are needed.
 - A 768px browser test found the hero aspect ratio widening its grid column. Constrain the figure width and centre its intrinsic aspect-ratio box; rerun overflow and accessibility checks after correction.
+
+## B04 implementation decisions
+
+- Started with a clean tree on committed B03, fetched origin/main and confirmed main is the default branch. B03 is now merged at 16333ca. Created feat/charity-public-api from that remote default; B01 prerequisite is included. No commit, push, PR or deployment is performed for B04.
+- The source PRD section 08 is still not present as a file; implement the supplied branch requirements and existing Master prompt without claiming unseen PRD compliance. No UI or design changes are needed.
+- Register Charity against the existing dedicated Mongoose connection and preserve the shared API envelope. Use thin controllers, service-owned filters/DTOs and model validation.
+- Public query names are q/category/page/limit. Use literal name/description substring search, normalized exact category slugs, 1–1000 pages and 1–50 items (default 12). Reject unknown/repeated/operator-shaped queries rather than silently honoring hidden-state requests. Sorting is name then ObjectId under default MongoDB binary collation.
+- Store active/featured with false defaults. Always enforce active=true for list, featured and ID reads. Unknown and inactive IDs share CHARITY_NOT_FOUND. Internal keys/timestamps are excluded from public DTOs.
+- Model images use {url,alt}; upcomingEvents use {title,startsAt,location,description}. Exclude past events at read time, using UTC instants, without deleting them. B03's view contract remains separate for a future adapter.
+- Add isDemo plus an internal immutable unique seedKey to support labelled, concurrent-safe, insert-only demo seeding. Demo rows have empty images/events rather than invented real schedules or unstable image URLs. Production mode is refused. Existing seed edits and unrelated records are preserved.
+- Seed operations are not a transaction across the entire fixture set; a failed run may partially insert and a rerun safely resumes. List count/page are parallel reads, not a claimed snapshot under concurrent writes.
+- Add mongodb-memory-server only as a devDependency and pin test MongoDB to 8.2.6. Acceptance tests use a real isolated process, including actual CLI seed runs and reconnection; no user-configured database is seeded.
