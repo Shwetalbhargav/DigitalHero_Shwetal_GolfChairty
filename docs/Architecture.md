@@ -49,3 +49,7 @@ Test callbacks exercise public contracts, network failures, real Mongoose refusa
 ## B02 extension
 
 B02 replaces the single-screen App with React Router and reusable public/member/admin layouts. The B01 App readiness behavior now lives in pages/foundation/ServiceStatus.jsx and uses the shared controls. The B01 descriptions above record the initial foundation; [UI-Foundation.md](UI-Foundation.md) contains the current component, function, prop, caller and side-effect contracts. Added common/layout components, route constants, nested routing, foundation reference pages, centralized styles, and browser accessibility tests each serve the B02 integration and acceptance scope.
+
+## B03 homepage integration
+
+The public index now renders pages/public/HomePage.jsx and the five requested components/home sections. Added DrawExplanationPage and AvailabilityPage make all homepage links resolve honestly within current scope. The prior FoundationHome remains at /foundation. Marketing navigation and fragment-aware route focus connect the new views; all backend code remains unchanged. See [Homepage.md](Homepage.md) for every new/changed function, data flow, charity-card contract and source decisions, and [B03-Handoff.md](B03-Handoff.md) for results and prepared Git/PR messages.

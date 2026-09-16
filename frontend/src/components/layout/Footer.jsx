@@ -8,6 +8,8 @@ export default function Footer() {
         <p>Good rounds. Greater purpose.</p>
       </div>
       <nav aria-label="Footer navigation">
+        <Link to={ROUTES.howItWorks}>How it works</Link>
+        <Link to={ROUTES.charities}>Charities</Link>
         <Link to={ROUTES.library}>UI library</Link>
         <Link to={ROUTES.status}>Service status</Link>
       </nav>

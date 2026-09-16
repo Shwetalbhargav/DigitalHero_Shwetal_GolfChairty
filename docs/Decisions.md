@@ -110,3 +110,14 @@ Applies to: B07, B23
 - Add a local-only form/style/dialog reference to exercise shared components; successful validation explicitly says nothing was saved. Avoid clickable controls for unimplemented business operations.
 - Add Playwright, axe and user-event for repeatable acceptance checks. One root npm lockfile is retained. Native dialog behavior is tested in Chromium because jsdom cannot implement it.
 - Place screenshots under docs/screenshots/b02 and transient browser reports under ignored frontend folders. Add UI-Foundation.md for per-function contracts and B02-Handoff.md for branch-specific results; preserve the historical B01 handoff.
+
+## B03 implementation decisions
+
+- B02 is merged as 869f8a2 on local and remote main; verified via git log and git ls-remote --symref origin HEAD. Began from a clean tree and created feat/home-page. PR base is main, with no stacked prerequisite. No commit, push, PR or deployment is performed in B03.
+- Retain the B02 foundation view at /foundation while making / the charity-led homepage. Public marketing navigation is separate from the foundation/shell navigation, preserving the earlier UI reference.
+- Registration and live charity pages belong to later branches. Their CTA destinations are explicit availability pages; no dummy forms, silent success or invented records are introduced. The draw explanation is fully readable now.
+- The homepage export includes instant escrow payouts, audited seeds, fixed dates, balances, partner claims and prices. Those conflict with the root-plan scope and unspecified configuration. Omit them; describe verification before payout, at least 10% charity share and the 25/35/40 tier shares.
+- Use £10,000 solely as a visibly labelled GBP prize example. This is not a price, live total, product currency decision or configured contribution rate. Distinct score examples do not settle duplicate matching policy.
+- Featured charity content is explicitly illustrative cause categories. The view contract requires isExample and meaningful alt text, handles invalid/loading/empty/error states, and allows later module-client integration without coupling this page to an unavailable API.
+- Bundle source-reference images locally and retain source URLs. The photographic hero is presented with CSS cropping because the source image contains mobile browser chrome. No remote runtime image/font requests are needed.
+- A 768px browser test found the hero aspect ratio widening its grid column. Constrain the figure width and centre its intrinsic aspect-ratio box; rerun overflow and accessibility checks after correction.

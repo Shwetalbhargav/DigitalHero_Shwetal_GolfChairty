@@ -971,5 +971,14 @@ main:focus {
   }
 }
 
-.card--forest :focus-visible { outline-color: var(--color-mint); }
-@media (max-width: 1023px) { html { scroll-padding-bottom: 100px; } .dashboard-main :is(a, button, input) { scroll-margin-bottom: 100px; } }
+.card--forest :focus-visible {
+  outline-color: var(--color-mint);
+}
+@media (max-width: 1023px) {
+  html {
+    scroll-padding-bottom: 100px;
+  }
+  .dashboard-main :is(a, button, input) {
+    scroll-margin-bottom: 100px;
+  }
+}

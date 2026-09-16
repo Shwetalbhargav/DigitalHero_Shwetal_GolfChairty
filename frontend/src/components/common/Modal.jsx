@@ -44,11 +44,21 @@ export default function Modal({
         'a[href],button,input,select,textarea,[tabindex]',
       ),
     ].filter((element) => {
-      if (element.tabIndex < 0 || element.matches(':disabled') || element.closest('[hidden],[inert]')) return false;
+      if (
+        element.tabIndex < 0 ||
+        element.matches(':disabled') ||
+        element.closest('[hidden],[inert]')
+      )
+        return false;
       // Hidden containers must not leave an invisible control at a trap boundary.
-      for (let ancestor = element; ancestor && ancestor !== dialog; ancestor = ancestor.parentElement) {
+      for (
+        let ancestor = element;
+        ancestor && ancestor !== dialog;
+        ancestor = ancestor.parentElement
+      ) {
         const style = getComputedStyle(ancestor);
-        if (style.display === 'none' || style.visibility === 'hidden') return false;
+        if (style.display === 'none' || style.visibility === 'hidden')
+          return false;
       }
       return true;
     });
