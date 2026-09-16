@@ -36,6 +36,12 @@ export function parseEnv(source) {
   const port = integer('PORT', 4000, 65535);
   const dbTimeoutMs = integer('DB_TIMEOUT_MS', 3000, 60000);
   const shutdownTimeoutMs = integer('SHUTDOWN_TIMEOUT_MS', 10000, 120000);
+  const authSecret = source.AUTH_SECRET;
+  if (typeof authSecret !== 'string' || authSecret.length < 32)
+    issues.push(
+      'AUTH_SECRET is required and must contain at least 32 characters',
+    );
+  const prizePercent = integer('PRIZE_PERCENT', 50, 90);
   if (issues.length)
     throw new Error('Invalid environment configuration: ' + issues.join('; '));
   return Object.freeze({
@@ -45,5 +51,8 @@ export function parseEnv(source) {
     port,
     dbTimeoutMs,
     shutdownTimeoutMs,
+    authSecret,
+    prizePercent,
+    maxContributionPercent: 100 - prizePercent,
   });
 }

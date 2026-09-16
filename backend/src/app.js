@@ -41,6 +41,7 @@ export function createApp({ config, database, isShuttingDown }) {
       database,
       isShuttingDown,
       queryTimeoutMs: config.dbTimeoutMs,
+      config,
     }),
   );
   app.use(notFound);

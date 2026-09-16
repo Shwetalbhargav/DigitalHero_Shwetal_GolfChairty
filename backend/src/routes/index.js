@@ -4,10 +4,18 @@ import { apiResponse } from '../utils/ApiResponse.js';
 import { createCharityModel } from '../modules/charities/charity.model.js';
 import { createCharityService } from '../modules/charities/charity.service.js';
 import { createCharityRoutes } from '../modules/charities/charity.routes.js';
+import { createUserModel } from '../modules/users/user.model.js';
+import {
+  createAuthMiddleware,
+  createCsrfMiddleware,
+} from '../middleware/auth.middleware.js';
+import { createAuthService } from '../modules/auth/auth.service.js';
+import { createAuthRoutes } from '../modules/auth/auth.routes.js';
 export function createRoutes({
   database,
   isShuttingDown = () => false,
   queryTimeoutMs = 3000,
+  config,
 }) {
   const router = Router();
   router.get('/health', (req, res) =>
@@ -27,5 +35,18 @@ export function createRoutes({
       createCharityService(Charity, { timeoutMs: queryTimeoutMs }),
     ),
   );
+  if (database.connection) {
+    const User = createUserModel(database.connection);
+    const authenticate = createAuthMiddleware(User, config);
+    router.use(
+      '/auth',
+      createCsrfMiddleware(config),
+      createAuthRoutes(
+        createAuthService(User, Charity, config),
+        authenticate,
+        config,
+      ),
+    );
+  }
   return router;
 }
