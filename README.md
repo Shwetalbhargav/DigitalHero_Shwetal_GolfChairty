@@ -1,4 +1,4 @@
-# Digital Heroes — B02 UI foundation
+# Digital Heroes — B03 homepage
 
 JavaScript Express/Mongoose API and React/Vite client. This release adds accessible shared components, public/member/admin layout previews, an interactive UI reference, and live readiness. Membership, payments, scores and draws belong to later branches.
 
@@ -60,3 +60,9 @@ npm run test:e2e -w frontend
 Playwright starts Vite on port 5173 (or reuses a running server), checks keyboard behavior, axe accessibility rules, and overflow at 360/768/1440px, then captures screenshots under docs/screenshots/b02. Production static hosting must rewrite non-asset browser routes to index.html while keeping /api routed to Express.
 
 See [component/function contracts](docs/UI-Foundation.md) and [B02 results and prepared commit/PR](docs/B02-Handoff.md).
+
+## Homepage
+
+The homepage is at /. It links to /how-it-works for a complete explanation and to /register and /charities for explicit availability notices while those later features are being built. B02's overview is retained at /foundation. The homepage uses labelled illustrative score/prize/cause data and never displays invented live totals.
+
+Run npm run dev -w frontend to view it without a database. npm test runs unit/regression tests; npm run test:e2e -w frontend runs Chromium acceptance checks and captures docs/screenshots/b03. Setup, lint and build commands above are unchanged. See [homepage contracts](docs/Homepage.md) and [B03 handoff](docs/B03-Handoff.md).

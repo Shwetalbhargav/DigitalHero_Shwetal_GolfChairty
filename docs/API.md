@@ -49,17 +49,33 @@ The frontend api(path, options) uses credentials: include, accepts an AbortSigna
 
 ## B02 browser routes (not backend endpoints)
 
-| Path | Layout and content | Access |
-| --- | --- | --- |
-| / | Public foundation overview and live readiness card | Public |
-| /ui | Interactive component reference | Public |
-| /status | Live GET /api/ready status | Public |
-| /dashboard | Member layout preview; no account data | Public preview |
-| /dashboard/ui | Component reference in member layout | Public preview |
-| /dashboard/status | Readiness in member layout | Public preview |
-| /admin | Admin layout preview; no authorization granted | Public preview |
-| /admin/ui | Component reference in admin layout | Public preview |
-| /admin/status | Readiness in admin layout | Public preview |
-| Other paths | Visible not-found view; /dashboard/* and /admin/* retain their shell | Public |
+| Path              | Layout and content                                                   | Access         |
+| ----------------- | -------------------------------------------------------------------- | -------------- |
+| /foundation       | Preserved public foundation overview and live readiness card         | Public         |
+| /ui               | Interactive component reference                                      | Public         |
+| /status           | Live GET /api/ready status                                           | Public         |
+| /dashboard        | Member layout preview; no account data                               | Public preview |
+| /dashboard/ui     | Component reference in member layout                                 | Public preview |
+| /dashboard/status | Readiness in member layout                                           | Public preview |
+| /admin            | Admin layout preview; no authorization granted                       | Public preview |
+| /admin/ui         | Component reference in admin layout                                  | Public preview |
+| /admin/status     | Readiness in admin layout                                            | Public preview |
+| Other paths       | Visible not-found view; /dashboard/* and /admin/* retain their shell | Public         |
 
 B02 adds no API endpoints and no persistence. The library's display-name example accepts a trimmed length of 2–50 characters locally and reports that nothing was saved. Future private product routes require server-side authorization and authentication integration. Production hosting needs history fallback to index.html for these browser paths; do not rewrite /api requests to the SPA.
+
+## B03 public browser routes
+
+| Path                            | Behavior                                                        |
+| ------------------------------- | --------------------------------------------------------------- |
+| /                               | Charity-led homepage with labelled examples; no API calls       |
+| /foundation                     | Preserved B02 overview and live readiness card                  |
+| /register                       | Registration availability notice; no account/payment submission |
+| /charities                      | Directory availability notice and illustrative cause categories |
+| /charities#youth-access         | Focused youth/opportunity example                               |
+| /charities#greener-spaces       | Focused nature/conservation example                             |
+| /charities#community-connection | Focused community/wellbeing example                             |
+| /how-it-works                   | Subscription, score, giving, prize and verification explanation |
+| /how-it-works#draw-rules        | Focused prize-tier explanation                                  |
+
+These are frontend routes and do not add Express endpoints. GET / is served by Vite/static hosting with the existing SPA fallback requirement. The charity-card view contract is documented in Homepage.md. B03 does not fetch future charity APIs, submit membership/donations or generate a real draw.

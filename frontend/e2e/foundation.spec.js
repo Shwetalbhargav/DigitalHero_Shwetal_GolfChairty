@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { fileURLToPath } from 'node:url';
 const screenshotDirectory = fileURLToPath(
-  new URL('../../docs/screenshots/b02/', import.meta.url),
+  new URL('../../docs/screenshots/b03/foundation/', import.meta.url),
 );
 for (const width of [360, 768, 1440]) {
   test(
@@ -27,7 +27,7 @@ for (const width of [360, 768, 1440]) {
         }),
       );
       for (const [path, name] of [
-        ['/', 'public'],
+        ['/foundation', 'public'],
         ['/ui', 'library'],
         ['/dashboard', 'member'],
         ['/admin', 'admin'],
@@ -105,7 +105,7 @@ test('mobile menu and dock support keyboard navigation and focus after routing',
   page,
 }) => {
   await page.setViewportSize({ width: 360, height: 800 });
-  await page.goto('/');
+  await page.goto('/foundation');
   const menu = page.getByRole('button', { name: 'Open navigation' });
   await menu.focus();
   await page.keyboard.press('Enter');
@@ -148,6 +148,7 @@ test('validation, disabled/busy states, skip link and reduced motion work in the
 }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto('/ui');
+  await expect(page.locator('main h1')).toBeVisible();
   await page.keyboard.press('Tab');
   await expect(
     page.getByRole('link', { name: 'Skip to content' }),
