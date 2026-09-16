@@ -20,6 +20,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     test: {
+      include: ['src/**/*.test.{js,jsx}'],
       // Avoid Windows child-process startup stalls in the test runner.
       pool: 'threads',
       maxWorkers: 1,

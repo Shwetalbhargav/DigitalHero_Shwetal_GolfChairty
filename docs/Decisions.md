@@ -100,3 +100,13 @@ Applies to: B07, B23
 - API and frontend are separate deployment units; production must route /api to the backend or configure a public API URL and the exact client origin. Credentialed requests are supported but authentication and CSRF-protected writes are later scope.
 
 - Vitest uses one thread worker because a repeated Windows fork-worker run timed out before running tests. The explicit threads configuration passed and keeps test startup deterministic on this host.
+
+## B02 implementation decisions
+
+- At B02 start a Git repository now exists: main and remote HEAD both point to b152e27 (B01). git ls-remote --symref origin HEAD confirms main as the actual default branch. Created feat/ui-foundation from that commit. The pre-existing root .gitignore addition for tmp/digital-heroes-plan/ is preserved. No commit, push, PR or deployment is performed by this branch implementation.
+- Continue B01's machine-readable Feel Not Fairway sage/forest palette. The shell/library HTML varies slightly in greens/radii and includes sample money, audit, certification and operational claims. Use DESIGN.md tokens and the referenced visual composition; do not interpret sample claims as product rules.
+- Add public /ui and /status plus member/admin preview shells and their nested UI/status pages. These are public reference pages without account data, not security gates. Authentication and authorized business routes remain later scope.
+- React Router supplies history-aware nested layouts and active links. Native dialog supplies browser modality; add explicit focus trapping, restoration and scroll locking. No custom focus-library dependency is needed.
+- Add a local-only form/style/dialog reference to exercise shared components; successful validation explicitly says nothing was saved. Avoid clickable controls for unimplemented business operations.
+- Add Playwright, axe and user-event for repeatable acceptance checks. One root npm lockfile is retained. Native dialog behavior is tested in Chromium because jsdom cannot implement it.
+- Place screenshots under docs/screenshots/b02 and transient browser reports under ignored frontend folders. Add UI-Foundation.md for per-function contracts and B02-Handoff.md for branch-specific results; preserve the historical B01 handoff.
