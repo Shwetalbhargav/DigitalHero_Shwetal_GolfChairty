@@ -3,6 +3,7 @@ export function createDatabase(config) {
   const connection = mongoose.createConnection();
   connection.on('error', () => console.error('MongoDB connection error'));
   return {
+    connection,
     async connect() {
       await connection.openUri(config.mongodbUri, {
         serverSelectionTimeoutMS: config.dbTimeoutMs,

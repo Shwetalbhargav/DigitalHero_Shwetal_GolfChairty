@@ -53,3 +53,7 @@ B02 replaces the single-screen App with React Router and reusable public/member/
 ## B03 homepage integration
 
 The public index now renders pages/public/HomePage.jsx and the five requested components/home sections. Added DrawExplanationPage and AvailabilityPage make all homepage links resolve honestly within current scope. The prior FoundationHome remains at /foundation. Marketing navigation and fragment-aware route focus connect the new views; all backend code remains unchanged. See [Homepage.md](Homepage.md) for every new/changed function, data flow, charity-card contract and source decisions, and [B03-Handoff.md](B03-Handoff.md) for results and prepared Git/PR messages.
+
+## B04 public charity module
+
+Added the supplied modules/charities model, validation, service, controller and router, plus scripts/seed.js. The root router binds these to the existing database connection and DB timeout without changing probes or frontend code. A new isolated MongoDB integration suite verifies the full persistence path. [Charity-API.md](Charity-API.md) explains every added/changed function and data flow; [API.md](API.md) contains complete request/response examples; [B04-Handoff.md](B04-Handoff.md) records verification and prepared Git/PR messages.
