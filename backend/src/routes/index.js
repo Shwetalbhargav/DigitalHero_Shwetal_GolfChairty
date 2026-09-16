@@ -11,6 +11,14 @@ import {
 } from '../middleware/auth.middleware.js';
 import { createAuthService } from '../modules/auth/auth.service.js';
 import { createAuthRoutes } from '../modules/auth/auth.routes.js';
+import { createUserService } from '../modules/users/user.service.js';
+import { createUserRoutes } from '../modules/users/user.routes.js';
+import { createPaymentModel } from '../modules/payments/payment.model.js';
+import { createPaymentService } from '../modules/payments/payment.service.js';
+import {
+  createPaymentRoutes,
+  createDonationRoutes,
+} from '../modules/payments/payment.routes.js';
 export function createRoutes({
   database,
   isShuttingDown = () => false,
@@ -38,6 +46,26 @@ export function createRoutes({
   if (database.connection) {
     const User = createUserModel(database.connection);
     const authenticate = createAuthMiddleware(User, config);
+    const paymentService = createPaymentService(
+      createPaymentModel(database.connection),
+      Charity,
+      config,
+    );
+    router.use(
+      '/users',
+      createCsrfMiddleware(config),
+      createUserRoutes(createUserService(User, Charity, config), authenticate),
+    );
+    router.use(
+      '/payments',
+      createCsrfMiddleware(config),
+      createPaymentRoutes(paymentService, authenticate),
+    );
+    router.use(
+      '/donations',
+      createCsrfMiddleware(config),
+      createDonationRoutes(paymentService, authenticate),
+    );
     router.use(
       '/auth',
       createCsrfMiddleware(config),

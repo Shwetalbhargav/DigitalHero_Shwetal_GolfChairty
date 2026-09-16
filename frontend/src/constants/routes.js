@@ -25,6 +25,12 @@ export const marketingNavigation = Object.freeze([
 export function shellNavigation(mode = 'member') {
   const base = mode === 'admin' ? ROUTES.admin : ROUTES.member;
   return [
+    ...(mode === 'member'
+      ? [
+          { to: base + '/charity', label: 'My charity', symbol: '♡' },
+          { to: base + '/subscription', label: 'Subscription', symbol: '◈' },
+        ]
+      : []),
     { to: base, label: 'Overview', symbol: '◫' },
     { to: base + '/ui', label: 'UI library', symbol: '◇' },
     { to: base + '/status', label: 'Service status', symbol: '◉' },

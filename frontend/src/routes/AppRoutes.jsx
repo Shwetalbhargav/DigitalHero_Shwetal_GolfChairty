@@ -10,7 +10,10 @@ import NotFound from '../pages/foundation/NotFound.jsx';
 import { ROUTES } from '../constants/routes.js';
 import HomePage from '../pages/public/HomePage.jsx';
 import DrawExplanationPage from '../pages/public/DrawExplanationPage.jsx';
-import AvailabilityPage from '../pages/public/AvailabilityPage.jsx';
+import CharityListPage from '../pages/public/CharityListPage.jsx';
+import CharityDetailPage from '../pages/public/CharityDetailPage.jsx';
+import MyCharityPage from '../pages/dashboard/MyCharityPage.jsx';
+import PaymentPage from '../pages/payments/PaymentPage.jsx';
 import LoginPage from '../pages/public/LoginPage.jsx';
 import RegisterPage from '../pages/public/RegisterPage.jsx';
 import ProtectedRoute from './ProtectedRoute.jsx';
@@ -60,21 +63,21 @@ export default function AppRoutes() {
           <Route path={ROUTES.foundation} element={<FoundationHome />} />
           <Route path={ROUTES.register} element={<RegisterPage />} />
           <Route path={ROUTES.login} element={<LoginPage />} />
-          <Route
-            path={ROUTES.charities}
-            element={<AvailabilityPage kind="charities" />}
-          />
+          <Route path="/charities/:id" element={<CharityDetailPage />} />
+          <Route path={ROUTES.charities} element={<CharityListPage />} />
           <Route path={ROUTES.howItWorks} element={<DrawExplanationPage />} />
           <Route path={ROUTES.library} element={<ComponentLibrary />} />
           <Route path={ROUTES.status} element={<ServiceStatus />} />
           <Route path="*" element={<NotFound />} />
         </Route>
         <Route element={<ProtectedRoute />}>
+          <Route path="/payments/:id" element={<PaymentPage />} />
           <Route
             path={ROUTES.member}
             element={<DashboardLayout mode="member" />}
           >
             <Route index element={<AccountPage />} />
+            <Route path="charity" element={<MyCharityPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
           <Route element={<AdminRoute />}>
