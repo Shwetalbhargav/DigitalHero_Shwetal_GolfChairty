@@ -11,6 +11,11 @@ import { ROUTES } from '../constants/routes.js';
 import HomePage from '../pages/public/HomePage.jsx';
 import DrawExplanationPage from '../pages/public/DrawExplanationPage.jsx';
 import AvailabilityPage from '../pages/public/AvailabilityPage.jsx';
+import LoginPage from '../pages/public/LoginPage.jsx';
+import RegisterPage from '../pages/public/RegisterPage.jsx';
+import ProtectedRoute from './ProtectedRoute.jsx';
+import AdminRoute from './AdminRoute.jsx';
+import AccountPage from '../pages/dashboard/AccountPage.jsx';
 function RouteFocus() {
   const { pathname, hash } = useLocation();
   const previous = useRef(null);
@@ -53,10 +58,8 @@ export default function AppRoutes() {
         <Route element={<PublicLayout />}>
           <Route path={ROUTES.home} element={<HomePage />} />
           <Route path={ROUTES.foundation} element={<FoundationHome />} />
-          <Route
-            path={ROUTES.register}
-            element={<AvailabilityPage kind="registration" />}
-          />
+          <Route path={ROUTES.register} element={<RegisterPage />} />
+          <Route path={ROUTES.login} element={<LoginPage />} />
           <Route
             path={ROUTES.charities}
             element={<AvailabilityPage kind="charities" />}
@@ -66,18 +69,29 @@ export default function AppRoutes() {
           <Route path={ROUTES.status} element={<ServiceStatus />} />
           <Route path="*" element={<NotFound />} />
         </Route>
-        {['member', 'admin'].map((mode) => (
+        <Route element={<ProtectedRoute />}>
           <Route
-            key={mode}
-            path={mode === 'admin' ? ROUTES.admin : ROUTES.member}
-            element={<DashboardLayout mode={mode} />}
+            path={ROUTES.member}
+            element={<DashboardLayout mode="member" />}
           >
-            <Route index element={<ShellOverview mode={mode} />} />
-            <Route path="ui" element={<ComponentLibrary />} />
-            <Route path="status" element={<ServiceStatus />} />
+            <Route index element={<AccountPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
-        ))}
+          <Route element={<AdminRoute />}>
+            {['admin'].map((mode) => (
+              <Route
+                key={mode}
+                path={mode === 'admin' ? ROUTES.admin : ROUTES.member}
+                element={<DashboardLayout mode={mode} />}
+              >
+                <Route index element={<ShellOverview mode={mode} />} />
+                <Route path="ui" element={<ComponentLibrary />} />
+                <Route path="status" element={<ServiceStatus />} />
+                <Route path="*" element={<NotFound />} />
+              </Route>
+            ))}
+          </Route>
+        </Route>
       </Routes>
     </>
   );

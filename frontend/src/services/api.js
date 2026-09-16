@@ -19,7 +19,14 @@ export async function api(path, { signal, ...options } = {}) {
         ...options,
         credentials: 'include',
         signal: signal ? AbortSignal.any([signal, timeout]) : timeout,
-        headers: { Accept: 'application/json', ...options.headers },
+        headers: {
+          Accept: 'application/json',
+          ...(options.body ? { 'Content-Type': 'application/json' } : {}),
+          ...(!['GET', 'HEAD'].includes(options.method || 'GET')
+            ? { 'X-CSRF-Protection': '1' }
+            : {}),
+          ...options.headers,
+        },
       },
     );
     let payload;

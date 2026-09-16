@@ -2,6 +2,7 @@ export const ROUTES = Object.freeze({
   home: '/',
   foundation: '/foundation',
   register: '/register',
+  login: '/login',
   charities: '/charities',
   howItWorks: '/how-it-works',
   library: '/ui',
@@ -16,6 +17,7 @@ export const publicNavigation = Object.freeze([
   { to: ROUTES.admin, label: 'Admin shell' },
 ]);
 export const marketingNavigation = Object.freeze([
+  { to: ROUTES.login, label: 'Sign in' },
   { to: ROUTES.home, label: 'Home' },
   { to: ROUTES.howItWorks, label: 'How it works' },
   { to: ROUTES.charities, label: 'Charities' },
