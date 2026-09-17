@@ -341,6 +341,7 @@ describe('Public charities with a real isolated MongoDB', () => {
     const env = {
       ...process.env,
       NODE_ENV: 'test',
+      AUTH_SECRET: 'test-only-secret-with-at-least-32-characters',
       MONGODB_URI: config.mongodbUri,
       CLIENT_ORIGIN: config.clientOrigin,
     };

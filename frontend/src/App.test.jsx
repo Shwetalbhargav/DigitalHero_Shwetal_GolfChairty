@@ -2,6 +2,9 @@ import { expect, test, vi, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App.jsx';
 import { api } from './services/api.js';
+vi.mock('./modules/auth/auth.api.js', () => ({
+  getSession: vi.fn().mockRejectedValue({ status: 401 }),
+}));
 vi.mock('./services/api.js', () => ({ api: vi.fn() }));
 beforeEach(() => window.history.replaceState({}, '', '/status'));
 test('shows loading, failure and working retry before ready', async () => {
@@ -23,14 +26,11 @@ test('unmount aborts in-flight request', () => {
   view.unmount();
   expect(signal.aborted).toBe(true);
 });
-test('member and admin shells expose previews and no private records', () => {
+test('admin shell requires a session', async () => {
   window.history.replaceState({}, '', '/admin');
   render(<App />);
   expect(
-    screen.getByRole('heading', { name: 'Admin tools are not connected' }),
-  ).toBeInTheDocument();
-  expect(
-    screen.getByRole('navigation', { name: 'admin sidebar navigation' }),
+    await screen.findByRole('heading', { name: 'Welcome back to your club' }),
   ).toBeInTheDocument();
   expect(screen.getAllByRole('main')).toHaveLength(1);
 });

@@ -23,8 +23,6 @@ export function validateCharityCards(charities) {
         charity.name,
         charity.category,
         charity.description,
-        charity.image?.src,
-        charity.image?.alt,
         charity.href,
       ].every(text) ||
       typeof charity.isExample !== 'boolean'
@@ -36,7 +34,10 @@ export function validateCharityCards(charities) {
     return (
       /^\/charities(?:[/?#]|$)/.test(charity.href) &&
       !charity.href.includes('\\') &&
-      /^(\/(?!\/)|https?:\/\/)/.test(charity.image.src)
+      (charity.image === null ||
+        (typeof charity.image?.alt === 'string' &&
+          charity.image.alt.trim() &&
+          /^(\/(?!\/)|https?:\/\/)/.test(charity.image?.src)))
     );
   });
 }
@@ -45,11 +46,15 @@ export function CharityCard({ charity }) {
   return (
     <Card as="article" className="home-charity-card">
       <div className="charity-image">
-        {failedSource === charity.image.src ? (
+        {!charity.image || failedSource === charity.image.src ? (
           <div
             className="charity-image__fallback"
             role="img"
-            aria-label={charity.image.alt + ' Image unavailable.'}
+            aria-label={
+              charity.image
+                ? charity.image.alt + ' Image unavailable.'
+                : 'No image supplied for ' + charity.name
+            }
           >
             Image unavailable
           </div>

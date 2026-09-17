@@ -10,11 +10,11 @@ export default function Footer() {
       <nav aria-label="Footer navigation">
         <Link to={ROUTES.howItWorks}>How it works</Link>
         <Link to={ROUTES.charities}>Charities</Link>
-        <Link to={ROUTES.library}>UI library</Link>
+        <Link to="/pricing">Membership</Link>
         <Link to={ROUTES.status}>Service status</Link>
       </nav>
       <p className="footer-note">
-        Platform foundation · Product features are not yet available.
+        Demo experience · Payments, prize funds and settlements are simulated.
       </p>
     </footer>
   );

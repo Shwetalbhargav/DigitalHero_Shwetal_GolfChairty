@@ -43,14 +43,14 @@ export default function FoundationHome() {
             },
             {
               title: 'The member clubhouse',
-              copy: 'A responsive home for future scores, giving and draws.',
+              copy: 'A responsive home for your scores, giving and published draws.',
               to: ROUTES.member,
               label: 'Explore member shell',
               number: '02',
             },
             {
               title: 'Behind the scenes',
-              copy: 'A clear workspace for future platform operations.',
+              copy: 'An audited workspace for member, charity, draw and payout operations.',
               to: ROUTES.admin,
               label: 'Explore admin shell',
               number: '03',

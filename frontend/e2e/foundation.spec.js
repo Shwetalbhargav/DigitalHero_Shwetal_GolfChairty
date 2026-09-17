@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { fileURLToPath } from 'node:url';
+import { mockPublicApi } from './api-fixture.js';
+test.beforeEach(async ({ page }) => mockPublicApi(page, true));
 const screenshotDirectory = fileURLToPath(
-  new URL('../../docs/screenshots/b03/foundation/', import.meta.url),
+  new URL('../../docs/screenshots/run1/foundation/', import.meta.url),
 );
 for (const width of [360, 768, 1440]) {
   test(
@@ -128,10 +130,10 @@ test('mobile menu and dock support keyboard navigation and focus after routing',
   const dock = page.getByRole('navigation', {
     name: 'member bottom navigation',
   });
-  await dock.getByRole('link', { name: 'UI library' }).focus();
+  await dock.getByRole('link', { name: 'Scores' }).focus();
   await page.keyboard.press('Enter');
-  await expect(page).toHaveURL(/\/dashboard\/ui$/);
-  await expect(dock.getByRole('link', { name: 'UI library' })).toHaveAttribute(
+  await expect(page).toHaveURL(/\/dashboard\/scores$/);
+  await expect(dock.getByRole('link', { name: 'Scores' })).toHaveAttribute(
     'aria-current',
     'page',
   );

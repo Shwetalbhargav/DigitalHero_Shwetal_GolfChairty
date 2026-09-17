@@ -1,93 +1,61 @@
-# Digital Heroes — B04 public charity API
+# Digital Heroes
 
-JavaScript Express/Mongoose API and React/Vite client. This release adds accessible shared components, public/member/admin layout previews, an interactive UI reference, and live readiness. Membership, payments, scores and draws belong to later branches.
+Express/Mongoose API and React/Vite frontend with a charity directory, cookie authentication, simulated subscriptions/donations, rolling golf scores, monthly draw publication, private winning evidence and audited administration/reporting. All payments and recorded payouts are simulated; no money moves. B25/B26 prepare configuration and local readiness only. Nothing has been deployed.
 
-## Setup
+## Quick disposable demo (no database setup)
 
-Requires Node.js 24+ and npm, plus a reachable MongoDB instance. Run from the project root:
+Use Node.js 24+ and npm. From the repository root, run `npm ci`, then `npm run demo -w backend`. In a second PowerShell terminal run:
+
+```powershell
+$env:API_PROXY_TARGET='http://127.0.0.1:4011'
+$env:VITE_API_BASE_URL='/api'
+npm run dev -w frontend -- --host 127.0.0.1 --port 5173 --strictPort
+```
+
+Open `http://127.0.0.1:5173`. This starts a fresh, disposable local MongoDB replica set, real API and fictional member/admin fixtures; it never reads backend `.env`. Use `operations-member@example.test` or `operations-admin@example.test`, password `local-browser-fixture-password`. These public test credentials exist only in the disposable test database and must never be used for a persistent or external account. Stop both terminals with Ctrl+C; demo data is discarded. The initial run may download MongoDB 8.2.6. See [readiness and exact commands](docs/Local-Readiness.md).
+
+## Local setup
+
+For persistent local development, use Node.js 24+, npm and a local MongoDB replica set. Billing, scores, draw publication and administrative changes use transactions. Atlas configuration is documented for future use only; the local gate does not connect to it.
+
+Run from the repository root:
 
 ```powershell
 npm ci
-Copy-Item backend/.env.example backend/.env
-Copy-Item frontend/.env.example frontend/.env
+if (!(Test-Path backend/.env)) { Copy-Item backend/.env.example backend/.env }
+if (!(Test-Path frontend/.env)) { Copy-Item frontend/.env.example frontend/.env }
+node -e "console.log(require('node:crypto').randomBytes(48).toString('hex'))"
+```
+
+Put the generated value in `backend/.env` as `AUTH_SECRET`, set your private `MONGODB_URI`, and set `CLIENT_ORIGIN=http://localhost:5173`. Never put secrets in `VITE_` variables. Real `.env` files are ignored. Example files contain no credentials. Existing environment files are preserved by the commands above.
+
+For a new local MongoDB development instance, install MongoDB and mongosh, create a dedicated data directory, then start it with `mongod --replSet rs0 --bind_ip 127.0.0.1 --dbpath <your-data-directory>`. In a second terminal run `mongosh --eval "rs.initiate()"` once. Use `mongodb://127.0.0.1:27017/digital_heroes?replicaSet=rs0`. Do not reinitialize an existing configured replica set.
+
+```powershell
+npm run seed -w backend
 npm run dev
 ```
 
-Edit backend/.env with your MongoDB URI before starting. Local default is mongodb://127.0.0.1:27017/digital_heroes. Start your own local MongoDB service or use Atlas; no database is bundled. Vite runs at http://localhost:5173 and proxies /api to port 4000. Missing required variables, an unavailable initial database or an occupied port fail startup clearly. Never put secrets in VITE_ variables.
+The idempotent seed inserts clearly fictional demo charities without overwriting existing records. Vite serves `http://localhost:5173` and proxies `/api` to Express on port 4000. Register, choose a charity, choose a plan and explicitly approve or decline a simulated payment. Membership activates only after server-side adapter success. Billing and profile remain reachable after lapse. Cancellation preserves access through the displayed UTC period end; renewal is manual after expiry.
 
-## Checks and production
+Demo prices default to GBP 19 monthly / GBP 190 yearly, prize allocation 50%, and charity contribution 10–50%. These are declared demo assumptions configurable through backend environment variables. `PAYMENT_MODE=simulated` is prohibited in production; unset mode defaults to disabled.
 
-``powershell
+## Verification
+
+```powershell
 npm run lint
 npm run format:check
 npm test
 npm run build
-npm start
-
-# In another terminal; production assets preview only:
-
-npm run preview -w frontend -- --port 4173
-
-```
-
-The build checks backend JavaScript syntax and emits frontend/dist. The backend runs native ESM without transpilation. Production static hosting must proxy /api to the backend or build with VITE_API_BASE_URL=https://your-api.example/api. Set CLIENT_ORIGIN to the exact frontend origin, NODE_ENV=production and private MONGODB_URI on the server. Preview does not provide the development API proxy; use a public API URL and matching CLIENT_ORIGIN for a connected preview.
-
-Use GET /api/health for process liveness and GET /api/ready for database readiness. SIGINT/SIGTERM drain HTTP requests, then close MongoDB; the shutdown deadline forces a nonzero exit if draining hangs. API requests have an eight-second client timeout. Backend DB operations use DB_TIMEOUT_MS.
-
-One root package-lock.json covers both workspaces. npm run format formats only implementation and documentation, preserving source planning/design files. No cloud service, credentials, payment or deployment is provisioned.
-
-See [API contract](docs/API.md), [decisions](docs/Decisions.md), [architecture and function walkthrough](docs/Architecture.md), and [verification and PR handoff](docs/Handoff.md).
-```
-
-## UI foundation and browser checks
-
-Use /ui for the component library, /dashboard for the member shell, /admin for the admin shell and /status for the live connection. Member/admin pages are openly accessible previews with no private data or authorization. Each shell also has /ui and /status child routes.
-
-To work on the UI without MongoDB, run npm run dev -w frontend. The service card will honestly show an unavailable response while the rest of the foundation works. For full-stack development follow the environment setup above.
-
-Run from the root:
-
-```powershell
-npm ci
 npx playwright install chromium
-npm run lint
-npm run format:check
-npm test
-npm run build
 npm run test:e2e -w frontend
+npm run test:e2e -w frontend -- --config playwright.integration.config.js
 ```
 
-Playwright starts Vite on port 5173 (or reuses a running server), checks keyboard behavior, axe accessibility rules, and overflow at 360/768/1440px, then captures screenshots under docs/screenshots/b02. Production static hosting must rewrite non-asset browser routes to index.html while keeping /api routed to Express.
+The integration command (also `npm run test:integration -w frontend`) starts a real isolated MongoDB replica set, Express on 4011 and Vite on 5173; it never reads backend `.env` or uses your database. Leave these ports free. Browser tests cover registration, login, donations, monthly/yearly subscriptions, cancellation, scores, profile/dashboard, admin users/charities, draw review/publication, private proof rejection/resubmission/approval, recorded payout and reports. Mobile/desktop accessibility and overflow checks produce screenshots under `docs/screenshots/run1` and `docs/screenshots/operations`. See [local results](docs/Local-Readiness.md) and [code walkthrough](docs/Operations-Handoff.md). Earlier handoffs describe historical scope and are superseded by these documents.
 
-See [component/function contracts](docs/UI-Foundation.md) and [B02 results and prepared commit/PR](docs/B02-Handoff.md).
+One root `package-lock.json` covers both workspaces. `npm run build` checks backend syntax and emits `frontend/dist`. [Deployment configuration](docs/Deployment.md) documents future Render/Vercel/Atlas/Cloudinary setup, additive indexes and rollback. Its API destination is intentionally unresolved. Production billing is disabled; real billing, banking, Supabase and email account recovery are not implemented. No hosting or external resources are provisioned here.
 
-## Homepage
+`GET /api/health` is liveness; `/api/ready` reflects database readiness. Startup fails on invalid environment or unavailable initial database. Shutdown drains HTTP and disconnects MongoDB. The API client uses credentialed requests, CSRF headers and an eight-second timeout.
 
-The homepage is at /. It links to /how-it-works for a complete explanation and to /register and /charities for explicit availability notices while those later features are being built. B02's overview is retained at /foundation. The homepage uses labelled illustrative score/prize/cause data and never displays invented live totals.
-
-Run npm run dev -w frontend to view it without a database. npm test runs unit/regression tests; npm run test:e2e -w frontend runs Chromium acceptance checks and captures docs/screenshots/b03. Setup, lint and build commands above are unchanged. See [homepage contracts](docs/Homepage.md) and [B03 handoff](docs/B03-Handoff.md).
-
-## Public charity API and demo seed
-
-Configure backend/.env with a reachable development MongoDB as described above, then run from the root:
-
-```powershell
-npm ci
-npm run seed -w backend
-npm run seed -w backend
-npm run dev -w backend
-```
-
-The first seed inserts three clearly fictional charities; the second reports them as existing without overwriting edits. It is disabled in production mode. No real charity data or funds are created. Seed uses the standard backend environment parser, including CLIENT_ORIGIN.
-
-```powershell
-Invoke-RestMethod 'http://localhost:4000/api/charities?q=golf&category=youth&page=1&limit=12'
-Invoke-RestMethod 'http://localhost:4000/api/charities/featured'
-npm run test -w backend
-npm test
-npm run lint
-npm run format:check
-npm run build
-```
-
-Backend tests now start their own real temporary MongoDB 8.2.6 process. They never use your MONGODB_URI for test data. The first install/test may download the test binary and requires a supported OS/network; subsequent runs use its cache. Production still requires your separately configured MongoDB. See [API examples](docs/API.md), [function walkthrough](docs/Charity-API.md) and [B04 verification/handoff](docs/B04-Handoff.md). B04 exposes the public API; the frontend directory is not wired until its own branch.
+See [API](docs/API.md), [decisions](docs/Decisions.md), [architecture](docs/Architecture.md), [UI contracts](docs/UI-Foundation.md), [homepage](docs/Homepage.md), [charity API](docs/Charity-API.md), and the historical B05–B09 handoffs. `/ui` and `/foundation` retain the component examples. `/dashboard` requires authentication and `/admin` requires a server-owned admin role.

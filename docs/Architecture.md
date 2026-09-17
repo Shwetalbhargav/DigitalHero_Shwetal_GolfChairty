@@ -57,3 +57,7 @@ The public index now renders pages/public/HomePage.jsx and the five requested co
 ## B04 public charity module
 
 Added the supplied modules/charities model, validation, service, controller and router, plus scripts/seed.js. The root router binds these to the existing database connection and DB timeout without changing probes or frontend code. A new isolated MongoDB integration suite verifies the full persistence path. [Charity-API.md](Charity-API.md) explains every added/changed function and data flow; [API.md](API.md) contains complete request/response examples; [B04-Handoff.md](B04-Handoff.md) records verification and prepared Git/PR messages.
+
+## B09–B12 member flow
+
+See [current function/component contracts and verification](Prompt1-Handoff.md). Score mutations use a per-user transactional serialization write plus unique user/date index, and insertion/pruning commit together. Billing activates only from the server demo adapter. Dashboard reads isolated source sections and profile permits only name/date-format updates. Future draw/winner sources remain unavailable. Earlier architecture chapters describe the foundation at their original branch boundaries.

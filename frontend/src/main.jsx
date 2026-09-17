@@ -5,6 +5,7 @@ import '@fontsource/plus-jakarta-sans/400.css';
 import '@fontsource/plus-jakarta-sans/600.css';
 import './styles/index.css';
 import './styles/home.css';
+import './styles/member.css';
 import App from './App.jsx';
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -15,11 +15,11 @@ export default function Sidebar({ mode = 'member' }) {
         ))}
       </nav>
       <div className="sidebar-note">
-        <span className="eyebrow">PREVIEW ONLY</span>
+        <span className="eyebrow">DEMO OPERATIONS</span>
         <p>
           {mode === 'admin'
-            ? 'User management, draw operations and charity tools are not connected.'
-            : 'Membership, scorecards and monthly draws are not connected.'}
+            ? 'Sensitive changes are audited. Review each draw before publication; settlements are manual/demo records.'
+            : 'Membership billing and prize funds are simulated. Published draw snapshots preserve your recorded entry.'}
         </p>
       </div>
       <p className="sidebar-signature">

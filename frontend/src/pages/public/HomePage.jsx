@@ -4,16 +4,25 @@ import HowItWorks from '../../components/home/HowItWorks.jsx';
 import ScoreDemo from '../../components/home/ScoreDemo.jsx';
 import FeaturedCharities from '../../components/home/FeaturedCharities.jsx';
 import PrizePoolPreview from '../../components/home/PrizePoolPreview.jsx';
-import { EXAMPLE_CHARITIES } from '../../components/home/homeData.js';
+import useFetch from '../../hooks/useFetch.js';
+import { getFeaturedCharities } from '../../modules/charities/charity.api.js';
 import { ROUTES } from '../../constants/routes.js';
+import { MembershipPlans } from './PricingPage.jsx';
 export default function HomePage() {
+  const featured = useFetch(getFeaturedCharities);
   return (
     <div className="home-page">
       <HeroSection />
       <HowItWorks />
+      <section aria-labelledby="membership-title"><p className="eyebrow">CHOOSE YOUR MEMBERSHIP</p><h2 id="membership-title">Make every round count.</h2><MembershipPlans /></section>
       <ScoreDemo />
       <PrizePoolPreview />
-      <FeaturedCharities charities={EXAMPLE_CHARITIES} />
+      <FeaturedCharities
+        charities={featured.data || []}
+        status={featured.status}
+        error={featured.error?.message}
+        onRetry={featured.retry}
+      />
       <section className="home-invitation" aria-labelledby="invitation-title">
         <p className="eyebrow">PLAY WITH PURPOSE</p>
         <h2 id="invitation-title">
@@ -25,8 +34,8 @@ export default function HomePage() {
         </h2>
         <p>
           At least 10% of every subscription is intended for your chosen
-          charity. Membership is not open yet — explore the journey before you
-          join.
+          charity. Explore the membership journey in demo mode; no real money is
+          charged or transferred.
         </p>
         <Link className="button button--primary" to={ROUTES.register}>
           Explore membership <span aria-hidden="true">↗</span>
@@ -34,7 +43,7 @@ export default function HomePage() {
       </section>
       <div className="home-subscribe-dock">
         <span>
-          Golf with purpose<small>Membership preview</small>
+          Golf with purpose<small>Demo membership</small>
         </span>
         <Link className="button button--primary" to={ROUTES.register}>
           Subscribe & play

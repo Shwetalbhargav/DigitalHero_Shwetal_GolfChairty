@@ -2,6 +2,7 @@ import { expect, test, vi } from 'vitest';
 import { render, screen, within, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
+import { AuthContext } from '../../modules/auth/AuthContext.jsx';
 import HomePage from '../../pages/public/HomePage.jsx';
 import FeaturedCharities, {
   validateCharityCards,
@@ -11,7 +12,7 @@ import { EXAMPLE_CHARITIES, PRIZE_TIERS } from './homeData.js';
 test('homepage labels example figures and routes its primary calls to action', () => {
   render(
     <MemoryRouter>
-      <HomePage />
+      <AuthContext.Provider value={{ user: null }}><HomePage /></AuthContext.Provider>
     </MemoryRouter>,
   );
   expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
@@ -20,14 +21,12 @@ test('homepage labels example figures and routes its primary calls to action', (
   expect(
     screen
       .getAllByRole('link', { name: /Subscribe & play/ })
-      .every((link) => link.getAttribute('href') === '/register'),
+      .every((link) => link.getAttribute('href') === '/register' || link.getAttribute('href') === '/pricing'),
   ).toBe(true);
   expect(
     screen.getByRole('link', { name: 'Explore charities' }),
   ).toHaveAttribute('href', '/charities');
-  expect(
-    screen.getByText(/Illustrative causes, not registered partners/),
-  ).toBeInTheDocument();
+  expect(screen.getByText(/Loading featured charities/)).toBeInTheDocument();
   expect(
     screen.getByText(/Not a live pool, guaranteed prize/),
   ).toBeInTheDocument();

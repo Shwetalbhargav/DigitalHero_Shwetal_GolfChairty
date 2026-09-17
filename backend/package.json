@@ -5,20 +5,31 @@
   "scripts": {
     "dev": "node --watch src/server.js",
     "start": "node src/server.js",
-    "test": "node --test",
+    "test": "node --test --test-concurrency=2 --test-timeout=180000",
     "build": "node scripts/check.js",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "seed": "node scripts/seed.js"
+    "seed": "node scripts/seed.js",
+    "cleanup:proof": "node scripts/cleanup-proof.js",
+    "indexes": "node scripts/indexes.js",
+    "demo": "node scripts/local-demo.js"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cloudinary": "^2.11.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
+    "express-rate-limit": "^8.7.0",
     "helmet": "^8.1.0",
-    "mongoose": "^8.19.0"
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.19.0",
+    "pg": "^8.23.0",
+    "sharp": "^0.35.4",
+    "stripe": "^22.6.2"
   },
   "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
     "mongodb-memory-server": "^11.2.0",
     "supertest": "^7.1.4"
   }
