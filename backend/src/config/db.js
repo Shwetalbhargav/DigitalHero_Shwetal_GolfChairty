@@ -10,6 +10,7 @@ export function createDatabase(config) {
         connectTimeoutMS: config.dbTimeoutMs,
         heartbeatFrequencyMS: 1000,
         bufferCommands: false,
+        autoIndex: config.nodeEnv !== 'production',
       });
     },
     async isReady() {

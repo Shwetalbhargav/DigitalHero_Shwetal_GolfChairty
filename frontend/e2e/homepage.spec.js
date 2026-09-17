@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { fileURLToPath } from 'node:url';
+import { mockPublicApi } from './api-fixture.js';
+test.beforeEach(async ({ page }) => mockPublicApi(page));
 const screenshots = fileURLToPath(
-  new URL('../../docs/screenshots/b03/', import.meta.url),
+  new URL('../../docs/screenshots/run1/home-regression/', import.meta.url),
 );
 for (const width of [360, 768, 1440])
   test(
@@ -74,13 +76,13 @@ test('every homepage link resolves to content and charity/prize fragments receiv
   }
   await page.goto('/register');
   await expect(
-    page.getByRole('heading', { name: 'Registration is not open yet' }),
+    page.getByRole('heading', { name: 'Begin your journey' }),
   ).toBeVisible();
-  await expect(page.locator('form')).toHaveCount(0);
+  await expect(page.locator('form')).toHaveCount(1);
   await page.goto('/charities');
   await expect(
     page.getByRole('heading', {
-      name: 'The live charity directory is not connected yet',
+      name: 'Find a cause close to you.',
     }),
   ).toBeVisible();
 });
@@ -100,7 +102,12 @@ test('keyboard navigation, score examples and reduced-motion preferences work', 
   const choice = page.getByRole('button', { name: '5 matches' });
   await choice.focus();
   await page.keyboard.press('Enter');
-  await expect(page.getByRole('status')).toHaveText(/5 matches/);
+  await expect(
+    page
+      .locator('.home-page')
+      .getByRole('status')
+      .filter({ hasText: '5 matches' }),
+  ).toBeVisible();
   await expect(choice).toHaveAttribute('aria-pressed', 'true');
   expect(
     await page
@@ -110,6 +117,7 @@ test('keyboard navigation, score examples and reduced-motion preferences work', 
   const menu = page.getByRole('button', { name: 'Open navigation' });
   await menu.focus();
   await page.keyboard.press('Enter');
+  await page.keyboard.press('Tab');
   await page.keyboard.press('Tab');
   await page.keyboard.press('Tab');
   await page.keyboard.press('Tab');

@@ -6,7 +6,7 @@ export default function HeroSection() {
   return (
     <section className="home-hero" aria-labelledby="home-title">
       <div className="home-hero__copy">
-        <Badge variant="success">Golf with a little more purpose</Badge>
+        <Badge variant="success">Small actions. Shared possibilities.</Badge>
         <p className="eyebrow home-kicker">FEEL, NOT FAIRWAY.</p>
         <h1 id="home-title">
           Your game
@@ -14,11 +14,11 @@ export default function HeroSection() {
           can do <em>more.</em>
         </h1>
         <p className="home-lead">
-          The game you love. A cause you believe in. A membership designed to
-          bring golf, monthly draws and charitable giving together.
+          Help communities grow through the game you love. Choose a cause,
+          record your rounds, and turn your membership into support that matters.
         </p>
         <div className="home-actions">
-          <Link className="button button--primary" to={ROUTES.register}>
+          <Link className="button button--primary" to="/pricing">
             Subscribe & play <span aria-hidden="true">↗</span>
           </Link>
           <Link className="button button--secondary" to={ROUTES.howItWorks}>
@@ -26,15 +26,15 @@ export default function HeroSection() {
           </Link>
         </div>
         <p className="home-release-note">
-          Preview release · Membership and payments are not open yet.
+          Demo experience · No real charges, transfers or draw entries.
         </p>
       </div>
       <figure className="home-hero__visual">
         <img
           src={HERO_IMAGE.src}
           alt={HERO_IMAGE.alt}
-          width="237"
-          height="512"
+          width="800"
+          height="800"
           fetchPriority="high"
         />
         <figcaption>

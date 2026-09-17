@@ -6,12 +6,12 @@ const steps = [
   {
     title: 'Choose your membership',
     description:
-      'An active subscription is required to participate in the monthly draw. Membership is not open in this preview.',
+      'An active subscription is required for membership access. Try monthly or yearly membership with clearly simulated billing.',
   },
   {
     title: 'Choose a cause',
     description:
-      'At least 10% of your subscription goes to your selected charity. You can choose to contribute more.',
+      'The demo ledger allocates at least 10% of your subscription to your selected charity. You can choose to contribute more; no real money is transferred.',
   },
   {
     title: 'Record your golf scores',
@@ -57,7 +57,8 @@ export default function HowItWorks({ showLink = true }) {
           <p>
             Your charitable contribution is separate from any prize you might
             win. An independent donation is another way to give; it does not buy
-            a draw entry. Donations are not available in this preview.
+            a draw entry. You can try a simulated donation from a charity page;
+            no money is transferred.
           </p>
         </div>
         {showLink && (

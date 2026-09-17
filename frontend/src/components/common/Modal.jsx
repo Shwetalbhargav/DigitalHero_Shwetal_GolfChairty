@@ -12,6 +12,7 @@ export default function Modal({
   children,
   footer,
   initialFocusRef,
+  returnFocusRef,
   className = '',
 }) {
   const dialogRef = useRef(null);
@@ -33,9 +34,12 @@ export default function Modal({
       dialog.close();
       if (--locks === 0) document.body.style.overflow = previousOverflow;
       // Restore the trigger on cancel/close, including when the dialog unmounts.
-      if (previousFocus?.isConnected) previousFocus.focus();
+      // Read the latest target deliberately: a completed delete can replace its trigger.
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      const returnTarget = returnFocusRef?.current || previousFocus;
+      if (returnTarget?.isConnected) returnTarget.focus();
     };
-  }, [open, initialFocusRef]);
+  }, [open, initialFocusRef, returnFocusRef]);
   function trapFocus(event) {
     if (event.key !== 'Tab') return;
     const dialog = dialogRef.current;

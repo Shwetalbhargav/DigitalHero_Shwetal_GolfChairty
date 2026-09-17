@@ -41,7 +41,7 @@ export default function MyCharityPage() {
       });
       await auth.refresh();
       setMessage(
-        'Your charity preferences have been saved. Existing payment snapshots are unchanged.',
+        'Your charity preferences have been saved. Your earlier contributions stay with their original charity.',
       );
     } catch (e) {
       setError(e.message);

@@ -110,6 +110,30 @@ export default function PaymentPage() {
         </p>
       )}
       <Link to="/dashboard">Return to account</Link>
+      {payment.purpose === 'subscription' && (
+        <Link to="/dashboard/subscription">Manage subscription</Link>
+      )}
+      {payment.allocations?.length > 0 && (
+        <section>
+          <h2>Simulated allocation record</h2>
+          <p>
+            These are recorded demo allocations, not transfers or tax receipts.
+          </p>
+          <ul className="allocation-list">
+            {payment.allocations.map((row) => (
+              <li key={row.period}>
+                <strong>{row.period}</strong>
+                <p>
+                  Revenue {money(row.revenueMinor, payment.currency)} · Charity{' '}
+                  {money(row.charityMinor, payment.currency)} · Prize{' '}
+                  {money(row.prizeMinor, payment.currency)} · Platform{' '}
+                  {money(row.platformMinor, payment.currency)}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </main>
   );
 }

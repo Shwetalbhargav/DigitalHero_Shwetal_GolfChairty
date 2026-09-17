@@ -2,22 +2,23 @@ import { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   ROUTES,
-  publicNavigation,
   marketingNavigation,
 } from '../../constants/routes.js';
 import Badge from '../common/Badge.jsx';
 import Button from '../common/Button.jsx';
 import Modal from '../common/Modal.jsx';
+import useAuth from '../../hooks/useAuth.js';
 export default function Header({ mode = 'public' }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
-  const marketing = [
-    ROUTES.home,
-    ROUTES.register,
-    ROUTES.charities,
-    ROUTES.howItWorks,
-  ].includes(location.pathname);
-  const navigation = marketing ? marketingNavigation : publicNavigation;
+  const { user } = useAuth();
+  const marketing = mode === 'public';
+  const navigation = [
+    ...marketingNavigation.filter((item) => item.to !== ROUTES.login),
+    ...(user ? [{ to: ROUTES.member, label: 'My dashboard' },
+      ...(user.role === 'admin' ? [{ to: ROUTES.admin, label: 'Administration' }] : [])]
+      : [{ to: ROUTES.login, label: 'Sign in' }]),
+  ];
   const [openedAt, setOpenedAt] = useState('');
   const visible = menuOpen && openedAt === location.key;
   return (
@@ -53,18 +54,14 @@ export default function Header({ mode = 'public' }) {
           <div className="header-actions">
             {marketing ? (
               <Link
-                to={ROUTES.register}
+                to={user ? ROUTES.member + '/profile' : '/pricing'}
                 className="button button--primary header-subscribe"
               >
-                Subscribe & play
+                {user ? 'My account' : 'View membership'}
               </Link>
             ) : (
               <Badge variant="info">
-                {mode === 'public'
-                  ? 'UI foundation'
-                  : mode === 'admin'
-                    ? 'Admin preview'
-                    : 'Member preview'}
+                {mode === 'admin' ? 'Administration' : 'Your membership'}
               </Badge>
             )}
             <Button
@@ -101,15 +98,15 @@ export default function Header({ mode = 'public' }) {
             </NavLink>
           ))}
           {marketing && (
-            <Link to={ROUTES.register} onClick={() => setMenuOpen(false)}>
-              Subscribe & play
+            <Link to={user ? ROUTES.member + '/profile' : '/pricing'} onClick={() => setMenuOpen(false)}>
+              {user ? 'My account' : 'View membership'}
             </Link>
           )}
         </nav>
         <p className="muted">
           {marketing
-            ? 'Preview release. Membership and donations are not open yet.'
-            : 'Shell previews contain no member or administrator data.'}
+            ? 'Demo membership and donations. No real money is charged.'
+            : 'Member data requires sign-in. Administrator tools require an admin account.'}
         </p>
       </Modal>
     </>

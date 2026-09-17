@@ -26,6 +26,7 @@ export default function CharityListPage() {
         records are clearly marked; no live impact totals are implied.
       </p>
       <CharityFilter
+        key={q + ':' + category}
         query={{ q, category, page }}
         onChange={(query) => setParams(query, { replace: true })}
       />

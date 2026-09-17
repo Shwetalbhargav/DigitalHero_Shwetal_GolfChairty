@@ -64,14 +64,16 @@ export default function AuthForm({ registration = false }) {
     pending.current = true;
     setBusy(true);
     try {
-      await auth.authenticate(
+      const signedIn = await auth.authenticate(
         registration ? 'register' : 'login',
         registration
           ? fields
           : { email: fields.email, password: fields.password },
       );
       navigate(
-        registration ? '/dashboard' : safeReturnTo(location.state?.returnTo),
+        registration
+          ? '/dashboard/subscription' + (new URLSearchParams(location.search).get('plan') === 'yearly' ? '?plan=yearly' : '')
+          : location.state?.returnTo ? safeReturnTo(location.state.returnTo) : signedIn?.role === 'admin' ? '/admin' : '/dashboard',
         { replace: true },
       );
     } catch (error) {
@@ -153,6 +155,7 @@ export default function AuthForm({ registration = false }) {
           {registration ? 'Sign in' : 'Create an account'}
         </Link>
       </p>
+      {!registration && <Link to="/forgot-password">Forgot your password?</Link>}
     </form>
   );
 }

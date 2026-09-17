@@ -8,7 +8,7 @@ import {
   cookieOptions,
 } from '../../utils/generateToken.js';
 import { publicUser } from '../users/user.model.js';
-export function createAuthRoutes(service, authenticate, config) {
+export function createAuthRoutes(service, authenticate, config, security) {
   const router = Router();
   const limiter = rateLimit({
     windowMs: 15 * 60 * 1000,
@@ -50,9 +50,19 @@ export function createAuthRoutes(service, authenticate, config) {
       apiResponse({
         minContributionPercent: 10,
         maxContributionPercent: config.maxContributionPercent,
+        demoInbox: config.nodeEnv === 'test' && config.emailMode === 'demo',
+        emailAvailable: ['demo', 'resend'].includes(config.emailMode),
       }),
     ),
   );
+  if (security) {
+    for (const [path, method] of [['forgot-password', 'forgot'], ['reset-password', 'reset'], ['verify-email', 'confirmEmail']]) router.post('/' + path, limiter, async (req, res) => res.json(apiResponse(await security[method](req.body), req.id)));
+    for (const [path, method] of [['password', 'changePassword'], ['email', 'requestEmail']]) router.post('/' + path, limiter, authenticate, async (req, res) => res.json(apiResponse(await security[method](req.user, req.body), req.id)));
+    if (config.nodeEnv === 'test' && config.emailMode === 'demo') router.get('/demo-inbox', (req, res) => {
+      if (!['127.0.0.1', '::1', '::ffff:127.0.0.1'].includes(req.socket.remoteAddress)) throw new ApiError(403, 'LOCAL_ONLY', 'The test inbox is available only on this computer.');
+      res.json(apiResponse({ items: security.inbox() }, req.id));
+    });
+  }
   router.post('/logout', authenticate, async (req, res) => {
     await service.logout(req.user);
     const options = cookieOptions(config);

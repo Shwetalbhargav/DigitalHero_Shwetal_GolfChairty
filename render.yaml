@@ -1,0 +1,32 @@
+# Prepared configuration only. No resources have been created.
+services:
+  - type: web
+    name: digital-heroes-api
+    runtime: node
+    autoDeployTrigger: off
+    buildCommand: npm ci && npm run build -w backend
+    startCommand: npm start -w backend
+    healthCheckPath: /api/ready
+    envVars:
+      - key: NODE_VERSION
+        value: '24'
+      - key: NODE_ENV
+        value: production
+      - key: TRUST_PROXY
+        value: '1'
+      - key: PAYMENT_MODE
+        value: disabled
+      - key: PROOF_STORAGE
+        value: cloudinary
+      - key: CLIENT_ORIGIN
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: AUTH_SECRET
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false

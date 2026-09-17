@@ -50,6 +50,18 @@ const signup = (email) => ({
   charityId: String(charity._id),
   contributionPercent: 10,
 });
+test('authentication throttles repeated attempts with a consistent envelope', async () => {
+  const isolated = createApp({ config, database });
+  let response;
+  for (let index = 0; index < 21; index++)
+    response = await request(isolated)
+      .post('/api/auth/login')
+      .set('Origin', origin)
+      .set('X-CSRF-Protection', '1')
+      .send({});
+  assert.equal(response.status, 429);
+  assert.equal(response.body.error.code, 'RATE_LIMITED');
+});
 test('register/login/me/logout normalize and revoke sessions without exposing secrets', async () => {
   const created = await writes('register')
     .send(signup('Member@Example.com'))

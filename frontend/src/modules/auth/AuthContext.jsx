@@ -28,11 +28,22 @@ export default function AuthProvider({ children }) {
   }, []);
   useEffect(() => {
     const controller = new AbortController();
+    const clearSession = () => {
+      generation.current++;
+      setState({
+        status: 'ready',
+        user: null,
+        subscription: null,
+        error: null,
+      });
+    };
+    window.addEventListener('digital-heroes:session-lost', clearSession);
     Promise.resolve().then(() => {
       if (!controller.signal.aborted) refresh(controller.signal);
     });
     return () => {
       controller.abort();
+      window.removeEventListener('digital-heroes:session-lost', clearSession);
     };
   }, [refresh]);
   async function authenticate(action, body) {

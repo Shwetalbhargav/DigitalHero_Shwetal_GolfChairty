@@ -8,7 +8,12 @@ export function createAuthService(User, Charity, config) {
       true,
       config.maxContributionPercent,
     );
-    if (!(await Charity.exists({ _id: fields.charity, active: true })))
+    if (
+      !(await Charity.findOneAndUpdate(
+        { _id: fields.charity, active: true },
+        { $set: { hasReferences: true } },
+      ))
+    )
       throw new ApiError(400, 'INVALID_CHARITY', 'Choose an active charity.');
     const passwordHash = await bcrypt.hash(password, 12);
     try {

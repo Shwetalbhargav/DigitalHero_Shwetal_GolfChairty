@@ -1,3 +1,4 @@
+import { notifySessionLoss } from './session.js';
 export class ApiClientError extends Error {
   constructor(message, { status = 0, code = 'NETWORK_ERROR', requestId } = {}) {
     super(message);
@@ -32,13 +33,15 @@ export async function api(path, { signal, ...options } = {}) {
     let payload;
     try {
       payload = await response.json();
-    } catch {
+    } catch (error) {
+      if (signal?.aborted || timeout.aborted) throw error;
       throw new ApiClientError('The server returned an invalid response.', {
         status: response.status,
         code: 'INVALID_RESPONSE',
       });
     }
-    if (!response.ok)
+    if (!response.ok) {
+      notifySessionLoss(response.status, payload.error?.code, path);
       throw new ApiClientError(
         payload.error?.message || 'The request failed.',
         {
@@ -47,6 +50,7 @@ export async function api(path, { signal, ...options } = {}) {
           requestId: payload.requestId,
         },
       );
+    }
     if (payload.success !== true || !Object.hasOwn(payload, 'data'))
       throw new ApiClientError('The server returned an invalid response.', {
         status: response.status,

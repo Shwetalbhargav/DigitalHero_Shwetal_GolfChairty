@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { ApiError } from '../../utils/ApiError.js';
+import { createStripeBilling } from './stripe.service.js';
 import { validateBody } from '../auth/auth.validation.js';
 import { parseCharityId } from '../charities/charity.validation.js';
 import { publicPayment } from './payment.model.js';
@@ -48,6 +49,7 @@ export function createPaymentService(Payment, Charity, config) {
     return record;
   }
   async function donation(user, body, key) {
+    if (config.paymentMode === 'stripe') return createStripeBilling(Payment.db, config).checkout(user, body, key, 'donation');
     assertDemo(config);
     validateBody(body, ['charityId', 'amountMinor']);
     validateKey(key);
@@ -77,7 +79,11 @@ export function createPaymentService(Payment, Charity, config) {
         );
       return publicPayment(existing);
     }
-    const charity = await Charity.findOne({ _id: charityId, active: true });
+    const charity = await Charity.findOneAndUpdate(
+      { _id: charityId, active: true },
+      { $set: { hasReferences: true } },
+      { new: true },
+    );
     if (!charity)
       throw new ApiError(400, 'INVALID_CHARITY', 'Choose an active charity.');
     return publicPayment(

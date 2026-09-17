@@ -1,6 +1,6 @@
 import { ApiError } from '../utils/ApiError.js';
 import { SESSION_COOKIE, verifyToken } from '../utils/generateToken.js';
-export function createAuthMiddleware(User, config) {
+export function createAuthMiddleware(User, config, subscriptionService) {
   return async function authenticate(req, _res, next) {
     const token = req.headers.cookie
       ?.split(';')
@@ -25,6 +25,9 @@ export function createAuthMiddleware(User, config) {
         'This account is suspended.',
       );
     req.user = user;
+    req.subscription = subscriptionService
+      ? await subscriptionService.current(user)
+      : null;
     next();
   };
 }

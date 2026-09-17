@@ -10,7 +10,7 @@ export default function DrawExplanationPage() {
         as="h1"
         eyebrow="KNOW THE JOURNEY"
         title="Golf, giving and the monthly draw."
-        description="Understand the intended membership journey before registration opens."
+        description="Explore demo membership, charitable allocation and reviewed monthly draws. All payments and settlements are simulated."
       />
       <HowItWorks showLink={false} />
       <section
@@ -32,6 +32,12 @@ export default function DrawExplanationPage() {
               Only the five-match jackpot can roll over. The three- and
               four-match shares do not roll into the next draw.
             </p>
+            <p>
+              Each draw selects five distinct numbers from 1–45. Repeated score
+              values count once when matching; an entry receives only its
+              highest qualifying tier. Remainder pennies are assigned in a
+              stable order by the server.
+            </p>
           </Card>
           <Card>
             <h3>Proof first. Payout after.</h3>
@@ -40,9 +46,11 @@ export default function DrawExplanationPage() {
               proof for verification; payout is a separate step after approval.
             </p>
             <p>
-              Draw participation requires active membership and five recorded
-              scores. Final draw dates, detailed matching policies and
-              membership pricing will be published before participation opens.
+              Draw participation requires active, unsuspended membership and
+              five recorded scores at cutoff. Your dashboard shows the next
+              configured draw when one exists. Published results preserve your
+              entry even if you later edit your scores. Recorded payouts are
+              manual/demo settlements, not bank transfers.
             </p>
           </Card>
         </div>

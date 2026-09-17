@@ -30,6 +30,7 @@ export default function DonationForm({ charityId }) {
     setError('');
     try {
       const payment = await donate(body, request.current.key);
+      if (payment.checkoutUrl) { window.location.assign(payment.checkoutUrl); return; }
       navigate('/payments/' + payment.id);
     } catch (e) {
       setError(e.message);

@@ -8,6 +8,7 @@ import {
 const { Schema } = mongoose;
 const imageSchema = new Schema(
   {
+    assetId: { type: String },
     url: {
       type: String,
       required: true,
@@ -79,6 +80,7 @@ const charitySchema = new Schema(
     featured: { type: Boolean, default: false },
     active: { type: Boolean, default: false },
     isDemo: { type: Boolean, default: false },
+    hasReferences: { type: Boolean, default: false, select: false },
     seedKey: { type: String, immutable: true, select: false, maxlength: 100 },
   },
   { timestamps: true, strict: 'throw', bufferCommands: false },

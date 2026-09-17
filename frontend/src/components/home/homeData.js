@@ -1,10 +1,9 @@
-import golfCommunity from '../../assets/images/home/golf-community.jpg';
 import juniorGolf from '../../assets/images/home/junior-golf.jpg';
 import habitat from '../../assets/images/home/habitat.jpg';
 import communitySupport from '../../assets/images/home/community-support.jpg';
 export const HERO_IMAGE = {
-  src: golfCommunity,
-  alt: 'Two adults and a younger golfer walking together on a misty golf course at sunrise.',
+  src: '/demo-art/community.svg',
+  alt: 'Illustration of two neighbours planting a tree together in a community garden.',
 };
 // These are illustrative cause categories, never seeded or presented as real partners.
 export const EXAMPLE_CHARITIES = Object.freeze([
